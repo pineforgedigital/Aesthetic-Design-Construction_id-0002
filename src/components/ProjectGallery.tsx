@@ -111,7 +111,7 @@ export default function ProjectGallery() {
             onClick={() => setActiveCategory(category)}
             className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
               activeCategory === category 
-                ? "bg-primary-contrast text-primary-base" 
+                ? "bg-warm-sand text-fine-detail" 
                 : "bg-white text-primary-contrast border border-primary-contrast/10 hover:border-primary-contrast/30"
             }`}
           >

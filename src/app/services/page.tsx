@@ -89,7 +89,7 @@ export default function ServicesPage() {
                     }}
                     className={`text-center md:text-left text-sm md:text-base px-3 md:px-4 py-2 md:py-3 rounded-full md:rounded-xl transition-all font-medium flex items-center gap-2 md:gap-4 justify-center md:justify-between group ${
                       activeSection === service.id 
-                        ? "bg-primary-contrast text-primary-base" 
+                        ? "bg-warm-sand text-fine-detail" 
                         : "bg-primary-base/50 md:bg-transparent text-tertiary-accent hover:bg-secondary-accent/10 hover:text-primary-contrast border border-primary-contrast/10 md:border-transparent"
                     }`}
                   >
