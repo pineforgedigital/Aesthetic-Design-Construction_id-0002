@@ -100,7 +100,7 @@ export default function TeamPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex px-8 py-3 border-2 border-primary-contrast text-primary-contrast hover:bg-primary-contrast hover:text-primary-base transition-all rounded-full font-bold"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
           >
             Get in Touch
           </Link>
