@@ -37,7 +37,7 @@ function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-4">
-          <h4 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h4>
+          <h2 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h2>
           <Link href="/" className="text-primary-base/70 hover:text-white transition-colors">Home</Link>
           <Link href="/projects" className="text-primary-base/70 hover:text-white transition-colors">Portfolio</Link>
           <Link href="/services" className="text-primary-base/70 hover:text-white transition-colors">Services</Link>
@@ -46,7 +46,7 @@ function Footer() {
           <Link href="/contact" className="text-primary-base/70 hover:text-white transition-colors mt-2">Contact</Link>
         </div>
         <div className="flex flex-col gap-2">
-          <h4 className="font-outfit font-medium text-lg mb-2">Legal</h4>
+          <h2 className="font-outfit font-medium text-lg mb-2">Legal</h2>
           <Link href="/terms-of-service" className="text-primary-base/70 hover:text-primary-base transition-colors">Terms of Service</Link>
           <Link href="/privacy-policy" className="text-primary-base/70 hover:text-primary-base transition-colors">Privacy Policy</Link>
         </div>

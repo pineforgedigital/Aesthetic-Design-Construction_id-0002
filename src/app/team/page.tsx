@@ -79,7 +79,7 @@ export default function TeamPage() {
                   />
                 </div>
                 <div className="p-8">
-                  <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-1">{member.name}</h3>
+                  <h2 className="font-outfit text-2xl font-bold text-primary-contrast mb-1">{member.name}</h2>
                   <p className="text-tertiary-accent font-medium mb-4 uppercase tracking-wider text-sm">{member.role}</p>
                   <p className="text-tertiary-accent text-sm leading-relaxed">
                     {member.bio}

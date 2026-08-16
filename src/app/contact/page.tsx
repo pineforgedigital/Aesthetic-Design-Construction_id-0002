@@ -60,7 +60,7 @@ export default function ContactPage() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Phone</h4>
+                  <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Phone</h3>
                   <p className="text-tertiary-accent text-lg">(555) 123-4567</p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Email</h4>
+                  <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Email</h3>
                   <p className="text-tertiary-accent text-lg">info@aestheticdesign.com</p>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Service Area</h4>
+                  <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Service Area</h3>
                   <p className="text-tertiary-accent text-lg">Greater Metropolitan Area<br/>and surrounding suburbs.</p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Business Hours</h4>
+                  <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Business Hours</h3>
                   <p className="text-tertiary-accent text-lg">Mon - Fri: 8:00 AM - 6:00 PM<br/>Sat - Sun: Closed</p>
                 </div>
               </div>

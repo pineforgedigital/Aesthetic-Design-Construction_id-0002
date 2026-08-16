@@ -132,7 +132,7 @@ export default function Home() {
                   <Ruler size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-medium mb-1">Precision Engineering</h4>
+                  <h3 className="font-outfit text-xl font-medium mb-1">Precision Engineering</h3>
                   <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function Home() {
                   <Hammer size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-medium mb-1">Handmade Carpentry</h4>
+                  <h3 className="font-outfit text-xl font-medium mb-1">Handmade Carpentry</h3>
                   <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export default function Home() {
                   <PaintBucket size={24} />
                 </div>
                 <div>
-                  <h4 className="font-outfit text-xl font-medium mb-1">End-to-End Design</h4>
+                  <h3 className="font-outfit text-xl font-medium mb-1">End-to-End Design</h3>
                   <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
               </div>
@@ -199,7 +199,7 @@ export default function Home() {
                     {testimonial.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="font-bold text-primary-contrast">{testimonial.name}</h4>
+                    <h3 className="font-bold text-primary-contrast">{testimonial.name}</h3>
                     <p className="text-sm text-tertiary-accent">{testimonial.role}</p>
                   </div>
                 </div>
