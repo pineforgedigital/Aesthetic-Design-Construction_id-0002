@@ -44,11 +44,11 @@ export default function AboutPage() {
             </p>
             <div className="flex gap-4">
               <div className="p-6 bg-white rounded-xl shadow-lg border border-primary-contrast/5">
-                <h4 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">15+</h4>
+                <h4 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">"X"+</h4>
                 <p className="text-sm text-secondary-accent font-medium uppercase tracking-wider">Years Experience</p>
               </div>
               <div className="p-6 bg-white rounded-xl shadow-lg border border-primary-contrast/5">
-                <h4 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">500+</h4>
+                <h4 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">"X"+</h4>
                 <p className="text-sm text-secondary-accent font-medium uppercase tracking-wider">Projects Completed</p>
               </div>
             </div>
