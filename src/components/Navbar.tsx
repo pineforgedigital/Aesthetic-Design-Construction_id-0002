@@ -63,7 +63,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="ml-4 px-6 py-2 bg-primary-contrast text-primary-base rounded-full font-medium hover:bg-secondary-accent transition-colors">
+          <Link href="/contact" className="ml-4 px-6 py-2 bg-warm-sand text-primary-contrast rounded-full font-bold hover:bg-primary-contrast hover:text-warm-sand transition-colors border border-transparent hover:border-warm-sand">
             Contact Us
           </Link>
         </nav>
@@ -101,7 +101,7 @@ export default function Navbar() {
               <div className="mt-8 pt-8 border-t border-primary-contrast/10">
                 <Link 
                   href="/contact" 
-                  className="inline-block px-10 py-4 bg-primary-contrast text-primary-base rounded-full font-bold text-xl hover:bg-secondary-accent transition-colors w-full"
+                  className="inline-block px-10 py-4 bg-warm-sand text-primary-contrast rounded-full font-bold text-xl hover:bg-primary-contrast hover:text-warm-sand transition-colors w-full border border-transparent hover:border-warm-sand"
                 >
                   Contact Us
                 </Link>
