@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@layer base {
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+  }
+}
+
 :root {
   --background: #F4F1EA; /* primary-base */
   --foreground: #4B564A; /* primary-contrast */
