@@ -38,16 +38,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo & Name */}
-        <Link href="/" className="relative z-50 flex items-center gap-4">
+        <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4">
           <Image 
             src="/logo.jpg" 
             alt="Aesthetic Design & Construction" 
             width={120} 
             height={120} 
-            className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply"
+            className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply flex-shrink-0"
             priority
           />
-          <span className="font-outfit text-xl md:text-2xl font-bold text-primary-contrast tracking-tight hidden sm:block">
+          <span className="font-outfit text-lg sm:text-xl md:text-2xl font-bold text-primary-contrast tracking-tight leading-tight max-w-[160px] sm:max-w-none">
             Aesthetic Design & Construction
           </span>
         </Link>
