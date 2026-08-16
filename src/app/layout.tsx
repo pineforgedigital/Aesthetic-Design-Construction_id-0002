@@ -63,7 +63,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast">
+      <body className="min-h-full flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative overflow-x-hidden">
+        
+        {/* Decorative Background Leaves */}
+        <div className="fixed -left-32 top-[20%] -z-10 opacity-40 mix-blend-multiply pointer-events-none hidden lg:block">
+          <Image src="/leaf.jpg" alt="" width={400} height={400} className="object-contain -rotate-12" priority />
+        </div>
+        <div className="fixed -right-32 bottom-[10%] -z-10 opacity-30 mix-blend-multiply pointer-events-none hidden lg:block">
+          <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain rotate-180" priority />
+        </div>
+
         <Navbar />
         <div className="flex-grow pt-20">
           {children}
