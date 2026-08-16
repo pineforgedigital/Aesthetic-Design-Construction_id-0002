@@ -68,7 +68,7 @@ export default function Home() {
           <Link href="/services#kitchen" className="block h-full">
             <motion.div
               whileHover={{ y: -10 }}
-              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -87,7 +87,7 @@ export default function Home() {
           <Link href="/services#bath" className="block h-full">
             <motion.div
               whileHover={{ y: -10 }}
-              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -106,7 +106,7 @@ export default function Home() {
           <Link href="/services#interior-remodeling" className="block h-full">
             <motion.div
               whileHover={{ y: -10 }}
-              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
                 <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
