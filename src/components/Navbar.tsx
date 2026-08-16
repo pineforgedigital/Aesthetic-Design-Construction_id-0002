@@ -58,7 +58,7 @@ export default function Navbar() {
             <Link 
               key={link.href} 
               href={link.href} 
-              className={`transition-colors font-bold ${pathname === link.href ? "text-highlight" : "text-fine-detail hover:text-highlight"}`}
+              className={`transition-colors font-bold ${pathname === link.href ? "text-[#A34F3A]" : "text-fine-detail hover:text-[#A34F3A]"}`}
             >
               {link.label}
             </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
                 <Link 
                   key={link.href} 
                   href={link.href} 
-                  className={`font-outfit text-3xl font-bold transition-colors ${pathname === link.href ? "text-highlight" : "text-tertiary-accent hover:text-highlight"}`}
+                  className={`font-outfit text-3xl font-bold transition-colors ${pathname === link.href ? "text-[#A34F3A]" : "text-tertiary-accent hover:text-[#A34F3A]"}`}
                 >
                   {link.label}
                 </Link>
