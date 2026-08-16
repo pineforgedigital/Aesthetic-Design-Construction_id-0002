@@ -76,7 +76,7 @@ export default function RootLayout({
         </div>
 
         <Navbar />
-        <div className="flex-grow pt-20">
+        <div className="flex-grow pt-[112px] md:pt-[128px]">
           {children}
         </div>
         <Footer />
