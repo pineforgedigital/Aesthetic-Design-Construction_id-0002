@@ -89,10 +89,10 @@ export default function AboutPage() {
               <motion.div
                 key={i}
                 whileHover={{ y: -10 }}
-                className="bg-white p-8 rounded-2xl shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 relative"
+                className="bg-white p-8 rounded-2xl shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 border-b-4 border-b-transparent hover:border-b-warm-sand transition-colors relative group"
               >
-                <div className="absolute top-0 left-8 w-1 h-8 bg-secondary-accent/20 -mt-8 hidden md:block"></div>
-                <div className="w-16 h-16 bg-primary-contrast text-primary-base rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary-contrast/20">
+                <div className="absolute top-0 left-8 w-1 h-8 bg-warm-sand/40 -mt-8 hidden md:block group-hover:bg-warm-sand transition-colors"></div>
+                <div className="w-16 h-16 bg-primary-contrast text-warm-sand rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary-contrast/20 group-hover:scale-110 transition-transform">
                   <step.icon size={32} />
                 </div>
                 <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">{step.title}</h3>
