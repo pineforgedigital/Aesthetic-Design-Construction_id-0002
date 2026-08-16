@@ -111,12 +111,12 @@ export default function ContactPage() {
                     <Send size={48} className="ml-2" />
                   </div>
                   <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-4">Message Sent!</h3>
-                  <p className="text-tertiary-accent text-lg mb-8">
+                  <p className="text-primary-contrast/80 text-lg mb-8">
                     Thank you for reaching out to Aesthetic Design & Construction. A member of our team will be in touch shortly.
                   </p>
                   <button 
                     onClick={() => setIsSubmitted(false)}
-                    className="text-secondary-accent font-medium hover:text-primary-contrast transition-colors"
+                    className="text-tertiary-accent font-medium hover:text-primary-contrast transition-colors"
                   >
                     Send another message
                   </button>

@@ -51,7 +51,7 @@ function Footer() {
           <Link href="/privacy-policy" className="text-primary-base/70 hover:text-primary-base transition-colors">Privacy Policy</Link>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-primary-base/10 text-center text-primary-base/50 text-sm">
+      <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-primary-base/10 text-center text-primary-base/70 text-sm">
         © {new Date().getFullYear()} Aesthetic Design & Construction. All rights reserved.
       </div>
     </footer>

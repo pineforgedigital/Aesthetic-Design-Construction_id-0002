@@ -123,7 +123,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">Lorem ipsum dolor</h2>
-            <p className="text-primary-base/80 text-lg mb-8">
+            <p className="text-primary-base/90 text-lg mb-8">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.
             </p>
             <div className="space-y-6">

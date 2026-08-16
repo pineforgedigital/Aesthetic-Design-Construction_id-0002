@@ -95,7 +95,7 @@ export default function TeamPage() {
       <section className="py-24 bg-[#EBE7DF] text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-contrast mb-6">Want to work with us?</h2>
-          <p className="text-tertiary-accent text-lg mb-8">
+          <p className="text-primary-contrast/80 text-lg mb-8">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
           </p>
           <Link
