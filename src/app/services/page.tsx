@@ -75,7 +75,7 @@ export default function ServicesPage() {
           <div className="md:w-72 flex-shrink-0">
             <div className="sticky top-[73px] md:top-28 z-30 bg-white md:rounded-2xl p-4 md:p-6 shadow-md md:shadow-xl shadow-primary-contrast/5 border-b md:border border-primary-contrast/5 -mx-6 px-6 md:mx-0 md:px-6 mb-8 md:mb-0">
               <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-4 md:mb-6 hidden md:block">Service Categories</h3>
-              <nav className="flex flex-row flex-wrap justify-center md:justify-start md:flex-col gap-2 md:max-h-[calc(100vh-16rem)] md:overflow-y-auto pb-2 md:pb-0 pr-2 md:scrollbar-thin scrollbar-thumb-primary-contrast/20 scrollbar-track-transparent">
+              <nav className="flex flex-row flex-wrap justify-center md:justify-start md:flex-col md:flex-nowrap gap-2 md:max-h-[calc(100vh-16rem)] md:overflow-y-auto pb-2 md:pb-0 pr-2 md:scrollbar-thin scrollbar-thumb-primary-contrast/20 scrollbar-track-transparent">
                 {SERVICES.map((service) => (
                   <button
                     key={service.id}
