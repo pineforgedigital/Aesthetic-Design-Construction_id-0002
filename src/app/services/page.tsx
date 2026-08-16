@@ -47,7 +47,7 @@ export default function ServicesPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <section className="bg-primary-contrast text-primary-base py-24 px-6 relative overflow-hidden">
+      <section className="bg-primary-contrast text-primary-base py-24 px-6 relative overflow-hidden bg-grid-pattern">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-accent via-transparent to-transparent"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.h1 

@@ -118,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* HIGHLIGHTS / WHY US SECTION */}
-      <section className="bg-primary-contrast text-primary-base py-24 relative overflow-hidden">
+      <section className="bg-primary-contrast text-primary-base py-24 relative overflow-hidden bg-grid-pattern">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>

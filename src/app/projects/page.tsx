@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <section className="bg-primary-contrast text-primary-base py-24 px-6">
+      <section className="bg-primary-contrast text-primary-base py-24 px-6 bg-grid-pattern">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="font-outfit text-5xl md:text-7xl font-bold mb-6">Our Portfolio</h1>
           <p className="text-xl md:text-2xl text-primary-base/80 max-w-3xl mx-auto font-light">

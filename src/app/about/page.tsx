@@ -10,7 +10,7 @@ export default function AboutPage() {
     <main className="min-h-screen bg-primary-base">
 
       {/* Hero Section */}
-      <section className="bg-primary-contrast text-primary-base py-32 px-6 relative overflow-hidden">
+      <section className="bg-primary-contrast text-primary-base py-32 px-6 relative overflow-hidden bg-grid-pattern">
         <div className="absolute -left-40 -top-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.h1
