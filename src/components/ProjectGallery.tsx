@@ -149,7 +149,7 @@ export default function ProjectGallery() {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-sm text-secondary-accent font-medium mb-2 uppercase tracking-wider">{project.category}</p>
+                <p className="text-sm text-tertiary-accent font-medium mb-2 uppercase tracking-wider">{project.category}</p>
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-2">{project.title}</h3>
               </div>
             </motion.div>
@@ -179,7 +179,7 @@ export default function ProjectGallery() {
               </button>
               
               <div className="p-8 border-b border-primary-contrast/10 bg-white">
-                <p className="text-secondary-accent font-medium mb-1 uppercase tracking-wider">{selectedProject.category}</p>
+                <p className="text-tertiary-accent font-medium mb-1 uppercase tracking-wider">{selectedProject.category}</p>
                 <h2 className="font-outfit text-3xl font-bold text-primary-contrast mb-3">{selectedProject.title}</h2>
                 <p className="text-tertiary-accent text-lg max-w-3xl">{selectedProject.description}</p>
               </div>
