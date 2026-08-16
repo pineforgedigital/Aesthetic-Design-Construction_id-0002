@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
@@ -19,6 +20,16 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="bg-primary-contrast text-primary-base py-32 px-6 relative overflow-hidden">
         <div className="absolute -right-40 -top-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
+        <div className="absolute -left-40 -bottom-40 w-96 h-96 bg-highlight rounded-full blur-[120px] opacity-10"></div>
+        
+        {/* Eucalyptus Watermark */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+          <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain invert mix-blend-screen -rotate-12 translate-x-1/4" />
+        </div>
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
+          <Image src="/leaf.jpg" alt="" width={400} height={400} className="object-contain invert mix-blend-screen rotate-180 -translate-x-1/4" />
+        </div>
+
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
