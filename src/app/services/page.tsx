@@ -73,29 +73,32 @@ export default function ServicesPage() {
           
           {/* Sticky Sidebar Navigation */}
           <div className="md:w-72 flex-shrink-0">
-            <div className="sticky top-28 bg-white rounded-2xl p-6 shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 hidden md:block">
-              <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-6">Service Categories</h3>
-              <nav className="flex flex-col gap-2 max-h-[calc(100vh-16rem)] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-primary-contrast/20 scrollbar-track-transparent">
+            <div className="sticky top-[73px] md:top-28 z-30 bg-white md:rounded-2xl p-4 md:p-6 shadow-md md:shadow-xl shadow-primary-contrast/5 border-b md:border border-primary-contrast/5 -mx-6 px-6 md:mx-0 md:px-6 mb-8 md:mb-0">
+              <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-4 md:mb-6 hidden md:block">Service Categories</h3>
+              <nav className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-y-auto md:max-h-[calc(100vh-16rem)] pb-2 md:pb-0 pr-2 scrollbar-none md:scrollbar-thin scrollbar-thumb-primary-contrast/20 scrollbar-track-transparent snap-x">
                 {SERVICES.map((service) => (
                   <button
                     key={service.id}
                     onClick={() => {
-                      document.getElementById(service.id)?.scrollIntoView({ behavior: "smooth" });
+                      // Account for the sticky header height on mobile vs desktop
+                      const element = document.getElementById(service.id);
+                      if (element) {
+                        const y = element.getBoundingClientRect().top + window.scrollY - 180;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
                     }}
-                    className={`text-left px-4 py-3 rounded-xl transition-all font-medium flex items-center justify-between group ${
+                    className={`text-left whitespace-nowrap px-4 py-2 md:py-3 rounded-xl transition-all font-medium flex items-center gap-4 justify-between group flex-shrink-0 snap-start ${
                       activeSection === service.id 
                         ? "bg-primary-contrast text-primary-base" 
-                        : "text-tertiary-accent hover:bg-secondary-accent/10 hover:text-primary-contrast"
+                        : "bg-primary-base/50 md:bg-transparent text-tertiary-accent hover:bg-secondary-accent/10 hover:text-primary-contrast"
                     }`}
                   >
                     {service.title}
-                    <span className={`w-2 h-2 rounded-full transition-transform ${activeSection === service.id ? "scale-100 bg-secondary-accent" : "scale-0 group-hover:scale-100 bg-tertiary-accent"}`}></span>
+                    <span className={`w-2 h-2 rounded-full transition-transform hidden md:block ${activeSection === service.id ? "scale-100 bg-secondary-accent" : "scale-0 group-hover:scale-100 bg-tertiary-accent"}`}></span>
                   </button>
                 ))}
               </nav>
             </div>
-            
-            {/* Mobile Dropdown Alternative (Optional, just scroll directly on mobile for now) */}
           </div>
 
           {/* Content Area */}
