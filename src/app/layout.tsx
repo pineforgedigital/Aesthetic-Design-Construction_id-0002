@@ -30,7 +30,7 @@ function Footer() {
             alt="Aesthetic Design & Construction" 
             width={120} 
             height={120} 
-            className="object-contain h-24 w-24 mix-blend-multiply opacity-80 mb-6 grayscale hover:grayscale-0 transition-all"
+            className="object-contain h-24 w-24 mb-6 rounded-xl shadow-lg border border-white/10"
           />
           <p className="text-primary-base/70 max-w-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
