@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import "./globals.css";
 
 const inter = Inter({
@@ -17,28 +18,6 @@ export const metadata: Metadata = {
   title: "Aesthetic Design & Construction",
   description: "High-end luxury construction, remodeling, and interior design.",
 };
-
-function Navbar() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-base/80 backdrop-blur-md border-b border-primary-contrast/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-outfit text-2xl font-bold text-primary-contrast tracking-tight">
-          Aesthetic Design & Construction
-        </Link>
-        <nav className="hidden md:flex gap-8">
-          <Link href="/" className="text-fine-detail hover:text-primary-contrast transition-colors font-medium">Home</Link>
-          <Link href="/projects" className="text-fine-detail hover:text-primary-contrast transition-colors font-medium">Projects</Link>
-          <Link href="/services" className="text-fine-detail hover:text-primary-contrast transition-colors font-medium">Services</Link>
-          <Link href="/about" className="text-fine-detail hover:text-primary-contrast transition-colors font-medium">About</Link>
-          <Link href="/team" className="text-fine-detail hover:text-primary-contrast transition-colors font-medium">Team</Link>
-        </nav>
-        <Link href="/contact" className="hidden md:inline-flex px-5 py-2.5 bg-primary-contrast text-primary-base rounded-full hover:bg-fine-detail transition-all font-medium">
-          Contact Us
-        </Link>
-      </div>
-    </header>
-  );
-}
 
 function Footer() {
   return (
