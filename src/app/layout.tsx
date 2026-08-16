@@ -36,12 +36,14 @@ function Footer() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div className="flex flex-col gap-2">
-          <h4 className="font-outfit font-medium text-lg mb-2">Quick Links</h4>
-          <Link href="/" className="text-primary-base/70 hover:text-primary-base transition-colors">Home</Link>
-          <Link href="/projects" className="text-primary-base/70 hover:text-primary-base transition-colors">Projects</Link>
-          <Link href="/services" className="text-primary-base/70 hover:text-primary-base transition-colors">Services</Link>
-          <Link href="/contact" className="text-primary-base/70 hover:text-primary-base transition-colors">Contact</Link>
+        <div className="flex flex-col gap-4">
+          <h4 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h4>
+          <Link href="/" className="text-primary-base/70 hover:text-white transition-colors">Home</Link>
+          <Link href="/projects" className="text-primary-base/70 hover:text-white transition-colors">Portfolio</Link>
+          <Link href="/services" className="text-primary-base/70 hover:text-white transition-colors">Services</Link>
+          <Link href="/about" className="text-primary-base/70 hover:text-white transition-colors">Our Story</Link>
+          <Link href="/team" className="text-primary-base/70 hover:text-white transition-colors">The Team</Link>
+          <Link href="/contact" className="text-primary-base/70 hover:text-white transition-colors mt-2">Contact</Link>
         </div>
         <div className="flex flex-col gap-2">
           <h4 className="font-outfit font-medium text-lg mb-2">Legal</h4>
