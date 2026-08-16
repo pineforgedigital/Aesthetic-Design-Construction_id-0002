@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Proven Process</h2>
-            <div className="h-1 w-24 bg-secondary-accent mx-auto rounded-full mb-6"></div>
+            <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
             <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
@@ -115,21 +115,21 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto bg-secondary-accent/10 text-secondary-accent rounded-full flex items-center justify-center mb-6">
+              <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <ShieldCheck size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Master Craftsmanship</h3>
               <p className="text-tertiary-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto bg-secondary-accent/10 text-secondary-accent rounded-full flex items-center justify-center mb-6">
+              <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <HeartHandshake size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Transparent Communication</h3>
               <p className="text-tertiary-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
             </div>
             <div className="text-center">
-              <div className="w-20 h-20 mx-auto bg-secondary-accent/10 text-secondary-accent rounded-full flex items-center justify-center mb-6">
+              <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <Lightbulb size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Innovative Solutions</h3>
@@ -145,7 +145,7 @@ export default function AboutPage() {
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">Ready to start your journey?</h2>
           <Link
             href="/contact"
-            className="inline-flex px-10 py-4 bg-primary-base text-primary-contrast hover:bg-secondary-accent hover:text-primary-base transition-all rounded-full font-bold text-lg items-center"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-xl shadow-highlight/20"
           >
             Contact Us Today
           </Link>

@@ -38,7 +38,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-start">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-secondary-accent text-primary-base hover:bg-tertiary-accent transition-all rounded-full font-medium text-lg flex items-center gap-2"
+                className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center gap-2 shadow-lg shadow-highlight/20"
               >
                 Start Your Project <ArrowRight size={20} />
               </Link>
@@ -57,7 +57,7 @@ export default function Home() {
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Expertise</h2>
-          <div className="h-1 w-24 bg-secondary-accent mx-auto rounded-full mb-6"></div>
+          <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
           <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
@@ -128,7 +128,7 @@ export default function Home() {
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-secondary-accent/20 rounded-lg text-secondary-accent">
+                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
                   <Ruler size={24} />
                 </div>
                 <div>
@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-secondary-accent/20 rounded-lg text-secondary-accent">
+                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
                   <Hammer size={24} />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-secondary-accent/20 rounded-lg text-secondary-accent">
+                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
                   <PaintBucket size={24} />
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export default function Home() {
       <section className="py-24 bg-[#EBE7DF]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Client Stories</h2>
-          <div className="h-1 w-24 bg-secondary-accent mx-auto rounded-full mb-16"></div>
+          <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-16"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -186,7 +186,7 @@ export default function Home() {
                 whileHover={{ y: -5 }}
                 className="bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
               >
-                <div className="flex gap-1 text-secondary-accent mb-6">
+                <div className="flex gap-1 text-highlight mb-6">
                   <Star size={18} fill="currentColor" />
                   <Star size={18} fill="currentColor" />
                   <Star size={18} fill="currentColor" />
@@ -217,7 +217,7 @@ export default function Home() {
           <p className="text-primary-base/70 text-xl mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
           <Link
             href="/contact"
-            className="inline-flex px-10 py-4 bg-primary-base text-primary-contrast hover:bg-secondary-accent hover:text-primary-base transition-all rounded-full font-bold text-lg items-center gap-2"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
           >
             Contact Us Today
           </Link>
