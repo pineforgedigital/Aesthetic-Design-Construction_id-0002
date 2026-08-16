@@ -65,55 +65,61 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Service 1 */}
-          <motion.div
-            whileHover={{ y: -10 }}
-            className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-8">
-              <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
-              <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-              <Link href="/services" className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
-                Learn More <ArrowRight size={16} />
-              </Link>
-            </div>
-          </motion.div>
+          <Link href="/services#kitchen" className="block h-full">
+            <motion.div
+              whileHover={{ y: -10 }}
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
+                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                  Learn More <ArrowRight size={16} />
+                </span>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Service 2 */}
-          <motion.div
-            whileHover={{ y: -10 }}
-            className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-8">
-              <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
-              <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-              <Link href="/services" className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
-                Learn More <ArrowRight size={16} />
-              </Link>
-            </div>
-          </motion.div>
+          <Link href="/services#bath" className="block h-full">
+            <motion.div
+              whileHover={{ y: -10 }}
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
+                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                  Learn More <ArrowRight size={16} />
+                </span>
+              </div>
+            </motion.div>
+          </Link>
 
           {/* Service 3 */}
-          <motion.div
-            whileHover={{ y: -10 }}
-            className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5"
-          >
-            <div className="relative h-64 overflow-hidden">
-              <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="p-8">
-              <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
-              <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-              <Link href="/services" className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
-                Learn More <ArrowRight size={16} />
-              </Link>
-            </div>
-          </motion.div>
+          <Link href="/services#interior-remodeling" className="block h-full">
+            <motion.div
+              whileHover={{ y: -10 }}
+              className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
+                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                  Learn More <ArrowRight size={16} />
+                </span>
+              </div>
+            </motion.div>
+          </Link>
         </div>
       </section>
 
