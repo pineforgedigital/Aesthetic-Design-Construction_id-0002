@@ -255,7 +255,7 @@ export default function ServicesPage() {
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">Let's Discuss Your Project</h2>
           <Link 
             href="/contact"
-            className="inline-flex px-10 py-4 bg-primary-base text-primary-contrast hover:bg-secondary-accent hover:text-primary-base transition-all rounded-full font-bold text-lg items-center"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
           >
             Schedule a Consultation
           </Link>
