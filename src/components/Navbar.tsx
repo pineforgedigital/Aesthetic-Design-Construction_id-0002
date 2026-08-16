@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -37,8 +38,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo */}
-        <Link href="/" className="font-outfit text-2xl font-bold text-primary-contrast tracking-tight relative z-50">
-          Aesthetic Design & Construction
+        <Link href="/" className="relative z-50 flex items-center">
+          <Image 
+            src="/logo.jpg" 
+            alt="Aesthetic Design & Construction" 
+            width={240} 
+            height={80} 
+            className="object-contain h-12 w-auto mix-blend-multiply"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

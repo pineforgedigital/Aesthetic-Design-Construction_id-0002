@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
@@ -24,7 +25,13 @@ function Footer() {
     <footer className="bg-fine-detail text-primary-base py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 className="font-outfit text-xl font-semibold mb-4">Aesthetic Design & Construction</h3>
+          <Image 
+            src="/logo.jpg" 
+            alt="Aesthetic Design & Construction" 
+            width={200} 
+            height={60} 
+            className="object-contain h-10 w-auto mix-blend-multiply opacity-80 mb-6 grayscale hover:grayscale-0 transition-all"
+          />
           <p className="text-primary-base/70 max-w-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
