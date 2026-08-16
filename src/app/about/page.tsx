@@ -145,7 +145,7 @@ export default function AboutPage() {
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">Ready to start your journey?</h2>
           <Link
             href="/contact"
-            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-highlight/80 transition-all rounded-full font-bold text-lg items-center shadow-xl shadow-highlight/20"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-xl shadow-highlight/20"
           >
             Contact Us Today
           </Link>

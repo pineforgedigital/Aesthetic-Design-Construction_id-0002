@@ -38,7 +38,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-start">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-highlight text-white hover:bg-highlight/80 transition-all rounded-full font-medium text-lg flex items-center gap-2 shadow-lg shadow-highlight/20"
+                className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center gap-2 shadow-lg shadow-highlight/20"
               >
                 Start Your Project <ArrowRight size={20} />
               </Link>
@@ -217,7 +217,7 @@ export default function Home() {
           <p className="text-primary-base/70 text-xl mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
           <Link
             href="/contact"
-            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-highlight/80 transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
           >
             Contact Us Today
           </Link>

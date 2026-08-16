@@ -190,7 +190,7 @@ export default function ContactPage() {
 
                   <button 
                     type="submit"
-                    className="w-full py-4 bg-highlight text-white rounded-xl font-bold text-lg hover:bg-highlight/80 transition-colors flex items-center justify-center gap-2 shadow-xl shadow-highlight/20"
+                    className="w-full py-4 bg-highlight text-white rounded-xl font-bold text-lg hover:bg-[#A34F3A] transition-colors flex items-center justify-center gap-2 shadow-xl shadow-highlight/20"
                   >
                     Submit Inquiry <Send size={20} />
                   </button>
