@@ -42,9 +42,9 @@ export default function Navbar() {
           <Image 
             src="/logo.jpg" 
             alt="Aesthetic Design & Construction" 
-            width={240} 
-            height={80} 
-            className="object-contain h-12 w-auto mix-blend-multiply"
+            width={120} 
+            height={120} 
+            className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply"
             priority
           />
         </Link>
