@@ -37,8 +37,8 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-primary-base/80 backdrop-blur-md border-b border-primary-contrast/10">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* Logo */}
-        <Link href="/" className="relative z-50 flex items-center">
+        {/* Logo & Name */}
+        <Link href="/" className="relative z-50 flex items-center gap-4">
           <Image 
             src="/logo.jpg" 
             alt="Aesthetic Design & Construction" 
@@ -47,6 +47,9 @@ export default function Navbar() {
             className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply"
             priority
           />
+          <span className="font-outfit text-xl md:text-2xl font-bold text-primary-contrast tracking-tight hidden sm:block">
+            Aesthetic Design & Construction
+          </span>
         </Link>
 
         {/* Desktop Nav */}
