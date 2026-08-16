@@ -58,7 +58,7 @@ export default function Navbar() {
             <Link 
               key={link.href} 
               href={link.href} 
-              className={`text-fine-detail hover:text-primary-contrast transition-colors font-medium ${pathname === link.href ? "text-primary-contrast" : ""}`}
+              className={`text-fine-detail hover:text-warm-sand transition-colors font-medium ${pathname === link.href ? "text-primary-contrast" : ""}`}
             >
               {link.label}
             </Link>

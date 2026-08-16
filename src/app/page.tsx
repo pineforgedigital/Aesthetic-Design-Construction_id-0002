@@ -128,7 +128,7 @@ export default function Home() {
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
+                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
                   <Ruler size={24} />
                 </div>
                 <div>
@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
+                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
                   <Hammer size={24} />
                 </div>
                 <div>
@@ -146,7 +146,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="p-3 bg-highlight/10 rounded-lg text-highlight">
+                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
                   <PaintBucket size={24} />
                 </div>
                 <div>
