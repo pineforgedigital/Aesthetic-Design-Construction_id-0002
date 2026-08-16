@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 
-type ProjectCategory = "All" | "Kitchen" | "Bath" | "Flooring" | "Small Projects" | "Rendering";
+type ProjectCategory = "All" | "3D Rendering" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Design & Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling";
 
 interface Project {
   id: string;
@@ -16,13 +16,13 @@ interface Project {
   images: string[];
 }
 
-const CATEGORIES: ProjectCategory[] = ["All", "Kitchen", "Bath", "Flooring", "Small Projects", "Rendering"];
+const CATEGORIES: ProjectCategory[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "3D Rendering", "Interior Design & Decorating", "Custom Tile Work", "Premium Countertops"];
 
 const MOCK_PROJECTS: Project[] = [
   {
     id: "p1",
     title: "Lorem Ipsum Kitchen",
-    category: "Kitchen",
+    category: "Kitchen Remodeling",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
@@ -30,7 +30,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p2",
     title: "Dolor Sit Bath",
-    category: "Bath",
+    category: "Luxury Bathrooms",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
@@ -46,7 +46,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p4",
     title: "Adipiscing Small Project",
-    category: "Small Projects",
+    category: "Custom Tile Work",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg"]
@@ -54,7 +54,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p5",
     title: "Elit Rendering",
-    category: "Rendering",
+    category: "3D Rendering",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
@@ -62,7 +62,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p6",
     title: "Sed Do Kitchen",
-    category: "Kitchen",
+    category: "Kitchen Remodeling",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
@@ -70,7 +70,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p7",
     title: "Eiusmod Bath",
-    category: "Bath",
+    category: "Luxury Bathrooms",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
@@ -86,7 +86,7 @@ const MOCK_PROJECTS: Project[] = [
   {
     id: "p9",
     title: "Incididunt Rendering",
-    category: "Rendering",
+    category: "3D Rendering",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     mainImage: "/placeholder.svg",
     images: ["/placeholder.svg", "/placeholder.svg"]
