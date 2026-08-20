@@ -23,7 +23,7 @@ export default function ServicesPage() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 150; // offset for sticky header
-      
+
       const currentSection = SERVICES.find((service) => {
         const element = document.getElementById(service.id);
         if (element) {
@@ -45,19 +45,19 @@ export default function ServicesPage() {
 
   return (
     <main className="min-h-screen bg-primary-base">
-      
+
       {/* Header Section */}
       <section className="bg-primary-contrast text-primary-base py-24 px-6 relative overflow-hidden bg-grid-pattern">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-accent via-transparent to-transparent"></div>
         <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-outfit text-5xl md:text-7xl font-bold mb-6"
           >
             Our Services
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -70,7 +70,7 @@ export default function ServicesPage() {
 
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
-          
+
           {/* Sticky Sidebar Navigation */}
           <div className="md:w-72 flex-shrink-0">
             <div className="sticky top-[73px] md:top-28 z-30 bg-white md:rounded-2xl p-4 md:p-6 shadow-md md:shadow-xl shadow-primary-contrast/5 border-b md:border border-primary-contrast/5 -mx-6 px-6 md:mx-0 md:px-6 mb-8 md:mb-0">
@@ -87,11 +87,10 @@ export default function ServicesPage() {
                         window.scrollTo({ top: y, behavior: 'smooth' });
                       }
                     }}
-                    className={`text-center md:text-left text-sm md:text-base px-3 md:px-4 py-2 md:py-3 rounded-full md:rounded-xl transition-all font-medium flex items-center gap-2 md:gap-4 justify-center md:justify-between group ${
-                      activeSection === service.id 
-                        ? "bg-warm-sand text-fine-detail" 
+                    className={`text-center md:text-left text-sm md:text-base px-3 md:px-4 py-2 md:py-3 rounded-full md:rounded-xl transition-all font-medium flex items-center gap-2 md:gap-4 justify-center md:justify-between group ${activeSection === service.id
+                        ? "bg-warm-sand text-fine-detail"
                         : "bg-primary-base/50 md:bg-transparent text-tertiary-accent hover:bg-secondary-accent/10 hover:text-primary-contrast border border-primary-contrast/10 md:border-transparent"
-                    }`}
+                      }`}
                   >
                     {service.title}
                     <span className={`w-2 h-2 rounded-full transition-transform hidden md:block ${activeSection === service.id ? "scale-100 bg-secondary-accent" : "scale-0 group-hover:scale-100 bg-tertiary-accent"}`}></span>
@@ -103,7 +102,7 @@ export default function ServicesPage() {
 
           {/* Content Area */}
           <div className="flex-1 space-y-32">
-            
+
             {/* 3D Rendering */}
             <div id="rendering" className="scroll-mt-32">
               <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-6">3D Rendering</h2>
@@ -253,7 +252,7 @@ export default function ServicesPage() {
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">Let's Discuss Your Project</h2>
-          <Link 
+          <Link
             href="/contact"
             className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
           >
