@@ -2,35 +2,31 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
-  // Read basic auth credentials from the request headers
-  const basicAuth = req.headers.get('authorization')
   const url = req.nextUrl
 
-  // Get credentials from environment variables
-  const authUser = process.env.AUTH_USER
-  const authPass = process.env.AUTH_PASS
-
-  // If no credentials are set in the environment, bypass auth entirely
-  if (!authUser || !authPass) {
+  // If we're on the login page, bypass auth check to prevent infinite redirect loop
+  if (url.pathname === '/login') {
     return NextResponse.next()
   }
 
-  if (basicAuth) {
-    const authValue = basicAuth.split(' ')[1]
-    const [user, pwd] = atob(authValue).split(':')
+  // Get credentials from environment variables
+  const authPass = process.env.AUTH_PASS
 
-    if (user === authUser && pwd === authPass) {
-      return NextResponse.next()
-    }
+  // If no password is set in the environment, bypass auth entirely
+  if (!authPass) {
+    return NextResponse.next()
   }
 
-  // If auth fails or is not provided, trigger the basic auth prompt
-  return new NextResponse('Auth required', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Area"',
-    },
-  })
+  // Check for our secure cookie
+  const accessCookie = req.cookies.get('site-access')
+  
+  if (accessCookie?.value === 'granted') {
+    return NextResponse.next()
+  }
+
+  // If auth fails or is not provided, redirect to the new Under Construction login page
+  const loginUrl = new URL('/login', req.url)
+  return NextResponse.redirect(loginUrl)
 }
 
 // See "Matching Paths" below to learn more
