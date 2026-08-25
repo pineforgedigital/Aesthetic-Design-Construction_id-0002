@@ -12,6 +12,7 @@ function Footer() {
             width={120} 
             height={120} 
             className="object-contain h-24 w-24 mb-6 rounded-xl shadow-lg border border-white/10"
+            unoptimized
           />
           <p className="text-primary-base/70 max-w-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
