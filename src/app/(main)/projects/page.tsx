@@ -2,8 +2,8 @@ import ProjectGallery from "@/components/ProjectGallery";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects | Aesthetic Design & Construction",
-  description: "Explore our portfolio of luxury kitchens, bathrooms, full interiors, and custom flooring.",
+  title: "Portfolio",
+  description: "Browse our portfolio of completed luxury construction and remodeling projects. See the unparalleled quality and craftsmanship we bring to every space.",
 };
 
 export default function ProjectsPage() {

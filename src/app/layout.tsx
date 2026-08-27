@@ -13,7 +13,11 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Aesthetic Design & Construction",
+  metadataBase: new URL('https://aesthetic-design-construction-id-00.vercel.app'),
+  title: {
+    template: '%s | Aesthetic Design & Construction',
+    default: 'Aesthetic Design & Construction',
+  },
   description: "High-end luxury construction, remodeling, and interior design.",
   openGraph: {
     title: "Aesthetic Design & Construction",
