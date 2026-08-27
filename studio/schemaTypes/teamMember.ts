@@ -1,4 +1,4 @@
-import {defineField, defineType, Rule} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export const teamMember = defineType({
   name: 'teamMember',
@@ -9,7 +9,7 @@ export const teamMember = defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: (rule: Rule) => rule.required(),
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'headshot',
