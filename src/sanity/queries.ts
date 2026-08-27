@@ -20,14 +20,22 @@ export const getTeamMembersQuery = groq`*[_type == "teamMember"] | order(_create
 export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   heroHeadline,
   heroSubtitle,
-  "heroImage": heroImage.asset->url
+  "heroImage": heroImage.asset->url,
+  highlightsHeadline,
+  highlightsText,
+  "highlightsImage": highlightsImage.asset->url,
+  ctaHeadline,
+  ctaSubtitle
 }`;
 
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   storyHeadline,
   storyText,
   missionStatement,
-  coreValues
+  coreValues,
+  processSubtitle,
+  coreValuesSubtitle,
+  ctaHeadline
 }`;
 
 export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
@@ -35,5 +43,36 @@ export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   contactPhone,
   instagramUrl,
   facebookUrl,
-  footerText
+  footerText,
+  address,
+  businessHours
+}`;
+
+export const getTestimonialsQuery = groq`*[_type == "testimonial"] | order(_createdAt desc) {
+  _id,
+  clientName,
+  role,
+  quote,
+  rating
+}`;
+
+export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
+  heroHeadline,
+  heroSubtitle,
+  ctaHeadline
+}`;
+
+export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt asc) {
+  _id,
+  serviceName,
+  "slug": slug.current,
+  "image": image.asset->url,
+  description,
+  capabilities
+}`;
+
+export const getContactPageQuery = groq`*[_type == "contactPage"][0] {
+  heroHeadline,
+  heroSubtitle,
+  contactInfoSubtitle
 }`;

@@ -12,6 +12,24 @@ export const serviceType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'serviceName',
+        maxLength: 96,
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'image',
+      title: 'Main Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',

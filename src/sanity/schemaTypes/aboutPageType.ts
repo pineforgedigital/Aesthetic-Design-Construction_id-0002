@@ -26,5 +26,20 @@ export const aboutPageType = defineType({
       type: 'array',
       of: [{type: 'string'}],
     }),
+    defineField({
+      name: 'processSubtitle',
+      title: 'Process Subtitle',
+      type: 'text',
+    }),
+    defineField({
+      name: 'coreValuesSubtitle',
+      title: 'Core Values Subtitle',
+      type: 'text',
+    }),
+    defineField({
+      name: 'ctaHeadline',
+      title: 'Call to Action Headline',
+      type: 'string',
+    }),
   ],
 })

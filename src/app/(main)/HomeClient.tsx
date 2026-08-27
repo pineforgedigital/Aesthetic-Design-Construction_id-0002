@@ -5,10 +5,22 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "lucide-react";
 
-export default function Home({ homeData }: { homeData: any }) {
+export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
   const headline = homeData?.heroHeadline || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
   const subtitle = homeData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
   const image = homeData?.heroImage || "/placeholder.svg";
+
+  const highlightsHeadline = homeData?.highlightsHeadline || "Lorem ipsum dolor";
+  const highlightsText = homeData?.highlightsText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.";
+  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
+
+  const ctaHeadline = homeData?.ctaHeadline || "Ready to Elevate Your Home?";
+  const ctaSubtitle = homeData?.ctaSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.";
+
+  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [
+
+    { name: "Emily Chen", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", rating: 5 }
+  ];
 
   return (
     <main className="min-h-screen bg-primary-base">
@@ -132,9 +144,9 @@ export default function Home({ homeData }: { homeData: any }) {
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">Lorem ipsum dolor</h2>
-            <p className="text-primary-base/90 text-lg mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.
+            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">{highlightsHeadline}</h2>
+            <p className="text-primary-base/90 text-lg mb-8 whitespace-pre-wrap">
+              {highlightsText}
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -169,7 +181,7 @@ export default function Home({ homeData }: { homeData: any }) {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-contrast to-transparent z-10 md:hidden"></div>
             <Image
-              src="/placeholder.svg"
+              src={highlightsImage}
               alt="Craftsmanship detail"
               width={600}
               height={800}
@@ -186,30 +198,24 @@ export default function Home({ homeData }: { homeData: any }) {
           <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-16"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Sarah Jenkins", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum massa. Pellentesque mollis." },
-              { name: "Marcus Rossi", role: "Property Developer", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus." },
-              { name: "Emily Chen", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
-            ].map((testimonial, i) => (
+            {testimonials.map((testimonial: any, i: number) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
                 className="bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
               >
                 <div className="flex gap-1 text-highlight mb-6">
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
-                  <Star size={18} fill="currentColor" />
+                  {Array.from({ length: testimonial.rating || 5 }).map((_, j) => (
+                    <Star key={j} size={18} fill="currentColor" />
+                  ))}
                 </div>
-                <p className="text-fine-detail italic mb-6">&quot;{testimonial.text}&quot;</p>
+                <p className="text-fine-detail italic mb-6">&quot;{testimonial.quote || testimonial.text}&quot;</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-tertiary-accent rounded-full flex items-center justify-center text-primary-base font-outfit font-bold">
-                    {testimonial.name.charAt(0)}
+                    {(testimonial.clientName || testimonial.name)?.charAt(0) || "U"}
                   </div>
                   <div>
-                    <h3 className="font-bold text-primary-contrast">{testimonial.name}</h3>
+                    <h3 className="font-bold text-primary-contrast">{testimonial.clientName || testimonial.name}</h3>
                     <p className="text-sm text-tertiary-accent">{testimonial.role}</p>
                   </div>
                 </div>
@@ -223,8 +229,8 @@ export default function Home({ homeData }: { homeData: any }) {
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-base via-transparent to-transparent"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">Ready to Elevate Your Home?</h2>
-          <p className="text-primary-base/70 text-xl mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
+          <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
           <Link
             href="/contact"
             className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"

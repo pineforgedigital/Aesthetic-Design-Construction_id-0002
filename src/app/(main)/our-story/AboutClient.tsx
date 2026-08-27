@@ -10,6 +10,10 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
   const storyText = aboutData?.storyText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
   const missionStatement = aboutData?.missionStatement || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
+  const processSubtitle = aboutData?.processSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  const coreValuesSubtitle = aboutData?.coreValuesSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+  const ctaHeadline = aboutData?.ctaHeadline || "Ready to start your journey?";
+
   return (
     <main className="min-h-screen bg-primary-base">
 
@@ -75,8 +79,8 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
           <div className="text-center mb-16">
             <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Proven Process</h2>
             <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
-            <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p className="text-tertiary-accent max-w-2xl mx-auto text-lg whitespace-pre-wrap">
+              {processSubtitle}
             </p>
           </div>
 
@@ -109,8 +113,8 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Core Values</h2>
-            <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <p className="text-tertiary-accent max-w-2xl mx-auto text-lg whitespace-pre-wrap">
+              {coreValuesSubtitle}
             </p>
           </div>
 
@@ -143,7 +147,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
       {/* CTA SECTION */}
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">Ready to start your journey?</h2>
+          <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
           <Link
             href="/contact"
             className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-xl shadow-highlight/20"

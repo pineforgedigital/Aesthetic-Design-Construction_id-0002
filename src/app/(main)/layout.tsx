@@ -1,7 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
+import { client } from '@/sanity/client';
+import { getSiteSettingsQuery } from '@/sanity/queries';
 
-function Footer() {
+async function Footer() {
+  const settings = await client.fetch(getSiteSettingsQuery);
+  const footerText = settings?.footerText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+
   return (
     <footer className="bg-fine-detail text-primary-base py-12 mt-auto">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -15,7 +20,7 @@ function Footer() {
             unoptimized
           />
           <p className="text-primary-base/70 max-w-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            {footerText}
           </p>
         </div>
         <div className="flex flex-col gap-4">

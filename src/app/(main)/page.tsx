@@ -7,12 +7,13 @@ export const metadata: Metadata = {
 }
 
 import { client } from '@/sanity/client'
-import { getHomePageQuery } from '@/sanity/queries'
+import { getHomePageQuery, getTestimonialsQuery } from '@/sanity/queries'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
 export default async function HomePage() {
   const homeData = await client.fetch(getHomePageQuery)
+  const testimonialsData = await client.fetch(getTestimonialsQuery)
 
-  return <HomeClient homeData={homeData} />
+  return <HomeClient homeData={homeData} testimonialsData={testimonialsData} />
 }

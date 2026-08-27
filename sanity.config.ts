@@ -7,7 +7,7 @@ const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your-project-id'
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
 
 const singletonActions = new Set(["publish", "discardChanges", "restore"])
-const singletonTypes = new Set(["homePage", "aboutPage", "siteSettings"])
+const singletonTypes = new Set(["homePage", "aboutPage", "servicesPage", "contactPage", "siteSettings"])
 
 export default defineConfig({
   basePath: '/studio',
@@ -39,6 +39,14 @@ export default defineConfig({
               .title("About Page")
               .id("aboutPage")
               .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
+            S.listItem()
+              .title("Services Page")
+              .id("servicesPage")
+              .child(S.document().schemaType("servicesPage").documentId("servicesPage")),
+            S.listItem()
+              .title("Contact Page")
+              .id("contactPage")
+              .child(S.document().schemaType("contactPage").documentId("contactPage")),
             S.listItem()
               .title("Site Settings")
               .id("siteSettings")
