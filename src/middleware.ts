@@ -31,6 +31,6 @@ export function middleware(req: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  // Apply middleware to all routes except API, _next/static, _next/image, favicon.ico, and studio routes.
-  matcher: '/((?!api|_next/static|_next/image|favicon.ico|studio).*)',
+  // Apply middleware to all routes except API, _next/static, _next/image, favicon.ico, studio routes, and all static images.
+  matcher: '/((?!api|_next/static|_next/image|favicon.ico|studio|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
 }
