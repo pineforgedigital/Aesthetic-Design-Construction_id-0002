@@ -7,8 +7,8 @@ import { X, ZoomIn } from "lucide-react";
 
 type ProjectCategory = "All" | "3D Rendering" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Design & Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling";
 
-interface Project {
-  id: string;
+export interface Project {
+  _id: string;
   title: string;
   category: ProjectCategory;
   description: string;
@@ -18,88 +18,13 @@ interface Project {
 
 const CATEGORIES: ProjectCategory[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "3D Rendering", "Interior Design & Decorating", "Custom Tile Work", "Premium Countertops"];
 
-const MOCK_PROJECTS: Project[] = [
-  {
-    id: "p1",
-    title: "Lorem Ipsum Kitchen",
-    category: "Kitchen Remodeling",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p2",
-    title: "Dolor Sit Bath",
-    category: "Luxury Bathrooms",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p3",
-    title: "Amet Consectetur Flooring",
-    category: "Flooring",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p4",
-    title: "Adipiscing Small Project",
-    category: "Custom Tile Work",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p5",
-    title: "Elit Rendering",
-    category: "3D Rendering",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p6",
-    title: "Sed Do Kitchen",
-    category: "Kitchen Remodeling",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p7",
-    title: "Eiusmod Bath",
-    category: "Luxury Bathrooms",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p8",
-    title: "Tempor Flooring",
-    category: "Flooring",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"]
-  },
-  {
-    id: "p9",
-    title: "Incididunt Rendering",
-    category: "3D Rendering",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    mainImage: "/placeholder.svg",
-    images: ["/placeholder.svg", "/placeholder.svg"]
-  }
-];
-
-export default function ProjectGallery() {
+export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = activeCategory === "All" 
-    ? MOCK_PROJECTS 
-    : MOCK_PROJECTS.filter(p => p.category === activeCategory);
+    ? projects 
+    : projects.filter(p => p.category === activeCategory);
 
   return (
     <div className="w-full">
@@ -135,7 +60,7 @@ export default function ProjectGallery() {
         <AnimatePresence>
           {filteredProjects.map(project => (
             <motion.div
-              key={project.id}
+              key={project._id}
               layout
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -204,7 +129,7 @@ export default function ProjectGallery() {
                       {/* Using aspect ratio classes to simulate masonry look with placeholder svg. Real images would have natural height. */}
                       <div className={`relative w-full ${i % 3 === 0 ? 'aspect-square' : i % 2 === 0 ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
                         <Image 
-                          src={img} 
+                          src={img || "/placeholder.svg"} 
                           alt={`${selectedProject.title} image ${i + 1}`} 
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-700" 

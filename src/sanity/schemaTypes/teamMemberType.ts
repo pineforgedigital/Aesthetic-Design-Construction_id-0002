@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const teamMember = defineType({
+export const teamMemberType = defineType({
   name: 'teamMember',
   title: 'Team Member',
   type: 'document',
@@ -20,15 +20,14 @@ export const teamMember = defineType({
       },
     }),
     defineField({
-      name: 'jobDescription',
-      title: 'Job Description',
+      name: 'role',
+      title: 'Job Role / Description',
       type: 'string',
     }),
     defineField({
       name: 'bio',
       title: 'Bio',
-      type: 'array',
-      of: [{type: 'block'}],
+      type: 'text',
     }),
   ],
 })

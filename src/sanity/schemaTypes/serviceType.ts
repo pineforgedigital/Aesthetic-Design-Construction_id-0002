@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const service = defineType({
+export const serviceType = defineType({
   name: 'service',
   title: 'Service',
   type: 'document',
