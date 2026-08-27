@@ -4,6 +4,9 @@ export const siteSettingsType = defineType({
   name: 'siteSettings',
   title: 'Site Settings',
   type: 'document',
+  groups: [
+    {name: 'seo', title: 'SEO'},
+  ],
   fields: [
     defineField({
       name: 'seo',
