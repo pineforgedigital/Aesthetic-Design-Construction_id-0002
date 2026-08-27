@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg"
+            src="/hero_kitchen.jpg"
             alt="Modern luxury kitchen remodel"
             fill
             className="object-cover"
@@ -30,10 +30,10 @@ export default function Home() {
             className="max-w-3xl"
           >
             <h1 className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Crafting Spaces of Uncompromising Luxury.
             </h1>
             <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+              Aesthetic Design & Construction brings your vision to life with precision engineering, handmade carpentry, and full-service interior design.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-start">
               <Link
@@ -59,7 +59,7 @@ export default function Home() {
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Expertise</h2>
           <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
           <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            From foundation to finish, we specialize in high-end transformations that blend aesthetic brilliance with unparalleled functionality.
           </p>
         </div>
 
@@ -71,11 +71,11 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/service_kitchen.jpg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <p className="text-tertiary-accent mb-6">The heart of your home, elevated with custom cabinetry and premium finishes.</p>
                 <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
@@ -90,11 +90,11 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/service_bath.jpg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <p className="text-tertiary-accent mb-6">Create your personal sanctuary with spa-grade materials and bespoke design.</p>
                 <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
@@ -109,11 +109,11 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/service_interior.jpg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <p className="text-tertiary-accent mb-6">Comprehensive redesigns that harmonize every room in your house seamlessly.</p>
                 <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
@@ -128,9 +128,9 @@ export default function Home() {
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">Lorem ipsum dolor</h2>
+            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">The Aesthetic Standard</h2>
             <p className="text-primary-base/90 text-lg mb-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.
+              We don't just build houses; we craft legacies. Our in-house team of master craftsmen and visionary designers ensures every detail is executed flawlessly.
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -139,7 +139,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-medium mb-1">Precision Engineering</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="text-primary-base/70">Rigorous planning and structural integrity behind every beautiful finish.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -148,7 +148,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-medium mb-1">Handmade Carpentry</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="text-primary-base/70">Custom cabinetry and millwork crafted specifically for your space.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -157,7 +157,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-medium mb-1">End-to-End Design</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="text-primary-base/70">A seamless journey from initial 3D renderings to the final reveal.</p>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-contrast to-transparent z-10 md:hidden"></div>
             <Image
-              src="/placeholder.svg"
+              src="/craftsmanship_detail.jpg"
               alt="Craftsmanship detail"
               width={600}
               height={800}
@@ -183,9 +183,9 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Sarah Jenkins", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel volutpat felis, eu condimentum massa. Pellentesque mollis." },
-              { name: "Marcus Rossi", role: "Property Developer", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus." },
-              { name: "Emily Chen", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." }
+              { name: "Sarah Jenkins", role: "Homeowner", text: "The Aesthetic team completely transformed our outdated kitchen into a modern masterpiece. Their attention to detail is unmatched." },
+              { name: "Marcus Rossi", role: "Property Developer", text: "As a developer, I need reliability and luxury. They delivered a full interior remodel on time and beyond my expectations." },
+              { name: "Emily Chen", role: "Homeowner", text: "From the initial 3D renderings to the final tile placement, the process was seamless. Our new bathroom feels like a five-star spa." }
             ].map((testimonial, i) => (
               <motion.div
                 key={i}
@@ -220,7 +220,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-base via-transparent to-transparent"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">Ready to Elevate Your Home?</h2>
-          <p className="text-primary-base/70 text-xl mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+          <p className="text-primary-base/70 text-xl mb-10">Schedule a consultation with our design team to begin your transformation.</p>
           <Link
             href="/contact"
             className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
