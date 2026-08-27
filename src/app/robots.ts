@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/studio', '/login'],
     },
-    sitemap: 'https://aesthetic-design-construction-id-00.vercel.app/sitemap.xml',
+    sitemap: 'https://aestheticdesignconstruction.com/sitemap.xml',
   }
 }

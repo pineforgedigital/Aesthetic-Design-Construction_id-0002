@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://aesthetic-design-construction-id-00.vercel.app'),
+  metadataBase: new URL('https://aestheticdesignconstruction.com'),
   title: {
     template: '%s | Aesthetic Design & Construction',
     default: 'Aesthetic Design & Construction',
