@@ -6,6 +6,13 @@ export const siteSettingsType = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'seo',
+      title: 'Default SEO Settings',
+      type: 'seo',
+      group: 'seo',
+      description: 'These SEO settings will be used as a fallback if a specific page does not have SEO settings defined.',
+    }),
+    defineField({
       name: 'contactEmail',
       title: 'Contact Email',
       type: 'string',

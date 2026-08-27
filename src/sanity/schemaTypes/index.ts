@@ -8,6 +8,7 @@ import { siteSettingsType } from './siteSettingsType'
 import { testimonialType } from './testimonialType'
 import { servicesPageType } from './servicesPageType'
 import { contactPageType } from './contactPageType'
+import { seoType } from './seoType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -19,6 +20,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutPageType, 
     servicesPageType, 
     contactPageType, 
-    siteSettingsType
+    siteSettingsType,
+    seoType
   ],
 }

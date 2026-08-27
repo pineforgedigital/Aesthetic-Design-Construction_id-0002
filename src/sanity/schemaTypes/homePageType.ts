@@ -11,6 +11,12 @@ export const homePageType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'seo',
+      title: 'SEO Settings',
+      type: 'seo',
+      group: 'seo',
+    }),
+    defineField({
       name: 'heroSubtitle',
       title: 'Hero Subtitle',
       type: 'text',
@@ -50,6 +56,11 @@ export const homePageType = defineType({
       name: 'ctaSubtitle',
       title: 'Call to Action Subtitle',
       type: 'text',
+    }),
+    defineField({
+      name: 'seo',
+      title: 'SEO',
+      type: 'seo',
     }),
   ],
 })

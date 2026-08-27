@@ -11,6 +11,12 @@ export const aboutPageType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'seo',
+      title: 'SEO Settings',
+      type: 'seo',
+      group: 'seo',
+    }),
+    defineField({
       name: 'storyText',
       title: 'Story Text',
       type: 'text',

@@ -1,11 +1,25 @@
 import { Metadata } from 'next'
 import { client } from '@/sanity/client'
-import { getAboutPageQuery } from '@/sanity/queries'
+import { getAboutPageQuery, getSiteSettingsQuery } from '@/sanity/queries'
 import AboutClient from './AboutClient'
 
-export const metadata: Metadata = {
-  title: "About",
-  description: "Learn about Aesthetic Design & Construction and our dedication to master craftsmanship and innovative solutions.",
+export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await client.fetch(getAboutPageQuery)
+  const settingsData = await client.fetch(getSiteSettingsQuery)
+
+  const title = pageData?.seo?.metaTitle || settingsData?.seo?.title || "Our Story | Aesthetic Design & Construction"
+  const description = pageData?.seo?.metaDescription || settingsData?.seo?.description || "Learn about our process, core values, and the craftsmanship behind Aesthetic Design & Construction."
+  const image = pageData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: image ? [{ url: image }] : [],
+    }
+  }
 }
 
 export const revalidate = 60

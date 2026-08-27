@@ -25,7 +25,12 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   highlightsText,
   "highlightsImage": highlightsImage.asset->url,
   ctaHeadline,
-  ctaSubtitle
+  ctaSubtitle,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
@@ -35,7 +40,12 @@ export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   coreValues,
   processSubtitle,
   coreValuesSubtitle,
-  ctaHeadline
+  ctaHeadline,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
@@ -45,7 +55,12 @@ export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   facebookUrl,
   footerText,
   address,
-  businessHours
+  businessHours,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getTestimonialsQuery = groq`*[_type == "testimonial"] | order(_createdAt desc) {
@@ -59,7 +74,12 @@ export const getTestimonialsQuery = groq`*[_type == "testimonial"] | order(_crea
 export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
   heroHeadline,
   heroSubtitle,
-  ctaHeadline
+  ctaHeadline,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt asc) {
@@ -74,5 +94,10 @@ export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt as
 export const getContactPageQuery = groq`*[_type == "contactPage"][0] {
   heroHeadline,
   heroSubtitle,
-  contactInfoSubtitle
+  contactInfoSubtitle,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
