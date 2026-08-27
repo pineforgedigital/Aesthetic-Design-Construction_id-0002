@@ -57,10 +57,6 @@ export const homePageType = defineType({
       title: 'Call to Action Subtitle',
       type: 'text',
     }),
-    defineField({
-      name: 'seo',
-      title: 'SEO',
-      type: 'seo',
-    }),
+
   ],
 })
