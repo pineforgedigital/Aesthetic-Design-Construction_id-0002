@@ -5,6 +5,7 @@ export const servicesPageType = defineType({
   title: 'Services Page',
   type: 'document',
   groups: [
+    {name: 'content', title: 'Content'},
     {name: 'seo', title: 'SEO'},
   ],
   fields: [
