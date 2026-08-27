@@ -6,6 +6,13 @@ export const metadata: Metadata = {
   description: "Aesthetic Design & Construction specializes in high-end luxury construction, remodeling, and interior design. Let us build your dream space.",
 }
 
-export default function HomePage() {
-  return <HomeClient />
+import { client } from '@/sanity/client'
+import { getHomePageQuery } from '@/sanity/queries'
+
+export const revalidate = 60 // Revalidate every 60 seconds
+
+export default async function HomePage() {
+  const homeData = await client.fetch(getHomePageQuery)
+
+  return <HomeClient homeData={homeData} />
 }

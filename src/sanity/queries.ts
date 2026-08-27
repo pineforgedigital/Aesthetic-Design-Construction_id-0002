@@ -16,3 +16,24 @@ export const getTeamMembersQuery = groq`*[_type == "teamMember"] | order(_create
   bio,
   "image": headshot.asset->url
 }`;
+
+export const getHomePageQuery = groq`*[_type == "homePage"][0] {
+  heroHeadline,
+  heroSubtitle,
+  "heroImage": heroImage.asset->url
+}`;
+
+export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
+  storyHeadline,
+  storyText,
+  missionStatement,
+  coreValues
+}`;
+
+export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
+  contactEmail,
+  contactPhone,
+  instagramUrl,
+  facebookUrl,
+  footerText
+}`;

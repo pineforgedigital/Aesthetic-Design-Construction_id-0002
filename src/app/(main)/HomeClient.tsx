@@ -5,7 +5,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "lucide-react";
 
-export default function Home() {
+export default function Home({ homeData }: { homeData: any }) {
+  const headline = homeData?.heroHeadline || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+  const subtitle = homeData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
+  const image = homeData?.heroImage || "/placeholder.svg";
+
   return (
     <main className="min-h-screen bg-primary-base">
 
@@ -13,7 +17,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg"
+            src={image}
             alt="Modern luxury kitchen remodel"
             fill
             className="object-cover"
@@ -30,10 +34,10 @@ export default function Home() {
             className="max-w-3xl"
           >
             <h1 className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              {headline}
             </h1>
             <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+              {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-start">
               <Link
