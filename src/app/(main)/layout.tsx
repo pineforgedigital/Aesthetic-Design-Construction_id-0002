@@ -21,10 +21,10 @@ function Footer() {
         <div className="flex flex-col gap-4">
           <h2 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h2>
           <Link href="/" className="text-primary-base/70 hover:text-white transition-colors">Home</Link>
-          <Link href="/projects" className="text-primary-base/70 hover:text-white transition-colors">Portfolio</Link>
+          <Link href="/portfolio" className="text-primary-base/70 hover:text-white transition-colors">Portfolio</Link>
           <Link href="/services" className="text-primary-base/70 hover:text-white transition-colors">Services</Link>
-          <Link href="/about" className="text-primary-base/70 hover:text-white transition-colors">Our Story</Link>
-          <Link href="/team" className="text-primary-base/70 hover:text-white transition-colors">The Team</Link>
+          <Link href="/our-story" className="text-primary-base/70 hover:text-white transition-colors">Our Story</Link>
+          <Link href="/the-team" className="text-primary-base/70 hover:text-white transition-colors">The Team</Link>
           <Link href="/contact" className="text-primary-base/70 hover:text-white transition-colors mt-2">Contact</Link>
         </div>
         <div className="flex flex-col gap-2">

@@ -9,10 +9,10 @@ import { usePathname } from "next/navigation";
 
 const LINKS = [
   { href: "/", label: "Home" },
-  { href: "/projects", label: "Portfolio" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "Our Story" },
-  { href: "/team", label: "The Team" },
+  { href: "/our-story", label: "Our Story" },
+  { href: "/the-team", label: "The Team" },
 ];
 
 export default function Navbar() {

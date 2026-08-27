@@ -47,7 +47,7 @@ export default function Home({ homeData }: { homeData: any }) {
                 Start Your Project <ArrowRight size={20} />
               </Link>
               <Link
-                href="/projects"
+                href="/portfolio"
                 className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg"
               >
                 View Our Work
