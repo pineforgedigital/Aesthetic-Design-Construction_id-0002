@@ -26,7 +26,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
             animate={{ opacity: 1, y: 0 }}
             className="font-outfit text-5xl md:text-7xl font-bold mb-6"
           >
-            About Aesthetic Design & Construction
+            {headline}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

@@ -111,23 +111,76 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
               
               {isSubmitted ? (
                 <motion.div 
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="text-center py-16 flex flex-col items-center justify-center min-h-[500px]"
                 >
-                  <div className="w-24 h-24 bg-secondary-accent/20 text-secondary-accent rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Send size={48} className="ml-2" />
+                  <div className="relative w-32 h-32 mb-8">
+                    <motion.svg
+                      viewBox="0 0 100 100"
+                      className="absolute inset-0 w-full h-full text-secondary-accent"
+                      initial="hidden"
+                      animate="visible"
+                    >
+                      <motion.circle
+                        cx="50"
+                        cy="50"
+                        r="45"
+                        fill="transparent"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      />
+                      <motion.path
+                        d="M30 50 L45 65 L70 35"
+                        fill="transparent"
+                        stroke="currentColor"
+                        strokeWidth="6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+                      />
+                    </motion.svg>
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ delay: 0.8, type: "spring", stiffness: 200, damping: 10 }}
+                      className="absolute inset-0 bg-secondary-accent/10 rounded-full"
+                    ></motion.div>
                   </div>
-                  <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-4">Message Sent!</h3>
-                  <p className="text-primary-contrast text-lg mb-8">
-                    Thank you for reaching out to Aesthetic Design & Construction. A member of our team will be in touch shortly.
-                  </p>
-                  <button 
-                    onClick={() => setIsSubmitted(false)}
-                    className="text-tertiary-accent font-medium hover:text-primary-contrast transition-colors"
+                  
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1 }}
+                    className="font-outfit text-4xl font-bold text-primary-contrast mb-4"
                   >
-                    Send another message
-                  </button>
+                    Inquiry Received
+                  </motion.h3>
+                  
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.2 }}
+                    className="text-tertiary-accent text-xl mb-10 max-w-sm mx-auto"
+                  >
+                    Thank you for choosing Aesthetic Design & Construction. A design specialist will review your details and contact you within 24 hours.
+                  </motion.p>
+                  
+                  <motion.button 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5 }}
+                    onClick={() => setIsSubmitted(false)}
+                    className="inline-flex px-8 py-3 bg-primary-base border border-primary-contrast/10 text-primary-contrast hover:bg-white transition-all rounded-full font-medium text-lg items-center shadow-sm"
+                  >
+                    Submit Another Project
+                  </motion.button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
