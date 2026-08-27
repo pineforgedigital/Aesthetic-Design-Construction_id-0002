@@ -4,6 +4,9 @@ export const servicesPageType = defineType({
   name: 'servicesPage',
   title: 'Services Page',
   type: 'document',
+  groups: [
+    {name: 'seo', title: 'SEO'},
+  ],
   fields: [
     defineField({
       name: 'heroHeadline',

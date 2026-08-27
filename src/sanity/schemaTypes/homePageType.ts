@@ -4,6 +4,9 @@ export const homePageType = defineType({
   name: 'homePage',
   title: 'Home Page',
   type: 'document',
+  groups: [
+    {name: 'seo', title: 'SEO'},
+  ],
   fields: [
     defineField({
       name: 'heroHeadline',

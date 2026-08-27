@@ -4,6 +4,9 @@ export const aboutPageType = defineType({
   name: 'aboutPage',
   title: 'About Page',
   type: 'document',
+  groups: [
+    {name: 'seo', title: 'SEO'},
+  ],
   fields: [
     defineField({
       name: 'storyHeadline',
