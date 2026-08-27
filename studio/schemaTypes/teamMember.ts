@@ -9,7 +9,7 @@ export const teamMember = defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: (rule: any) => rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'headshot',

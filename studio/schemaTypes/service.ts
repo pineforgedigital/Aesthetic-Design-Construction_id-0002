@@ -9,7 +9,7 @@ export const service = defineType({
       name: 'serviceName',
       title: 'Service Name',
       type: 'string',
-      validation: (rule: any) => rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'description',

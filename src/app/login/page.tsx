@@ -36,7 +36,7 @@ export default function LoginPage() {
             Under Construction
           </h1>
           <p className="text-primary-contrast/80 text-sm leading-relaxed max-w-[280px] mx-auto">
-            We're building something extraordinary. If you have an access code, please enter it below.
+            We&apos;re building something extraordinary. If you have an access code, please enter it below.
           </p>
         </div>
 

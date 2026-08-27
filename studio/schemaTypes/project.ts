@@ -9,7 +9,7 @@ export const project = defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
-      validation: (rule: any) => rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'category',
@@ -24,7 +24,7 @@ export const project = defineType({
           {title: 'Rendering', value: 'rendering'},
         ],
       },
-      validation: (rule: any) => rule.required(),
+      validation: (rule: Rule) => rule.required(),
     }),
     defineField({
       name: 'images',

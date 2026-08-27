@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useState } from 'react'
 import { loginAction } from './actions'
 import { KeyRound, Lock, Loader2, ArrowRight, User } from 'lucide-react'
 
@@ -16,7 +16,7 @@ export function LoginForm() {
       if (result?.error) {
         setError(result.error)
       }
-    } catch (err) {
+    } catch {
       setError('An unexpected error occurred.')
     } finally {
       setIsPending(false)

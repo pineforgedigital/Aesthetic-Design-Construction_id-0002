@@ -199,7 +199,7 @@ export default function Home() {
                   <Star size={18} fill="currentColor" />
                   <Star size={18} fill="currentColor" />
                 </div>
-                <p className="text-fine-detail italic mb-6">"{testimonial.text}"</p>
+                <p className="text-fine-detail italic mb-6">&quot;{testimonial.text}&quot;</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-tertiary-accent rounded-full flex items-center justify-center text-primary-base font-outfit font-bold">
                     {testimonial.name.charAt(0)}
