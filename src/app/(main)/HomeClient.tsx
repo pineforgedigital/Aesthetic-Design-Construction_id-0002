@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/hero_kitchen.jpg"
+            src="/placeholder.svg"
             alt="Modern luxury kitchen remodel"
             fill
             className="object-cover"
@@ -71,7 +71,7 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/service_kitchen.jpg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
@@ -90,7 +90,7 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/service_bath.jpg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
@@ -109,7 +109,7 @@ export default function Home() {
               className="group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/service_interior.jpg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
@@ -165,7 +165,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-contrast to-transparent z-10 md:hidden"></div>
             <Image
-              src="/craftsmanship_detail.jpg"
+              src="/placeholder.svg"
               alt="Craftsmanship detail"
               width={600}
               height={800}
