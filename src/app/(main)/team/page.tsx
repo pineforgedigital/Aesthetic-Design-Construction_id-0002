@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Phone, Mail } from "lucide-react";
 
 const TEAM_MEMBERS = [
   {
@@ -68,7 +69,7 @@ export default function TeamPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 text-center group"
+                className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 text-center group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
               >
                 <div className="relative h-72 w-full overflow-hidden bg-gray-100">
                   <Image
@@ -77,10 +78,18 @@ export default function TeamPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
                   />
+                  <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/40 transition-colors duration-300 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100">
+                    <button className="w-10 h-10 rounded-full bg-white text-primary-contrast hover:text-[#A34F3A] hover:scale-110 transition-all flex items-center justify-center shadow-lg">
+                      <Phone size={18} />
+                    </button>
+                    <button className="w-10 h-10 rounded-full bg-white text-primary-contrast hover:text-[#A34F3A] hover:scale-110 transition-all flex items-center justify-center shadow-lg">
+                      <Mail size={18} />
+                    </button>
+                  </div>
                 </div>
-                <div className="p-8">
+                <div className="p-8 relative">
                   <h2 className="font-outfit text-2xl font-bold text-primary-contrast mb-1">{member.name}</h2>
-                  <p className="text-tertiary-accent font-medium mb-4 uppercase tracking-wider text-sm">{member.role}</p>
+                  <p className="text-secondary-accent font-bold mb-4 uppercase tracking-[0.15em] text-xs">{member.role}</p>
                   <p className="text-tertiary-accent text-sm leading-relaxed">
                     {member.bio}
                   </p>

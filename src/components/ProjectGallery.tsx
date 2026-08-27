@@ -109,13 +109,20 @@ export default function ProjectGallery() {
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+            className={`relative px-6 py-2 rounded-full font-medium transition-colors duration-300 ${
               activeCategory === category 
-                ? "bg-warm-sand text-fine-detail" 
-                : "bg-white text-primary-contrast border border-primary-contrast/10 hover:border-primary-contrast/30"
+                ? "text-fine-detail" 
+                : "text-primary-contrast hover:text-[#A34F3A]"
             }`}
           >
-            {category}
+            {activeCategory === category && (
+              <motion.div
+                layoutId="activeCategory"
+                className="absolute inset-0 bg-warm-sand rounded-full z-0"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">{category}</span>
           </button>
         ))}
       </div>
@@ -134,7 +141,7 @@ export default function ProjectGallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5"
+              className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
               onClick={() => setSelectedProject(project)}
             >
               <div className="relative h-72 overflow-hidden bg-gray-100">
@@ -164,7 +171,7 @@ export default function ProjectGallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-primary-contrast/95 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-primary-contrast/80 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
           >
             <div 
@@ -172,7 +179,7 @@ export default function ProjectGallery() {
               onClick={e => e.stopPropagation()}
             >
               <button 
-                className="absolute top-4 right-4 z-10 p-2 bg-white/50 backdrop-blur hover:bg-white rounded-full text-primary-contrast transition-colors"
+                className="absolute top-4 right-4 z-[110] p-3 bg-primary-base/80 backdrop-blur hover:bg-white rounded-full text-primary-contrast hover:text-[#A34F3A] transition-all shadow-lg hover:shadow-xl hover:scale-110"
                 onClick={() => setSelectedProject(null)}
               >
                 <X size={24} />
@@ -187,17 +194,23 @@ export default function ProjectGallery() {
               <div className="overflow-y-auto p-8 flex-grow bg-primary-base">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                   {selectedProject.images.map((img, i) => (
-                    <div key={i} className="break-inside-avoid relative rounded-xl overflow-hidden shadow-md">
+                    <motion.div 
+                      key={i} 
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * i, duration: 0.5 }}
+                      className="break-inside-avoid relative rounded-xl overflow-hidden shadow-md group"
+                    >
                       {/* Using aspect ratio classes to simulate masonry look with placeholder svg. Real images would have natural height. */}
                       <div className={`relative w-full ${i % 3 === 0 ? 'aspect-square' : i % 2 === 0 ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
                         <Image 
                           src={img} 
                           alt={`${selectedProject.title} image ${i + 1}`} 
                           fill 
-                          className="object-cover" 
+                          className="object-cover group-hover:scale-105 transition-transform duration-700" 
                         />
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
