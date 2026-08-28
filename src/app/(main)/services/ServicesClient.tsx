@@ -62,8 +62,9 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         </div>
       </section>
 
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
+      {servicesData && servicesData.length > 0 && (
+        <section className="py-24 px-6">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
 
           {/* Sticky Sidebar Navigation */}
           <div className="md:w-72 flex-shrink-0">
@@ -97,7 +98,15 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
           {/* Content Area */}
           <div className="flex-1 space-y-32">
             {servicesData.map((service, idx) => (
-              <div id={service.slug} className={`scroll-mt-32 ${idx > 0 ? "pt-8 border-t-2 border-primary-contrast/10" : ""}`} key={service.slug}>
+              <motion.div 
+                id={service.slug} 
+                className={`scroll-mt-32 ${idx > 0 ? "pt-8 border-t-2 border-primary-contrast/10" : ""}`} 
+                key={service.slug}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
                 <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-6">{service.serviceName}</h2>
                 {service.image && (
                   <div className="relative h-80 rounded-2xl overflow-hidden mb-8 shadow-lg">
@@ -116,12 +125,13 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                     ))}
                   </ul>
                 )}
-              </div>
+              </motion.div>
             ))}
 
           </div>
         </div>
       </section>
+      )}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">

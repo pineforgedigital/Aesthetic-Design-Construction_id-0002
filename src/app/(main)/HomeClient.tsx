@@ -17,10 +17,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
   const ctaHeadline = homeData?.ctaHeadline || "Ready to Elevate Your Home?";
   const ctaSubtitle = homeData?.ctaSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.";
 
-  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [
-
-    { name: "Emily Chen", role: "Homeowner", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", rating: 5 }
-  ];
+  const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 
   return (
     <main className="min-h-screen bg-primary-base">
@@ -192,7 +189,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-[#EBE7DF]">
+      {testimonials.length > 0 && (
+        <section className="py-24 bg-[#EBE7DF]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Client Stories</h2>
           <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-16"></div>
@@ -224,6 +222,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
           </div>
         </div>
       </section>
+      )}
 
       {/* CTA SECTION */}
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">

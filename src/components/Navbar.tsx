@@ -59,9 +59,10 @@ export default function Navbar() {
             <Link 
               key={link.href} 
               href={link.href} 
-              className={`transition-colors font-bold ${pathname === link.href ? "text-[#A34F3A]" : "text-fine-detail hover:text-[#A34F3A]"}`}
+              className={`group relative transition-colors font-bold ${pathname === link.href ? "text-[#A34F3A]" : "text-fine-detail lg:hover:text-[#A34F3A]"}`}
             >
               {link.label}
+              <span className={`hidden lg:block absolute -bottom-1 left-0 h-[2px] bg-[#A34F3A] transition-all duration-300 ${pathname === link.href ? "w-full" : "w-0 group-hover:w-full"}`}></span>
             </Link>
           ))}
           <Link href="/contact" className="ml-4 px-6 py-2 bg-highlight text-white rounded-full font-bold hover:bg-[#A34F3A] transition-colors shadow-lg shadow-highlight/20">

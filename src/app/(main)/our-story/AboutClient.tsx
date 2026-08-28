@@ -93,7 +93,9 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
             ].map((step, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="bg-white p-8 rounded-2xl shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 border-b-4 border-b-transparent hover:border-b-warm-sand transition-colors relative group"
               >
                 <div className="absolute top-0 left-8 w-1 h-8 bg-warm-sand/40 -mt-8 hidden md:block group-hover:bg-warm-sand transition-colors"></div>
@@ -119,27 +121,47 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-center"
+            >
               <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <ShieldCheck size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Master Craftsmanship</h3>
               <p className="text-tertiary-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-            </div>
-            <div className="text-center">
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-center"
+            >
               <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <HeartHandshake size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Transparent Communication</h3>
               <p className="text-tertiary-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-            </div>
-            <div className="text-center">
+            </motion.div>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-center"
+            >
               <div className="w-20 h-20 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-6">
                 <Lightbulb size={40} />
               </div>
               <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-4">Innovative Solutions</h3>
               <p className="text-tertiary-accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

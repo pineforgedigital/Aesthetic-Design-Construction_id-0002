@@ -19,9 +19,21 @@ async function Footer() {
             className="object-contain h-24 w-24 mb-6 rounded-xl shadow-lg border border-white/10"
             unoptimized
           />
-          <p className="text-primary-base/70 max-w-sm">
+          <p className="text-primary-base/70 max-w-sm mb-6">
             {footerText}
           </p>
+          <div className="flex items-center gap-4">
+            {settings?.instagramUrl && (
+              <a href={settings.instagramUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-base/10 flex items-center justify-center text-primary-base hover:bg-highlight hover:text-white transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+            )}
+            {settings?.facebookUrl && (
+              <a href={settings.facebookUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-base/10 flex items-center justify-center text-primary-base hover:bg-highlight hover:text-white transition-colors">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+            )}
+          </div>
         </div>
         <div className="flex flex-col gap-4">
           <h2 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h2>
