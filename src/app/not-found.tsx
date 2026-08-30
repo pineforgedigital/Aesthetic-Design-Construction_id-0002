@@ -1,29 +1,38 @@
 import Link from "next/link";
-import { Hammer } from "lucide-react";
+import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <main className="min-h-[70vh] bg-primary-base flex items-center justify-center px-6 relative overflow-hidden bg-grid-pattern">
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary-accent via-transparent to-transparent"></div>
-      
-      <div className="text-center relative z-10 max-w-2xl mx-auto">
-        <div className="w-24 h-24 mx-auto bg-highlight/10 text-highlight rounded-full flex items-center justify-center mb-8 animate-bounce shadow-xl shadow-highlight/20">
-          <Hammer size={48} />
-        </div>
-        <h1 className="font-outfit text-5xl md:text-7xl font-bold text-primary-contrast mb-6 drop-shadow-md">
+    <main className="min-h-screen relative flex items-center justify-center overflow-hidden bg-primary-contrast">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/hero.jpg"
+          alt="Luxury Architecture"
+          fill
+          className="object-cover opacity-30 grayscale"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-contrast/90 via-primary-contrast/60 to-primary-contrast"></div>
+      </div>
+
+      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center">
+        <h1 className="font-outfit text-8xl md:text-[150px] font-bold text-white mb-4 tracking-tighter leading-none opacity-90">
           404
         </h1>
-        <h2 className="font-outfit text-2xl md:text-3xl font-semibold text-primary-contrast mb-4">
-          Page Under Construction
+        <div className="h-[1px] w-24 bg-highlight mb-8 opacity-70"></div>
+        <h2 className="font-outfit text-3xl md:text-5xl font-light text-white mb-6 tracking-wide">
+          Page Not Found
         </h2>
-        <p className="text-tertiary-accent text-lg mb-10">
-          It looks like we haven&apos;t laid the foundation for this page yet. The blueprint you&apos;re looking for might have been moved or deleted.
+        <p className="text-white/60 text-lg md:text-xl font-light mb-12 max-w-xl mx-auto leading-relaxed">
+          The space you are looking for does not exist in our floor plan. It may have been moved or is no longer available.
         </p>
         <Link
           href="/"
-          className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
+          className="group relative inline-flex items-center justify-center px-10 py-4 overflow-hidden border border-white/20 rounded-full text-white hover:text-primary-contrast transition-colors duration-500"
         >
-          Return to Homepage
+          <span className="absolute inset-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"></span>
+          <span className="relative z-10 font-medium tracking-widest uppercase text-sm">Return Home</span>
         </Link>
       </div>
     </main>
