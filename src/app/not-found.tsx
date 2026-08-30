@@ -25,7 +25,7 @@ export default function NotFound() {
           Page Not Found
         </h2>
         <p className="text-white/60 text-lg md:text-xl font-light mb-12 max-w-xl mx-auto leading-relaxed">
-          The space you are looking for does not exist in our floor plan. It may have been moved or is no longer available.
+          The page you are looking for could not be found. It might have been removed, renamed, or did not exist in the first place.
         </p>
         <Link
           href="/"
