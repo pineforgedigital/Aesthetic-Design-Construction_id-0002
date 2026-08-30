@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Compass, PenTool, Hammer, CheckSquare, ShieldCheck, HeartHandshake, Lightbulb } from "lucide-react";
+import PageBanner from "@/components/PageBanner";
 
 export default function AboutClient({ aboutData }: { aboutData: any }) {
   const headline = aboutData?.storyHeadline || "Our Story & Structure";
@@ -18,26 +19,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
     <main className="min-h-screen bg-primary-base">
 
       {/* Hero Section */}
-      <section className="bg-primary-contrast text-primary-base py-32 px-6 relative overflow-hidden bg-grid-pattern">
-        <div className="absolute -left-40 -top-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-outfit text-5xl md:text-7xl font-bold mb-6"
-          >
-            {headline}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-primary-base/80 max-w-3xl mx-auto font-light"
-          >
-            {missionStatement}
-          </motion.p>
-        </div>
-      </section>
+      <PageBanner title={headline} subtitle={missionStatement} badge="Get To Know Us" />
 
       {/* Our Story (Split Layout) */}
       <section className="py-24 px-6">
