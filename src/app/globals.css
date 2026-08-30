@@ -49,3 +49,9 @@ body {
   }
 }
 
+/* Hide default cursor on desktop devices for custom cursor */
+@media (pointer: fine) {
+  body, a, button, input, select, textarea, [role="button"] {
+    cursor: none !important;
+  }
+}
