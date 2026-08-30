@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import StaggeredText from "./StaggeredText";
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface PageBannerProps {
   title: string;
@@ -14,6 +15,23 @@ interface PageBannerProps {
 export default function PageBanner({ title, subtitle, badge, className = "py-32" }: PageBannerProps) {
   return (
     <section className={`bg-primary-contrast text-primary-base px-6 relative overflow-hidden bg-grid-pattern ${className}`}>
+      
+      {/* Decorative Leaves */}
+      <div className="absolute -left-32 -top-32 opacity-10 mix-blend-multiply pointer-events-none rotate-45">
+        <Image src="/leaf.jpg" alt="" width={400} height={400} className="object-contain" priority unoptimized />
+      </div>
+      <div className="absolute -right-32 -bottom-32 opacity-10 mix-blend-multiply pointer-events-none -rotate-12">
+        <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain" priority unoptimized />
+      </div>
+
+      {/* Blueprint Drafting Crosses */}
+      <div className="absolute top-12 left-12 opacity-30 text-secondary-accent pointer-events-none hidden md:block">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M2 12h20" /></svg>
+      </div>
+      <div className="absolute bottom-12 right-12 opacity-30 text-secondary-accent pointer-events-none hidden md:block">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M12 2v20M2 12h20" /></svg>
+      </div>
+
       {/* Abstract Glowing Orbs */}
       <motion.div 
         animate={{ 
