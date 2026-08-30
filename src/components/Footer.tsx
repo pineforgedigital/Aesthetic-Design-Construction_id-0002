@@ -10,25 +10,7 @@ export default async function Footer() {
 
   return (
     <footer className="bg-fine-detail text-primary-base pt-24 pb-12 mt-auto relative overflow-hidden">
-      {/* Decorative Orbs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-secondary-accent/20 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-highlight/10 rounded-full blur-[100px] pointer-events-none transform translate-x-1/3 translate-y-1/3"></div>
-
-      <div className="max-w-7xl mx-auto px-6 mb-24 text-center relative z-10">
-        <h2 className="font-outfit text-6xl md:text-[120px] font-bold text-primary-base mb-8 tracking-tighter leading-none opacity-90">
-          LET&apos;S TALK
-        </h2>
-        <p className="text-primary-base/70 text-xl max-w-2xl mx-auto mb-10">
-          Ready to build your dream space? Our team of expert designers and craftsmen are waiting to bring your vision to life.
-        </p>
-        <Link href="/contact" className="inline-block">
-          <MagneticButton className="px-10 py-5 bg-highlight text-white rounded-full font-bold tracking-widest uppercase text-sm border border-highlight/50 shadow-2xl hover:bg-white hover:text-primary-contrast transition-colors duration-500">
-            Start A Project
-          </MagneticButton>
-        </Link>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-primary-base/10 pt-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
         <div className="md:col-span-5">
           <Image 
             src="/logo.jpg" 
