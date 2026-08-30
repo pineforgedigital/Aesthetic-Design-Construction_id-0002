@@ -7,7 +7,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <>
       {/* Luxury Curtain Wipe Transition */}
       <motion.div
-        className="fixed inset-0 z-[9999] bg-primary-contrast pointer-events-none"
+        className="fixed top-0 left-0 w-full h-screen z-[9999] bg-primary-contrast pointer-events-none"
         initial={{ top: 0 }}
         animate={{ top: "-100vh" }}
         transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
