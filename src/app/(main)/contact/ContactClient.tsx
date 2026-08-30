@@ -19,6 +19,15 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Honeypot spam protection check
+    const formData = new FormData(e.target as HTMLFormElement);
+    if (formData.get("_honey")) {
+      // Silent rejection for bots: pretend it succeeded so they don't try again
+      setIsSubmitted(true);
+      return;
+    }
+
     // In a real app, you would send this to a backend or service like Formspree
     setIsSubmitted(true);
   };
@@ -166,6 +175,12 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-8">Send us a message</h3>
                   
+                  {/* Honeypot Spam Protection Field */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="_honey">Don't fill this out if you're human:</label>
+                    <input type="text" id="_honey" name="_honey" tabIndex={-1} autoComplete="off" />
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-primary-contrast">Full Name</label>
