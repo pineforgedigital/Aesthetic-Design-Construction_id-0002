@@ -58,7 +58,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Phone</h3>
-                  <p className="text-tertiary-accent text-lg">{phone}</p>
+                  <p className="text-primary-contrast/80 text-lg">{phone}</p>
                 </div>
               </div>
 
@@ -68,7 +68,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Email</h3>
-                  <p className="text-tertiary-accent text-lg">{email}</p>
+                  <p className="text-primary-contrast/80 text-lg">{email}</p>
                 </div>
               </div>
 
@@ -78,7 +78,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Service Area</h3>
-                  <p className="text-tertiary-accent text-lg whitespace-pre-wrap">{address}</p>
+                  <p className="text-primary-contrast/80 text-lg whitespace-pre-wrap">{address}</p>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                 </div>
                 <div>
                   <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-1">Business Hours</h3>
-                  <p className="text-tertiary-accent text-lg whitespace-pre-wrap">{businessHours}</p>
+                  <p className="text-primary-contrast/80 text-lg whitespace-pre-wrap">{businessHours}</p>
                 </div>
               </div>
             </div>
