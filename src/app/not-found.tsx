@@ -25,7 +25,7 @@ export default function NotFound() {
           Page Not Found
         </h2>
         <p className="text-white/60 text-lg md:text-xl font-light mb-12 max-w-xl mx-auto leading-relaxed">
-          The page you are looking for could not be found. It might have been removed, renamed, or did not exist in the first place.
+          The page you are looking for does not exist. It might have been moved or renamed.
         </p>
         <Link
           href="/"
