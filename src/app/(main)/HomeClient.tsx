@@ -92,6 +92,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
                 <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
                 <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
@@ -110,6 +111,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
                 <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
                 <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
@@ -128,6 +130,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
+                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
                 <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
                 <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
