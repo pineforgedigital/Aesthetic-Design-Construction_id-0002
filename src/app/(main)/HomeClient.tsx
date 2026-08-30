@@ -76,7 +76,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
         <div className="text-center mb-16">
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Expertise</h2>
           <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
-          <p className="text-tertiary-accent max-w-2xl mx-auto text-lg">
+          <p className="text-primary-contrast/80 max-w-2xl mx-auto text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
@@ -92,9 +92,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
               </div>
@@ -111,9 +110,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
               </div>
@@ -130,9 +128,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
-                <p className="text-tertiary-accent mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-secondary-accent font-medium flex items-center gap-2 group-hover:text-primary-contrast transition-colors">
+                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
+                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                   Learn More <ArrowRight size={16} />
                 </span>
               </div>

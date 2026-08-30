@@ -52,7 +52,7 @@ export default async function Footer() {
           <Link href="/privacy-policy" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Privacy Policy</Link>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-primary-base/10 text-center text-primary-base/40 text-sm font-medium tracking-wide relative z-10">
+      <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-primary-base/10 text-center text-primary-base/70 text-sm font-medium tracking-wide relative z-10">
         © {new Date().getFullYear()} Aesthetic Design & Construction. All rights reserved.
       </div>
     </footer>
