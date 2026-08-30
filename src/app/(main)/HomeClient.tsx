@@ -200,7 +200,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
+                className="relative z-10 bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
               >
                 <div className="flex gap-1 text-highlight mb-6">
                   {Array.from({ length: testimonial.rating || 5 }).map((_, j) => (
