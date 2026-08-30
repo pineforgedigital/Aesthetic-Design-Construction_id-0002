@@ -7,8 +7,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const homeData = await client.fetch(getHomePageQuery)
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = homeData?.seo?.metaTitle || settingsData?.seo?.title || "Luxury Construction & Remodeling | Aesthetic Design & Construction"
-  const description = homeData?.seo?.metaDescription || settingsData?.seo?.description || "Aesthetic Design & Construction specializes in high-end luxury construction, remodeling, and interior design. Let us build your dream space."
+  const title = homeData?.seo?.metaTitle || settingsData?.seo?.metaTitle || "Luxury Construction & Remodeling | Aesthetic Design & Construction"
+  const description = homeData?.seo?.metaDescription || settingsData?.seo?.metaDescription || "Aesthetic Design & Construction specializes in high-end luxury construction, remodeling, and interior design. Let us build your dream space."
   const image = homeData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 
   return {

@@ -1,13 +1,26 @@
 import ProjectGallery from "@/components/ProjectGallery";
 import { Metadata } from "next";
 import { client } from "@/sanity/client";
-import { getProjectsQuery } from "@/sanity/queries";
+import { getProjectsQuery, getSiteSettingsQuery } from "@/sanity/queries";
 import PageBanner from "@/components/PageBanner";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Browse our portfolio of completed luxury construction and remodeling projects. See the unparalleled quality and craftsmanship we bring to every space.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const settingsData = await client.fetch(getSiteSettingsQuery)
+
+  const title = "Portfolio | Aesthetic Design & Construction"
+  const description = "Browse our portfolio of completed luxury construction and remodeling projects. See the unparalleled quality and craftsmanship we bring to every space."
+  const image = settingsData?.seo?.openGraphImage
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: image ? [{ url: image }] : [],
+    }
+  }
+}
 
 export const revalidate = 60; // Revalidate every 60 seconds
 

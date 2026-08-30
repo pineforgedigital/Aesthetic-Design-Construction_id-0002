@@ -1,63 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import { client } from '@/sanity/client';
-import { getSiteSettingsQuery } from '@/sanity/queries';
-
-async function Footer() {
-  const settings = await client.fetch(getSiteSettingsQuery);
-  const footerText = settings?.footerText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-  return (
-    <footer className="bg-fine-detail text-primary-base py-12 mt-auto">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <Image 
-            src="/logo.jpg" 
-            alt="Aesthetic Design & Construction" 
-            width={120} 
-            height={120} 
-            className="object-contain h-24 w-24 mb-6 rounded-xl shadow-lg border border-white/10"
-            unoptimized
-          />
-          <p className="text-primary-base/70 max-w-sm mb-6">
-            {footerText}
-          </p>
-          <div className="flex items-center gap-4">
-            {settings?.instagramUrl && (
-              <a href={settings.instagramUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-base/10 flex items-center justify-center text-primary-base hover:bg-highlight hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </a>
-            )}
-            {settings?.facebookUrl && (
-              <a href={settings.facebookUrl} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-primary-base/10 flex items-center justify-center text-primary-base hover:bg-highlight hover:text-white transition-colors">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              </a>
-            )}
-          </div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <h2 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h2>
-          <Link href="/" className="text-primary-base/70 hover:text-white transition-colors">Home</Link>
-          <Link href="/portfolio" className="text-primary-base/70 hover:text-white transition-colors">Portfolio</Link>
-          <Link href="/services" className="text-primary-base/70 hover:text-white transition-colors">Services</Link>
-          <Link href="/our-story" className="text-primary-base/70 hover:text-white transition-colors">Our Story</Link>
-          <Link href="/the-team" className="text-primary-base/70 hover:text-white transition-colors">The Team</Link>
-          <Link href="/contact" className="text-primary-base/70 hover:text-white transition-colors mt-2">Contact</Link>
-        </div>
-        <div className="flex flex-col gap-2">
-          <h2 className="font-outfit font-medium text-lg mb-2">Legal</h2>
-          <Link href="/terms-of-service" className="text-primary-base/70 hover:text-primary-base transition-colors">Terms of Service</Link>
-          <Link href="/privacy-policy" className="text-primary-base/70 hover:text-primary-base transition-colors">Privacy Policy</Link>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-primary-base/10 text-center text-primary-base/70 text-sm">
-        © {new Date().getFullYear()} Aesthetic Design & Construction. All rights reserved.
-      </div>
-    </footer>
-  );
-}
-
-import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function MainLayout({
   children,
