@@ -52,7 +52,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative overflow-x-hidden">
-        <div className="fixed inset-0 z-[100] pointer-events-none bg-grain opacity-[0.04]"></div>
         <SmoothScroll>
           {children}
         </SmoothScroll>
