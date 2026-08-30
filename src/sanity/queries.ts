@@ -101,3 +101,14 @@ export const getContactPageQuery = groq`*[_type == "contactPage"][0] {
     "openGraphImage": openGraphImage.asset->url
   }
 }`;
+
+export const getLegalPageQuery = groq`*[_type == "legalPage" && slug.current == $slug][0] {
+  title,
+  lastUpdated,
+  content,
+  seo {
+    metaTitle,
+    metaDescription,
+    "openGraphImage": openGraphImage.asset->url
+  }
+}`;
