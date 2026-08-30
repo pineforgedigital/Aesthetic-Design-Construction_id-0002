@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative overflow-x-hidden">
-        <CustomCursor />
+        <div className="fixed inset-0 z-[100] pointer-events-none bg-grain opacity-[0.04]"></div>
         <SmoothScroll>
           {children}
         </SmoothScroll>
