@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import MagneticButton from "@/components/MagneticButton";
+import StaggeredText from "@/components/StaggeredText";
 
 
 export default function ServicesClient({ pageData, servicesData }: { pageData: any, servicesData: any[] }) {
@@ -43,14 +45,11 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       {/* Header Section */}
       <section className="bg-primary-contrast text-primary-base py-24 px-6 relative overflow-hidden bg-grid-pattern">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-secondary-accent via-transparent to-transparent"></div>
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+        <div className="max-w-7xl mx-auto text-center relative z-10 flex flex-col items-center">
+          <StaggeredText 
+            text={heroHeadline}
             className="font-outfit text-5xl md:text-7xl font-bold mb-6"
-          >
-            {heroHeadline}
-          </motion.h1>
+          />
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -135,14 +134,16 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
 
       {/* CTA SECTION */}
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
-        <div className="max-w-3xl mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mx-auto px-6 relative z-10 flex flex-col items-center">
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
-          <Link
-            href="/contact"
-            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
-          >
-            Schedule a Consultation
-          </Link>
+          <MagneticButton>
+            <Link
+              href="/contact"
+              className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
+            >
+              Schedule a Consultation
+            </Link>
+          </MagneticButton>
         </div>
       </section>
 

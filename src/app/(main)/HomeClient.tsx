@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "lucide-react";
+import MagneticButton from "@/components/MagneticButton";
+import StaggeredText from "@/components/StaggeredText";
 
 export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
   const headline = homeData?.heroHeadline || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
@@ -19,12 +21,15 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
 
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 250]);
+
   return (
     <main className="min-h-screen bg-primary-base">
 
       {/* HERO SECTION */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
             src={image}
             alt="Modern luxury kitchen remodel"
@@ -33,34 +38,39 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-fine-detail/90 via-fine-detail/50 to-transparent mix-blend-multiply" />
-        </div>
+        </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left mt-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl"
+            className="max-w-3xl flex flex-col items-center md:items-start"
           >
-            <h1 className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg">
-              {headline}
-            </h1>
+            <StaggeredText 
+              text={headline} 
+              className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg" 
+            />
             <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
               {subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-start">
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center gap-2 shadow-lg shadow-highlight/20"
-              >
-                Start Your Project <ArrowRight size={20} />
-              </Link>
-              <Link
-                href="/portfolio"
-                className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg"
-              >
-                View Our Work
-              </Link>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start w-full">
+              <MagneticButton>
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20"
+                >
+                  Start Your Project <ArrowRight size={20} />
+                </Link>
+              </MagneticButton>
+              <MagneticButton>
+                <Link
+                  href="/portfolio"
+                  className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg flex items-center justify-center"
+                >
+                  View Our Work
+                </Link>
+              </MagneticButton>
             </div>
           </motion.div>
         </div>
@@ -230,12 +240,14 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
           <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
-          <Link
-            href="/contact"
-            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
-          >
-            Contact Us Today
-          </Link>
+          <MagneticButton>
+            <Link
+              href="/contact"
+              className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
+            >
+              Contact Us Today
+            </Link>
+          </MagneticButton>
         </div>
       </section>
 
