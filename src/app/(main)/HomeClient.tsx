@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "lucide-react";
-import MagneticButton from "@/components/MagneticButton";
 import StaggeredText from "@/components/StaggeredText";
 
 export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
@@ -55,22 +54,18 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               {subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start w-full">
-              <MagneticButton>
                 <Link
                   href="/contact"
                   className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20"
                 >
                   Start Your Project <ArrowRight size={20} />
                 </Link>
-              </MagneticButton>
-              <MagneticButton>
                 <Link
                   href="/portfolio"
                   className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg flex items-center justify-center"
                 >
                   View Our Work
                 </Link>
-              </MagneticButton>
             </div>
           </motion.div>
         </div>
@@ -240,14 +235,12 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
           <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
-          <MagneticButton>
             <Link
               href="/contact"
               className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
             >
               Contact Us Today
             </Link>
-          </MagneticButton>
         </div>
       </section>
 

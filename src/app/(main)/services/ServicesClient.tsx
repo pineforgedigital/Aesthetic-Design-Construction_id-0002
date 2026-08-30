@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import MagneticButton from "@/components/MagneticButton";
 import PageBanner from "@/components/PageBanner";
 
 
@@ -120,14 +119,12 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
         <div className="max-w-3xl mx-auto px-6 relative z-10 flex flex-col items-center">
           <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
-          <MagneticButton>
             <Link
               href="/contact"
               className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
             >
               Schedule a Consultation
             </Link>
-          </MagneticButton>
         </div>
       </section>
 
