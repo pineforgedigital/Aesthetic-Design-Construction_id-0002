@@ -50,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative overflow-x-hidden">
+    <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`}>
+      <body className="flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative">
         <SmoothScroll>
           {children}
         </SmoothScroll>
