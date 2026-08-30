@@ -41,7 +41,7 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 text-center group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
+                  className="relative z-10 bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 text-center group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
                 >
                   <div className="relative h-72 w-full overflow-hidden bg-gray-100">
                     <Image

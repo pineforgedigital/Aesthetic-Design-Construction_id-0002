@@ -66,7 +66,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4 }}
-              className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
+              className="relative z-10 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
               onClick={() => setSelectedProject(project)}
             >
               <div className="relative h-72 overflow-hidden bg-gray-100">
