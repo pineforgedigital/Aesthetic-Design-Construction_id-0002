@@ -30,7 +30,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
-            src={image}
+            src={`${image}?auto=format&fit=max&w=1920`}
             alt="Modern luxury kitchen remodel"
             fill
             className="object-cover"
@@ -183,7 +183,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-r from-primary-contrast to-transparent z-10 md:hidden"></div>
             <Image
-              src={highlightsImage}
+              src={`${highlightsImage}?auto=format&fit=max&w=800`}
               alt="Craftsmanship detail"
               width={600}
               height={800}

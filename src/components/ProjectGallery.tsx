@@ -71,7 +71,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
             >
               <div className="relative h-72 overflow-hidden bg-gray-100">
                 <Image 
-                  src={project.mainImage} 
+                  src={`${project.mainImage}?auto=format&fit=max&w=800`} 
                   alt={project.title} 
                   fill 
                   className="object-cover group-hover:scale-105 transition-transform duration-700" 
@@ -129,7 +129,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                       {/* Using aspect ratio classes to simulate masonry look with placeholder svg. Real images would have natural height. */}
                       <div className={`relative w-full ${i % 3 === 0 ? 'aspect-square' : i % 2 === 0 ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
                         <Image 
-                          src={img || "/placeholder.svg"} 
+                          src={img ? `${img}?auto=format&fit=max&w=1200` : "/placeholder.svg"} 
                           alt={`${selectedProject.title} image ${i + 1}`} 
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-700" 
