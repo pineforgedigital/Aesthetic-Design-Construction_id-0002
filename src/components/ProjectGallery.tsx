@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
@@ -21,6 +21,17 @@ const CATEGORIES: ProjectCategory[] = ["All", "Kitchen Remodeling", "Luxury Bath
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedProject]);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -98,6 +109,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-primary-contrast/80 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
+            data-lenis-prevent="true"
           >
             <div 
               className="relative w-full max-w-6xl max-h-full bg-primary-base rounded-2xl overflow-hidden shadow-2xl flex flex-col"
@@ -116,7 +128,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                 <p className="text-tertiary-accent text-lg max-w-3xl">{selectedProject.description}</p>
               </div>
 
-              <div className="overflow-y-auto p-8 flex-grow bg-primary-base">
+              <div className="overflow-y-auto p-8 flex-grow bg-primary-base" data-lenis-prevent="true">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
                   {selectedProject.images.map((img, i) => (
                     <motion.div 
