@@ -130,7 +130,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
 
               <div className="overflow-y-auto p-8 flex-grow bg-primary-base" data-lenis-prevent="true">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                  {selectedProject.images.map((img, i) => (
+                  {[selectedProject.mainImage, ...(selectedProject.images || [])].map((img, i) => (
                     <motion.div 
                       key={i} 
                       initial={{ opacity: 0, y: 20 }}
