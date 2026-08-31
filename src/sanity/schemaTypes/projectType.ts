@@ -49,6 +49,8 @@ export const projectType = defineType({
           {title: 'Interior Design & Decorating', value: 'Interior Design & Decorating'},
           {title: 'Custom Tile Work', value: 'Custom Tile Work'},
           {title: 'Premium Countertops', value: 'Premium Countertops'},
+          {title: 'Custom Pieces', value: 'Custom Pieces'},
+          {title: 'Fireplaces', value: 'Fireplaces'},
           {title: 'Full Interior Remodeling', value: 'Full Interior Remodeling'},
         ],
       },
