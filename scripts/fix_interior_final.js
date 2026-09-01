@@ -11,7 +11,7 @@ const client = createClient({
 });
 
 async function main() {
-  const filePath = path.join(__dirname, '../Business photos/Decorating/IMG_0804.jpg');
+  const filePath = path.join(__dirname, '../Business photos/Kitchens/IMG_2760.jpg');
   const filename = path.basename(filePath);
   console.log(`Uploading ${filename}...`);
   
