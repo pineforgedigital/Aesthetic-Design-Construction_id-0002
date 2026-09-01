@@ -69,6 +69,9 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             </div>
           </motion.div>
         </div>
+        
+        {/* Bottom Fade Transition */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary-base to-transparent z-10 pointer-events-none" />
       </section>
 
       {/* KEY SERVICES SECTION */}
