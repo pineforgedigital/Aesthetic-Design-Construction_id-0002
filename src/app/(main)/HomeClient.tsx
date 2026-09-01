@@ -9,11 +9,11 @@ import StaggeredText from "@/components/StaggeredText";
 export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
   const headline = homeData?.heroHeadline || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
   const subtitle = homeData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
-  const image = homeData?.heroImage || "/placeholder.svg";
+  const image = homeData?.heroImage || "/images/hero.jpg";
 
   const highlightsHeadline = homeData?.highlightsHeadline || "Lorem ipsum dolor";
   const highlightsText = homeData?.highlightsText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.";
-  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
+  const highlightsImage = homeData?.highlightsImage || "/images/highlight.jpg";
 
   const ctaHeadline = homeData?.ctaHeadline || "Ready to Elevate Your Home?";
   const ctaSubtitle = homeData?.ctaSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.";
@@ -89,7 +89,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/kitchen-service.jpg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
@@ -108,7 +108,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/bath-service.jpg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
@@ -127,7 +127,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                <Image src="/images/interior-service.jpg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
               <div className="p-8">
                 <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>

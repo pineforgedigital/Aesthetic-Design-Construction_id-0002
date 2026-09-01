@@ -43,7 +43,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
           <div className="order-1 md:order-2 relative">
             <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg"
+                src="/images/portrait.jpg"
                 alt="Aesthetic Design & Construction Team"
                 fill
                 className="object-cover"
