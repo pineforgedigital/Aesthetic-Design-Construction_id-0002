@@ -8,7 +8,7 @@ import PageBanner from "@/components/PageBanner";
 
 export default function ServicesClient({ pageData, servicesData }: { pageData: any, servicesData: any[] }) {
   const heroHeadline = pageData?.heroHeadline || "Our Expertise";
-  const heroSubtitle = pageData?.heroSubtitle || "Elevating spaces with uncompromising quality and masterful craftsmanship.";
+  const heroSubtitle = pageData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
   const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
 
   return (
