@@ -24,6 +24,13 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   highlightsHeadline,
   highlightsText,
   "highlightsImage": highlightsImage.asset->url,
+  "featuredServices": featuredServices[]->{
+    _id,
+    serviceName,
+    "slug": slug.current,
+    "image": image.asset->url,
+    description
+  },
   ctaHeadline,
   ctaSubtitle,
   seo {
@@ -35,6 +42,7 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
 
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   storyHeadline,
+  "storyImage": storyImage.asset->url,
   storyText,
   missionStatement,
   coreValues,

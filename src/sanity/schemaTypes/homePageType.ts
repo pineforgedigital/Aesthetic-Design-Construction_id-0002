@@ -60,6 +60,12 @@ export const homePageType = defineType({
       title: 'Call to Action Subtitle',
       type: 'text',
     }),
-
+    defineField({
+      name: 'featuredServices',
+      title: 'Featured Services (Home Page Cards)',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'service' }] }],
+      validation: (rule) => rule.max(3),
+    }),
   ],
 })

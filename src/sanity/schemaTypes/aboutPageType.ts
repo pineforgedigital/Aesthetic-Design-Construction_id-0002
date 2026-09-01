@@ -14,6 +14,12 @@ export const aboutPageType = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'storyImage',
+      title: 'Story Image (Portrait)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
       name: 'seo',
       title: 'SEO Settings',
       type: 'seo',

@@ -9,6 +9,7 @@ import PageBanner from "@/components/PageBanner";
 export default function AboutClient({ aboutData }: { aboutData: any }) {
   const headline = aboutData?.storyHeadline || "Our Story & Structure";
   const storyText = aboutData?.storyText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
+  const storyImage = aboutData?.storyImage || "/placeholder.svg";
   const missionStatement = aboutData?.missionStatement || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
 
   const processSubtitle = aboutData?.processSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
@@ -43,7 +44,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
           <div className="order-1 md:order-2 relative">
             <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg"
+                src={storyImage !== "/placeholder.svg" ? `${storyImage}?auto=format&fit=max&w=800` : "/placeholder.svg"}
                 alt="Aesthetic Design & Construction Team"
                 fill
                 className="object-cover"

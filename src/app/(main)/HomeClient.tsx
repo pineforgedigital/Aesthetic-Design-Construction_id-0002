@@ -82,62 +82,25 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Service 1 */}
-          <Link href="/services#kitchen" className="block h-full">
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Kitchen Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Kitchen Remodels</h3>
-                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
-                  Learn More <ArrowRight size={16} />
-                </span>
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Service 2 */}
-          <Link href="/services#bath" className="block h-full">
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Bath Remodel" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Luxury Bathrooms</h3>
-                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
-                  Learn More <ArrowRight size={16} />
-                </span>
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Service 3 */}
-          <Link href="/services#interior-remodeling" className="block h-full">
-            <motion.div
-              whileHover={{ y: -10 }}
-              className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image src="/placeholder.svg" alt="Interior Remodeling" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div className="p-8">
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">Full Interiors</h3>
-                <p className="text-primary-contrast/70 mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.</p>
-                <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
-                  Learn More <ArrowRight size={16} />
-                </span>
-              </div>
-            </motion.div>
-          </Link>
+          {(homeData?.featuredServices || []).map((service: any) => (
+            <Link key={service._id} href={`/services#${service.slug}`} className="block h-full">
+              <motion.div
+                whileHover={{ y: -10 }}
+                className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-8">
+                  <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
+                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn more about our premium construction and remodeling services."}</p>
+                  <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
+                    Learn More <ArrowRight size={16} />
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </section>
 
