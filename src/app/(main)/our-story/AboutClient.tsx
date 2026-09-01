@@ -30,16 +30,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
             <p className="text-lg text-tertiary-accent mb-6 leading-relaxed whitespace-pre-wrap">
               {storyText}
             </p>
-            <div className="flex gap-4">
-              <div className="p-6 bg-white rounded-xl shadow-lg border border-primary-contrast/5">
-                <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">&quot;X&quot;+</h3>
-                <p className="text-sm text-secondary-accent font-medium uppercase tracking-wider">Years Experience</p>
-              </div>
-              <div className="p-6 bg-white rounded-xl shadow-lg border border-primary-contrast/5">
-                <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-1">&quot;X&quot;+</h3>
-                <p className="text-sm text-secondary-accent font-medium uppercase tracking-wider">Projects Completed</p>
-              </div>
-            </div>
+
           </div>
           <div className="order-1 md:order-2 relative">
             <div className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl">
