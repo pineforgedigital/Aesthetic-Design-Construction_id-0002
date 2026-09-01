@@ -27,7 +27,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
     <main className="min-h-screen bg-primary-base">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-base">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-base rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <Image
             src={`${image}?auto=format&fit=max&w=1920`}
