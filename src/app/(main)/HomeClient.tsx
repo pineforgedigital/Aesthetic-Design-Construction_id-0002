@@ -27,8 +27,11 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
     <main className="min-h-screen bg-primary-base">
 
       {/* HERO SECTION */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
-        <motion.div style={{ y }} className="absolute inset-0 z-0">
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden bg-primary-base">
+        <motion.div 
+          style={{ y }} 
+          className="absolute inset-0 z-0 [-webkit-mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
+        >
           <Image
             src={`${image}?auto=format&fit=max&w=1920`}
             alt="Modern luxury kitchen remodel"
@@ -69,9 +72,6 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             </div>
           </motion.div>
         </div>
-        
-        {/* Bottom Fade Transition */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-primary-base to-transparent z-10 pointer-events-none" />
       </section>
 
       {/* KEY SERVICES SECTION */}
