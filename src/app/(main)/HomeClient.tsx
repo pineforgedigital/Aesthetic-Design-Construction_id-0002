@@ -144,7 +144,6 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             </div>
           </div>
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-contrast to-transparent z-10 md:hidden"></div>
             <Image
               src={`${highlightsImage}?auto=format&fit=max&w=800`}
               alt="Craftsmanship detail"
