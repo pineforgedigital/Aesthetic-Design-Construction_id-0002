@@ -2,132 +2,108 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 
-
 export default function ServicesClient({ pageData, servicesData }: { pageData: any, servicesData: any[] }) {
-  const [activeSection, setActiveSection] = useState(servicesData[0]?.slug || "rendering");
-
-  const heroHeadline = pageData?.heroHeadline || "Our Services";
-  const heroSubtitle = pageData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-  const ctaHeadline = pageData?.ctaHeadline || "Let's Discuss Your Project";
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150; // offset for sticky header
-
-      const currentSection = servicesData.find((service) => {
-        const element = document.getElementById(service.slug);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          return scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight;
-        }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection.slug);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // run once on mount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const heroHeadline = pageData?.heroHeadline || "Our Expertise";
+  const heroSubtitle = pageData?.heroSubtitle || "Elevating spaces with uncompromising quality and masterful craftsmanship.";
+  const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
 
   return (
     <main className="min-h-screen bg-primary-base">
-
-      {/* Header Section */}
-      <PageBanner title={heroHeadline} subtitle={heroSubtitle} badge="Our Expertise" />
+      <PageBanner title={heroHeadline} subtitle={heroSubtitle} badge="Services" />
 
       {servicesData && servicesData.length > 0 && (
-        <section className="py-24 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
+        <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-32 md:space-y-48">
+          {servicesData.map((service, idx) => {
+            const isEven = idx % 2 === 0;
 
-          {/* Sticky Sidebar Navigation */}
-          <div className="md:w-72 flex-shrink-0">
-            <div className="sticky top-[73px] md:top-28 z-30 bg-white md:rounded-2xl p-4 md:p-6 shadow-md md:shadow-xl shadow-primary-contrast/5 border-b md:border border-primary-contrast/5 -mx-6 px-6 md:mx-0 md:px-6 mb-8 md:mb-0">
-              <h3 className="font-outfit text-xl font-bold text-primary-contrast mb-4 md:mb-6 hidden md:block">Service Categories</h3>
-              <nav className="flex flex-row flex-wrap justify-center md:justify-start md:flex-col md:flex-nowrap gap-2 md:max-h-[calc(100vh-16rem)] md:overflow-y-auto pb-2 md:pb-0 pr-2 md:scrollbar-thin scrollbar-thumb-primary-contrast/20 scrollbar-track-transparent">
-                {servicesData.map((service) => (
-                  <button
-                    key={service.slug}
-                    onClick={() => {
-                      // Account for the sticky header height on mobile vs desktop
-                      const element = document.getElementById(service.slug);
-                      if (element) {
-                        const y = element.getBoundingClientRect().top + window.scrollY - 180;
-                        window.scrollTo({ top: y, behavior: 'smooth' });
-                      }
-                    }}
-                    className={`text-center md:text-left text-sm md:text-base px-3 md:px-4 py-2 md:py-3 rounded-full md:rounded-xl transition-all font-medium flex items-center gap-2 md:gap-4 justify-center md:justify-between group ${activeSection === service.slug
-                        ? "bg-warm-sand text-fine-detail"
-                        : "bg-primary-base/50 md:bg-transparent text-tertiary-accent hover:bg-secondary-accent/10 hover:text-primary-contrast border border-primary-contrast/10 md:border-transparent"
-                      }`}
-                  >
-                    {service.serviceName}
-                    <span className={`w-2 h-2 rounded-full transition-transform hidden md:block ${activeSection === service.slug ? "scale-100 bg-secondary-accent" : "scale-0 group-hover:scale-100 bg-tertiary-accent"}`}></span>
-                  </button>
-                ))}
-              </nav>
-            </div>
-          </div>
-
-          {/* Content Area */}
-          <div className="flex-1 space-y-32">
-            {servicesData.map((service, idx) => (
-              <motion.div 
-                id={service.slug} 
-                className={`scroll-mt-32 ${idx > 0 ? "pt-8 border-t-2 border-primary-contrast/10" : ""}`} 
+            return (
+              <motion.div
+                id={service.slug}
                 key={service.slug}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center relative group`}
               >
-                <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-6">{service.serviceName}</h2>
-                {service.image && (
-                  <div className="relative h-80 rounded-2xl overflow-hidden mb-8 shadow-lg">
-                    <Image src={service.image} alt={service.serviceName} fill className="object-cover" />
-                  </div>
-                )}
-                <p className="text-lg text-tertiary-accent mb-6 leading-relaxed whitespace-pre-wrap">
-                  {service.description}
-                </p>
-                {service.capabilities && service.capabilities.length > 0 && (
-                  <ul className="space-y-3">
-                    {service.capabilities.map((item: string, i: number) => (
-                      <li key={i} className="flex items-center gap-3 text-primary-contrast font-medium">
-                        <CheckCircle2 className="text-secondary-accent" size={20} /> {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </motion.div>
-            ))}
+                {/* Image Section */}
+                <div className="w-full lg:w-[65%] h-[50vh] lg:h-[70vh] relative rounded-t-[2.5rem] rounded-b-xl lg:rounded-[3rem] overflow-hidden shadow-2xl z-0">
+                  {service.image ? (
+                    <Image
+                      src={`${service.image}?auto=format&fit=crop&w=1600`}
+                      alt={service.serviceName}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-primary-contrast/10" />
+                  )}
+                  {/* Subtle overlay gradient to ensure text stands out if it bleeds */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:hidden pointer-events-none" />
+                </div>
 
-          </div>
-        </div>
-      </section>
+                {/* Text Card Section (Overlapping) */}
+                <div 
+                  className={`w-[95%] lg:w-[45%] bg-primary-base p-8 md:p-12 lg:p-16 rounded-[2rem] shadow-2xl border border-primary-contrast/5 z-10 -mt-16 lg:mt-0 ${
+                    isEven ? 'lg:-ml-24' : 'lg:-mr-24'
+                  }`}
+                >
+                  <span className="text-secondary-accent font-bold tracking-widest uppercase text-sm mb-4 block">
+                    {String(idx + 1).padStart(2, '0')} — Specialization
+                  </span>
+                  <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight">
+                    {service.serviceName}
+                  </h2>
+                  <p className="text-lg text-tertiary-accent leading-relaxed mb-8">
+                    {service.description || "Discover the unparalleled quality of our premium construction and design services."}
+                  </p>
+                  
+                  {service.capabilities && service.capabilities.length > 0 && (
+                    <div className="mb-10">
+                      <h4 className="text-primary-contrast font-bold mb-4">Core Capabilities:</h4>
+                      <ul className="space-y-4">
+                        {service.capabilities.map((item: string, i: number) => (
+                          <li key={i} className="flex items-start gap-4 text-tertiary-accent">
+                            <CheckCircle2 className="text-highlight mt-1 flex-shrink-0" size={20} /> 
+                            <span className="leading-snug">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <Link 
+                    href="/contact"
+                    className="inline-flex items-center gap-2 font-bold text-primary-contrast hover:text-highlight transition-colors group/link"
+                  >
+                    Start Your Project <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
+        </section>
       )}
 
-      {/* CTA SECTION */}
-      <section className="py-24 bg-fine-detail text-center relative overflow-hidden">
-        <div className="max-w-3xl mx-auto px-6 relative z-10 flex flex-col items-center">
-          <h2 className="font-outfit text-4xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
-            <Link
-              href="/contact"
-              className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
-            >
-              Schedule a Consultation
-            </Link>
+      {/* Modern CTA SECTION */}
+      <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden">
+        {/* Subtle background element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-accent/10 blur-[120px] rounded-full pointer-events-none" />
+        
+        <div className="max-w-3xl mx-auto relative z-10 flex flex-col items-center">
+          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-8">{ctaHeadline}</h2>
+          <Link
+            href="/contact"
+            className="inline-flex px-12 py-5 bg-warm-sand text-primary-contrast hover:bg-white transition-colors rounded-full font-bold text-lg items-center shadow-2xl"
+          >
+            Schedule a Consultation
+          </Link>
         </div>
       </section>
-
     </main>
   );
 }
