@@ -26,7 +26,7 @@ import { client } from '@/sanity/client'
 import { getHomePageQuery, getTestimonialsQuery } from '@/sanity/queries'
 
 export const revalidate = 60 // Revalidate every 60 seconds
-// Force cache bust 6
+// Force cache bust 7
 
 // Force cache bust
 export default async function HomePage() {
