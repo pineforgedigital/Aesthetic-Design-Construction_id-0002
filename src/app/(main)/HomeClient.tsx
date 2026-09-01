@@ -27,19 +27,17 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
     <main className="min-h-screen bg-primary-base">
 
       {/* HERO SECTION */}
-      <section className="relative h-[90vh] flex items-center justify-center bg-primary-base">
-        <div className="absolute inset-0 z-0 overflow-hidden [-webkit-mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
-          <motion.div style={{ y }} className="absolute inset-0">
-            <Image
-              src={`${image}?auto=format&fit=max&w=1920`}
-              alt="Modern luxury kitchen remodel"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-fine-detail/90 via-fine-detail/50 to-transparent mix-blend-multiply" />
-          </motion.div>
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-base">
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
+          <Image
+            src={`${image}?auto=format&fit=max&w=1920`}
+            alt="Modern luxury kitchen remodel"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-fine-detail/90 via-fine-detail/30 to-transparent mix-blend-multiply" />
+        </motion.div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left mt-20">
           <motion.div
