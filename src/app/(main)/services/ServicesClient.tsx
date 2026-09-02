@@ -15,12 +15,22 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
       const hash = window.location.hash.substring(1);
-      setTimeout(() => {
+      
+      // Poll for the element in case framer-motion or images delay rendering
+      let attempts = 0;
+      const scrollInterval = setInterval(() => {
         const element = document.getElementById(hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          // Add a slight top offset for the fixed navbar
+          const y = element.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          clearInterval(scrollInterval);
         }
-      }, 600); // Wait for framer motion to render
+        attempts++;
+        if (attempts > 20) clearInterval(scrollInterval); // Give up after 2s
+      }, 100);
+
+      return () => clearInterval(scrollInterval);
     }
   }, []);
 
