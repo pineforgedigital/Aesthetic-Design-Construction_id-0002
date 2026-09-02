@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -10,6 +11,18 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   const heroHeadline = pageData?.heroHeadline || "Our Expertise";
   const heroSubtitle = pageData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
   const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 600); // Wait for framer motion to render
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-primary-base">
