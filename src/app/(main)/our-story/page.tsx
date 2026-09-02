@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export const revalidate = 60; // Revalidate every 60 seconds
-// Force cache bust 1
+// Force cache bust 2
 
 export default async function AboutPage() {
   const aboutData = await client.fetch(getAboutPageQuery)
