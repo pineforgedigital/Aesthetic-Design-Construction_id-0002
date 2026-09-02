@@ -21,9 +21,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       const scrollInterval = setInterval(() => {
         const element = document.getElementById(hash);
         if (element) {
-          // Add a slight top offset for the fixed navbar
-          const y = element.getBoundingClientRect().top + window.scrollY - 100;
-          window.scrollTo({ top: y, behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           clearInterval(scrollInterval);
         }
         attempts++;
@@ -51,7 +49,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center relative group`}
+                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center relative group scroll-mt-32`}
               >
                 {/* Image Section */}
                 <div className="w-full lg:w-[65%] h-[50vh] lg:h-[70vh] relative rounded-t-[2.5rem] rounded-b-xl lg:rounded-[3rem] overflow-hidden shadow-2xl z-0">
