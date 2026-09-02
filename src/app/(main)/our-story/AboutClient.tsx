@@ -48,9 +48,9 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
         </div>
       </section>
 
-      {/* Our Proven Process (Vertical Timeline) */}
-      <section className="py-32 px-6 bg-[#EBE7DF] relative overflow-hidden">
-        <div className="max-w-5xl mx-auto relative z-10">
+      {/* Our Proven Process (2x2 Grid) */}
+      <section className="py-32 px-6 bg-[#EBE7DF]">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6">Our Proven Process</h2>
             <p className="text-tertiary-accent max-w-2xl mx-auto text-lg whitespace-pre-wrap">
@@ -58,47 +58,40 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
             </p>
           </div>
 
-          <div className="relative">
-            {/* The Timeline Line */}
-            <div className="absolute left-12 md:left-1/2 top-0 bottom-0 w-1 bg-highlight/20 -translate-x-1/2"></div>
-            
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {[
               { icon: Compass, title: "Consultation", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
               { icon: PenTool, title: "Design & Rendering", desc: "Suspendisse varius enim in eros elementum tristique cursus. Pellentesque vel volutpat felis, eu condimentum massa." },
               { icon: Hammer, title: "Construction", desc: "Aenean faucibus nibh et justo cursus id rutrum imperdiet. Nunc ut sem vitae risus tristique posuere." },
               { icon: CheckSquare, title: "Final Walkthrough", desc: "Pellentesque vel volutpat felis, eu condimentum massa. Duis cursus, mi quis viverra ornare, eros dolor." }
-            ].map((step, i) => {
-              const isEven = i % 2 === 0;
-              return (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.6 }}
-                  className={`flex flex-col md:flex-row items-center justify-between mb-16 relative ${!isEven ? 'md:flex-row-reverse' : ''}`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="absolute left-12 md:left-1/2 w-6 h-6 bg-highlight rounded-full border-4 border-[#EBE7DF] -translate-x-1/2 z-20 shadow-lg" />
-                  
-                  {/* Empty space for alternating layout */}
-                  <div className="hidden md:block w-1/2" />
-                  
-                  {/* Content Card */}
-                  <div className={`w-full md:w-1/2 ${!isEven ? 'md:pl-16' : 'md:pr-16'} pl-24 md:pl-0`}>
-                    <div className="bg-white p-8 lg:p-10 rounded-[2rem] shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group border border-transparent hover:border-warm-sand">
-                      <div className="w-14 h-14 bg-primary-contrast text-warm-sand rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:scale-110 transition-transform">
-                        <step.icon size={28} />
-                      </div>
-                      <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">
-                        <span className="text-highlight mr-2 text-xl">0{i + 1}.</span> {step.title}
-                      </h3>
-                      <p className="text-tertiary-accent leading-relaxed">{step.desc}</p>
-                    </div>
+            ].map((step, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                className="relative bg-white p-10 lg:p-14 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden border border-transparent hover:border-warm-sand"
+              >
+                {/* Massive Background Number */}
+                <div className="absolute -bottom-4 -right-4 text-[12rem] leading-none font-outfit font-bold text-[#EBE7DF] opacity-40 select-none group-hover:scale-110 transition-transform duration-700 z-0">
+                  0{i + 1}
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-primary-contrast text-warm-sand rounded-xl flex items-center justify-center mb-8 shadow-md group-hover:-translate-y-1 transition-transform">
+                    <step.icon size={28} />
                   </div>
-                </motion.div>
-              );
-            })}
+                  <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-tertiary-accent leading-relaxed text-lg max-w-md">
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
