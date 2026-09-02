@@ -32,19 +32,19 @@ export default defineConfig({
           .items([
             // Singleton items
             S.listItem()
-              .title("Home Page")
+              .title("Home")
               .id("homePage")
               .child(S.document().schemaType("homePage").documentId("homePage")),
             S.listItem()
-              .title("About Page")
+              .title("Our Story")
               .id("aboutPage")
               .child(S.document().schemaType("aboutPage").documentId("aboutPage")),
             S.listItem()
-              .title("Services Page")
+              .title("Services")
               .id("servicesPage")
               .child(S.document().schemaType("servicesPage").documentId("servicesPage")),
             S.listItem()
-              .title("Contact Page")
+              .title("Contact")
               .id("contactPage")
               .child(S.document().schemaType("contactPage").documentId("contactPage")),
             S.listItem()

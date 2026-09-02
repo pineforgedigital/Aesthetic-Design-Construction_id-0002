@@ -2,7 +2,7 @@ import {defineField, defineType} from 'sanity'
 
 export const teamMemberType = defineType({
   name: 'teamMember',
-  title: 'Team Member',
+  title: 'The Team',
   type: 'document',
   fields: [
     defineField({
