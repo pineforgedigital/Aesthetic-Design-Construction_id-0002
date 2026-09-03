@@ -39,61 +39,62 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
 
   return (
     <div className="w-full">
-      {/* Filters */}
-      <div className="flex flex-wrap justify-center gap-4 mb-16">
+      {/* Editorial Filter Tabs */}
+      <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-20 border-b border-primary-contrast/10 pb-4">
         {CATEGORIES.map(category => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
-            className={`relative px-6 py-2 rounded-full font-medium transition-colors duration-300 ${
+            className={`relative pb-4 font-outfit text-sm md:text-base tracking-widest uppercase transition-colors duration-300 ${
               activeCategory === category 
-                ? "text-fine-detail" 
-                : "text-primary-contrast hover:text-[#A34F3A]"
+                ? "text-primary-contrast font-bold" 
+                : "text-tertiary-accent hover:text-primary-contrast"
             }`}
           >
+            {category}
             {activeCategory === category && (
               <motion.div
-                layoutId="activeCategory"
-                className="absolute inset-0 bg-warm-sand rounded-full z-0"
+                layoutId="activeCategoryBorder"
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-contrast"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             )}
-            <span className="relative z-10">{category}</span>
           </button>
         ))}
       </div>
 
-      {/* Grid */}
+      {/* Masonry-style Grid */}
       <motion.div 
         layout
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
       >
         <AnimatePresence>
-          {filteredProjects.map(project => (
+          {filteredProjects.map((project, i) => (
             <motion.div
               key={project._id}
               layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.4 }}
-              className="relative z-10 group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: (i % 6) * 0.1 }}
+              className="break-inside-avoid relative z-10 group cursor-pointer bg-white rounded-[2rem] overflow-hidden shadow-md hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-500"
               onClick={() => setSelectedProject(project)}
             >
-              <div className="relative h-72 overflow-hidden bg-gray-100">
+              {/* Variable height images for masonry effect */}
+              <div className={`relative w-full overflow-hidden bg-[#EBE7DF] ${i % 3 === 0 ? 'aspect-[4/5]' : i % 2 === 0 ? 'aspect-square' : 'aspect-[3/4]'}`}>
                 <Image 
-                  src={`${project.mainImage}?auto=format&fit=max&w=800`} 
+                  src={`${project.mainImage}?auto=format&fit=crop&w=800`} 
                   alt={project.title} 
                   fill 
-                  className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                  className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out" 
                 />
-                <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/30 transition-colors duration-300 flex items-center justify-center">
-                  <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-50 group-hover:scale-100" size={48} />
+                <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/20 transition-colors duration-500 flex items-center justify-center">
+                  <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-50 group-hover:scale-100 drop-shadow-md" size={48} />
                 </div>
               </div>
-              <div className="p-6">
-                <p className="text-sm text-tertiary-accent font-medium mb-2 uppercase tracking-wider">{project.category}</p>
-                <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-2">{project.title}</h3>
+              <div className="p-8">
+                <p className="text-xs text-tertiary-accent font-bold mb-3 uppercase tracking-widest border-b border-tertiary-accent/20 pb-2 inline-block">{project.category}</p>
+                <h3 className="font-outfit text-2xl font-bold text-primary-contrast leading-snug">{project.title}</h3>
               </div>
             </motion.div>
           ))}
