@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Lenis from "lenis";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -11,6 +16,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       wheelMultiplier: 1,
       touchMultiplier: 2,
     });
+    
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -21,8 +28,21 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
 
     return () => {
       lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    // Scroll to top on route change
+    if (lenisRef.current) {
+      // If there is a hash, let the page handle it (e.g., ServicesClient)
+      if (!window.location.hash) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, searchParams]);
 
   return <>{children}</>;
 }
