@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
@@ -16,11 +16,22 @@ export interface Project {
   images: string[];
 }
 
-const CATEGORIES: ProjectCategory[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "3D Rendering", "Interior Design & Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
+const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "3D Rendering", "Interior Design & Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
 
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // Dynamically calculate which categories actually have projects assigned to them
+  const availableCategories = useMemo(() => {
+    const existingCategories = new Set<string>();
+    projects.forEach(p => {
+      if (p.category) existingCategories.add(p.category);
+    });
+    
+    // Filter the ordered list so we keep the intended order, but only show categories with content
+    return CATEGORY_ORDER.filter(cat => cat === "All" || existingCategories.has(cat));
+  }, [projects]);
 
   useEffect(() => {
     if (selectedProject) {
@@ -41,7 +52,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
     <div className="w-full">
       {/* Editorial Filter Tabs */}
       <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-20 border-b border-primary-contrast/10 pb-4">
-        {CATEGORIES.map(category => (
+        {availableCategories.map(category => (
           <button
             key={category}
             onClick={() => setActiveCategory(category)}
