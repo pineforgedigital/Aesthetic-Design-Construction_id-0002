@@ -17,19 +17,55 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
   const address = settingsData?.address || "Greater Metropolitan Area\nand surrounding suburbs.";
   const businessHours = settingsData?.businessHours || "Mon - Fri: 8:00 AM - 6:00 PM\nSat - Sun: Closed";
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
     // Honeypot spam protection check
-    const formData = new FormData(e.target as HTMLFormElement);
     if (formData.get("_honey")) {
       // Silent rejection for bots: pretend it succeeded so they don't try again
+      setIsSubmitting(false);
       setIsSubmitted(true);
       return;
     }
 
-    // In a real app, you would send this to a backend or service like Formspree
-    setIsSubmitted(true);
+    try {
+      const payload = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        projectType: formData.get("projectType"),
+        message: formData.get("message"),
+        _honey: formData.get("_honey"),
+      };
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setIsSubmitted(true);
+        form.reset();
+      } else {
+        setErrorMessage(data.message || "Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setErrorMessage("A network error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -244,11 +280,20 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                     ></textarea>
                   </div>
 
+                  {errorMessage && (
+                    <div className="p-4 rounded-xl bg-red-50 text-red-600 text-sm border border-red-100">
+                      {errorMessage}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full py-4 bg-highlight text-white rounded-xl font-bold text-lg hover:bg-[#A34F3A] transition-colors flex items-center justify-center gap-2 shadow-xl shadow-highlight/20"
+                    disabled={isSubmitting}
+                    className="w-full py-4 bg-highlight text-white rounded-xl font-bold text-lg hover:bg-[#A34F3A] transition-colors flex items-center justify-center gap-2 shadow-xl shadow-highlight/20 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Submit Inquiry <Send size={20} />
+                    {isSubmitting ? 'Sending Inquiry...' : (
+                      <>Submit Inquiry <Send size={20} /></>
+                    )}
                   </button>
                 </form>
               )}
