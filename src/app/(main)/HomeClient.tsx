@@ -156,39 +156,41 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
       </section>
 
       {/* TESTIMONIALS */}
-      {testimonials.length > 0 && (
+      {testimonials.length > 0 ? (
         <section className="py-24 bg-[#EBE7DF]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Client Stories</h2>
-          <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-16"></div>
+          <div className="max-w-7xl mx-auto px-6 text-center">
+            <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Client Stories</h2>
+            <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-16"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial: any, i: number) => (
-              <motion.div
-                key={i}
-                whileHover={{ y: -5 }}
-                className="relative z-10 bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
-              >
-                <div className="flex gap-1 text-highlight mb-6">
-                  {Array.from({ length: testimonial.rating || 5 }).map((_, j) => (
-                    <Star key={j} size={18} fill="currentColor" />
-                  ))}
-                </div>
-                <p className="text-fine-detail italic mb-6">&quot;{testimonial.quote || testimonial.text}&quot;</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-tertiary-accent rounded-full flex items-center justify-center text-primary-base font-outfit font-bold">
-                    {(testimonial.clientName || testimonial.name)?.charAt(0) || "U"}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {testimonials.map((testimonial: any, i: number) => (
+                <motion.div
+                  key={i}
+                  whileHover={{ y: -5 }}
+                  className="relative z-10 bg-primary-base p-8 rounded-2xl shadow-lg shadow-fine-detail/5 text-left border border-white"
+                >
+                  <div className="flex gap-1 text-highlight mb-6">
+                    {Array.from({ length: testimonial.rating || 5 }).map((_, j) => (
+                      <Star key={j} size={18} fill="currentColor" />
+                    ))}
                   </div>
-                  <div>
-                    <h3 className="font-bold text-primary-contrast">{testimonial.clientName || testimonial.name}</h3>
-                    <p className="text-sm text-tertiary-accent">{testimonial.role}</p>
+                  <p className="text-fine-detail italic mb-6">&quot;{testimonial.quote || testimonial.text}&quot;</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-tertiary-accent rounded-full flex items-center justify-center text-primary-base font-outfit font-bold">
+                      {(testimonial.clientName || testimonial.name)?.charAt(0) || "U"}
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-primary-contrast">{testimonial.clientName || testimonial.name}</h3>
+                      <p className="text-sm text-tertiary-accent">{testimonial.role}</p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <div className="w-full h-32 bg-primary-base" aria-hidden="true"></div>
       )}
 
       {/* CTA SECTION */}

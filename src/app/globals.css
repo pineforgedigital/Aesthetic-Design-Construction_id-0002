@@ -4,6 +4,7 @@
   html {
     font-size: 90%;
   }
+
   @media (max-width: 768px) {
     html {
       font-size: 14px;
@@ -18,22 +19,26 @@
 }
 
 :root {
-  --background: #FAF8F5; /* softer light cream */
-  --foreground: #314736; /* primary-contrast */
+  --background: #fdf4e6;
+  /* softer light cream */
+  --foreground: #314736;
+  /* primary-contrast */
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   --color-primary-base: #FAF8F5;
   --color-primary-contrast: #314736;
   --color-secondary-accent: #8A988B;
   --color-tertiary-accent: #6B766C;
   --color-fine-detail: #35302C;
-  --color-highlight: #B85B43; /* Warm Terracotta / Rust */
-  --color-warm-sand: #D4B996; /* Earthy Gold / Sand */
-  
+  --color-highlight: #B85B43;
+  /* Warm Terracotta / Rust */
+  --color-warm-sand: #D4B996;
+  /* Earthy Gold / Sand */
+
   --font-sans: var(--font-inter);
   --font-outfit: var(--font-outfit);
 }
@@ -48,8 +53,7 @@ body {
   .bg-grid-pattern {
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
 
 }
-
