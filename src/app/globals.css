@@ -19,7 +19,7 @@
 
 :root {
   --background: #FAF8F5; /* softer light cream */
-  --foreground: #4B564A; /* primary-contrast */
+  --foreground: #314736; /* primary-contrast */
 }
 
 @theme {
@@ -27,7 +27,7 @@
   --color-foreground: var(--foreground);
   
   --color-primary-base: #FAF8F5;
-  --color-primary-contrast: #4B564A;
+  --color-primary-contrast: #314736;
   --color-secondary-accent: #8A988B;
   --color-tertiary-accent: #6B766C;
   --color-fine-detail: #35302C;
