@@ -43,7 +43,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
     <main className="min-h-screen bg-primary-base">
 
       {/* Hero Section */}
-      <PageBanner title={headline} subtitle={missionStatement} badge="Get To Know Us" />
+      <PageBanner title="Our Story" subtitle={missionStatement} badge="Get To Know Us" />
 
       {/* Our Story (Editorial Layout) */}
       <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
