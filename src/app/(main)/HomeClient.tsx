@@ -190,7 +190,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
           </div>
         </section>
       ) : (
-        <div className="w-full h-32 bg-primary-base" aria-hidden="true"></div>
+        <div className="w-full h-32 bg-gradient-to-b from-primary-contrast to-fine-detail" aria-hidden="true"></div>
       )}
 
       {/* CTA SECTION */}
