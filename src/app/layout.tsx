@@ -52,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable} antialiased`}>
-      <body className="flex flex-col font-sans selection:bg-secondary-accent/30 selection:text-primary-contrast relative">
+      <body className="flex flex-col font-sans relative">
         <SmoothScroll>
           {children}
         </SmoothScroll>
