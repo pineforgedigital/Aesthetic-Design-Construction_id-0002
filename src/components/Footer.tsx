@@ -5,7 +5,7 @@ import { getSiteSettingsQuery } from "@/sanity/queries";
 
 export default async function Footer() {
   const settings = await client.fetch(getSiteSettingsQuery);
-  const footerText = settings?.footerText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  const footerText = settings?.footerText || "Aesthetic Design & Construction specializes in reliable home construction, full-scale remodeling, and practical interior design.";
 
   return (
     <footer className="bg-fine-detail text-primary-base pt-24 pb-12 mt-auto relative overflow-hidden">

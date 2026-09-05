@@ -8,9 +8,9 @@ import PageBanner from "@/components/PageBanner";
 export default function ContactClient({ pageData, settingsData }: { pageData: any, settingsData: any }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const heroHeadline = pageData?.heroHeadline || "Get In Touch";
-  const heroSubtitle = pageData?.heroSubtitle || "Ready to start your next project? Fill out the form below and our team will get back to you within 24 hours.";
-  const contactInfoSubtitle = pageData?.contactInfoSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
+  const heroHeadline = pageData?.heroHeadline || "Let's Build Something Beautiful";
+  const heroSubtitle = pageData?.heroSubtitle || "Start a conversation with our design and construction team.";
+  const contactInfoSubtitle = pageData?.contactInfoSubtitle || "Whether you are planning a complete home renovation or a bespoke interior design project, our team is ready to bring your vision to life. Reach out to schedule a private consultation.";
 
   const email = settingsData?.contactEmail || "info@aestheticdesign.com";
   const phone = settingsData?.contactPhone || "(555) 123-4567";
@@ -19,7 +19,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Honeypot spam protection check
     const formData = new FormData(e.target as HTMLFormElement);
     if (formData.get("_honey")) {
@@ -34,14 +34,14 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
   return (
     <main className="min-h-screen bg-primary-base">
-      
+
       {/* Hero Section */}
       <PageBanner title={heroHeadline} subtitle={heroSubtitle} badge="Contact Us" />
 
       {/* Main Content */}
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16">
-          
+
           {/* Contact Details (Left Column) */}
           <div className="lg:col-span-2 space-y-12">
             <div>
@@ -97,9 +97,9 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
           {/* Lead Form (Right Column) */}
           <div className="lg:col-span-3">
             <div className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl shadow-primary-contrast/5 border border-primary-contrast/10">
-              
+
               {isSubmitted ? (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -142,8 +142,8 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                       className="absolute inset-0 bg-secondary-accent/10 rounded-full"
                     ></motion.div>
                   </div>
-                  
-                  <motion.h3 
+
+                  <motion.h3
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1 }}
@@ -151,8 +151,8 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                   >
                     Inquiry Received
                   </motion.h3>
-                  
-                  <motion.p 
+
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2 }}
@@ -160,8 +160,8 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                   >
                     Thank you for choosing Aesthetic Design & Construction. A design specialist will review your details and contact you within 24 hours.
                   </motion.p>
-                  
-                  <motion.button 
+
+                  <motion.button
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.5 }}
@@ -174,7 +174,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-8">Send us a message</h3>
-                  
+
                   {/* Honeypot Spam Protection Field */}
                   <div className="hidden" aria-hidden="true">
                     <label htmlFor="_honey">Don't fill this out if you're human:</label>
@@ -184,9 +184,9 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm font-medium text-primary-contrast">Full Name</label>
-                      <input 
-                        type="text" 
-                        id="name" 
+                      <input
+                        type="text"
+                        id="name"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="John Doe"
@@ -194,9 +194,9 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium text-primary-contrast">Email Address</label>
-                      <input 
-                        type="email" 
-                        id="email" 
+                      <input
+                        type="email"
+                        id="email"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="john@example.com"
@@ -207,17 +207,17 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <label htmlFor="phone" className="text-sm font-medium text-primary-contrast">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        id="phone" 
+                      <input
+                        type="tel"
+                        id="phone"
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="(555) 123-4567"
                       />
                     </div>
                     <div className="space-y-2">
                       <label htmlFor="projectType" className="text-sm font-medium text-primary-contrast">Project Type</label>
-                      <select 
-                        id="projectType" 
+                      <select
+                        id="projectType"
                         required
                         defaultValue=""
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast appearance-none"
@@ -235,8 +235,8 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-primary-contrast">Project Details</label>
-                    <textarea 
-                      id="message" 
+                    <textarea
+                      id="message"
                       required
                       rows={5}
                       className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast resize-none"
@@ -244,7 +244,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                     ></textarea>
                   </div>
 
-                  <button 
+                  <button
                     type="submit"
                     className="w-full py-4 bg-highlight text-white rounded-xl font-bold text-lg hover:bg-[#A34F3A] transition-colors flex items-center justify-center gap-2 shadow-xl shadow-highlight/20"
                   >

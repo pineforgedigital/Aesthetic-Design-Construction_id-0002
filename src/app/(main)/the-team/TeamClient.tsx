@@ -10,8 +10,8 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
     <main className="min-h-screen bg-primary-base">
       {/* Header Section */}
       <PageBanner 
-        title="Meet the Team" 
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+        title="Meet The Team" 
+        subtitle="The builders, designers, and project managers who work together to bring your project to life." 
         badge="Our People" 
       />
 
@@ -61,7 +61,7 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-contrast mb-6">Want to work with us?</h2>
           <p className="text-primary-contrast text-lg mb-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
+            A reliable network of skilled tradespeople and designers who value quality work and clear communication.
           </p>
           <Link
             href="/contact"

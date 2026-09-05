@@ -33,7 +33,7 @@ export default async function ProjectsPage() {
       {/* Header Section */}
       <PageBanner 
         title="Our Portfolio" 
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Explore our collection of premium transformations and bespoke designs." 
+        subtitle="Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design." 
         badge="Recent Work" 
       />
 

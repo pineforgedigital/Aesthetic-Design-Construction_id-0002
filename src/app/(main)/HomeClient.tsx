@@ -7,16 +7,16 @@ import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "luci
 import StaggeredText from "@/components/StaggeredText";
 
 export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
-  const headline = homeData?.heroHeadline || "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-  const subtitle = homeData?.heroSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.";
+  const headline = homeData?.heroHeadline || "Quality Construction & Thoughtful Design.";
+  const subtitle = homeData?.heroSubtitle || "We bring together skilled building and thoughtful design to create functional, well-made homes tailored to your lifestyle.";
   const image = homeData?.heroImage || "/placeholder.svg";
 
-  const highlightsHeadline = homeData?.highlightsHeadline || "Lorem ipsum dolor";
-  const highlightsText = homeData?.highlightsText || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.";
+  const highlightsHeadline = homeData?.highlightsHeadline || "Attention to Detail";
+  const highlightsText = homeData?.highlightsText || "We treat every project with care and focus. By managing a select number of projects at a time, we make sure your home gets the dedicated attention it deserves, from the first plans to the final walkthrough.";
   const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
-  const ctaHeadline = homeData?.ctaHeadline || "Ready to Elevate Your Home?";
-  const ctaSubtitle = homeData?.ctaSubtitle || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim.";
+  const ctaHeadline = homeData?.ctaHeadline || "Ready to Update Your Home?";
+  const ctaSubtitle = homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
 
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 
@@ -77,7 +77,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
           <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Expertise</h2>
           <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
           <p className="text-primary-contrast/80 max-w-2xl mx-auto text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            From new home construction to complete interior remodeling, we focus on delivering solid results and dependable service for every project.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                 </div>
                 <div className="p-8">
                   <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
-                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."}</p>
+                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
                   <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                     Learn More <ArrowRight size={16} />
                   </span>
@@ -119,8 +119,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                   <Ruler size={24} />
                 </div>
                 <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">Precision Engineering</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 className="font-outfit text-xl font-medium mb-1">Solid Engineering</h3>
+                  <p className="text-primary-base/70">Reliable construction backed by structural expertise.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -128,8 +128,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                   <Hammer size={24} />
                 </div>
                 <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">Handmade Carpentry</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 className="font-outfit text-xl font-medium mb-1">Custom Carpentry</h3>
+                  <p className="text-primary-base/70">Quality woodwork and cabinetry built to fit your home.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -137,8 +137,8 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
                   <PaintBucket size={24} />
                 </div>
                 <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">End-to-End Design</h3>
-                  <p className="text-primary-base/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <h3 className="font-outfit text-xl font-medium mb-1">Full-Service Design</h3>
+                  <p className="text-primary-base/70">An organized process from the first blueprints to the final walkthrough.</p>
                 </div>
               </div>
             </div>
