@@ -192,7 +192,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
       ) : null}
 
       {/* CTA SECTION */}
-      <section className="py-24 bg-fine-detail text-center relative overflow-hidden border-t-4 border-secondary-accent">
+      <section className="py-24 bg-fine-detail text-center relative overflow-hidden border-t-4 border-warm-sand">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-base via-transparent to-transparent"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
