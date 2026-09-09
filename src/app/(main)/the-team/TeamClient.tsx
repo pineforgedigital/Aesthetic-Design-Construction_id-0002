@@ -20,46 +20,66 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
         <div className="max-w-7xl mx-auto">
           {teamMembers.length > 0 ? (
             <div className="flex flex-col gap-24 lg:gap-40">
-              {teamMembers.map((member, index) => (
-                <motion.div
-                  key={member._id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7 }}
-                  className={`flex flex-col ${
-                    index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-                  } gap-12 lg:gap-20 items-center`}
-                >
-                  {/* Image Column */}
-                  <div className="w-full lg:w-[45%] relative h-[60vh] lg:h-[80vh] rounded-[3rem] overflow-hidden shadow-2xl group">
-                    <Image
-                      src={member.image || "/placeholder.svg"}
-                      alt={`${member.name}, ${member.role}`}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out grayscale hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-contrast/40 via-transparent to-transparent pointer-events-none" />
-                  </div>
+              {teamMembers.map((member, index) => {
+                // Parse the bio to pull out the "gift" section if it exists
+                let mainBio = member.bio || "";
+                let giftText = null;
+                const match = mainBio.match(/(His gift:|Her gift:)([\s\S]*)/i);
+                if (match) {
+                  mainBio = mainBio.substring(0, match.index).trim();
+                  giftText = match[0].trim();
+                }
 
-                  {/* Text Column */}
-                  <div className="w-full lg:w-[55%] flex flex-col gap-6 relative z-10">
-                    <div>
-                      <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-3">
-                        {member.name}
-                      </h2>
-                      <p className="text-highlight font-bold uppercase tracking-[0.2em] text-sm lg:text-base">
-                        {member.role}
-                      </p>
+                return (
+                  <motion.div
+                    key={member._id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.7 }}
+                    className={`flex flex-col ${
+                      index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                    } gap-12 lg:gap-20 items-center`}
+                  >
+                    {/* Image Column */}
+                    <div className="w-full lg:w-[45%] relative h-[60vh] lg:h-[80vh] rounded-[3rem] overflow-hidden shadow-2xl group">
+                      <Image
+                        src={member.image || "/placeholder.svg"}
+                        alt={`${member.name}, ${member.role}`}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out grayscale hover:grayscale-0"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary-contrast/40 via-transparent to-transparent pointer-events-none" />
                     </div>
-                    
-                    {/* The whitespace-pre-wrap ensures Sanity paragraphs render cleanly with line breaks */}
-                    <div className="text-lg text-tertiary-accent leading-relaxed whitespace-pre-wrap">
-                      {member.bio}
+
+                    {/* Text Column */}
+                    <div className="w-full lg:w-[55%] flex flex-col gap-6 relative z-10">
+                      <div>
+                        <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-3">
+                          {member.name}
+                        </h2>
+                        <p className="text-highlight font-bold uppercase tracking-[0.2em] text-sm lg:text-base">
+                          {member.role}
+                        </p>
+                      </div>
+                      
+                      {/* The whitespace-pre-wrap ensures Sanity paragraphs render cleanly with line breaks */}
+                      <div className="text-lg text-tertiary-accent leading-relaxed whitespace-pre-wrap">
+                        {mainBio}
+                      </div>
+
+                      {/* Highlighted Gift Section */}
+                      {giftText && (
+                        <div className="mt-4 p-8 bg-highlight/5 border-l-4 border-highlight rounded-r-2xl shadow-sm">
+                          <p className="text-highlight font-outfit text-xl lg:text-2xl font-bold leading-relaxed">
+                            {giftText}
+                          </p>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-24">
