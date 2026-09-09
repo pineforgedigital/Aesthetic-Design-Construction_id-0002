@@ -35,7 +35,7 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
                   <div className="w-full lg:w-[45%] relative h-[60vh] lg:h-[80vh] rounded-[3rem] overflow-hidden shadow-2xl group">
                     <Image
                       src={member.image || "/placeholder.svg"}
-                      alt={`${member.name} - ${member.role}`}
+                      alt={`${member.name}, ${member.role}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out grayscale hover:grayscale-0"
                     />

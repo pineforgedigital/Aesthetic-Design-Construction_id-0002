@@ -15,7 +15,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
   const email = settingsData?.contactEmail || "info@aestheticdesign.com";
   const phone = settingsData?.contactPhone || "(555) 123-4567";
   const address = settingsData?.address || "Greater Metropolitan Area\nand surrounding suburbs.";
-  const businessHours = settingsData?.businessHours || "Mon - Fri: 8:00 AM - 6:00 PM\nSat - Sun: Closed";
+  const businessHours = settingsData?.businessHours || "Mon to Fri: 8:00 AM to 6:00 PM\nSat to Sun: Closed";
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

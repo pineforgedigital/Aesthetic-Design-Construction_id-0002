@@ -74,7 +74,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                   }`}
                 >
                   <span className="text-secondary-accent font-bold tracking-widest uppercase text-sm mb-4 block">
-                    {String(idx + 1).padStart(2, '0')} — Specialization
+                    {String(idx + 1).padStart(2, '0')}: Specialization
                   </span>
                   <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight">
                     {service.serviceName}
