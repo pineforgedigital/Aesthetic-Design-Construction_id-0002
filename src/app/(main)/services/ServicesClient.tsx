@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -19,11 +19,11 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       subtitle: "The details that make a house feel like home.",
       description: "Our decorating services bring warmth, personality, and cohesion to your home through thoughtfully selected furnishings, textiles, artwork, window treatments, accessories, and styling.",
       subServices: [
-        { name: "Furnishings & Furniture", desc: "Thoughtfully selected pieces that complement your space and lifestyle." },
-        { name: "Window Treatments", desc: "Custom and ready-made options selected to enhance the room’s design." },
-        { name: "Artwork & Accessories", desc: "The layers that bring personality, character, and visual interest to a space." },
-        { name: "Textiles & Styling", desc: "Rugs, pillows, fabrics, and finishing details that create warmth and cohesion." },
-        { name: "Final Styling", desc: "The finishing touch, bringing every element together for a beautifully completed space." }
+        { name: "Furnishings & Furniture", desc: "We curate thoughtfully selected pieces that harmonize perfectly with your space and lifestyle. From statement sofas to the perfect accent chair, every piece is chosen for its quality, scale, and ability to elevate the room's aesthetic." },
+        { name: "Window Treatments", desc: "Custom window treatments are the tailored suit of a room. We design and install bespoke drapery, shades, and blinds that not only control light and privacy but also add a crucial layer of softness, texture, and architectural height to your space." },
+        { name: "Artwork & Accessories", desc: "A house feels like a home when it reflects the people living in it. We source unique artwork, sculptural elements, and meaningful accessories that bring undeniable character, visual intrigue, and a collected-over-time feel to your interiors." },
+        { name: "Textiles & Styling", desc: "It's the layers that create warmth. We expertly select vintage rugs, luxurious throw pillows, rich fabrics, and tactile finishing details that tie the room together, creating a cohesive and inviting atmosphere." },
+        { name: "Final Styling", desc: "The finishing touch is where the magic happens. We meticulously style your shelves, surfaces, and seating areas, bringing every element into perfect balance for a beautifully completed, magazine-ready space." }
       ]
     },
     {
@@ -32,11 +32,11 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       subtitle: "A beautiful space begins with a thoughtful plan.",
       description: "Great design isn’t simply about choosing beautiful finishes. It’s about understanding how a space needs to function and creating a vision where every element works together.",
       subServices: [
-        { name: "Space Planning", desc: "Thoughtful layouts designed around the way you live." },
-        { name: "Interior Design", desc: "A complete design direction that brings your space together." },
-        { name: "Materials & Finishes", desc: "Cabinetry, countertops, tile, flooring, hardware, lighting, plumbing fixtures, paint, and more." },
-        { name: "Custom Design", desc: "Unique built-ins, architectural details, and elements designed specifically for your home." },
-        { name: "3D Renderings", desc: "See your vision before construction begins." }
+        { name: "Space Planning", desc: "A beautiful room must first be a functional one. We create thoughtful, intelligent layouts designed meticulously around the way you live, ensuring optimal flow, comfortable clearances, and purposeful zones within your home." },
+        { name: "Interior Design", desc: "We establish a complete, bespoke design direction that brings your entire space together. From conceptual mood boards to the final execution, we ensure every detail speaks the same cohesive, elevated visual language." },
+        { name: "Materials & Finishes", desc: "The tactile foundation of your home. We specify exquisite cabinetry, resilient countertops, artisan tile, premium flooring, distinctive hardware, and brilliant lighting fixtures that combine for an unparalleled sensory experience." },
+        { name: "Custom Design", desc: "True luxury lies in the bespoke. We design unique built-ins, striking architectural details, and custom elements specifically tailored for your home, adding both immense value and undeniable character." },
+        { name: "3D Renderings", desc: "Experience your new space before construction even begins. We produce photorealistic 3D renderings that allow you to visualize the proposed layouts, finishes, and custom details, giving you total confidence in the design direction." }
       ]
     },
     {
@@ -45,9 +45,9 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       subtitle: "Reimagine your home from the inside out.",
       description: "Our Transform service brings the complete Aesthetic experience together: from initial concept and design through construction, installation, custom craftsmanship, and final styling.",
       subServices: [
-        { name: "Kitchens", desc: "Designed for the way you live. We create kitchens that are beautiful enough to inspire and functional enough for everyday life." },
-        { name: "Bathrooms", desc: "Your everyday retreat. Transform your bathroom into a space that feels beautiful, functional, and uniquely yours." },
-        { name: "Whole-Home Transformations", desc: "One home. One cohesive vision. When you’re ready to reimagine your home as a whole, we bring every element together under one vision." }
+        { name: "Kitchens", desc: "The heart of the home, designed for the way you actually live. We create kitchens that are beautiful enough to inspire culinary creativity and functional enough to handle everyday life. From custom cabinetry to the perfect island layout, we consider every element as part of one breathtaking, cohesive design." },
+        { name: "Bathrooms", desc: "Your everyday personal retreat. We transform your bathroom into a space that feels beautiful, functional, and uniquely yours. By thoughtfully coordinating layouts, luxurious tile, elegant fixtures, and ambient lighting, we create spa-like sanctuaries built to last." },
+        { name: "Whole-Home Transformations", desc: "One home, one cohesive vision. When you’re ready to reimagine your property as a whole, we bring every element together under a single, unified aesthetic. We manage the immense details of reconfiguring spaces and updating finishes, resulting in a home completely reimagined." }
       ]
     }
   ];
@@ -58,96 +58,83 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
     return found?.image || "/placeholder.svg";
   };
 
-  // State to track which accordion is open (store string like 'design-0' for card and index)
-  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
-
-  const toggleAccordion = (id: string) => {
-    if (openAccordion === id) {
-      setOpenAccordion(null);
-    } else {
-      setOpenAccordion(id);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-primary-base">
       <PageBanner title={heroHeadline} subtitle={heroSubtitle} badge="Services" />
 
-      <section className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
-          {servicesLayout.map((service) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-col h-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-primary-contrast/5 group hover:shadow-2xl transition-shadow duration-300"
-            >
-              {/* Header Image */}
-              <div className="relative h-72 w-full overflow-hidden shrink-0">
-                <Image
-                  src={getServiceImage(service.title)}
-                  alt={service.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-contrast/60 via-transparent to-transparent pointer-events-none" />
-                <h2 className="absolute bottom-6 left-8 font-outfit text-4xl font-bold text-white uppercase tracking-wider">
-                  {service.title}
-                </h2>
-              </div>
+      <div className="flex flex-col w-full bg-primary-base">
+        {servicesLayout.map((service, idx) => {
+          const isEven = idx % 2 === 0;
+          return (
+            <section key={service.id} className="py-24 md:py-40 px-6 border-b border-primary-contrast/5 last:border-0">
+              <div className={`max-w-[1600px] mx-auto flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-24 items-start`}>
+                
+                {/* Image Side */}
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="w-full lg:w-1/2 sticky top-32"
+                >
+                  <div className="relative h-[60vh] lg:h-[85vh] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
+                    <Image
+                      src={getServiceImage(service.title)}
+                      alt={service.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </motion.div>
 
-              {/* Main Content */}
-              <div className="p-8 lg:p-10 flex flex-col flex-grow">
-                <p className="font-bold text-highlight text-lg mb-4">
-                  {service.subtitle}
-                </p>
-                <p className="text-tertiary-accent leading-relaxed mb-10 text-[1.05rem]">
-                  {service.description}
-                </p>
+                {/* Text Side */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center pt-8 lg:pt-16">
+                  <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                  >
+                    <span className="text-secondary-accent font-bold tracking-widest uppercase text-sm mb-4 block">
+                      {String(idx + 1).padStart(2, '0')} — Core Pillar
+                    </span>
+                    <h2 className="font-outfit text-5xl lg:text-7xl font-bold text-primary-contrast mb-6 uppercase tracking-wide">
+                      {service.title}
+                    </h2>
+                    <p className="font-bold text-highlight text-xl lg:text-2xl mb-6">
+                      {service.subtitle}
+                    </p>
+                    <p className="text-tertiary-accent text-lg lg:text-xl leading-relaxed mb-16">
+                      {service.description}
+                    </p>
+                  </motion.div>
 
-                {/* Sub-services Accordion */}
-                <div className="mt-auto border-t border-primary-contrast/10 pt-6 space-y-4">
-                  {service.subServices.map((sub, idx) => {
-                    const accordionId = `${service.id}-${idx}`;
-                    const isOpen = openAccordion === accordionId;
-
-                    return (
-                      <div key={idx} className="border-b border-primary-contrast/5 pb-4 last:border-0 last:pb-0">
-                        <button
-                          onClick={() => toggleAccordion(accordionId)}
-                          className="w-full flex items-center justify-between text-left group/btn"
-                        >
-                          <span className="font-bold text-primary-contrast text-lg group-hover/btn:text-highlight transition-colors">
-                            {sub.name}
-                          </span>
-                          <span className={`w-8 h-8 rounded-full flex items-center justify-center bg-[#EBE7DF] text-primary-contrast transition-transform duration-300 ${isOpen ? 'rotate-180 bg-warm-sand' : ''}`}>
-                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          </span>
-                        </button>
-                        
-                        {/* Accordion Content */}
-                        <div 
-                          className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                            isOpen ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0'
-                          }`}
-                        >
-                          <p className="text-tertiary-accent text-sm leading-relaxed pr-8">
-                            {sub.desc}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <div className="space-y-12">
+                    {service.subServices.map((sub, sIdx) => (
+                      <motion.div 
+                        key={sIdx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.5, delay: 0.1 * sIdx }}
+                        className="relative pl-8 border-l-2 border-primary-contrast/10 hover:border-highlight transition-colors duration-300"
+                      >
+                        <h4 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">
+                          {sub.name}
+                        </h4>
+                        <p className="text-tertiary-accent text-lg leading-relaxed">
+                          {sub.desc}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
+
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+            </section>
+          );
+        })}
+      </div>
 
       {/* Materials & Finishes */}
       <section className="py-32 px-6 bg-[#EBE7DF]">
