@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 0; // Revalidate every 60 seconds
 
 export default async function TeamPage() {
   const TEAM_MEMBERS = await client.fetch(getTeamMembersQuery);

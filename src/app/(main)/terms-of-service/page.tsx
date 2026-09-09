@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export const revalidate = 60
+export const revalidate = 0
 
 export default async function TermsOfServicePage() {
   const pageData = await client.fetch(getLegalPageQuery, { slug: 'terms-of-service' })
