@@ -149,6 +149,120 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         </div>
       </section>
 
+      {/* Materials & Finishes */}
+      <section className="py-32 px-6 bg-[#EBE7DF]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+          <div className="w-full lg:w-1/2">
+            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
+              Beautiful Materials. <br/>Thoughtfully Selected.
+            </h2>
+            <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
+              The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.
+            </p>
+            <div className="space-y-6">
+              <div>
+                <h4 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Countertops</h4>
+                <p className="text-tertiary-accent">Natural stone, engineered surfaces, and other carefully selected materials chosen for both beauty and everyday performance.</p>
+              </div>
+              <div>
+                <h4 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Flooring</h4>
+                <p className="text-tertiary-accent">Hardwood, tile, and other flooring options selected to complement your home’s architecture and create a cohesive flow from room to room.</p>
+              </div>
+              <div className="pt-4 border-t border-primary-contrast/10">
+                <p className="text-highlight font-bold italic">
+                  Cabinetry • Tile • Hardware • Lighting • Plumbing Fixtures • Paint • Wall Finishes
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
+            <Image
+              src="/decorating_images/IMG_5429.jpg"
+              alt="Materials and Finishes"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Craftsmanship */}
+      <section className="py-32 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16">
+          <div className="w-full lg:w-1/2">
+            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
+              Made For Your Home. <br/>Made To Last.
+            </h2>
+            <p className="text-tertiary-accent text-lg leading-relaxed mb-6">
+              Some spaces call for something you simply can’t find in a showroom. Our custom woodworking brings artistry and craftsmanship into your home through pieces designed specifically for your space.
+            </p>
+            <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
+              From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.
+            </p>
+            <p className="text-highlight font-bold uppercase tracking-widest">
+              Designed specifically for you. Crafted by hand. Built to last.
+            </p>
+          </div>
+          <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
+            <Image
+              src="/craftsmanship_detail_1787795426058.jpg"
+              alt="Custom Craftsmanship"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Visualize Before We Build */}
+      <section className="py-32 px-6 bg-primary-contrast text-center relative">
+        <div className="max-w-4xl mx-auto relative z-10">
+          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-white mb-6 uppercase">
+            See Your Space Before It Becomes Reality.
+          </h2>
+          <p className="text-white/80 text-lg leading-relaxed mb-6">
+            Big decisions are easier when you can see the vision. Our 3D renderings allow you to experience your space before construction begins. Visualize layouts, cabinetry, materials, finishes, colors, and architectural details before making the final decision.
+          </p>
+          <p className="text-white/80 text-lg leading-relaxed mb-10">
+            Renderings help bridge the gap between an idea and the finished space, giving you confidence in the direction before construction begins.
+          </p>
+          <p className="text-warm-sand font-bold text-2xl uppercase tracking-widest">
+            See It. Refine It. Build It.
+          </p>
+        </div>
+      </section>
+
+      {/* The Aesthetic Difference */}
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+            From Concept to Curated.
+          </h2>
+          <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
+            <p>Most remodeling companies focus on construction.</p>
+            <p>Most interior designers focus on design.</p>
+            <p className="font-bold text-primary-contrast">We bring the two together, and carry the vision all the way through the finishing touches.</p>
+            <p>
+              At Aesthetic Design & Construction, you don’t have to assemble a team of designers, contractors, installers, and decorators to create one cohesive home. We can help with it all.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
+            <span>Design.</span>
+            <span>Materials.</span>
+            <span>Construction.</span>
+            <span>Custom Craftsmanship.</span>
+            <span>Installation.</span>
+            <span>Furnishings.</span>
+            <span>Styling.</span>
+          </div>
+
+          <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+            One Team. One Vision. One Beautifully Finished Home.
+          </h3>
+        </div>
+      </section>
+
       {/* Modern CTA SECTION */}
       <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden">
         {/* Subtle background element */}
