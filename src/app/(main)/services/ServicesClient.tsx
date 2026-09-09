@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -12,103 +12,142 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   const heroSubtitle = pageData?.heroSubtitle || "From early design to final construction, we offer a full range of building and remodeling services tailored to your project.";
   const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
 
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      const hash = window.location.hash.substring(1);
-      
-      // Poll for the element in case framer-motion or images delay rendering
-      let attempts = 0;
-      const scrollInterval = setInterval(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          clearInterval(scrollInterval);
-        }
-        attempts++;
-        if (attempts > 20) clearInterval(scrollInterval); // Give up after 2s
-      }, 100);
-
-      return () => clearInterval(scrollInterval);
+  const servicesLayout = [
+    {
+      id: "decorate",
+      title: "Decorate",
+      subtitle: "The details that make a house feel like home.",
+      description: "Our decorating services bring warmth, personality, and cohesion to your home through thoughtfully selected furnishings, textiles, artwork, window treatments, accessories, and styling.",
+      subServices: [
+        { name: "Furnishings & Furniture", desc: "Thoughtfully selected pieces that complement your space and lifestyle." },
+        { name: "Window Treatments", desc: "Custom and ready-made options selected to enhance the room’s design." },
+        { name: "Artwork & Accessories", desc: "The layers that bring personality, character, and visual interest to a space." },
+        { name: "Textiles & Styling", desc: "Rugs, pillows, fabrics, and finishing details that create warmth and cohesion." },
+        { name: "Final Styling", desc: "The finishing touch, bringing every element together for a beautifully completed space." }
+      ]
+    },
+    {
+      id: "design",
+      title: "Design",
+      subtitle: "A beautiful space begins with a thoughtful plan.",
+      description: "Great design isn’t simply about choosing beautiful finishes. It’s about understanding how a space needs to function and creating a vision where every element works together.",
+      subServices: [
+        { name: "Space Planning", desc: "Thoughtful layouts designed around the way you live." },
+        { name: "Interior Design", desc: "A complete design direction that brings your space together." },
+        { name: "Materials & Finishes", desc: "Cabinetry, countertops, tile, flooring, hardware, lighting, plumbing fixtures, paint, and more." },
+        { name: "Custom Design", desc: "Unique built-ins, architectural details, and elements designed specifically for your home." },
+        { name: "3D Renderings", desc: "See your vision before construction begins." }
+      ]
+    },
+    {
+      id: "transform",
+      title: "Transform",
+      subtitle: "Reimagine your home from the inside out.",
+      description: "Our Transform service brings the complete Aesthetic experience together: from initial concept and design through construction, installation, custom craftsmanship, and final styling.",
+      subServices: [
+        { name: "Kitchens", desc: "Designed for the way you live. We create kitchens that are beautiful enough to inspire and functional enough for everyday life." },
+        { name: "Bathrooms", desc: "Your everyday retreat. Transform your bathroom into a space that feels beautiful, functional, and uniquely yours." },
+        { name: "Whole-Home Transformations", desc: "One home. One cohesive vision. When you’re ready to reimagine your home as a whole, we bring every element together under one vision." }
+      ]
     }
-  }, []);
+  ];
+
+  // Map Sanity images to our hardcoded structure
+  const getServiceImage = (title: string) => {
+    const found = servicesData?.find(s => s.serviceName.toLowerCase() === title.toLowerCase());
+    return found?.image || "/placeholder.svg";
+  };
+
+  // State to track which accordion is open (store string like 'design-0' for card and index)
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+
+  const toggleAccordion = (id: string) => {
+    if (openAccordion === id) {
+      setOpenAccordion(null);
+    } else {
+      setOpenAccordion(id);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-primary-base">
       <PageBanner title={heroHeadline} subtitle={heroSubtitle} badge="Services" />
 
-      {servicesData && servicesData.length > 0 && (
-        <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto space-y-32 md:space-y-48">
-          {servicesData.map((service, idx) => {
-            const isEven = idx % 2 === 0;
+      <section className="py-32 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+          {servicesLayout.map((service) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col h-full bg-white rounded-[3rem] shadow-xl overflow-hidden border border-primary-contrast/5 group hover:shadow-2xl transition-shadow duration-300"
+            >
+              {/* Header Image */}
+              <div className="relative h-72 w-full overflow-hidden shrink-0">
+                <Image
+                  src={getServiceImage(service.title)}
+                  alt={service.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-contrast/60 via-transparent to-transparent pointer-events-none" />
+                <h2 className="absolute bottom-6 left-8 font-outfit text-4xl font-bold text-white uppercase tracking-wider">
+                  {service.title}
+                </h2>
+              </div>
 
-            return (
-              <motion.div
-                id={service.slug}
-                key={service.slug}
-                initial={{ opacity: 0, y: 60 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center relative group scroll-mt-32`}
-              >
-                {/* Image Section */}
-                <div className="w-full lg:w-[65%] h-[50vh] lg:h-[70vh] relative rounded-t-[2.5rem] rounded-b-xl lg:rounded-[3rem] overflow-hidden shadow-2xl z-0">
-                  {service.image ? (
-                    <Image
-                      src={`${service.image}?auto=format&fit=crop&w=1600`}
-                      alt={service.serviceName}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-primary-contrast/10" />
-                  )}
-                  {/* Subtle overlay gradient to ensure text stands out if it bleeds */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:hidden pointer-events-none" />
+              {/* Main Content */}
+              <div className="p-8 lg:p-10 flex flex-col flex-grow">
+                <p className="font-bold text-highlight text-lg mb-4">
+                  {service.subtitle}
+                </p>
+                <p className="text-tertiary-accent leading-relaxed mb-10 text-[1.05rem]">
+                  {service.description}
+                </p>
+
+                {/* Sub-services Accordion */}
+                <div className="mt-auto border-t border-primary-contrast/10 pt-6 space-y-4">
+                  {service.subServices.map((sub, idx) => {
+                    const accordionId = `${service.id}-${idx}`;
+                    const isOpen = openAccordion === accordionId;
+
+                    return (
+                      <div key={idx} className="border-b border-primary-contrast/5 pb-4 last:border-0 last:pb-0">
+                        <button
+                          onClick={() => toggleAccordion(accordionId)}
+                          className="w-full flex items-center justify-between text-left group/btn"
+                        >
+                          <span className="font-bold text-primary-contrast text-lg group-hover/btn:text-highlight transition-colors">
+                            {sub.name}
+                          </span>
+                          <span className={`w-8 h-8 rounded-full flex items-center justify-center bg-[#EBE7DF] text-primary-contrast transition-transform duration-300 ${isOpen ? 'rotate-180 bg-warm-sand' : ''}`}>
+                            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </span>
+                        </button>
+                        
+                        {/* Accordion Content */}
+                        <div 
+                          className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                            isOpen ? 'max-h-40 opacity-100 mt-3' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          <p className="text-tertiary-accent text-sm leading-relaxed pr-8">
+                            {sub.desc}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-
-                {/* Text Card Section (Overlapping) */}
-                <div 
-                  className={`w-[95%] lg:w-[45%] bg-primary-base p-8 md:p-12 lg:p-16 rounded-[2rem] shadow-2xl border border-primary-contrast/5 z-10 -mt-16 lg:mt-0 ${
-                    isEven ? 'lg:-ml-24' : 'lg:-mr-24'
-                  }`}
-                >
-                  <span className="text-secondary-accent font-bold tracking-widest uppercase text-sm mb-4 block">
-                    {String(idx + 1).padStart(2, '0')}: Specialization
-                  </span>
-                  <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight">
-                    {service.serviceName}
-                  </h2>
-                  <p className="text-lg text-tertiary-accent leading-relaxed mb-8">
-                    {service.description || "Discover the unparalleled quality of our premium construction and design services."}
-                  </p>
-                  
-                  {service.capabilities && service.capabilities.length > 0 && (
-                    <div className="mb-10">
-                      <h4 className="text-primary-contrast font-bold mb-4">Core Capabilities:</h4>
-                      <ul className="space-y-4">
-                        {service.capabilities.map((item: string, i: number) => (
-                          <li key={i} className="flex items-start gap-4 text-tertiary-accent">
-                            <CheckCircle2 className="text-highlight mt-1 flex-shrink-0" size={20} /> 
-                            <span className="leading-snug">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  <Link 
-                    href="/contact"
-                    className="inline-flex items-center gap-2 font-bold text-primary-contrast hover:text-highlight transition-colors group/link"
-                  >
-                    Start Your Project <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </motion.div>
-            );
-          })}
-        </section>
-      )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* Modern CTA SECTION */}
       <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden">
