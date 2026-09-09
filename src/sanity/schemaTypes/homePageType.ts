@@ -43,6 +43,21 @@ export const homePageType = defineType({
       type: 'text',
     }),
     defineField({
+      name: 'highlightsList',
+      title: 'Highlights List',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'title', title: 'Title', type: 'string' },
+            { name: 'desc', title: 'Description', type: 'text' },
+            { name: 'iconName', title: 'Icon Name (e.g. Ruler, Hammer)', type: 'string' }
+          ]
+        }
+      ]
+    }),
+    defineField({
       name: 'highlightsImage',
       title: 'Highlights Image',
       type: 'image',

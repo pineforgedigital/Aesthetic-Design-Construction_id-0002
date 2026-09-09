@@ -22,6 +22,11 @@ export const serviceType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+    }),
+    defineField({
       name: 'image',
       title: 'Main Image',
       type: 'image',
@@ -35,8 +40,22 @@ export const serviceType = defineType({
       type: 'text',
     }),
     defineField({
+      name: 'subServices',
+      title: 'Sub-Services',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            { name: 'name', title: 'Name', type: 'string' },
+            { name: 'desc', title: 'Description', type: 'text' },
+          ],
+        }
+      ]
+    }),
+    defineField({
       name: 'capabilities',
-      title: 'Capabilities',
+      title: 'Capabilities (Legacy)',
       type: 'array',
       of: [{type: 'string'}],
     }),

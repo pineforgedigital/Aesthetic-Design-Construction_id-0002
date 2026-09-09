@@ -23,6 +23,7 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   "heroImage": heroImage.asset->url,
   highlightsHeadline,
   highlightsText,
+  highlightsList,
   "highlightsImage": highlightsImage.asset->url,
   "featuredServices": featuredServices[]->{
     _id,
@@ -43,11 +44,12 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   storyHeadline,
   "storyImage": storyImage.asset->url,
-  storyText,
+  storyParagraphs,
   missionStatement,
-  coreValues,
   processSubtitle,
+  processSteps,
   coreValuesSubtitle,
+  coreValuesList,
   ctaHeadline,
   seo {
     metaTitle,
@@ -83,6 +85,20 @@ export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
   heroHeadline,
   heroSubtitle,
   ctaHeadline,
+  materialsHeadline,
+  materialsText,
+  "materialsImage": materialsImage.asset->url,
+  craftsmanshipHeadline,
+  craftsmanshipText,
+  craftsmanshipText2,
+  "craftsmanshipImage": craftsmanshipImage.asset->url,
+  visualizeHeadline,
+  visualizeText,
+  visualizeText2,
+  differenceHeadline,
+  differenceText,
+  differenceHighlights,
+  differenceFooter,
   seo {
     metaTitle,
     metaDescription,
@@ -94,8 +110,10 @@ export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt as
   _id,
   serviceName,
   "slug": slug.current,
+  subtitle,
   "image": image.asset->url,
   description,
+  subServices,
   capabilities
 }`;
 

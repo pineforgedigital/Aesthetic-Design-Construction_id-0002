@@ -18,10 +18,26 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
   const ctaHeadline = homeData?.ctaHeadline || "Ready to Update Your Home?";
   const ctaSubtitle = homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
 
+  const highlightsList = homeData?.highlightsList || [
+    { iconName: "Ruler", title: "Solid Engineering", desc: "Reliable construction backed by structural expertise." },
+    { iconName: "Hammer", title: "Custom Carpentry", desc: "Quality woodwork and cabinetry built to fit your home." },
+    { iconName: "PaintBucket", title: "Full-Service Design", desc: "An organized process from the first blueprints to the final walkthrough." }
+  ];
+
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 800], [0, 250]);
+
+  // Helper function to dynamically resolve Lucide icons
+  const getIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Ruler': return Ruler;
+      case 'Hammer': return Hammer;
+      case 'PaintBucket': return PaintBucket;
+      default: return CheckCircle2;
+    }
+  };
 
   return (
     <main className="min-h-screen bg-primary-base">
@@ -114,33 +130,20 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
               {highlightsText}
             </p>
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
-                  <Ruler size={24} />
-                </div>
-                <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">Solid Engineering</h3>
-                  <p className="text-primary-base/70">Reliable construction backed by structural expertise.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
-                  <Hammer size={24} />
-                </div>
-                <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">Custom Carpentry</h3>
-                  <p className="text-primary-base/70">Quality woodwork and cabinetry built to fit your home.</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
-                  <PaintBucket size={24} />
-                </div>
-                <div>
-                  <h3 className="font-outfit text-xl font-medium mb-1">Full-Service Design</h3>
-                  <p className="text-primary-base/70">An organized process from the first blueprints to the final walkthrough.</p>
-                </div>
-              </div>
+              {highlightsList.map((highlight: any, i: number) => {
+                const Icon = getIcon(highlight.iconName);
+                return (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
+                      <Icon size={24} />
+                    </div>
+                    <div>
+                      <h3 className="font-outfit text-xl font-medium mb-1">{highlight.title}</h3>
+                      <p className="text-primary-base/70">{highlight.desc}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
           <div className="relative">

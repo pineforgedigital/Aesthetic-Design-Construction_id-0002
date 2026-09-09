@@ -12,45 +12,38 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   const heroSubtitle = pageData?.heroSubtitle || "From early design to final construction, we offer a full range of building and remodeling services tailored to your project.";
   const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
 
-  const servicesLayout = [
-    {
-      id: "decorate",
-      title: "Decorate",
-      subtitle: "The details that make a house feel like home.",
-      description: "Our decorating services bring warmth, personality, and cohesion to your home through thoughtfully selected furnishings, textiles, artwork, window treatments, accessories, and styling.",
-      subServices: [
-        { name: "Furnishings & Furniture", desc: "We curate thoughtfully selected pieces that harmonize perfectly with your space and lifestyle. From statement sofas to the perfect accent chair, every piece is chosen for its quality, scale, and ability to elevate the room's aesthetic." },
-        { name: "Window Treatments", desc: "Custom window treatments are the tailored suit of a room. We design and install bespoke drapery, shades, and blinds that not only control light and privacy but also add a crucial layer of softness, texture, and architectural height to your space." },
-        { name: "Artwork & Accessories", desc: "A house feels like a home when it reflects the people living in it. We source unique artwork, sculptural elements, and meaningful accessories that bring undeniable character, visual intrigue, and a collected-over-time feel to your interiors." },
-        { name: "Textiles & Styling", desc: "It's the layers that create warmth. We expertly select vintage rugs, luxurious throw pillows, rich fabrics, and tactile finishing details that tie the room together, creating a cohesive and inviting atmosphere." },
-        { name: "Final Styling", desc: "The finishing touch is where the magic happens. We meticulously style your shelves, surfaces, and seating areas, bringing every element into perfect balance for a beautifully completed, magazine-ready space." }
-      ]
-    },
-    {
-      id: "design",
-      title: "Design",
-      subtitle: "A beautiful space begins with a thoughtful plan.",
-      description: "Great design isn’t simply about choosing beautiful finishes. It’s about understanding how a space needs to function and creating a vision where every element works together.",
-      subServices: [
-        { name: "Space Planning", desc: "A beautiful room must first be a functional one. We create thoughtful, intelligent layouts designed meticulously around the way you live, ensuring optimal flow, comfortable clearances, and purposeful zones within your home." },
-        { name: "Interior Design", desc: "We establish a complete, bespoke design direction that brings your entire space together. From conceptual mood boards to the final execution, we ensure every detail speaks the same cohesive, elevated visual language." },
-        { name: "Materials & Finishes", desc: "The tactile foundation of your home. We specify exquisite cabinetry, resilient countertops, artisan tile, premium flooring, distinctive hardware, and brilliant lighting fixtures that combine for an unparalleled sensory experience." },
-        { name: "Custom Design", desc: "True luxury lies in the bespoke. We design unique built-ins, striking architectural details, and custom elements specifically tailored for your home, adding both immense value and undeniable character." },
-        { name: "3D Renderings", desc: "Experience your new space before construction even begins. We produce photorealistic 3D renderings that allow you to visualize the proposed layouts, finishes, and custom details, giving you total confidence in the design direction." }
-      ]
-    },
-    {
-      id: "transform",
-      title: "Transform",
-      subtitle: "Reimagine your home from the inside out.",
-      description: "Our Transform service brings the complete Aesthetic experience together: from initial concept and design through construction, installation, custom craftsmanship, and final styling.",
-      subServices: [
-        { name: "Kitchens", desc: "The heart of the home, designed for the way you actually live. We create kitchens that are beautiful enough to inspire culinary creativity and functional enough to handle everyday life. From custom cabinetry to the perfect island layout, we consider every element as part of one breathtaking, cohesive design." },
-        { name: "Bathrooms", desc: "Your everyday personal retreat. We transform your bathroom into a space that feels beautiful, functional, and uniquely yours. By thoughtfully coordinating layouts, luxurious tile, elegant fixtures, and ambient lighting, we create spa-like sanctuaries built to last." },
-        { name: "Whole-Home Transformations", desc: "One home, one cohesive vision. When you’re ready to reimagine your property as a whole, we bring every element together under a single, unified aesthetic. We manage the immense details of reconfiguring spaces and updating finishes, resulting in a home completely reimagined." }
-      ]
-    }
+  const materialsHeadline = pageData?.materialsHeadline || "Beautiful Materials. \nThoughtfully Selected.";
+  const materialsText = pageData?.materialsText || "The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.";
+  const materialsImage = pageData?.materialsImage || "/decorating_images/IMG_5429.jpg";
+
+  const craftsmanshipHeadline = pageData?.craftsmanshipHeadline || "Made For Your Home. \nMade To Last.";
+  const craftsmanshipText = pageData?.craftsmanshipText || "Some spaces call for something you simply can’t find in a showroom. Our custom woodworking brings artistry and craftsmanship into your home through pieces designed specifically for your space.";
+  const craftsmanshipText2 = pageData?.craftsmanshipText2 || "From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.";
+  const craftsmanshipImage = pageData?.craftsmanshipImage || "/craftsmanship_detail_1787795426058.jpg";
+
+  const visualizeHeadline = pageData?.visualizeHeadline || "See Your Space Before It Becomes Reality.";
+  const visualizeText = pageData?.visualizeText || "Big decisions are easier when you can see the vision. Our 3D renderings allow you to experience your space before construction begins. Visualize layouts, cabinetry, materials, finishes, colors, and architectural details before making the final decision.";
+  const visualizeText2 = pageData?.visualizeText2 || "Renderings help bridge the gap between an idea and the finished space, giving you confidence in the direction before construction begins.";
+
+  const differenceHeadline = pageData?.differenceHeadline || "From Concept to Curated.";
+  const differenceText = pageData?.differenceText || [
+    "Most remodeling companies focus on construction.",
+    "Most interior designers focus on design.",
+    "We bring the two together, and carry the vision all the way through the finishing touches.",
+    "At Aesthetic Design & Construction, you don’t have to assemble a team of designers, contractors, installers, and decorators to create one cohesive home. We can help with it all."
   ];
+  const differenceHighlights = pageData?.differenceHighlights || [
+    "Design.", "Materials.", "Construction.", "Custom Craftsmanship.", "Installation.", "Furnishings.", "Styling."
+  ];
+  const differenceFooter = pageData?.differenceFooter || "One Team. One Vision. One Beautifully Finished Home.";
+
+  const servicesLayout = servicesData?.map((service) => ({
+    id: service.slug,
+    title: service.serviceName,
+    subtitle: service.subtitle || "",
+    description: service.description || "",
+    subServices: service.subServices || []
+  })) || [];
 
   // Map Sanity images to our hardcoded structure
   const getServiceImage = (title: string) => {
@@ -110,7 +103,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                   </motion.div>
 
                   <div className="space-y-12">
-                    {service.subServices.map((sub, sIdx) => (
+                    {service.subServices.map((sub: any, sIdx: number) => (
                       <motion.div 
                         key={sIdx}
                         initial={{ opacity: 0, y: 20 }}
@@ -141,10 +134,10 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
           <div className="w-full lg:w-1/2">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
-              Beautiful Materials. <br/>Thoughtfully Selected.
+              {materialsHeadline.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)}
             </h2>
             <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
-              The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.
+              {materialsText}
             </p>
             <div className="space-y-6">
               <div>
@@ -164,7 +157,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
           </div>
           <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
             <Image
-              src="/decorating_images/IMG_5429.jpg"
+              src={materialsImage}
               alt="Materials and Finishes"
               fill
               className="object-cover"
@@ -178,13 +171,13 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16">
           <div className="w-full lg:w-1/2">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
-              Made For Your Home. <br/>Made To Last.
+              {craftsmanshipHeadline.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)}
             </h2>
             <p className="text-tertiary-accent text-lg leading-relaxed mb-6">
-              Some spaces call for something you simply can’t find in a showroom. Our custom woodworking brings artistry and craftsmanship into your home through pieces designed specifically for your space.
+              {craftsmanshipText}
             </p>
             <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
-              From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.
+              {craftsmanshipText2}
             </p>
             <p className="text-highlight font-bold uppercase tracking-widest">
               Designed specifically for you. Crafted by hand. Built to last.
@@ -192,7 +185,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
           </div>
           <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
             <Image
-              src="/craftsmanship_detail_1787795426058.jpg"
+              src={craftsmanshipImage}
               alt="Custom Craftsmanship"
               fill
               className="object-cover"
@@ -205,13 +198,13 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       <section className="py-32 px-6 bg-primary-contrast text-center relative">
         <div className="max-w-4xl mx-auto relative z-10">
           <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-white mb-6 uppercase">
-            See Your Space Before It Becomes Reality.
+            {visualizeHeadline}
           </h2>
           <p className="text-white/80 text-lg leading-relaxed mb-6">
-            Big decisions are easier when you can see the vision. Our 3D renderings allow you to experience your space before construction begins. Visualize layouts, cabinetry, materials, finishes, colors, and architectural details before making the final decision.
+            {visualizeText}
           </p>
           <p className="text-white/80 text-lg leading-relaxed mb-10">
-            Renderings help bridge the gap between an idea and the finished space, giving you confidence in the direction before construction begins.
+            {visualizeText2}
           </p>
           <p className="text-warm-sand font-bold text-2xl uppercase tracking-widest">
             See It. Refine It. Build It.
@@ -223,29 +216,24 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       <section className="py-32 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
-            From Concept to Curated.
+            {differenceHeadline}
           </h2>
           <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
-            <p>Most remodeling companies focus on construction.</p>
-            <p>Most interior designers focus on design.</p>
-            <p className="font-bold text-primary-contrast">We bring the two together, and carry the vision all the way through the finishing touches.</p>
-            <p>
-              At Aesthetic Design & Construction, you don’t have to assemble a team of designers, contractors, installers, and decorators to create one cohesive home. We can help with it all.
-            </p>
+            {differenceText.map((paragraph: string, i: number) => (
+              <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
+                {paragraph}
+              </p>
+            ))}
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
-            <span>Design.</span>
-            <span>Materials.</span>
-            <span>Construction.</span>
-            <span>Custom Craftsmanship.</span>
-            <span>Installation.</span>
-            <span>Furnishings.</span>
-            <span>Styling.</span>
+            {differenceHighlights.map((highlight: string, i: number) => (
+              <span key={i}>{highlight}</span>
+            ))}
           </div>
 
           <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
-            One Team. One Vision. One Beautifully Finished Home.
+            {differenceFooter}
           </h3>
         </div>
       </section>
