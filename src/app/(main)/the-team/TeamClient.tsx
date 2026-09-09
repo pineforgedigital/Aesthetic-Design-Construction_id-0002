@@ -68,11 +68,16 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
                         {mainBio}
                       </div>
 
-                      {/* Highlighted Gift Section */}
+                      {/* Highlighted Gift Section - Subtle Styling */}
                       {giftText && (
-                        <div className="mt-4 p-8 bg-highlight/5 border-l-4 border-highlight rounded-r-2xl shadow-sm">
-                          <p className="text-highlight font-outfit text-xl lg:text-2xl font-bold leading-relaxed">
-                            {giftText}
+                        <div className="mt-2 pt-6 border-t border-primary-contrast/10">
+                          <p className="text-tertiary-accent text-lg leading-relaxed">
+                            <span className="font-bold text-highlight tracking-wide">
+                              {giftText.substring(0, giftText.indexOf(':') + 1)}
+                            </span>
+                            <span className="italic">
+                              {giftText.substring(giftText.indexOf(':') + 1)}
+                            </span>
                           </p>
                         </div>
                       )}
