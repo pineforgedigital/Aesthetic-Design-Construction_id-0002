@@ -19,30 +19,44 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           {teamMembers.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-col gap-24 lg:gap-40">
               {teamMembers.map((member, index) => (
                 <motion.div
                   key={member._id}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative z-10 bg-white rounded-2xl overflow-hidden shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 text-center group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary-contrast/10 transition-all duration-300"
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7 }}
+                  className={`flex flex-col ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                  } gap-12 lg:gap-20 items-center`}
                 >
-                  <div className="relative h-72 w-full overflow-hidden bg-gray-100">
+                  {/* Image Column */}
+                  <div className="w-full lg:w-[45%] relative h-[60vh] lg:h-[80vh] rounded-[3rem] overflow-hidden shadow-2xl group">
                     <Image
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name} - ${member.role}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                      className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out grayscale hover:grayscale-0"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-contrast/40 via-transparent to-transparent pointer-events-none" />
                   </div>
-                  <div className="p-8 relative">
-                    <h2 className="font-outfit text-2xl font-bold text-primary-contrast mb-1">{member.name}</h2>
-                    <p className="text-secondary-accent font-bold mb-4 uppercase tracking-[0.15em] text-xs">{member.role}</p>
-                    <p className="text-tertiary-accent text-sm leading-relaxed">
+
+                  {/* Text Column */}
+                  <div className="w-full lg:w-[55%] flex flex-col gap-6 relative z-10">
+                    <div>
+                      <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-3">
+                        {member.name}
+                      </h2>
+                      <p className="text-highlight font-bold uppercase tracking-[0.2em] text-sm lg:text-base">
+                        {member.role}
+                      </p>
+                    </div>
+                    
+                    {/* The whitespace-pre-wrap ensures Sanity paragraphs render cleanly with line breaks */}
+                    <div className="text-lg text-tertiary-accent leading-relaxed whitespace-pre-wrap">
                       {member.bio}
-                    </p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
