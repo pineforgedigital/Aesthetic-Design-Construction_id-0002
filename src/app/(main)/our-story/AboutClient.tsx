@@ -19,7 +19,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
   
   const defaultProcessSteps = [
     { iconName: "Compass", title: "Consultation", desc: "We start by discussing your goals, timeline, and budget to build a solid plan for your project." },
-    { iconName: "PenTool", title: "Design & Rendering", desc: "We provide detailed plans and 3D mockups so you can see your space before construction begins." },
+    { iconName: "PenTool", title: "Design", desc: "We provide detailed design plans so you can envision your space before construction begins." },
     { iconName: "Hammer", title: "Construction", desc: "Our builders manage the entire construction process, focusing on quality materials and structural integrity." },
     { iconName: "CheckSquare", title: "Final Walkthrough", desc: "We review every detail with you to ensure the final result meets your expectations." }
   ];

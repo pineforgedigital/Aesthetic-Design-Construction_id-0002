@@ -42,7 +42,6 @@ export const projectType = defineType({
       type: 'string',
       options: {
         list: [
-          {title: '3D Rendering', value: '3D Rendering'},
           {title: 'Flooring', value: 'Flooring'},
           {title: 'Kitchen Remodeling', value: 'Kitchen Remodeling'},
           {title: 'Luxury Bathrooms', value: 'Luxury Bathrooms'},

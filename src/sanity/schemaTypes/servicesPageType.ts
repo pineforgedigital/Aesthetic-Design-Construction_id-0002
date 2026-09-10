@@ -76,24 +76,6 @@ export const servicesPageType = defineType({
       group: 'content',
     }),
     defineField({
-      name: 'visualizeHeadline',
-      title: 'Visualize Headline',
-      type: 'string',
-      group: 'content',
-    }),
-    defineField({
-      name: 'visualizeText',
-      title: 'Visualize Text',
-      type: 'text',
-      group: 'content',
-    }),
-    defineField({
-      name: 'visualizeText2',
-      title: 'Visualize Second Paragraph',
-      type: 'text',
-      group: 'content',
-    }),
-    defineField({
       name: 'differenceHeadline',
       title: 'Difference Headline',
       type: 'string',

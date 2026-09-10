@@ -21,9 +21,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   const craftsmanshipText2 = pageData?.craftsmanshipText2 || "From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.";
   const craftsmanshipImage = pageData?.craftsmanshipImage || "/craftsmanship_detail_1787795426058.jpg";
 
-  const visualizeHeadline = pageData?.visualizeHeadline || "See Your Space Before It Becomes Reality.";
-  const visualizeText = pageData?.visualizeText || "Big decisions are easier when you can see the vision. Our 3D renderings allow you to experience your space before construction begins. Visualize layouts, cabinetry, materials, finishes, colors, and architectural details before making the final decision.";
-  const visualizeText2 = pageData?.visualizeText2 || "Renderings help bridge the gap between an idea and the finished space, giving you confidence in the direction before construction begins.";
+
 
   const differenceHeadline = pageData?.differenceHeadline || "From Concept to Curated.";
   const differenceText = pageData?.differenceText || [
@@ -199,23 +197,6 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         </div>
       </section>
 
-      {/* Visualize Before We Build */}
-      <section className="py-32 px-6 bg-primary-contrast text-center relative">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-white mb-6 uppercase">
-            {visualizeHeadline}
-          </h2>
-          <p className="text-white/80 text-lg leading-relaxed mb-6">
-            {visualizeText}
-          </p>
-          <p className="text-white/80 text-lg leading-relaxed mb-10">
-            {visualizeText2}
-          </p>
-          <p className="text-warm-sand font-bold text-2xl uppercase tracking-widest">
-            See It. Refine It. Build It.
-          </p>
-        </div>
-      </section>
 
       {/* The Aesthetic Difference */}
       <section className="py-32 px-6">
