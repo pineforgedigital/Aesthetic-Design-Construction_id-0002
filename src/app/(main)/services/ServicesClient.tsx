@@ -19,7 +19,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   const craftsmanshipHeadline = pageData?.craftsmanshipHeadline || "Made For Your Home. \nMade To Last.";
   const craftsmanshipText = pageData?.craftsmanshipText || "Some spaces call for something you simply can’t find in a showroom. Our custom woodworking brings artistry and craftsmanship into your home through pieces designed specifically for your space.";
   const craftsmanshipText2 = pageData?.craftsmanshipText2 || "From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.";
-  const craftsmanshipImage = pageData?.craftsmanshipImage || "/craftsmanship_detail_1787795426058.jpg";
+  const craftsmanshipImage = pageData?.craftsmanshipImage || "/placeholder.svg";
 
 
 
