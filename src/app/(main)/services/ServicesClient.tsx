@@ -91,9 +91,6 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    <span className="text-secondary-accent font-bold tracking-widest uppercase text-sm mb-4 block">
-                      {String(idx + 1).padStart(2, '0')} — Core Pillar
-                    </span>
                     <h2 className="font-outfit text-5xl lg:text-7xl font-bold text-primary-contrast mb-6 uppercase tracking-wide">
                       {service.title}
                     </h2>
