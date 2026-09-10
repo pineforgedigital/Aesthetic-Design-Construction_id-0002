@@ -62,8 +62,8 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         {servicesLayout.map((service, idx) => {
           const isEven = idx % 2 === 0;
           return (
-            <section key={service.id} className="py-24 md:py-40 px-6 border-b border-primary-contrast/5 last:border-0">
-              <div className={`max-w-[1600px] mx-auto flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 lg:gap-24 items-start`}>
+            <section key={service.id} className="py-16 md:py-32 px-6 border-b border-primary-contrast/5 last:border-0">
+              <div className={`max-w-[1600px] mx-auto flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-start`}>
                 
                 {/* Image Side */}
                 <motion.div 
@@ -71,9 +71,9 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="w-full lg:w-1/2 sticky top-32"
+                  className="w-full lg:w-1/2 lg:sticky lg:top-32 z-0"
                 >
-                  <div className="relative h-[60vh] lg:h-[85vh] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
+                  <div className="relative h-[40vh] md:h-[50vh] lg:h-[85vh] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
                     <Image
                       src={getServiceImage(service.title)}
                       alt={service.title}
@@ -84,20 +84,20 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                 </motion.div>
 
                 {/* Text Side */}
-                <div className="w-full lg:w-1/2 flex flex-col justify-center pt-8 lg:pt-16">
+                <div className="w-full lg:w-1/2 flex flex-col justify-center pt-4 lg:pt-16 relative z-10">
                   <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                   >
-                    <h2 className="font-outfit text-5xl lg:text-7xl font-bold text-primary-contrast mb-6 uppercase tracking-wide">
+                    <h2 className="font-outfit text-4xl md:text-5xl lg:text-7xl font-bold text-primary-contrast mb-6 uppercase tracking-wide">
                       {service.title}
                     </h2>
                     <p className="font-bold text-highlight text-xl lg:text-2xl mb-6">
                       {service.subtitle}
                     </p>
-                    <p className="text-tertiary-accent text-lg lg:text-xl leading-relaxed mb-16">
+                    <p className="text-tertiary-accent text-lg lg:text-xl leading-relaxed mb-12 lg:mb-16">
                       {service.description}
                     </p>
                   </motion.div>
@@ -110,7 +110,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.5, delay: 0.1 * sIdx }}
-                        className="relative pl-8 border-l-2 border-primary-contrast/10 hover:border-highlight transition-colors duration-300"
+                        className="relative pl-6 lg:pl-8 border-l-2 border-primary-contrast/10 hover:border-highlight transition-colors duration-300 bg-primary-base/80 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none py-2 rounded-r-xl"
                       >
                         <h4 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">
                           {sub.name}
@@ -130,8 +130,8 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       </div>
 
       {/* Materials & Finishes */}
-      <section className="py-32 px-6 bg-[#EBE7DF]">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+      <section className="py-24 lg:py-32 px-6 bg-[#EBE7DF]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="w-full lg:w-1/2">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
               {materialsHeadline.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)}
@@ -155,7 +155,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="w-full lg:w-1/2 relative h-[40vh] md:h-[50vh] lg:h-[60vh] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
             <Image
               src={materialsImage}
               alt="Materials and Finishes"
@@ -167,8 +167,8 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
       </section>
 
       {/* Custom Craftsmanship */}
-      <section className="py-32 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-16">
+      <section className="py-24 lg:py-32 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-16">
           <div className="w-full lg:w-1/2">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
               {craftsmanshipHeadline.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)}
@@ -183,7 +183,7 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
               Designed specifically for you. Crafted by hand. Built to last.
             </p>
           </div>
-          <div className="w-full lg:w-1/2 relative h-[60vh] rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="w-full lg:w-1/2 relative h-[40vh] md:h-[50vh] lg:h-[60vh] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
             <Image
               src={craftsmanshipImage}
               alt="Custom Craftsmanship"
