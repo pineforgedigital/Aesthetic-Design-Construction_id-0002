@@ -109,50 +109,7 @@ export default function AboutClient({ aboutData, settingsData }: { aboutData: an
         </div>
       </section>
 
-      {/* Our Proven Process (2x2 Grid) */}
-      <section className="py-32 px-6 bg-[#EBE7DF]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-24">
-            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6">Our Proven Process</h2>
-            <p className="text-tertiary-accent max-w-2xl mx-auto text-lg whitespace-pre-wrap">
-              {processSubtitle}
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-            {processSteps.map((step: any, i: number) => {
-              const Icon = getIcon(step.iconName);
-              return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="relative bg-white p-10 lg:p-14 rounded-[2rem] shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden border border-transparent hover:border-warm-sand"
-              >
-                {/* Massive Background Number */}
-                <div className="absolute -bottom-4 -right-4 text-[12rem] leading-none font-outfit font-bold text-[#EBE7DF] opacity-40 select-none group-hover:scale-110 transition-transform duration-700 z-0">
-                  0{i + 1}
-                </div>
-                
-                {/* Content */}
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-primary-contrast text-warm-sand rounded-xl flex items-center justify-center mb-8 shadow-md group-hover:-translate-y-1 transition-transform">
-                    <Icon size={28} />
-                  </div>
-                  <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-4">
-                    {step.title}
-                  </h3>
-                  <p className="text-tertiary-accent leading-relaxed text-lg max-w-md">
-                    {step.desc}
-                  </p>
-                </div>
-              </motion.div>
-            )})}
-          </div>
-        </div>
-      </section>
 
       {/* Core Values (Interactive Glow Cards) */}
       <section className="py-32 px-6">
