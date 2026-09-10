@@ -63,7 +63,7 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             className="max-w-3xl flex flex-col items-center md:items-start"
           >
             <StaggeredText 
-              text={headline.replace('. ', '.\n')} 
+              text={headline.replace('. ', '.\n').replace('Beautifully ', 'Beautifully\n')} 
               className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg" 
             />
             <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
