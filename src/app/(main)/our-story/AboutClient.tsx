@@ -190,7 +190,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
       </section>
 
       {/* Modernized CTA SECTION */}
-      <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden">
+      <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden border-b-4 border-warm-sand">
         {/* Subtle background element */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-accent/10 blur-[120px] rounded-full pointer-events-none" />
         
