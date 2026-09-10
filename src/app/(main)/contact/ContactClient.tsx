@@ -10,7 +10,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
   const heroHeadline = pageData?.heroHeadline || "Let's Build Something Beautiful";
   const heroSubtitle = pageData?.heroSubtitle || "Start a conversation with our design and construction team.";
-  const contactInfoSubtitle = pageData?.contactInfoSubtitle || "Whether you are planning a complete home renovation or a bespoke interior design project, our team is ready to bring your vision to life. Reach out to schedule a private consultation.";
+  const contactInfoSubtitle = pageData?.contactInfoSubtitle || "Whether you’re dreaming of a beautifully finished room, a thoughtful redesign, or a complete transformation, we’d love to hear what you’re envisioning.";
 
   const email = settingsData?.contactEmail || "info@aestheticdesign.com";
   const phone = settingsData?.contactPhone || "(555) 123-4567";
