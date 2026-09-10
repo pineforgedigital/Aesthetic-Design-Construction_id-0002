@@ -128,40 +128,81 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       </section>
 
       {/* HIGHLIGHTS / WHY US SECTION */}
-      <section className="bg-primary-contrast text-primary-base py-24 relative overflow-hidden bg-grid-pattern">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">{highlightsHeadline}</h2>
-            <p className="text-primary-base/90 text-lg mb-8 whitespace-pre-wrap">
+      <section className="bg-primary-contrast text-primary-base py-32 relative overflow-hidden">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-secondary-accent/10 via-transparent to-transparent opacity-60"></div>
+        <div className="absolute -bottom-40 -left-40 w-[30rem] h-[30rem] bg-highlight rounded-full blur-[150px] opacity-10"></div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          
+          {/* Text Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-highlight"></span>
+              <span className="text-primary-base/80 text-sm font-semibold tracking-wider uppercase">Our Approach</span>
+            </div>
+            
+            <h2 className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+              {highlightsHeadline}
+            </h2>
+            <p className="text-primary-base/80 text-xl mb-12 leading-relaxed font-light">
               {highlightsText}
             </p>
+            
             <div className="space-y-6">
               {highlightsList.map((highlight: any, i: number) => {
                 const Icon = getIcon(highlight.iconName);
                 return (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="p-3 bg-warm-sand/20 rounded-lg text-warm-sand">
-                      <Icon size={24} />
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.5, delay: i * 0.15 }}
+                    className="flex items-start gap-5 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors duration-300 backdrop-blur-sm group"
+                  >
+                    <div className="p-4 bg-primary-base rounded-xl text-primary-contrast shadow-inner group-hover:scale-110 group-hover:text-highlight transition-all duration-300">
+                      <Icon size={28} />
                     </div>
                     <div>
-                      <h3 className="font-outfit text-xl font-medium mb-1">{highlight.title}</h3>
-                      <p className="text-primary-base/70">{highlight.desc}</p>
+                      <h3 className="font-outfit text-2xl font-semibold mb-2">{highlight.title}</h3>
+                      <p className="text-primary-base/70 leading-relaxed">{highlight.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
-          </div>
-          <div className="relative">
-            <Image
-              src={`${highlightsImage}?auto=format&fit=max&w=800`}
-              alt="Craftsmanship detail"
-              width={600}
-              height={800}
-              className="rounded-2xl object-cover shadow-2xl shadow-fine-detail/50"
-            />
-          </div>
+          </motion.div>
+
+          {/* Image Content */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative lg:h-[800px] flex items-center justify-center"
+          >
+            {/* Decorative offset frame */}
+            <div className="absolute inset-4 border border-white/20 rounded-3xl translate-x-6 translate-y-6 -z-10"></div>
+            <div className="absolute inset-4 bg-secondary-accent/20 rounded-3xl translate-x-3 translate-y-3 -z-10 blur-md"></div>
+            
+            <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-black/50 border border-white/10 group">
+              <Image
+                src={`${highlightsImage}?auto=format&fit=max&w=1000`}
+                alt="Craftsmanship detail"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-1000"
+              />
+              {/* Subtle inner shadow overlay */}
+              <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-3xl"></div>
+            </div>
+          </motion.div>
+          
         </div>
       </section>
 
