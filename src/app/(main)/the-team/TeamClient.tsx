@@ -95,16 +95,19 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
         </div>
       </section>
 
-      {/* Optional CTA */}
-      <section className="py-24 bg-[#EBE7DF] text-center relative overflow-hidden">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-outfit text-3xl md:text-4xl font-bold text-primary-contrast mb-6">Want to work with us?</h2>
-          <p className="text-primary-contrast text-lg mb-8">
+      {/* Modernized CTA SECTION */}
+      <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden border-b-4 border-warm-sand">
+        {/* Subtle background element */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-accent/10 blur-[120px] rounded-full pointer-events-none" />
+        
+        <div className="max-w-3xl mx-auto relative z-10 flex flex-col items-center">
+          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-6">Want to work with us?</h2>
+          <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl">
             A reliable network of skilled tradespeople and designers who value quality work and clear communication.
           </p>
           <Link
             href="/contact"
-            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center shadow-lg shadow-highlight/20"
+            className="inline-flex px-12 py-5 bg-warm-sand text-primary-contrast hover:bg-white transition-colors rounded-full font-bold text-lg items-center shadow-2xl"
           >
             Get in Touch
           </Link>
