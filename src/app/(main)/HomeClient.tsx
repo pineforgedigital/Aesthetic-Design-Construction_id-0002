@@ -60,11 +60,11 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-3xl flex flex-col items-center md:items-start"
+            className="max-w-5xl flex flex-col items-center md:items-start"
           >
             <StaggeredText 
               text={headline.replace('. ', '.\n')} 
-              className="font-outfit text-5xl md:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg" 
+              className="font-outfit text-4xl md:text-5xl lg:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg" 
             />
             <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
               {subtitle}
