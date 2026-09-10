@@ -82,5 +82,25 @@ export const homePageType = defineType({
       of: [{ type: 'reference', to: [{ type: 'service' }] }],
       validation: (rule) => rule.max(3),
     }),
+    defineField({
+      name: 'primaryButtonText',
+      title: 'Primary Button Text (Hero)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'primaryButtonUrl',
+      title: 'Primary Button URL (Hero)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'secondaryButtonText',
+      title: 'Secondary Button Text (Hero)',
+      type: 'string',
+    }),
+    defineField({
+      name: 'secondaryButtonUrl',
+      title: 'Secondary Button URL (Hero)',
+      type: 'string',
+    }),
   ],
 })

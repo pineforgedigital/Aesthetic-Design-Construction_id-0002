@@ -27,5 +27,6 @@ export const revalidate = 0; // Revalidate every 60 seconds
 
 export default async function AboutPage() {
   const aboutData = await client.fetch(getAboutPageQuery)
-  return <AboutClient aboutData={aboutData} />
+  const settingsData = await client.fetch(getSiteSettingsQuery)
+  return <AboutClient aboutData={aboutData} settingsData={settingsData} />
 }

@@ -38,22 +38,34 @@ export default async function Footer() {
 
         <div className="md:col-span-4 flex flex-col gap-4">
           <h3 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h3>
-          <Link href="/" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Home</Link>
-          <Link href="/portfolio" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Portfolio</Link>
-          <Link href="/services" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Services</Link>
-          <Link href="/our-story" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Our Story</Link>
-          <Link href="/the-team" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">The Team</Link>
+          {(settings?.footerQuickLinks || [
+            { label: "Home", url: "/" },
+            { label: "Portfolio", url: "/portfolio" },
+            { label: "Services", url: "/services" },
+            { label: "Our Story", url: "/our-story" },
+            { label: "The Team", url: "/the-team" },
+          ]).map((link: any) => (
+            <Link key={link.url} href={link.url} className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">
+              {link.label}
+            </Link>
+          ))}
           <Link href="/contact" className="text-primary-base/70 hover:text-highlight hover:translate-x-1 transition-all mt-2 font-medium w-fit">Contact Us</Link>
         </div>
 
         <div className="md:col-span-3 flex flex-col gap-4">
           <h3 className="font-outfit text-xl font-bold text-primary-base mb-2">Legal</h3>
-          <Link href="/terms-of-service" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Terms of Service</Link>
-          <Link href="/privacy-policy" className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">Privacy Policy</Link>
+          {(settings?.footerLegalLinks || [
+            { label: "Terms of Service", url: "/terms-of-service" },
+            { label: "Privacy Policy", url: "/privacy-policy" },
+          ]).map((link: any) => (
+            <Link key={link.url} href={link.url} className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-primary-base/10 text-center text-primary-base/70 text-sm font-medium tracking-wide relative z-10">
-        © {new Date().getFullYear()} Aesthetic Design & Construction. All rights reserved.
+        © {new Date().getFullYear()} {settings?.companyName || "Aesthetic Design & Construction"}. All rights reserved.
       </div>
     </footer>
   );

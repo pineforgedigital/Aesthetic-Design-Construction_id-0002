@@ -21,23 +21,23 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   heroHeadline,
   heroSubtitle,
   "heroImage": heroImage.asset->url,
+  seo,
   highlightsHeadline,
   highlightsText,
   highlightsList,
   "highlightsImage": highlightsImage.asset->url,
-  "featuredServices": featuredServices[]->{
+  ctaHeadline,
+  ctaSubtitle,
+  primaryButtonText,
+  primaryButtonUrl,
+  secondaryButtonText,
+  secondaryButtonUrl,
+  featuredServices[]->{
     _id,
     serviceName,
     "slug": slug.current,
     "image": image.asset->url,
     description
-  },
-  ctaHeadline,
-  ctaSubtitle,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
   }
 }`;
 
@@ -51,11 +51,7 @@ export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   coreValuesSubtitle,
   coreValuesList,
   ctaHeadline,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
-  }
+  seo
 }`;
 
 export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
@@ -66,11 +62,15 @@ export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   footerText,
   address,
   businessHours,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
-  }
+  companyName,
+  mainNavLinks,
+  footerQuickLinks,
+  footerLegalLinks,
+  globalCtaHeadline,
+  globalCtaSubtitle,
+  globalCtaButtonText,
+  globalCtaButtonUrl,
+  seo
 }`;
 
 export const getTestimonialsQuery = groq`*[_type == "testimonial"] | order(_createdAt desc) {
@@ -99,11 +99,7 @@ export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
   differenceText,
   differenceHighlights,
   differenceFooter,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
-  }
+  seo
 }`;
 
 export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt asc) {
@@ -121,20 +117,12 @@ export const getContactPageQuery = groq`*[_type == "contactPage"][0] {
   heroHeadline,
   heroSubtitle,
   contactInfoSubtitle,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
-  }
+  seo
 }`;
 
 export const getLegalPageQuery = groq`*[_type == "legalPage" && slug.current == $slug][0] {
   title,
   lastUpdated,
   content,
-  seo {
-    metaTitle,
-    metaDescription,
-    "openGraphImage": openGraphImage.asset->url
-  }
+  seo
 }`;

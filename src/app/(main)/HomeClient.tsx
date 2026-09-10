@@ -6,17 +6,24 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket } from "lucide-react";
 import StaggeredText from "@/components/StaggeredText";
 
-export default function Home({ homeData, testimonialsData }: { homeData: any, testimonialsData: any[] }) {
+export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline || "Quality Construction & Thoughtful Design.";
   const subtitle = homeData?.heroSubtitle || "We bring together skilled building and thoughtful design to create functional, well-made homes tailored to your lifestyle.";
   const image = homeData?.heroImage || "/placeholder.svg";
+
+  const primaryBtnText = homeData?.primaryButtonText || "Start Your Project";
+  const primaryBtnUrl = homeData?.primaryButtonUrl || "/contact";
+  const secondaryBtnText = homeData?.secondaryButtonText || "View Our Work";
+  const secondaryBtnUrl = homeData?.secondaryButtonUrl || "/portfolio";
 
   const highlightsHeadline = homeData?.highlightsHeadline || "Attention to Detail";
   const highlightsText = homeData?.highlightsText || "We treat every project with care and focus. By managing a select number of projects at a time, we make sure your home gets the dedicated attention it deserves, from the first plans to the final walkthrough.";
   const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
-  const ctaHeadline = homeData?.ctaHeadline || "Ready to Update Your Home?";
-  const ctaSubtitle = homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
+  const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to Update Your Home?";
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
+  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
 
   const highlightsList = homeData?.highlightsList || [
     { iconName: "Ruler", title: "Solid Engineering", desc: "Reliable construction backed by structural expertise." },
@@ -71,16 +78,16 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start w-full">
                 <Link
-                  href="/contact"
+                  href={primaryBtnUrl}
                   className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20"
                 >
-                  Start Your Project <ArrowRight size={20} />
+                  {primaryBtnText} <ArrowRight size={20} />
                 </Link>
                 <Link
-                  href="/portfolio"
+                  href={secondaryBtnUrl}
                   className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg flex items-center justify-center"
                 >
-                  View Our Work
+                  {secondaryBtnText}
                 </Link>
             </div>
           </motion.div>
@@ -201,10 +208,10 @@ export default function Home({ homeData, testimonialsData }: { homeData: any, te
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
           <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
             <Link
-              href="/contact"
+              href={ctaBtnUrl}
               className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
             >
-              Contact Us Today
+              {ctaBtnText}
             </Link>
         </div>
       </section>

@@ -5,7 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PageBanner from "@/components/PageBanner";
 
-export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
+export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
+  const ctaHeadline = settingsData?.globalCtaHeadline || "Want to work with us?";
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || "A reliable network of skilled tradespeople and designers who value quality work and clear communication.";
+  const ctaBtnText = settingsData?.globalCtaButtonText || "Get in Touch";
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
+
   return (
     <main className="min-h-screen bg-primary-base">
       {/* Header Section */}
@@ -101,15 +106,15 @@ export default function TeamClient({ teamMembers }: { teamMembers: any[] }) {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-accent/10 blur-[120px] rounded-full pointer-events-none" />
         
         <div className="max-w-3xl mx-auto relative z-10 flex flex-col items-center">
-          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-6">Want to work with us?</h2>
-          <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl">
-            A reliable network of skilled tradespeople and designers who value quality work and clear communication.
+          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-6">{ctaHeadline}</h2>
+          <p className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl whitespace-pre-wrap">
+            {ctaSubtitle}
           </p>
           <Link
-            href="/contact"
+            href={ctaBtnUrl}
             className="inline-flex px-12 py-5 bg-warm-sand text-primary-contrast hover:bg-white transition-colors rounded-full font-bold text-lg items-center shadow-2xl"
           >
-            Get in Touch
+            {ctaBtnText}
           </Link>
         </div>
       </section>

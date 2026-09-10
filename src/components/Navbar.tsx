@@ -7,17 +7,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/services", label: "Services" },
-  { href: "/our-story", label: "Our Story" },
-  { href: "/the-team", label: "The Team" },
-];
-
-export default function Navbar() {
+export default function Navbar({ settings }: { settings?: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const links = settings?.mainNavLinks || [
+    { url: "/", label: "Home" },
+    { url: "/portfolio", label: "Portfolio" },
+    { url: "/services", label: "Services" },
+    { url: "/our-story", label: "Our Story" },
+    { url: "/the-team", label: "The Team" },
+  ];
+
+  const companyName = settings?.companyName || "Aesthetic Design & Construction";
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -42,27 +44,27 @@ export default function Navbar() {
         <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4">
           <Image 
             src="/logo.jpg" 
-            alt="" 
+            alt={companyName} 
             width={120} 
             height={120} 
             className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply flex-shrink-0"
             priority
           />
           <span className="font-outfit text-lg sm:text-xl md:text-2xl font-bold text-primary-contrast tracking-tight leading-tight max-w-[160px] sm:max-w-none">
-            Aesthetic Design & Construction
+            {companyName}
           </span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex gap-8 items-center">
-          {LINKS.map((link) => (
+          {links.map((link: any) => (
             <Link 
-              key={link.href} 
-              href={link.href} 
-              className={`group relative transition-colors font-bold ${pathname === link.href ? "text-[#A34F3A]" : "text-fine-detail lg:hover:text-[#A34F3A]"}`}
+              key={link.url} 
+              href={link.url} 
+              className={`group relative transition-colors font-bold ${pathname === link.url ? "text-[#A34F3A]" : "text-fine-detail lg:hover:text-[#A34F3A]"}`}
             >
               {link.label}
-              <span className={`hidden lg:block absolute -bottom-1 left-0 h-[2px] bg-[#A34F3A] transition-all duration-300 ${pathname === link.href ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+              <span className={`hidden lg:block absolute -bottom-1 left-0 h-[2px] bg-[#A34F3A] transition-all duration-300 ${pathname === link.url ? "w-full" : "w-0 group-hover:w-full"}`}></span>
             </Link>
           ))}
           <Link href="/contact" className="ml-4 px-6 py-2 bg-highlight text-white rounded-full font-bold hover:bg-[#A34F3A] transition-colors shadow-lg shadow-highlight/20">
@@ -91,11 +93,11 @@ export default function Navbar() {
             className="fixed inset-0 top-[73px] bg-primary-base z-40 flex flex-col px-6 py-8 border-t border-primary-contrast/10 h-[calc(100vh-73px)] overflow-y-auto"
           >
             <nav className="flex flex-col gap-6 text-center mt-8">
-              {LINKS.map((link) => (
+              {links.map((link: any) => (
                 <Link 
-                  key={link.href} 
-                  href={link.href} 
-                  className={`font-outfit text-3xl font-bold transition-colors ${pathname === link.href ? "text-[#A34F3A]" : "text-tertiary-accent hover:text-[#A34F3A]"}`}
+                  key={link.url} 
+                  href={link.url} 
+                  className={`font-outfit text-3xl font-bold transition-colors ${pathname === link.url ? "text-[#A34F3A]" : "text-tertiary-accent hover:text-[#A34F3A]"}`}
                 >
                   {link.label}
                 </Link>

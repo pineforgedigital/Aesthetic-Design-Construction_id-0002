@@ -1,17 +1,18 @@
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import Footer from "@/components/Footer";
+import { client } from "@/sanity/client";
+import { getSiteSettingsQuery } from "@/sanity/queries";
 
-export default function MainLayout({
+export default async function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await client.fetch(getSiteSettingsQuery);
+
   return (
     <>
-      {/* Decorative Background Leaves (Removed for clean editorial aesthetic) */}
-
-      <Navbar />
+      <Navbar settings={settings} />
       <div className="flex-grow pt-[112px] md:pt-[128px]">
         {children}
       </div>

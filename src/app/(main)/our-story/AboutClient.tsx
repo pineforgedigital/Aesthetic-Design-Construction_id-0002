@@ -6,10 +6,16 @@ import { motion } from "framer-motion";
 import { Compass, PenTool, Hammer, CheckSquare, ShieldCheck, HeartHandshake, Lightbulb } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 
-export default function AboutClient({ aboutData }: { aboutData: any }) {
-  const headline = aboutData?.storyHeadline || "ROOTED IN FAITH. BUILT WITH PURPOSE.";
-  const storyImage = aboutData?.storyImage || "/placeholder.svg";
+export default function AboutClient({ aboutData, settingsData }: { aboutData: any, settingsData?: any }) {
+  // Content Fallbacks
+  const storyHeadline = aboutData?.storyHeadline || "Our Story";
+  
+  const ctaHeadline = settingsData?.globalCtaHeadline || aboutData?.ctaHeadline || "Ready to Update Your Home?";
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
+  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
   const missionStatement = aboutData?.missionStatement || "To build and design reliable, well-crafted spaces that stand the test of time and fit our clients' everyday lives.";
+  const storyImage = aboutData?.storyImage || "/placeholder.svg";
 
   const storyParagraphs = aboutData?.storyParagraphs || [
     "Aesthetic Design & Construction was born from a belief that the gifts we are given are meant to be shared."
@@ -33,8 +39,6 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
     { iconName: "Lightbulb", title: "Practical Solutions", desc: "We use effective building methods to solve structural and design challenges." }
   ];
   const coreValuesList = aboutData?.coreValuesList || defaultCoreValues;
-
-  const ctaHeadline = aboutData?.ctaHeadline || "Ready to start your journey?";
 
   // Helper function to dynamically resolve Lucide icons
   const getIcon = (iconName: string) => {
@@ -61,7 +65,7 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-[50%] flex flex-col gap-6 items-start">
             <h2 className="font-outfit text-3xl lg:text-5xl font-bold text-primary-contrast mb-4 leading-tight uppercase tracking-wider">
-              {headline}
+              {storyHeadline}
             </h2>
             <div className="text-lg text-tertiary-accent leading-relaxed relative flex flex-col gap-6">
               {storyParagraphs.map((paragraph: string, index: number) => {
@@ -196,11 +200,12 @@ export default function AboutClient({ aboutData }: { aboutData: any }) {
         
         <div className="max-w-3xl mx-auto relative z-10 flex flex-col items-center">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-8">{ctaHeadline}</h2>
+          <p className="text-white/80 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
           <Link
-            href="/contact"
+            href={ctaBtnUrl}
             className="inline-flex px-12 py-5 bg-warm-sand text-primary-contrast hover:bg-white transition-colors rounded-full font-bold text-lg items-center shadow-2xl"
           >
-            Contact Us Today
+            {ctaBtnText}
           </Link>
         </div>
       </section>

@@ -7,10 +7,16 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 
-export default function ServicesClient({ pageData, servicesData }: { pageData: any, servicesData: any[] }) {
+export default function ServicesClient({ pageData, servicesData, settingsData }: { pageData: any, servicesData: any[], settingsData?: any }) {
+  // Page Content Fallbacks
   const heroHeadline = pageData?.heroHeadline || "Our Expertise";
   const heroSubtitle = pageData?.heroSubtitle || "From early design to final construction, we offer a full range of building and remodeling services tailored to your project.";
-  const ctaHeadline = pageData?.ctaHeadline || "Ready to transform your space?";
+  
+  // CTA fields
+  const ctaHeadline = settingsData?.globalCtaHeadline || pageData?.ctaHeadline || "Ready to transform your space?";
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
+  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
 
   const materialsHeadline = pageData?.materialsHeadline || "Beautiful Materials. \nThoughtfully Selected.";
   const materialsText = pageData?.materialsText || "The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.";
@@ -228,11 +234,12 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
         
         <div className="max-w-3xl mx-auto relative z-10 flex flex-col items-center">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-white mb-8">{ctaHeadline}</h2>
+          <p className="text-white/80 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
           <Link
-            href="/contact"
+            href={ctaBtnUrl}
             className="inline-flex px-12 py-5 bg-warm-sand text-primary-contrast hover:bg-white transition-colors rounded-full font-bold text-lg items-center shadow-2xl"
           >
-            Schedule a Consultation
+            {ctaBtnText}
           </Link>
         </div>
       </section>

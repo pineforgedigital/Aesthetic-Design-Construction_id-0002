@@ -31,6 +31,7 @@ export const revalidate = 0 // Disable cache so Sanity changes reflect immediate
 export default async function HomePage() {
   const homeData = await client.fetch(getHomePageQuery)
   const testimonialsData = await client.fetch(getTestimonialsQuery)
+  const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  return <HomeClient homeData={homeData} testimonialsData={testimonialsData} />
+  return <HomeClient homeData={homeData} testimonialsData={testimonialsData} settingsData={settingsData} />
 }

@@ -30,6 +30,7 @@ export const revalidate = 0
 export default async function ServicesPage() {
   const pageData = await client.fetch(getServicesPageQuery)
   const servicesData = await client.fetch(getServicesQuery)
+  const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  return <ServicesClient pageData={pageData} servicesData={servicesData} />
+  return <ServicesClient pageData={pageData} servicesData={servicesData} settingsData={settingsData} />
 }
