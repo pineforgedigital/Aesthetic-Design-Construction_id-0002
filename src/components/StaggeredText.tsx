@@ -14,8 +14,8 @@ export default function StaggeredText({
   className = "",
   delay = 0,
 }: StaggeredTextProps) {
-  // Split text into words
-  const words = text.split(" ");
+  // Split text by space, but preserve newlines as separate tokens
+  const words = text.split(/(\s+)/).filter(w => w.trim().length > 0 || w.includes('\n'));
 
   const container: Variants = {
     hidden: { opacity: 0 },
@@ -29,20 +29,12 @@ export default function StaggeredText({
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
+      transition: { type: "spring", damping: 12, stiffness: 100 },
     },
     hidden: {
       opacity: 0,
       y: 20,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
+      transition: { type: "spring", damping: 12, stiffness: 100 },
     },
   };
 
@@ -54,16 +46,21 @@ export default function StaggeredText({
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
     >
-      {words.map((word, index) => (
-        <motion.span
-          variants={child}
-          style={{ marginRight: "0.25em" }}
-          key={index}
-          className="inline-block"
-        >
-          {word}
-        </motion.span>
-      ))}
+      {words.map((word, index) => {
+        if (word.includes('\n')) {
+          return <div key={`br-${index}`} className="w-full h-0" />;
+        }
+        return (
+          <motion.span
+            variants={child}
+            style={{ marginRight: "0.25em" }}
+            key={index}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        );
+      })}
     </motion.div>
   );
 }
