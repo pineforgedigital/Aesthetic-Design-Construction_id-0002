@@ -37,13 +37,18 @@ export default function ServicesClient({ pageData, servicesData }: { pageData: a
   ];
   const differenceFooter = pageData?.differenceFooter || "One Team. One Vision. One Beautifully Finished Home.";
 
-  const servicesLayout = servicesData?.map((service) => ({
-    id: service.slug,
-    title: service.serviceName,
-    subtitle: service.subtitle || "",
-    description: service.description || "",
-    subServices: service.subServices || []
-  })) || [];
+  const targetOrder = ["Decorate", "Design", "Transform"];
+  
+  const servicesLayout = targetOrder
+    .map(name => servicesData?.find(s => s.serviceName?.toLowerCase() === name.toLowerCase()))
+    .filter(Boolean)
+    .map((service) => ({
+      id: service.slug || service.serviceName.toLowerCase(),
+      title: service.serviceName,
+      subtitle: service.subtitle || "",
+      description: service.description || "",
+      subServices: service.subServices || []
+    }));
 
   // Map Sanity images to our hardcoded structure
   const getServiceImage = (title: string) => {
