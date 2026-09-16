@@ -20,6 +20,18 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
   const highlightsText = homeData?.highlightsText || "We treat every project with care and focus. By managing a select number of projects at a time, we make sure your home gets the dedicated attention it deserves, from the first plans to the final walkthrough.";
   const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
+  const differenceHeadline = homeData?.differenceHeadline || "From Concept to Curated.";
+  const differenceText = homeData?.differenceText || [
+    "Most remodeling companies focus on construction.",
+    "Most interior designers focus on design.",
+    "We bring the two together, and carry the vision all the way through the finishing touches.",
+    "At Aesthetic Design & Construction, you don’t have to assemble a team of designers, contractors, installers, and decorators to create one cohesive home. We can help with it all."
+  ];
+  const differenceHighlights = homeData?.differenceHighlights || [
+    "Design.", "Materials.", "Construction.", "Custom Craftsmanship.", "Installation.", "Furnishings.", "Styling."
+  ];
+  const differenceFooter = homeData?.differenceFooter || "One Team. One Vision. One Beautifully Finished Home.";
+
   const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to Update Your Home?";
   const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
   const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
@@ -101,6 +113,32 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                 </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* The Aesthetic Difference */}
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+            {differenceHeadline}
+          </h2>
+          <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
+            {differenceText.map((paragraph: string, i: number) => (
+              <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
+            {differenceHighlights.map((highlight: string, i: number) => (
+              <span key={i}>{highlight}</span>
+            ))}
+          </div>
+
+          <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+            {differenceFooter}
+          </h3>
         </div>
       </section>
 
