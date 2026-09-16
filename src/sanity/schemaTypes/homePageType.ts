@@ -102,5 +102,27 @@ export const homePageType = defineType({
       title: 'Secondary Button URL (Hero)',
       type: 'string',
     }),
+    defineField({
+      name: 'differenceHeadline',
+      title: 'Difference Headline',
+      type: 'string',
+    }),
+    defineField({
+      name: 'differenceText',
+      title: 'Difference Text',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
+    defineField({
+      name: 'differenceHighlights',
+      title: 'Difference Highlights List',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
+    defineField({
+      name: 'differenceFooter',
+      title: 'Difference Footer Text',
+      type: 'string',
+    }),
   ],
 })

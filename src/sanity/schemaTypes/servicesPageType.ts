@@ -75,31 +75,5 @@ export const servicesPageType = defineType({
       options: { hotspot: true },
       group: 'content',
     }),
-    defineField({
-      name: 'differenceHeadline',
-      title: 'Difference Headline',
-      type: 'string',
-      group: 'content',
-    }),
-    defineField({
-      name: 'differenceText',
-      title: 'Difference Text',
-      type: 'array',
-      of: [{type: 'string'}],
-      group: 'content',
-    }),
-    defineField({
-      name: 'differenceHighlights',
-      title: 'Difference Highlights List',
-      type: 'array',
-      of: [{type: 'string'}],
-      group: 'content',
-    }),
-    defineField({
-      name: 'differenceFooter',
-      title: 'Difference Footer Text',
-      type: 'string',
-      group: 'content',
-    }),
   ],
 })
