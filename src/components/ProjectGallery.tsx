@@ -104,8 +104,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                 </div>
               </div>
               <div className="p-8">
-                <p className="text-xs text-tertiary-accent font-bold mb-3 uppercase tracking-widest border-b border-tertiary-accent/20 pb-2 inline-block">{project.category}</p>
-                <h3 className="font-outfit text-2xl font-bold text-primary-contrast leading-snug">{project.title}</h3>
+                <h3 className="font-outfit text-2xl font-bold text-primary-contrast leading-snug">{project.title.replace(/ Showcase/ig, '')}</h3>
               </div>
             </motion.div>
           ))}
@@ -135,8 +134,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
               </button>
               
               <div className="p-8 border-b border-primary-contrast/10 bg-white">
-                <p className="text-tertiary-accent font-medium mb-1 uppercase tracking-wider">{selectedProject.category}</p>
-                <h2 className="font-outfit text-3xl font-bold text-primary-contrast mb-3">{selectedProject.title}</h2>
+                <h2 className="font-outfit text-3xl font-bold text-primary-contrast mb-3">{selectedProject.title.replace(/ Showcase/ig, '')}</h2>
                 <p className="text-tertiary-accent text-lg max-w-3xl">{selectedProject.description}</p>
               </div>
 
