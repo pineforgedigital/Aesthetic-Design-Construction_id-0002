@@ -139,7 +139,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                 </div>
                 <div className="p-8">
                   <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
-                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
+                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.serviceName === "Decorate" ? "The details that make a house feel like home." : (service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards.")}</p>
                   <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                     Learn More <ArrowRight size={16} />
                   </span>
