@@ -117,26 +117,45 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       </section>
 
       {/* The Aesthetic Difference */}
-      <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+      {/* The Aesthetic Difference */}
+      <section className="py-32 px-6 bg-[#EBE7DF] relative overflow-hidden">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-warm-sand/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-accent/20 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="font-outfit text-4xl lg:text-6xl font-bold text-primary-contrast mb-4 uppercase tracking-wide">
             {differenceHeadline}
           </h2>
-          <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
-            {differenceText.map((paragraph: string, i: number) => (
-              <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
-                {paragraph}
-              </p>
-            ))}
+          <div className="h-px w-32 bg-highlight/50 mx-auto mb-12"></div>
+          
+          <div className="text-primary-contrast/80 text-xl leading-relaxed space-y-6 mb-16">
+            {differenceText.map((paragraph: string, i: number) => {
+              // Third paragraph is the standout "We bring the two together..."
+              if (i === 2) {
+                return (
+                  <p key={i} className="font-medium text-3xl lg:text-4xl text-highlight italic py-6">
+                    {paragraph}
+                  </p>
+                )
+              }
+              return (
+                <p key={i} className={i < 2 ? "text-primary-contrast/70" : "max-w-3xl mx-auto"}>
+                  {paragraph}
+                </p>
+              )
+            })}
           </div>
           
-          <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
+          <div className="flex flex-wrap justify-center gap-3 font-bold uppercase tracking-widest text-xs sm:text-sm mb-20 max-w-3xl mx-auto">
             {differenceHighlights.map((highlight: string, i: number) => (
-              <span key={i}>{highlight}</span>
+              <span key={i} className="px-6 py-3 border border-primary-contrast/10 rounded-full text-primary-contrast bg-white/50 shadow-sm backdrop-blur-sm hover:border-highlight/50 transition-colors cursor-default">
+                {highlight}
+              </span>
             ))}
           </div>
 
-          <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+          <h3 className="font-outfit text-3xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-widest leading-tight max-w-2xl mx-auto">
             {differenceFooter}
           </h3>
         </div>
