@@ -17,10 +17,10 @@ export default function PageBanner({ title, subtitle, badge, className = "py-32"
     <section className={`bg-primary-contrast text-primary-base px-6 relative overflow-hidden bg-grid-pattern ${className}`}>
       
       {/* Decorative Leaves */}
-      <div className="absolute -left-32 -top-32 opacity-10 mix-blend-multiply pointer-events-none rotate-45">
+      <div className="absolute -left-16 -top-16 opacity-40 mix-blend-multiply pointer-events-none rotate-45 scale-125 md:scale-150">
         <Image src="/leaf.jpg" alt="" width={400} height={400} className="object-contain" priority unoptimized />
       </div>
-      <div className="absolute -right-32 -bottom-32 opacity-10 mix-blend-multiply pointer-events-none -rotate-12">
+      <div className="absolute -right-16 -bottom-16 opacity-40 mix-blend-multiply pointer-events-none -rotate-12 scale-125 md:scale-150">
         <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain" priority unoptimized />
       </div>
 
