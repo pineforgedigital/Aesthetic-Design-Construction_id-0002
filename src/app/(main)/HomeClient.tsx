@@ -117,6 +117,34 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       </section>
 
 
+      {/* The Aesthetic Difference */}
+      <section className="py-32 px-6">
+        <div className="max-w-5xl mx-auto relative p-12 md:p-20 border-2 border-[#D1A57A] rounded-sm">
+          <div className="max-w-4xl mx-auto text-center relative z-20">
+            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+              {differenceHeadline}
+            </h2>
+            <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
+              {differenceText.map((paragraph: string, i: number) => (
+                <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
+              {differenceHighlights.map((highlight: string, i: number) => (
+                <span key={i}>{highlight}</span>
+              ))}
+            </div>
+
+            <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+              {differenceFooter}
+            </h3>
+          </div>
+        </div>
+      </section>
+
       {/* KEY SERVICES SECTION */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
@@ -156,34 +184,6 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               </Link>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* The Aesthetic Difference */}
-      <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto relative p-12 md:p-20 border-2 border-[#D1A57A] rounded-sm">
-          <div className="max-w-4xl mx-auto text-center relative z-20">
-            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
-              {differenceHeadline}
-            </h2>
-            <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
-              {differenceText.map((paragraph: string, i: number) => (
-                <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
-              {differenceHighlights.map((highlight: string, i: number) => (
-                <span key={i}>{highlight}</span>
-              ))}
-            </div>
-
-            <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
-              {differenceFooter}
-            </h3>
-          </div>
         </div>
       </section>
 
