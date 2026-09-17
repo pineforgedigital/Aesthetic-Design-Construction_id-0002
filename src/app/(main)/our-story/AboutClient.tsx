@@ -14,7 +14,7 @@ export default function AboutClient({ aboutData, settingsData }: { aboutData: an
   const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
   const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
   const missionStatement = aboutData?.missionStatement || "To build and design reliable, well-crafted spaces that stand the test of time and fit our clients' everyday lives.";
-  const storyImage = aboutData?.storyImage || "/placeholder.svg";
+  const storyImage = aboutData?.storyImage || "/about-story.jpg";
 
   const storyParagraphs = aboutData?.storyParagraphs || [
     "Aesthetic Design & Construction was born from a belief that the gifts we are given are meant to be shared.",
@@ -115,7 +115,7 @@ export default function AboutClient({ aboutData, settingsData }: { aboutData: an
           </div>
           <div className="w-full lg:w-[50%] relative h-[60vh] lg:h-[85vh] rounded-[3rem] overflow-hidden shadow-2xl group lg:sticky lg:top-32 self-start">
             <Image
-              src={storyImage !== "/placeholder.svg" ? `${storyImage}?auto=format&fit=max&w=1200` : "/placeholder.svg"}
+              src={storyImage.startsWith("/") ? storyImage : `${storyImage}?auto=format&fit=max&w=1200`}
               alt="Aesthetic Design & Construction Team"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
