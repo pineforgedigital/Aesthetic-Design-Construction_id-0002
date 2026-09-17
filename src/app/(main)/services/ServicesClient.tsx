@@ -57,7 +57,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
         {servicesLayout.map((service, idx) => {
           const isEven = idx % 2 === 0;
           return (
-            <section key={service.id} className="py-16 md:py-32 px-6 border-b border-primary-contrast/5 last:border-0">
+            <section key={service.id} id={service.id} className="py-16 md:py-32 px-6 border-b border-primary-contrast/5 last:border-0">
               <div className={`max-w-[1600px] mx-auto flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-start`}>
                 
                 {/* Image Side */}

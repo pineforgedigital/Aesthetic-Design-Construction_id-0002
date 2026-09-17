@@ -32,14 +32,30 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   }, []);
 
   useEffect(() => {
-    // Scroll to top on route change
+    // Scroll to top or to hash on route change
     if (lenisRef.current) {
-      // If there is a hash, let the page handle it (e.g., ServicesClient)
-      if (!window.location.hash) {
+      if (window.location.hash) {
+        // Give it a tiny delay to ensure DOM is ready and layout is rendered
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            lenisRef.current?.scrollTo(target, { immediate: false, offset: -100 });
+          }
+        }, 100);
+      } else {
         lenisRef.current.scrollTo(0, { immediate: true });
       }
     } else {
-      window.scrollTo(0, 0);
+      if (window.location.hash) {
+        setTimeout(() => {
+          const target = document.querySelector(window.location.hash);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   }, [pathname]);
 
