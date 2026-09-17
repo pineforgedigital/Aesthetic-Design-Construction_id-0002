@@ -163,16 +163,16 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto relative p-12 md:p-20 border-2 border-[#D1A57A] rounded-sm">
           {/* Decorative Leaves Top Left */}
-          <div className="absolute -top-20 -left-20 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10 pointer-events-none opacity-90 -rotate-12">
+          <div className="absolute -top-16 -left-16 md:-top-32 md:-left-32 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-0 pointer-events-none opacity-100 -rotate-12">
             <Image src="/eucalyptus_leaves-removebg-preview.png" alt="" fill className="object-contain" />
           </div>
 
           {/* Decorative Leaves Bottom Right */}
-          <div className="absolute -bottom-20 -right-20 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10 pointer-events-none opacity-90 rotate-[165deg]">
+          <div className="absolute -bottom-16 -right-16 md:-bottom-32 md:-right-32 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-0 pointer-events-none opacity-100 rotate-[165deg]">
             <Image src="/eucalyptus_leaves-removebg-preview.png" alt="" fill className="object-contain" />
           </div>
 
-          <div className="max-w-4xl mx-auto text-center relative z-20 bg-[#F7F5F0]/80 backdrop-blur-sm p-4">
+          <div className="max-w-4xl mx-auto text-center relative z-20">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
               {differenceHeadline}
             </h2>
