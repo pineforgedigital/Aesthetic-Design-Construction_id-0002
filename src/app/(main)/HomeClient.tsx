@@ -131,10 +131,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           {(homeData?.featuredServices || []).map((service: any, index: number) => (
             <motion.div
               key={service._id}
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -80 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+              transition={{ duration: 1.2, delay: index * 0.3, ease: "easeOut" }}
               className="h-full"
             >
               <Link href={`/services#${service.slug}`} className="block h-full">
