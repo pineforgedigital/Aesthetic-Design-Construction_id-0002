@@ -92,16 +92,16 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
               {subtitle}
             </p>
-            <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-center justify-start w-full">
+            <div className="flex flex-row flex-wrap gap-3 md:gap-4 items-center justify-start w-full">
                 <Link
                   href={primaryBtnUrl}
-                  className="px-6 py-3 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-base lg:text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20 whitespace-nowrap"
+                  className="px-4 py-3 md:px-6 md:py-3 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20 whitespace-nowrap"
                 >
-                  {primaryBtnText} <ArrowRight size={20} />
+                  {primaryBtnText} <ArrowRight size={18} className="md:w-5 md:h-5" />
                 </Link>
                 <Link
                   href={secondaryBtnUrl}
-                  className="px-6 py-3 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-base lg:text-lg flex items-center justify-center whitespace-nowrap"
+                  className="px-4 py-3 md:px-6 md:py-3 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center whitespace-nowrap"
                 >
                   {secondaryBtnText}
                 </Link>
