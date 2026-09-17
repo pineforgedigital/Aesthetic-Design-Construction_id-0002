@@ -77,7 +77,13 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
       {/* Masonry-style Grid */}
       <motion.div 
         layout
-        className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+        className={
+          filteredProjects.length === 1 
+            ? "max-w-md mx-auto space-y-8" 
+            : filteredProjects.length === 2
+            ? "columns-1 md:columns-2 max-w-4xl mx-auto gap-8 space-y-8"
+            : "columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
+        }
       >
         <AnimatePresence>
           {filteredProjects.map((project, i) => (
