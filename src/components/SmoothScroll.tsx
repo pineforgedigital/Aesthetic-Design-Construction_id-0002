@@ -37,7 +37,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       if (window.location.hash) {
         // Give it a tiny delay to ensure DOM is ready and layout is rendered
         setTimeout(() => {
-          const target = document.querySelector(window.location.hash);
+          const target = document.querySelector(window.location.hash) as HTMLElement | null;
           if (target) {
             lenisRef.current?.scrollTo(target, { immediate: false, offset: -100 });
           }
@@ -48,7 +48,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     } else {
       if (window.location.hash) {
         setTimeout(() => {
-          const target = document.querySelector(window.location.hash);
+          const target = document.querySelector(window.location.hash) as HTMLElement | null;
           if (target) {
             target.scrollIntoView({ behavior: 'smooth' });
           }
