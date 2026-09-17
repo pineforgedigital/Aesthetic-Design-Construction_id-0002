@@ -128,24 +128,33 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {(homeData?.featuredServices || []).map((service: any) => (
-            <Link key={service._id} href={`/services#${service.slug}`} className="block h-full">
-              <motion.div
-                whileHover={{ y: -10 }}
-                className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
-              >
-                <div className="relative h-64 overflow-hidden">
-                  <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
-                  <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
-                  <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
-                    Learn More <ArrowRight size={16} />
-                  </span>
-                </div>
-              </motion.div>
-            </Link>
+          {(homeData?.featuredServices || []).map((service: any, index: number) => (
+            <motion.div
+              key={service._id}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+              className="h-full"
+            >
+              <Link href={`/services#${service.slug}`} className="block h-full">
+                <motion.div
+                  whileHover={{ y: -10 }}
+                  className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-8">
+                    <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
+                    <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
+                    <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
+                      Learn More <ArrowRight size={16} />
+                    </span>
+                  </div>
+                </motion.div>
+              </Link>
+            </motion.div>
           ))}
         </div>
       </section>
