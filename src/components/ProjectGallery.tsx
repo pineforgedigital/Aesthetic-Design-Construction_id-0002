@@ -62,7 +62,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                 : "text-tertiary-accent hover:text-primary-contrast"
             }`}
           >
-            {category}
+            {category.replace(/Luxury /ig, '')}
             {activeCategory === category && (
               <motion.div
                 layoutId="activeCategoryBorder"
