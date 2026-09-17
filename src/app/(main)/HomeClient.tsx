@@ -82,6 +82,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full flex flex-col items-start"
           >
+            <span className="text-highlight text-sm md:text-base uppercase tracking-widest font-normal mb-4 drop-shadow-sm">
+              Family owned. Thoughtfully Designed
+            </span>
             <StaggeredText 
               text={headline.replace('. ', '.\n')} 
               className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md" 
