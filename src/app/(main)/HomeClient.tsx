@@ -87,7 +87,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             </span>
             <StaggeredText 
               text={headline.replace('. ', '.\n')} 
-              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md" 
+              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md !justify-start" 
             />
             <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
               {subtitle}
