@@ -163,12 +163,12 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto relative p-12 md:p-20 border-2 border-[#D1A57A] rounded-sm">
           {/* Decorative Leaves Top Left */}
-          <div className="absolute -top-16 -left-16 w-32 h-32 md:w-48 md:h-48 z-10 pointer-events-none opacity-90 -rotate-12">
+          <div className="absolute -top-20 -left-20 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10 pointer-events-none opacity-90 -rotate-12">
             <Image src="/eucalyptus_leaves-removebg-preview.png" alt="" fill className="object-contain" />
           </div>
 
           {/* Decorative Leaves Bottom Right */}
-          <div className="absolute -bottom-16 -right-16 w-32 h-32 md:w-48 md:h-48 z-10 pointer-events-none opacity-90 rotate-[165deg]">
+          <div className="absolute -bottom-20 -right-20 w-48 h-48 md:w-80 md:h-80 lg:w-96 lg:h-96 z-10 pointer-events-none opacity-90 rotate-[165deg]">
             <Image src="/eucalyptus_leaves-removebg-preview.png" alt="" fill className="object-contain" />
           </div>
 
