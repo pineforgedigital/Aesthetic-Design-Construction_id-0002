@@ -111,7 +111,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
         {/* Right Side: Image */}
         <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
-          <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
+          <div className="absolute inset-0 w-full h-full z-0">
             <Image
               src={`${image}?auto=format&fit=max&w=1920`}
               alt="Modern luxury kitchen remodel"
@@ -119,7 +119,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               className="object-cover"
               priority
             />
-          </motion.div>
+          </div>
         </div>
       </section>
 
