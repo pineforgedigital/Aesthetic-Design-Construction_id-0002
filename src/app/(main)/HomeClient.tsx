@@ -72,33 +72,24 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
     <main className="min-h-screen bg-primary-base">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-base rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
-        <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <Image
-            src={`${image}?auto=format&fit=max&w=1920`}
-            alt="Modern luxury kitchen remodel"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-fine-detail/90 via-fine-detail/30 to-transparent mix-blend-multiply" />
-        </motion.div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center md:text-left mt-20">
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+        
+        {/* Left Side: Green Box with Text */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 pt-32 lg:pt-24 z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-5xl flex flex-col items-center md:items-start"
+            className="max-w-2xl flex flex-col items-start w-full"
           >
             <StaggeredText 
               text={headline.replace('. ', '.\n')} 
-              className="font-outfit text-4xl md:text-5xl lg:text-7xl font-bold text-primary-base mb-6 leading-tight drop-shadow-lg" 
+              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md" 
             />
-            <p className="text-xl md:text-2xl text-primary-base/90 mb-10 font-light max-w-2xl drop-shadow-md">
+            <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light max-w-xl">
               {subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start w-full">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-start w-full">
                 <Link
                   href={primaryBtnUrl}
                   className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20"
@@ -107,11 +98,24 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                 </Link>
                 <Link
                   href={secondaryBtnUrl}
-                  className="px-8 py-4 bg-primary-base/10 backdrop-blur-md text-primary-base border border-primary-base/30 hover:bg-primary-base/20 transition-all rounded-full font-medium text-lg flex items-center justify-center"
+                  className="px-8 py-4 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-lg flex items-center justify-center"
                 >
                   {secondaryBtnText}
                 </Link>
             </div>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Image */}
+        <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full">
+          <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
+            <Image
+              src={`${image}?auto=format&fit=max&w=1920`}
+              alt="Modern luxury kitchen remodel"
+              fill
+              className="object-cover"
+              priority
+            />
           </motion.div>
         </div>
       </section>
