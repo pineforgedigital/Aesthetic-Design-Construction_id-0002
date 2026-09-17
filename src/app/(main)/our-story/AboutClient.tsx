@@ -77,7 +77,7 @@ export default function AboutClient({ aboutData, settingsData }: { aboutData: an
     <main className="min-h-screen bg-primary-base">
 
       {/* Our Story (Editorial Layout) */}
-      <section className="pt-48 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
+      <section className="pt-32 pb-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
           <div className="w-full lg:w-[50%] flex flex-col gap-6 items-start">
             <h2 className="font-outfit text-3xl lg:text-5xl font-bold text-primary-contrast mb-4 leading-tight uppercase tracking-wider">
