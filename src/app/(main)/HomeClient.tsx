@@ -75,7 +75,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
         
         {/* Left Side: Green Box with Text */}
-        <div className="w-full lg:w-1/3 flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
+        <div className="w-full lg:w-[40%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -107,7 +107,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         </div>
 
         {/* Right Side: Image */}
-        <div className="w-full lg:w-2/3 relative min-h-[50vh] lg:min-h-full">
+        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
           <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
             <Image
               src={`${image}?auto=format&fit=max&w=1920`}
