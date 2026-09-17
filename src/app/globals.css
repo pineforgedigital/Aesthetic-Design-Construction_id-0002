@@ -39,8 +39,8 @@
   --color-warm-sand: #D4B996;
   /* Earthy Gold / Sand */
 
-  --font-sans: var(--font-lora);
-  --font-outfit: var(--font-lora);
+  --font-sans: var(--font-bodoni);
+  --font-outfit: var(--font-bodoni);
 }
 
 body {

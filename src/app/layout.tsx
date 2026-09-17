@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Lora } from "next/font/google";
+import { Bodoni_Moda } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
-const lora = Lora({
-  variable: "--font-lora",
+const bodoni = Bodoni_Moda({
+  variable: "--font-bodoni",
   subsets: ["latin"],
 });
 
@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lora.variable} antialiased`}>
+    <html lang="en" className={`${bodoni.variable} antialiased`}>
       <body className="flex flex-col font-sans relative">
         <SmoothScroll>
           {children}
