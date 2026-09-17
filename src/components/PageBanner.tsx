@@ -14,7 +14,7 @@ interface PageBannerProps {
 
 export default function PageBanner({ title, subtitle, badge, className = "py-32" }: PageBannerProps) {
   return (
-    <section className={`bg-primary-contrast text-primary-base px-6 relative overflow-hidden bg-grid-pattern ${className}`}>
+    <section className={`bg-primary-contrast text-primary-base px-6 relative overflow-hidden ${className}`}>
       
       {/* Decorative Leaves */}
       <div className="absolute -left-16 -top-16 opacity-40 mix-blend-multiply pointer-events-none rotate-45 scale-125 md:scale-150">
