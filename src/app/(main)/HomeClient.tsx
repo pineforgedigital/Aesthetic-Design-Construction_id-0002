@@ -75,30 +75,30 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
         
         {/* Left Side: Green Box with Text */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 pt-32 lg:pt-24 z-10">
+        <div className="w-full lg:w-1/3 flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-2xl flex flex-col items-start w-full"
+            className="w-full flex flex-col items-start"
           >
             <StaggeredText 
               text={headline.replace('. ', '.\n')} 
               className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md" 
             />
-            <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light max-w-xl">
+            <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
               {subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-center justify-start w-full">
+            <div className="flex flex-col xl:flex-row gap-4 items-start xl:items-center justify-start w-full">
                 <Link
                   href={primaryBtnUrl}
-                  className="px-8 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20"
+                  className="px-6 py-3 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-base lg:text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20 whitespace-nowrap"
                 >
                   {primaryBtnText} <ArrowRight size={20} />
                 </Link>
                 <Link
                   href={secondaryBtnUrl}
-                  className="px-8 py-4 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-lg flex items-center justify-center"
+                  className="px-6 py-3 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-base lg:text-lg flex items-center justify-center whitespace-nowrap"
                 >
                   {secondaryBtnText}
                 </Link>
@@ -107,7 +107,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         </div>
 
         {/* Right Side: Image */}
-        <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full">
+        <div className="w-full lg:w-2/3 relative min-h-[50vh] lg:min-h-full">
           <motion.div style={{ y }} className="absolute inset-0 w-full h-[120%] -top-[10%] z-0">
             <Image
               src={`${image}?auto=format&fit=max&w=1920`}
