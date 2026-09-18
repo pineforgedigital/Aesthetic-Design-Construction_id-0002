@@ -128,22 +128,14 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto relative z-20">
 
-          {/* Top Section: Headline, Paragraphs & Side-by-Side Images */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
-            {/* Left Column: Text */}
+          {/* Row 1: Headline & Side-by-Side Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
+            {/* Left Column: Headline */}
             <div className="lg:col-span-5 text-left flex flex-col justify-center">
-              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-16 uppercase tracking-wide leading-tight flex flex-col">
+              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
                 <span className="whitespace-nowrap">From Concept</span>
                 <span className="pl-12 md:pl-20 whitespace-nowrap">TO CURATED.</span>
               </h2>
-              {/* "Row 2" of the text */}
-              <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
-                <p>{differenceText[0]}</p>
-                <p>{differenceText[1]}</p>
-                <p className="text-primary-contrast font-bold pt-4">
-                  {differenceText[2]}
-                </p>
-              </div>
             </div>
 
             {/* Right Column: 2 Square Pics Side-by-Side */}
@@ -155,6 +147,20 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                 <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 2</span>
               </div>
             </div>
+          </div>
+
+          {/* Row 2: Paragraphs */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+            <div className="lg:col-span-8 lg:pr-12 text-left">
+              <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
+                <p>{differenceText[0]}</p>
+                <p>{differenceText[1]}</p>
+                <p className="text-primary-contrast font-bold pt-4">
+                  {differenceText[2]}
+                </p>
+              </div>
+            </div>
+            <div className="lg:col-span-4"></div>
           </div>
 
           {/* Temporary placeholder for the rest of the content while we build row by row */}
