@@ -132,9 +132,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
             {/* Left Column: Text */}
             <div className="lg:col-span-5 text-left flex flex-col justify-center">
-              <h2 className="font-outfit text-5xl lg:text-6xl font-bold text-primary-contrast mb-16 uppercase tracking-wide leading-tight flex flex-col">
-                <span>From Concept</span>
-                <span className="pl-12 md:pl-24">TO CURATED.</span>
+              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-16 uppercase tracking-wide leading-tight flex flex-col">
+                <span className="whitespace-nowrap">From Concept</span>
+                <span className="pl-12 md:pl-20 whitespace-nowrap">TO CURATED.</span>
               </h2>
               {/* "Row 2" of the text */}
               <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
