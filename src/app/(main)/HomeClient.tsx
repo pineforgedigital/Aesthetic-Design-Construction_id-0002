@@ -152,13 +152,13 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           {/* Row 2: Paragraphs */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
             <div className="lg:col-span-8 lg:pr-12 text-left">
-              <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-tertiary-accent text-2xl leading-relaxed">
                 <p>{differenceText[0]}</p>
                 <p>{differenceText[1]}</p>
-                <p className="text-primary-contrast font-bold pt-4">
-                  {differenceText[2]}
-                </p>
               </div>
+              <p className="text-primary-contrast font-bold text-2xl leading-relaxed pt-12">
+                {differenceText[2]}
+              </p>
             </div>
             <div className="lg:col-span-4"></div>
           </div>
