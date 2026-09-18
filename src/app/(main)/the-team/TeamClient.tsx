@@ -41,9 +41,12 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D1A57A]/10 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#B85B43]/5 blur-[120px] rounded-full pointer-events-none" />
 
-        {/* Large Decorative Typography */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] text-primary-contrast font-outfit font-black text-[15vw] leading-none select-none uppercase tracking-tighter text-center">
-          OUR<br/>CRAFT
+        {/* Botanical Decor */}
+        <div className="absolute top-12 -right-12 w-64 h-64 md:w-96 md:h-96 opacity-[0.15] pointer-events-none rotate-[15deg]">
+          <Image src="/eucalyptus_leaves-removebg-preview.png" alt="Decorative leaves" fill className="object-contain" />
+        </div>
+        <div className="absolute bottom-24 -left-16 w-72 h-72 md:w-[400px] md:h-[400px] opacity-[0.15] pointer-events-none -rotate-[35deg] scale-x-[-1]">
+          <Image src="/eucalyptus_leaves-removebg-preview.png" alt="Decorative leaves" fill className="object-contain" />
         </div>
 
         <div className="max-w-5xl mx-auto relative z-10">
@@ -59,7 +62,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className={`group cursor-pointer flex flex-col items-center text-center max-w-[280px] mx-auto w-full ${i % 2 !== 0 ? 'md:mt-32' : ''}`}
+                  className="group cursor-pointer flex flex-col items-center text-center max-w-[280px] mx-auto w-full"
                   onClick={() => setSelectedMember(member)}
                 >
                   <div className="relative w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-primary-contrast/5 group-hover:border-warm-sand">
