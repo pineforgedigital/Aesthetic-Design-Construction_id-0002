@@ -163,7 +163,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {(homeData?.featuredServices || []).map((service: any, index: number) => (
+          {["Design", "Transform", "Decorate"]
+            .map(name => (homeData?.featuredServices || []).find((s: any) => s.serviceName.toLowerCase() === name.toLowerCase()))
+            .filter(Boolean)
+            .map((service: any, index: number) => (
             <motion.div
               key={service._id}
               initial={{ opacity: 0, x: -80 }}

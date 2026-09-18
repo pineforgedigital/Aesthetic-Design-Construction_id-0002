@@ -30,7 +30,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
 
 
 
-  const targetOrder = ["Decorate", "Design", "Transform"];
+  const targetOrder = ["Design", "Transform", "Decorate"];
   
   const servicesLayout = targetOrder
     .map(name => servicesData?.find(s => s.serviceName?.toLowerCase() === name.toLowerCase()))
