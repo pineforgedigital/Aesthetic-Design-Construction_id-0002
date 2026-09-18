@@ -73,7 +73,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
       {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
-        
+
         {/* Left Side: Green Box with Text */}
         <div className="w-full lg:w-[40%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
           <motion.div
@@ -85,26 +85,26 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             <span className="text-highlight text-sm md:text-base uppercase tracking-widest font-normal mb-4 drop-shadow-sm">
               Family owned. Thoughtfully Designed
             </span>
-            <StaggeredText 
-              text={headline.replace('. ', '.\n')} 
-              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md !justify-start" 
+            <StaggeredText
+              text={headline.replace('. ', '.\n')}
+              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md !justify-start"
             />
             <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
               {subtitle}
             </p>
             <div className="flex flex-row flex-wrap gap-3 md:gap-4 items-center justify-start w-full">
-                <Link
-                  href={primaryBtnUrl}
-                  className="px-4 py-3 md:px-6 md:py-3 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20 whitespace-nowrap"
-                >
-                  {primaryBtnText} <ArrowRight size={18} className="md:w-5 md:h-5" />
-                </Link>
-                <Link
-                  href={secondaryBtnUrl}
-                  className="px-4 py-3 md:px-6 md:py-3 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center whitespace-nowrap"
-                >
-                  {secondaryBtnText}
-                </Link>
+              <Link
+                href={primaryBtnUrl}
+                className="px-4 py-3 md:px-6 md:py-3 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center gap-2 shadow-lg shadow-highlight/20 whitespace-nowrap"
+              >
+                {primaryBtnText} <ArrowRight size={18} className="md:w-5 md:h-5" />
+              </Link>
+              <Link
+                href={secondaryBtnUrl}
+                className="px-4 py-3 md:px-6 md:py-3 bg-transparent border border-primary-base/30 text-primary-base hover:bg-primary-base hover:text-primary-contrast transition-colors rounded-full font-medium text-sm md:text-base lg:text-lg flex items-center justify-center whitespace-nowrap"
+              >
+                {secondaryBtnText}
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -129,35 +129,29 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       {/* The Aesthetic Difference */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto relative z-20">
-          
-          {/* Row 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
-            {/* Left Column: Headline */}
-            <div className="text-left">
-              <h2 className="font-outfit text-5xl lg:text-6xl font-bold text-primary-contrast uppercase tracking-wide leading-tight">
+
+          {/* Top Section: Headline, Paragraphs & Side-by-Side Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+            {/* Left Column: Text */}
+            <div className="lg:col-span-5 text-left">
+              <h2 className="font-outfit text-5xl lg:text-6xl font-bold text-primary-contrast mb-16 uppercase tracking-wide leading-tight">
                 {differenceHeadline}
               </h2>
-            </div>
-
-            {/* Right Column: Square Pic 1 */}
-            <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 1</span>
-            </div>
-          </div>
-
-          {/* Row 2 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
-            {/* Left Column: Paragraphs */}
-            <div className="text-left">
-              <div className="text-tertiary-accent text-2xl lg:text-3xl leading-relaxed space-y-8">
+              {/* "Row 2" of the text */}
+              <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
                 <p>{differenceText[0]}</p>
                 <p>{differenceText[1]}</p>
               </div>
             </div>
 
-            {/* Right Column: Square Pic 2 */}
-            <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 2</span>
+            {/* Right Column: 2 Square Pics Side-by-Side */}
+            <div className="lg:col-span-7 grid grid-cols-2 gap-6">
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 1</span>
+              </div>
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 2</span>
+              </div>
             </div>
           </div>
 
@@ -174,7 +168,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
               {differenceText[3]}
             </p>
-            
+
             <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
               {differenceHighlights.map((highlight: string, i: number) => (
                 <span key={i} className="flex items-center gap-4">
@@ -207,33 +201,33 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             .map(name => (homeData?.featuredServices || []).find((s: any) => s.serviceName.toLowerCase() === name.toLowerCase()))
             .filter(Boolean)
             .map((service: any, index: number) => (
-            <motion.div
-              key={service._id}
-              initial={{ opacity: 0, x: -80 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 1.2, delay: index * 0.3, ease: "easeOut" }}
-              className="h-full"
-            >
-              <Link href={`/services#${service.slug}`} className="block h-full">
-                <motion.div
-                  whileHover={{ y: -10 }}
-                  className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-8">
-                    <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
-                    <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
-                    <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
-                      Learn More <ArrowRight size={16} />
-                    </span>
-                  </div>
-                </motion.div>
-              </Link>
-            </motion.div>
-          ))}
+              <motion.div
+                key={service._id}
+                initial={{ opacity: 0, x: -80 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1.2, delay: index * 0.3, ease: "easeOut" }}
+                className="h-full"
+              >
+                <Link href={`/services#${service.slug}`} className="block h-full">
+                  <motion.div
+                    whileHover={{ y: -10 }}
+                    className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
+                  >
+                    <div className="relative h-64 overflow-hidden">
+                      <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                    <div className="p-8">
+                      <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
+                      <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
+                      <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
+                        Learn More <ArrowRight size={16} />
+                      </span>
+                    </div>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
         </div>
       </section>
 
@@ -317,12 +311,12 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
           <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
-            <Link
-              href={ctaBtnUrl}
-              className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
-            >
-              {ctaBtnText}
-            </Link>
+          <Link
+            href={ctaBtnUrl}
+            className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
+          >
+            {ctaBtnText}
+          </Link>
         </div>
       </section>
 
