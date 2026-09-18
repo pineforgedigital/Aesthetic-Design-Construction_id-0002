@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 
 export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
@@ -39,8 +39,11 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           {teamMembers.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
-              {teamMembers.map((member, i) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+              {["Keelin", "Christian", "Kelley", "Mark"]
+                .map(name => teamMembers.find(m => m.name.includes(name)))
+                .filter(Boolean)
+                .map((member, i) => (
                 <motion.div
                   key={member._id}
                   initial={{ opacity: 0, y: 30 }}
@@ -61,6 +64,9 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                   </div>
                   <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-2">{member.name}</h3>
                   <p className="text-highlight font-bold uppercase tracking-widest text-sm">{member.role}</p>
+                  <span className="mt-6 text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors opacity-70 group-hover:opacity-100">
+                    View Bio <ArrowRight size={16} />
+                  </span>
                 </motion.div>
               ))}
             </div>
