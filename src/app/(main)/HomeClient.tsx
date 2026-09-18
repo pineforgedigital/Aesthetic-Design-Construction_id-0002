@@ -126,50 +126,62 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
       {/* The Aesthetic Difference */}
       {/* The Aesthetic Difference */}
+      {/* The Aesthetic Difference */}
       <section className="py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center relative z-20">
-          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-12 uppercase tracking-wide">
-            {differenceHeadline}
-          </h2>
+        <div className="max-w-7xl mx-auto relative z-20">
           
-          <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-16">
-            <p>{differenceText[0]}</p>
-            <p>{differenceText[1]}</p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6 md:gap-12 my-16 max-w-3xl mx-auto">
-            <div className="aspect-square bg-[#EBE7DF]/50 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Image Placeholder</span>
+          {/* Row 1 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            {/* Left Column: Text */}
+            <div className="text-left">
+              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+                {differenceHeadline}
+              </h2>
+              <div className="text-tertiary-accent text-xl leading-relaxed space-y-6">
+                <p>{differenceText[0]}</p>
+                <p>{differenceText[1]}</p>
+              </div>
             </div>
-            <div className="aspect-square bg-[#EBE7DF]/50 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Image Placeholder</span>
+
+            {/* Right Column: 2 Square Pics */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic</span>
+              </div>
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic</span>
+              </div>
             </div>
           </div>
 
-          <p className="text-primary-contrast text-2xl font-bold leading-relaxed mb-16 max-w-3xl mx-auto">
-            {differenceText[2]}
-          </p>
+          {/* Temporary placeholder for the rest of the content while we build row by row */}
+          <div className="text-center">
+            <p className="text-primary-contrast text-2xl font-bold leading-relaxed mb-16 max-w-3xl mx-auto">
+              {differenceText[2]}
+            </p>
 
-          <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/50 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
-            <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50 text-tertiary-accent">Image Placeholder</span>
+            <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/60 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
+              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50 text-tertiary-accent">Wide Pic Placeholder</span>
+            </div>
+
+            <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
+              {differenceText[3]}
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
+              {differenceHighlights.map((highlight: string, i: number) => (
+                <span key={i} className="flex items-center gap-4">
+                  {highlight}
+                  {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/20">|</span>}
+                </span>
+              ))}
+            </div>
+
+            <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+              {differenceFooter}
+            </h3>
           </div>
 
-          <p className="text-tertiary-accent text-xl leading-relaxed mb-16">
-            {differenceText[3]}
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
-            {differenceHighlights.map((highlight: string, i: number) => (
-              <span key={i} className="flex items-center gap-4">
-                {highlight}
-                {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/20">|</span>}
-              </span>
-            ))}
-          </div>
-
-          <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
-            {differenceFooter}
-          </h3>
         </div>
       </section>
 
