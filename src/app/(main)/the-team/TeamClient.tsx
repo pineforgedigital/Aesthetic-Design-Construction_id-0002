@@ -37,17 +37,26 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
 
       {/* Team Grid */}
       <section className="py-32 px-6 relative overflow-hidden">
-        {/* Decorative Background Elements */}
+        {/* Soft Background Color Blurs */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D1A57A]/10 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#B85B43]/5 blur-[120px] rounded-full pointer-events-none" />
 
-        {/* Botanical Decor */}
-        <div className="absolute top-12 -right-12 w-64 h-64 md:w-96 md:h-96 opacity-[0.15] pointer-events-none rotate-[15deg]">
+        {/* Architectural / Blueprint Crosshair Lines */}
+        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-primary-contrast/5 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-primary-contrast/5 pointer-events-none" />
+
+        {/* Massive Central Botanical Decor */}
+        <motion.div 
+          animate={{ rotate: 360 }} 
+          transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-[0.08] pointer-events-none"
+        >
           <Image src="/eucalyptus_leaves-removebg-preview.png" alt="Decorative leaves" fill className="object-contain" />
-        </div>
-        <div className="absolute bottom-24 -left-16 w-72 h-72 md:w-[400px] md:h-[400px] opacity-[0.15] pointer-events-none -rotate-[35deg] scale-x-[-1]">
-          <Image src="/eucalyptus_leaves-removebg-preview.png" alt="Decorative leaves" fill className="object-contain" />
-        </div>
+        </motion.div>
+        
+        {/* Corner Accents */}
+        <div className="absolute top-12 left-12 w-24 h-24 border-t border-l border-primary-contrast/20 opacity-50 pointer-events-none" />
+        <div className="absolute bottom-12 right-12 w-24 h-24 border-b border-r border-primary-contrast/20 opacity-50 pointer-events-none" />
 
         <div className="max-w-5xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
