@@ -36,10 +36,14 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
       />
 
       {/* Team Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-32 px-6 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D1A57A]/10 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#B85B43]/5 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-24 gap-x-12 lg:gap-x-24">
               {["Keelin", "Christian", "Kelley", "Mark"]
                 .map(name => teamMembers.find(m => m.name.includes(name)))
                 .filter(Boolean)
@@ -50,17 +54,17 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group cursor-pointer flex flex-col items-center text-center"
+                  className="group cursor-pointer flex flex-col items-center text-center max-w-sm mx-auto w-full"
                   onClick={() => setSelectedMember(member)}
                 >
-                  <div className="relative w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-lg group-hover:shadow-2xl transition-all duration-500">
+                  <div className="relative w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-primary-contrast/5 group-hover:border-warm-sand">
                     <Image
                       src={member.image || "/placeholder.svg"}
                       alt={`${member.name}, ${member.role}`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/10 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/5 transition-colors duration-500" />
                   </div>
                   <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-2">{member.name}</h3>
                   <p className="text-highlight font-bold uppercase tracking-widest text-sm">{member.role}</p>
