@@ -98,7 +98,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                   </motion.div>
 
                   <div className="space-y-12">
-                    {service.subServices.map((sub: any, sIdx: number) => (
+                    {service.subServices.filter((sub: any) => sub.name !== "Window Treatments").map((sub: any, sIdx: number) => (
                       <motion.div 
                         key={sIdx}
                         initial={{ opacity: 0, y: 20 }}

@@ -20,6 +20,7 @@
     "nodemailer": "^10.0.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "resend": "^6.28.1",
     "sanity": "^6.9.2",
     "styled-components": "^6.5.3"
   },
