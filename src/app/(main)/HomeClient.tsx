@@ -125,8 +125,6 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
 
       {/* The Aesthetic Difference */}
-      {/* The Aesthetic Difference */}
-      {/* The Aesthetic Difference */}
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto relative z-20">
 
@@ -142,6 +140,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               <div className="text-tertiary-accent text-2xl leading-relaxed space-y-8">
                 <p>{differenceText[0]}</p>
                 <p>{differenceText[1]}</p>
+                <p className="text-primary-contrast font-bold pt-4">
+                  {differenceText[2]}
+                </p>
               </div>
             </div>
 
@@ -158,9 +159,6 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
           {/* Temporary placeholder for the rest of the content while we build row by row */}
           <div className="text-center">
-            <p className="text-primary-contrast text-2xl font-bold leading-relaxed mb-16 max-w-3xl mx-auto">
-              {differenceText[2]}
-            </p>
 
             <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/60 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
               <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50 text-tertiary-accent">Wide Pic Placeholder</span>
