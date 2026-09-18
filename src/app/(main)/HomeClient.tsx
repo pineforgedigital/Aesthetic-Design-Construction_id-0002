@@ -220,13 +220,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
       {/* KEY SERVICES SECTION */}
       <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-4">Our Expertise</h2>
-          <div className="h-1 w-24 bg-highlight mx-auto rounded-full mb-6"></div>
-          <p className="text-primary-contrast/80 max-w-2xl mx-auto text-lg">
-            From new home construction to complete interior remodeling, we focus on delivering solid results and dependable service for every project.
-          </p>
-        </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {["Design", "Transform", "Decorate"]
