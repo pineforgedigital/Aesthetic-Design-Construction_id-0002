@@ -131,26 +131,33 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         <div className="max-w-7xl mx-auto relative z-20">
           
           {/* Row 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
-            {/* Left Column: Text */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+            {/* Left Column: Headline */}
             <div className="text-left">
-              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
+              <h2 className="font-outfit text-5xl lg:text-6xl font-bold text-primary-contrast uppercase tracking-wide leading-tight">
                 {differenceHeadline}
               </h2>
-              <div className="text-tertiary-accent text-xl leading-relaxed space-y-6">
+            </div>
+
+            {/* Right Column: Square Pic 1 */}
+            <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 1</span>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24">
+            {/* Left Column: Paragraphs */}
+            <div className="text-left">
+              <div className="text-tertiary-accent text-2xl lg:text-3xl leading-relaxed space-y-8">
                 <p>{differenceText[0]}</p>
                 <p>{differenceText[1]}</p>
               </div>
             </div>
 
-            {/* Right Column: 2 Square Pics */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic</span>
-              </div>
-              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic</span>
-              </div>
+            {/* Right Column: Square Pic 2 */}
+            <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 2</span>
             </div>
           </div>
 
