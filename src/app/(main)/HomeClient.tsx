@@ -125,30 +125,51 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
 
       {/* The Aesthetic Difference */}
+      {/* The Aesthetic Difference */}
       <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto relative p-12 md:p-20 border-2 border-[#D1A57A] rounded-sm">
-          <div className="max-w-4xl mx-auto text-center relative z-20">
-            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-8 uppercase tracking-wide">
-              {differenceHeadline}
-            </h2>
-            <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-12">
-              {differenceText.map((paragraph: string, i: number) => (
-                <p key={i} className={i === 2 ? "font-bold text-primary-contrast" : ""}>
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-12">
-              {differenceHighlights.map((highlight: string, i: number) => (
-                <span key={i}>{highlight}</span>
-              ))}
-            </div>
-
-            <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
-              {differenceFooter}
-            </h3>
+        <div className="max-w-4xl mx-auto text-center relative z-20">
+          <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-12 uppercase tracking-wide">
+            {differenceHeadline}
+          </h2>
+          
+          <div className="text-tertiary-accent text-xl leading-relaxed space-y-6 mb-16">
+            <p>{differenceText[0]}</p>
+            <p>{differenceText[1]}</p>
           </div>
+
+          <div className="grid grid-cols-2 gap-6 md:gap-12 my-16 max-w-3xl mx-auto">
+            <div className="aspect-square bg-[#EBE7DF]/50 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Image Placeholder</span>
+            </div>
+            <div className="aspect-square bg-[#EBE7DF]/50 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Image Placeholder</span>
+            </div>
+          </div>
+
+          <p className="text-primary-contrast text-2xl font-bold leading-relaxed mb-16 max-w-3xl mx-auto">
+            {differenceText[2]}
+          </p>
+
+          <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/50 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
+            <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50 text-tertiary-accent">Image Placeholder</span>
+          </div>
+
+          <p className="text-tertiary-accent text-xl leading-relaxed mb-16">
+            {differenceText[3]}
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
+            {differenceHighlights.map((highlight: string, i: number) => (
+              <span key={i} className="flex items-center gap-4">
+                {highlight}
+                {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/20">|</span>}
+              </span>
+            ))}
+          </div>
+
+          <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+            {differenceFooter}
+          </h3>
         </div>
       </section>
 
