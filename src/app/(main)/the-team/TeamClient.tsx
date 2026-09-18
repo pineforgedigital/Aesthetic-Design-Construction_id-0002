@@ -41,9 +41,14 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D1A57A]/10 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#B85B43]/5 blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="max-w-6xl mx-auto relative z-10">
+        {/* Large Decorative Typography */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] text-primary-contrast font-outfit font-black text-[15vw] leading-none select-none uppercase tracking-tighter text-center">
+          OUR<br/>CRAFT
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-24 gap-x-12 lg:gap-x-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12 lg:gap-x-24">
               {["Keelin", "Christian", "Kelley", "Mark"]
                 .map(name => teamMembers.find(m => m.name.includes(name)))
                 .filter(Boolean)
@@ -54,7 +59,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group cursor-pointer flex flex-col items-center text-center max-w-sm mx-auto w-full"
+                  className={`group cursor-pointer flex flex-col items-center text-center max-w-[280px] mx-auto w-full ${i % 2 !== 0 ? 'md:mt-32' : ''}`}
                   onClick={() => setSelectedMember(member)}
                 >
                   <div className="relative w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-primary-contrast/5 group-hover:border-warm-sand">
