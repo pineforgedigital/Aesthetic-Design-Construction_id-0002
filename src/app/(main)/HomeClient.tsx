@@ -150,20 +150,34 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </div>
 
           {/* Row 2: Paragraphs */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center mb-24 relative">
             {/* Left Column: First two paragraphs */}
-            <div className="lg:col-span-5 text-left">
-              <div className="flex flex-col space-y-8 text-tertiary-accent text-2xl leading-relaxed pr-8">
-                <p>{differenceText[0]}</p>
-                <p>{differenceText[1]}</p>
+            <div className="lg:col-span-5 text-left lg:pr-16 flex flex-col justify-center space-y-12">
+              <div className="flex items-center gap-6 w-full">
+                <p className="text-tertiary-accent text-xl lg:text-2xl leading-relaxed shrink-0 max-w-[85%]">
+                  {differenceText[0]}
+                </p>
+                <div className="flex-1 h-[1px] bg-primary-contrast/20"></div>
+              </div>
+              <div className="flex items-center gap-6 w-full">
+                <p className="text-tertiary-accent text-xl lg:text-2xl leading-relaxed shrink-0 max-w-[85%]">
+                  {differenceText[1]}
+                </p>
+                <div className="flex-1 h-[1px] bg-primary-contrast/20"></div>
               </div>
             </div>
             
             {/* Right Column: Bolded paragraph */}
-            <div className="lg:col-span-7 text-left">
-              <p className="text-primary-contrast font-bold text-3xl leading-relaxed">
-                {differenceText[2]}
-              </p>
+            <div className="lg:col-span-7 text-left lg:pl-16 relative">
+              {/* Vertical divider */}
+              <div className="hidden lg:block absolute left-0 top-[-20%] bottom-[-20%] w-[1px] bg-primary-contrast/20"></div>
+              
+              <div className="flex items-center gap-8 w-full">
+                <p className="text-primary-contrast font-outfit text-3xl lg:text-4xl leading-tight shrink-0 max-w-[85%]">
+                  {differenceText[2]}
+                </p>
+                <div className="hidden md:block flex-1 h-[1px] bg-primary-contrast/20 min-w-[2rem]"></div>
+              </div>
             </div>
           </div>
 
