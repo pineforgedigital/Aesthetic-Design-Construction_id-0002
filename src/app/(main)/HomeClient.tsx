@@ -150,17 +150,21 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </div>
 
           {/* Row 2: Paragraphs */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
-            <div className="lg:col-span-8 lg:pr-12 text-left">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-tertiary-accent text-2xl leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+            {/* Left Column: First two paragraphs */}
+            <div className="lg:col-span-5 text-left">
+              <div className="flex flex-col space-y-8 text-tertiary-accent text-2xl leading-relaxed pr-8">
                 <p>{differenceText[0]}</p>
                 <p>{differenceText[1]}</p>
               </div>
-              <p className="text-primary-contrast font-bold text-2xl leading-relaxed pt-12">
+            </div>
+            
+            {/* Right Column: Bolded paragraph */}
+            <div className="lg:col-span-7 text-left">
+              <p className="text-primary-contrast font-bold text-3xl leading-relaxed">
                 {differenceText[2]}
               </p>
             </div>
-            <div className="lg:col-span-4"></div>
           </div>
 
           {/* Temporary placeholder for the rest of the content while we build row by row */}
