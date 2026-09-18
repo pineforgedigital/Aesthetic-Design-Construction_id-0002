@@ -219,8 +219,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       </section>
 
       {/* KEY SERVICES SECTION */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-
+      <section className="pb-24 pt-4 max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {["Design", "Transform", "Decorate"]
