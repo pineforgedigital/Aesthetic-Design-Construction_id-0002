@@ -99,10 +99,6 @@ export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
   visualizeHeadline,
   visualizeText,
   visualizeText2,
-  differenceHeadline,
-  differenceText,
-  differenceHighlights,
-  differenceFooter,
   seo
 }`;
 
