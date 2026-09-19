@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar({ settings }: { settings?: any }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   const links = settings?.mainNavLinks || [
@@ -36,18 +37,27 @@ export default function Navbar({ settings }: { settings?: any }) {
     }
   }, [isOpen]);
 
+  // Handle scroll effect for dynamic glassmorphism
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-base/80 backdrop-blur-md border-b border-primary-contrast/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-primary-base/85 backdrop-blur-md border-b border-primary-contrast/10 py-1' : 'bg-transparent border-transparent py-4'}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         
         {/* Logo & Name */}
-        <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4">
+        <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4 group">
           <Image 
             src="/logo.jpg" 
             alt={companyName} 
             width={120} 
             height={120} 
-            className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply flex-shrink-0"
+            className={`object-contain transition-all duration-500 mix-blend-multiply flex-shrink-0 group-hover:scale-105 ${isScrolled ? 'h-16 w-16 md:h-20 md:w-20' : 'h-20 w-20 md:h-24 md:w-24'}`}
             priority
           />
           <span className="font-outfit text-lg sm:text-xl md:text-2xl font-bold text-primary-contrast tracking-tight leading-tight max-w-[160px] sm:max-w-none">
