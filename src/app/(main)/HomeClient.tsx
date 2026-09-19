@@ -141,10 +141,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             {/* Right Column: 2 Square Pics Side-by-Side */}
             <div className="lg:col-span-7 grid grid-cols-2 gap-6">
               <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 1</span>
+                <Image src={homeData?.featuredServices?.[0]?.image ? `${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Design details" fill className="object-cover" />
               </div>
               <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50">Pic 2</span>
+                <Image src={homeData?.featuredServices?.[1]?.image ? `${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Construction details" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -190,11 +190,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             </div>
           </div>
 
-          {/* Temporary placeholder for the rest of the content while we build row by row */}
           <div className="text-center">
 
             <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/60 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
-              <span className="relative z-10 font-bold uppercase tracking-widest text-sm opacity-50 text-tertiary-accent">Wide Pic Placeholder</span>
+              <Image src={homeData?.featuredServices?.[2]?.image ? `${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600` : "/placeholder.svg"} alt="Styling details" fill className="object-cover" />
             </div>
 
             <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
