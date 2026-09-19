@@ -14,7 +14,7 @@ export default function AboutClient({ aboutData, settingsData }: { aboutData: an
   const ctaBtnText = settingsData?.globalCtaButtonText;
   const ctaBtnUrl = settingsData?.globalCtaButtonUrl;
   const missionStatement = aboutData?.missionStatement;
-  const storyImage = aboutData?.storyImage;
+  const storyImage = aboutData?.storyImage || "/placeholder.svg";
 
   const storyParagraphs = aboutData?.storyParagraphs || [];
 

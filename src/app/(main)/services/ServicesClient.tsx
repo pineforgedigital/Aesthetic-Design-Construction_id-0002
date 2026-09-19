@@ -19,12 +19,12 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
 
   const materialsHeadline = pageData?.materialsHeadline;
   const materialsText = pageData?.materialsText;
-  const materialsImage = pageData?.materialsImage;
+  const materialsImage = pageData?.materialsImage || "/placeholder.svg";
 
   const craftsmanshipHeadline = pageData?.craftsmanshipHeadline;
   const craftsmanshipText = pageData?.craftsmanshipText;
   const craftsmanshipText2 = pageData?.craftsmanshipText2;
-  const craftsmanshipImage = pageData?.craftsmanshipImage;
+  const craftsmanshipImage = pageData?.craftsmanshipImage || "/placeholder.svg";
 
 
 

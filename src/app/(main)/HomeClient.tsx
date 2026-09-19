@@ -9,7 +9,7 @@ import StaggeredText from "@/components/StaggeredText";
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline;
   const subtitle = homeData?.heroSubtitle;
-  const image = homeData?.heroImage;
+  const image = homeData?.heroImage || "/placeholder.svg";
 
   const primaryBtnText = homeData?.primaryButtonText;
   const primaryBtnUrl = homeData?.primaryButtonUrl;
@@ -18,7 +18,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
   const highlightsHeadline = homeData?.highlightsHeadline;
   const highlightsText = homeData?.highlightsText;
-  const highlightsImage = homeData?.highlightsImage;
+  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
   const differenceHeadline = homeData?.differenceHeadline;
   const differenceText = homeData?.differenceText || [];
@@ -102,7 +102,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
           <div className="absolute inset-0 w-full h-full z-0">
             <Image
-              src={`${image}?auto=format&fit=max&w=1920`}
+              src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
               alt="Modern luxury kitchen remodel"
               fill
               className="object-cover"
@@ -272,7 +272,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </div>
           <div className="relative">
             <Image
-              src={`${highlightsImage}?auto=format&fit=max&w=800`}
+              src={highlightsImage.startsWith("/") ? highlightsImage : `${highlightsImage}?auto=format&fit=max&w=800`}
               alt="Craftsmanship detail"
               width={600}
               height={800}
