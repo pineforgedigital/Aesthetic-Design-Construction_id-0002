@@ -16,17 +16,17 @@ export const metadata: Metadata = {
     template: '%s | Aesthetic Design & Construction',
     default: 'Aesthetic Design & Construction',
   },
-  description: "High-end luxury construction, remodeling, and interior design.",
+  description: "Bringing design, construction, and craftsmanship together for your home.",
   openGraph: {
     title: "Aesthetic Design & Construction",
-    description: "High-end luxury construction, remodeling, and interior design.",
+    description: "Bringing design, construction, and craftsmanship together for your home.",
     siteName: "Aesthetic Design & Construction",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.jpg",
         width: 1200,
         height: 630,
-        alt: "Aesthetic Design & Construction - Beautifully Finished Home",
+        alt: "Aesthetic Design & Construction Logo",
       },
     ],
     locale: "en_US",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Aesthetic Design & Construction",
-    description: "High-end luxury construction, remodeling, and interior design.",
-    images: ["/og-image.jpg"],
+    description: "Bringing design, construction, and craftsmanship together for your home.",
+    images: ["/logo.jpg"],
   },
 };
 
