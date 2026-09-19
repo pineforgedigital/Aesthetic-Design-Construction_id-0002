@@ -12,7 +12,7 @@ interface PageBannerProps {
   className?: string;
 }
 
-export default function PageBanner({ title, subtitle, badge, className = "pt-48 pb-32" }: PageBannerProps) {
+export default function PageBanner({ title, subtitle, badge, className = "py-32" }: PageBannerProps) {
   return (
     <section className={`bg-primary-contrast text-primary-base px-6 relative overflow-hidden ${className}`}>
       

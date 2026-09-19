@@ -13,7 +13,7 @@ export default async function MainLayout({
   return (
     <>
       <Navbar settings={settings} />
-      <div className="flex-grow">
+      <div className="flex-grow pt-[112px] md:pt-[128px]">
         {children}
       </div>
       <Footer />

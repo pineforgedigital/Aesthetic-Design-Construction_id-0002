@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar({ settings }: { settings?: any }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   const links = settings?.mainNavLinks || [
@@ -37,24 +36,9 @@ export default function Navbar({ settings }: { settings?: any }) {
     }
   }, [isOpen]);
 
-  // Handle scroll for dynamic header
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? "bg-primary-base/90 backdrop-blur-md shadow-sm border-b border-primary-contrast/10" 
-        : "bg-transparent border-transparent"
-    }`}>
-      <div className={`max-w-7xl mx-auto px-6 flex items-center justify-between transition-all duration-500 ${
-        isScrolled ? "py-3" : "py-6 lg:py-8"
-      }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-base/60 backdrop-blur-xl border-b border-primary-contrast/10 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo & Name */}
         <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4">
@@ -63,9 +47,7 @@ export default function Navbar({ settings }: { settings?: any }) {
             alt={companyName} 
             width={120} 
             height={120} 
-            className={`object-contain mix-blend-multiply flex-shrink-0 transition-all duration-500 ${
-              isScrolled ? "h-16 w-16 md:h-20 md:w-20" : "h-20 w-20 md:h-28 md:w-28"
-            }`}
+            className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply flex-shrink-0"
             priority
           />
           <span className="font-outfit text-lg sm:text-xl md:text-2xl font-bold text-primary-contrast tracking-tight leading-tight max-w-[160px] sm:max-w-none">
@@ -79,7 +61,7 @@ export default function Navbar({ settings }: { settings?: any }) {
             <Link 
               key={link.url} 
               href={link.url} 
-              className={`group relative transition-colors font-bold ${pathname === link.url ? "text-[#A34F3A]" : (isScrolled ? "text-fine-detail lg:hover:text-[#A34F3A]" : "text-primary-contrast lg:hover:text-[#A34F3A]")}`}
+              className={`group relative transition-colors font-bold ${pathname === link.url ? "text-[#A34F3A]" : "text-fine-detail lg:hover:text-[#A34F3A]"}`}
             >
               {link.label}
               <span className={`hidden lg:block absolute -bottom-1 left-0 h-[2px] bg-[#A34F3A] transition-all duration-300 ${pathname === link.url ? "w-full" : "w-0 group-hover:w-full"}`}></span>
