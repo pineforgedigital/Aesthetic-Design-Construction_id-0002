@@ -7,57 +7,22 @@ import { Compass, PenTool, Hammer, CheckSquare, ShieldCheck, HeartHandshake, Lig
 
 export default function AboutClient({ aboutData, settingsData }: { aboutData: any, settingsData?: any }) {
   // Content Fallbacks
-  const storyHeadline = aboutData?.storyHeadline || "ROOTED IN FAITH. BUILT WITH PURPOSE.";
+  const storyHeadline = aboutData?.storyHeadline;
   
-  const ctaHeadline = settingsData?.globalCtaHeadline || aboutData?.ctaHeadline || "Ready to Update Your Home?";
-  const ctaSubtitle = settingsData?.globalCtaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
-  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
-  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
-  const missionStatement = aboutData?.missionStatement || "To build and design reliable, well-crafted spaces that stand the test of time and fit our clients' everyday lives.";
-  const storyImage = aboutData?.storyImage || "/about-story.jpg";
+  const ctaHeadline = settingsData?.globalCtaHeadline || aboutData?.ctaHeadline;
+  const ctaSubtitle = settingsData?.globalCtaSubtitle;
+  const ctaBtnText = settingsData?.globalCtaButtonText;
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl;
+  const missionStatement = aboutData?.missionStatement;
+  const storyImage = aboutData?.storyImage;
 
-  const storyParagraphs = aboutData?.storyParagraphs || [
-    "Aesthetic Design & Construction was born from a belief that the gifts we are given are meant to be shared.",
-    "We believe God has uniquely gifted each of us with different talents, passions, and abilities. And as we look back, it feels less like coincidence and more like a beautiful plan—bringing the right people together at the right time and giving us an opportunity to use those gifts together.",
-    "For my husband, that gift has always been the ability to create with his hands. He has a natural passion for building, crafting, and bringing ideas to life—a skill that was passed down to him by his father. From an early age, he learned the value of hard work, craftsmanship, and taking pride in creating something with your own two hands.",
-    "His father now brings that same passion and artistry to Aesthetic Design & Construction as our expert custom craftsman. He has an incredible artistic eye and a love for woodworking, creating custom pieces that are not only beautiful, but thoughtfully made to stand the test of time. There is something especially meaningful about seeing a gift passed from father to son, and now becoming part of something our family is building together.",
-    "My own gifts have always drawn me toward the creative process. I love decorating, design, space planning, selecting the details, and imagining how all of the individual pieces can come together to transform a house into a home.",
-    "And then there is Kelley.",
-    "Years ago, while I was working at a furniture store, Kelley came in looking for help designing her basement and selecting furniture. What began as a design project quickly became a friendship that has lasted ever since.",
-    "Kelley shares my love for decorating and has a natural talent for creating beautiful spaces. But one of the things that makes our partnership so special is the way we can see each other’s vision. We challenge, inspire, and build upon each other’s ideas, turning a thought or a feeling into a space that feels intentional and beautiful.",
-    "What started as an unexpected friendship became another piece of the bigger picture. Today, Kelley is an integral part of our team and my partner on decorating projects.",
-    "Four people. Different gifts. One shared purpose.",
-    "Together, we bring design, decorating, construction, craftsmanship, and creativity to Aesthetic Design & Construction. But more importantly, we bring a genuine desire to use what we have been given to serve the families and community around us.",
-    "We wanted to build something that was more than a business.",
-    "We wanted to put down roots in the community we grew up in. We wanted to create something our children could watch us build—a family-owned company shaped by hard work, creativity, faith, and a commitment to doing things well. Something they could one day look back on and be proud to call part of their family.",
-    "We believe a home is deeply personal. It is where families gather, where traditions begin, where children grow, and where countless memories are made. Because of that, we don’t believe a renovation should ever feel like simply changing finishes or knocking down walls.",
-    "It should feel like creating something meaningful.",
-    "That is why we approach every project with intention. We listen carefully. We design thoughtfully. We choose quality materials and finishes. We take pride in exceptional installation and craftsmanship. And we pour our hearts into the details, because we believe the work we do is an extension of the gifts we have been given.",
-    "We feel incredibly blessed to have found a way to bring our passions together and share them with others.",
-    "What began as individual gifts has become a shared calling.",
-    "Our faith is the foundation.\\nOur family is at the heart.\\nOur craft is the expression.\\nAnd our community is who we are grateful to serve.",
-    "This is Aesthetic Design & Construction.",
-    "Rooted in faith. Built with purpose. Designed to last."
-  ];
+  const storyParagraphs = aboutData?.storyParagraphs || [];
 
-  const processSubtitle = aboutData?.processSubtitle || "A clear, organized approach from planning to completion, keeping you informed at every step.";
-  
-  const defaultProcessSteps = [
-    { iconName: "Compass", title: "Consultation", desc: "We start by discussing your goals, timeline, and budget to build a solid plan for your project." },
-    { iconName: "PenTool", title: "Design", desc: "We provide detailed design plans so you can envision your space before construction begins." },
-    { iconName: "Hammer", title: "Construction", desc: "Our builders manage the entire construction process, focusing on quality materials and structural integrity." },
-    { iconName: "CheckSquare", title: "Final Walkthrough", desc: "We review every detail with you to ensure the final result meets your expectations." }
-  ];
-  const processSteps = aboutData?.processSteps || defaultProcessSteps;
+  const processSubtitle = aboutData?.processSubtitle;
+  const processSteps = aboutData?.processSteps || [];
 
-  const coreValuesSubtitle = aboutData?.coreValuesSubtitle || "The core principles that guide our work and our relationships with clients.";
-  
-  const defaultCoreValues = [
-    { iconName: "ShieldCheck", title: "Quality Craftsmanship", desc: "We work with experienced tradespeople to ensure the work is done right the first time." },
-    { iconName: "HeartHandshake", title: "Clear Communication", desc: "We keep you updated on progress, answering questions and sticking to the budget." },
-    { iconName: "Lightbulb", title: "Practical Solutions", desc: "We use effective building methods to solve structural and design challenges." }
-  ];
-  const coreValuesList = aboutData?.coreValuesList || defaultCoreValues;
+  const coreValuesSubtitle = aboutData?.coreValuesSubtitle;
+  const coreValuesList = aboutData?.coreValuesList || [];
 
   // Helper function to dynamically resolve Lucide icons
   const getIcon = (iconName: string) => {

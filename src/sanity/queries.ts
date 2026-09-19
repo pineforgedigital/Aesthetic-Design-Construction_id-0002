@@ -38,7 +38,11 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
     "slug": slug.current,
     "image": image.asset->url,
     description
-  }
+  },
+  differenceHeadline,
+  differenceText,
+  differenceHighlights,
+  differenceFooter
 }`;
 
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {

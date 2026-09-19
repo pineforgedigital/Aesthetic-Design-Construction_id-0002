@@ -9,23 +9,22 @@ import PageBanner from "@/components/PageBanner";
 
 export default function ServicesClient({ pageData, servicesData, settingsData }: { pageData: any, servicesData: any[], settingsData?: any }) {
   // Page Content Fallbacks
-  const heroHeadline = pageData?.heroHeadline || "Our Expertise";
-  const heroSubtitle = pageData?.heroSubtitle || "From early design to final construction, we offer a full range of building and remodeling services tailored to your project.";
+  const heroHeadline = pageData?.heroHeadline;
+  const heroSubtitle = pageData?.heroSubtitle;
   
-  // CTA fields
-  const ctaHeadline = settingsData?.globalCtaHeadline || pageData?.ctaHeadline || "Ready to transform your space?";
-  const ctaSubtitle = settingsData?.globalCtaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
-  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
-  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
+  const ctaHeadline = settingsData?.globalCtaHeadline || pageData?.ctaHeadline;
+  const ctaSubtitle = settingsData?.globalCtaSubtitle;
+  const ctaBtnText = settingsData?.globalCtaButtonText;
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl;
 
-  const materialsHeadline = pageData?.materialsHeadline || "Beautiful Materials. \nThoughtfully Selected.";
-  const materialsText = pageData?.materialsText || "The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.";
-  const materialsImage = pageData?.materialsImage || "/decorating_images/IMG_5429.jpg";
+  const materialsHeadline = pageData?.materialsHeadline;
+  const materialsText = pageData?.materialsText;
+  const materialsImage = pageData?.materialsImage;
 
-  const craftsmanshipHeadline = pageData?.craftsmanshipHeadline || "Made For Your Home. \nMade To Last.";
-  const craftsmanshipText = pageData?.craftsmanshipText || "Some spaces call for something you simply can’t find in a showroom. Our custom woodworking brings artistry and craftsmanship into your home through pieces designed specifically for your space.";
-  const craftsmanshipText2 = pageData?.craftsmanshipText2 || "From built-ins and cabinetry to mantels, furniture, shelving, and architectural details, each piece is thoughtfully crafted with quality materials, durable construction, and meticulous attention to detail.";
-  const craftsmanshipImage = pageData?.craftsmanshipImage || "/placeholder.svg";
+  const craftsmanshipHeadline = pageData?.craftsmanshipHeadline;
+  const craftsmanshipText = pageData?.craftsmanshipText;
+  const craftsmanshipText2 = pageData?.craftsmanshipText2;
+  const craftsmanshipImage = pageData?.craftsmanshipImage;
 
 
 
@@ -38,8 +37,8 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
     .map((service) => ({
       id: service.slug || service.serviceName.toLowerCase(),
       title: service.serviceName,
-      subtitle: service.subtitle || "",
-      description: service.description || "",
+      subtitle: service.subtitle,
+      description: service.description,
       subServices: service.subServices || []
     }));
 

@@ -7,8 +7,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageData = await client.fetch(getAboutPageQuery)
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = pageData?.seo?.metaTitle || settingsData?.seo?.metaTitle || "Our Story | Aesthetic Design & Construction"
-  const description = pageData?.seo?.metaDescription || settingsData?.seo?.metaDescription || "Learn about our journey in luxury construction and remodeling."
+  const title = pageData?.seo?.metaTitle || settingsData?.seo?.metaTitle;
+  const description = pageData?.seo?.metaDescription || settingsData?.seo?.metaDescription;
   const image = pageData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 
   return {

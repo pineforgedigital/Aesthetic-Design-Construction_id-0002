@@ -8,8 +8,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const pageData = await client.fetch(getLegalPageQuery, { slug: 'terms-of-service' })
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = pageData?.seo?.metaTitle || pageData?.title || settingsData?.seo?.metaTitle || "Terms of Service | Aesthetic Design & Construction"
-  const description = pageData?.seo?.metaDescription || settingsData?.seo?.metaDescription || "Terms of Service for Aesthetic Design & Construction."
+  const title = pageData?.seo?.metaTitle || pageData?.title || settingsData?.seo?.metaTitle;
+  const description = pageData?.seo?.metaDescription || settingsData?.seo?.metaDescription;
   const image = pageData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 
   return {
@@ -45,7 +45,7 @@ export default async function TermsOfServicePage() {
     <main className="min-h-screen bg-primary-base pt-32 pb-24">
       <div className="max-w-4xl mx-auto px-6">
         <header className="mb-16 border-b border-primary-contrast/10 pb-12">
-          <h1 className="font-outfit text-5xl md:text-6xl font-bold text-primary-contrast mb-6">{pageData.title || "Terms of Service"}</h1>
+          <h1 className="font-outfit text-5xl md:text-6xl font-bold text-primary-contrast mb-6">{pageData.title}</h1>
           {lastUpdated && (
             <p className="text-primary-contrast/50 text-sm font-medium tracking-wide uppercase">Last Updated: {lastUpdated}</p>
           )}

@@ -7,41 +7,30 @@ import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket, Search, Pen
 import StaggeredText from "@/components/StaggeredText";
 
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
-  const headline = homeData?.heroHeadline || "Quality Construction & Thoughtful Design.";
-  const subtitle = homeData?.heroSubtitle || "We bring together skilled building and thoughtful design to create functional, well-made homes tailored to your lifestyle.";
-  const image = homeData?.heroImage || "/placeholder.svg";
+  const headline = homeData?.heroHeadline;
+  const subtitle = homeData?.heroSubtitle;
+  const image = homeData?.heroImage;
 
-  const primaryBtnText = homeData?.primaryButtonText || "Start Your Project";
-  const primaryBtnUrl = homeData?.primaryButtonUrl || "/contact";
-  const secondaryBtnText = homeData?.secondaryButtonText || "View Our Work";
-  const secondaryBtnUrl = homeData?.secondaryButtonUrl || "/portfolio";
+  const primaryBtnText = homeData?.primaryButtonText;
+  const primaryBtnUrl = homeData?.primaryButtonUrl;
+  const secondaryBtnText = homeData?.secondaryButtonText;
+  const secondaryBtnUrl = homeData?.secondaryButtonUrl;
 
-  const highlightsHeadline = homeData?.highlightsHeadline || "Attention to Detail";
-  const highlightsText = homeData?.highlightsText || "We treat every project with care and focus. By managing a select number of projects at a time, we make sure your home gets the dedicated attention it deserves, from the first plans to the final walkthrough.";
-  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
+  const highlightsHeadline = homeData?.highlightsHeadline;
+  const highlightsText = homeData?.highlightsText;
+  const highlightsImage = homeData?.highlightsImage;
 
-  const differenceHeadline = homeData?.differenceHeadline || "From Concept to Curated.";
-  const differenceText = homeData?.differenceText || [
-    "Most remodeling companies focus on construction.",
-    "Most interior designers focus on design.",
-    "We bring the two together, and carry the vision all the way through the finishing touches.",
-    "At Aesthetic Design & Construction, you don’t have to assemble a team of designers, contractors, installers, and decorators to create one cohesive home. We can help with it all."
-  ];
-  const differenceHighlights = homeData?.differenceHighlights || [
-    "Design.", "Materials.", "Construction.", "Custom Craftsmanship.", "Installation.", "Furnishings.", "Styling."
-  ];
-  const differenceFooter = homeData?.differenceFooter || "One Team. One Vision. One Beautifully Finished Home.";
+  const differenceHeadline = homeData?.differenceHeadline;
+  const differenceText = homeData?.differenceText || [];
+  const differenceHighlights = homeData?.differenceHighlights || [];
+  const differenceFooter = homeData?.differenceFooter;
 
-  const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to Update Your Home?";
-  const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Schedule a consultation to discuss your project with our builders and designers.";
-  const ctaBtnText = settingsData?.globalCtaButtonText || "Contact Us Today";
-  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
+  const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline;
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle;
+  const ctaBtnText = settingsData?.globalCtaButtonText;
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl;
 
-  const highlightsList = homeData?.highlightsList || [
-    { iconName: "Ruler", title: "Solid Engineering", desc: "Reliable construction backed by structural expertise." },
-    { iconName: "Hammer", title: "Custom Carpentry", desc: "Quality woodwork and cabinetry built to fit your home." },
-    { iconName: "PaintBucket", title: "Full-Service Design", desc: "An organized process from the first blueprints to the final walkthrough." }
-  ];
+  const highlightsList = homeData?.highlightsList || [];
 
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 

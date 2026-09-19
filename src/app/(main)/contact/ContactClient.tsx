@@ -8,14 +8,14 @@ import PageBanner from "@/components/PageBanner";
 export default function ContactClient({ pageData, settingsData }: { pageData: any, settingsData: any }) {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const heroHeadline = pageData?.heroHeadline || "Let's Build Something Beautiful";
-  const heroSubtitle = pageData?.heroSubtitle || "Start a conversation with our design and construction team.";
-  const contactInfoSubtitle = pageData?.contactInfoSubtitle || "Whether you’re dreaming of a beautifully finished room, a thoughtful redesign, or a complete transformation, we’d love to hear what you’re envisioning.";
+  const heroHeadline = pageData?.heroHeadline;
+  const heroSubtitle = pageData?.heroSubtitle;
+  const contactInfoSubtitle = pageData?.contactInfoSubtitle;
 
-  const email = settingsData?.contactEmail || "info@aestheticdesign.com";
-  const phone = settingsData?.contactPhone || "(555) 123-4567";
-  const address = settingsData?.address || "Greater Metropolitan Area\nand surrounding suburbs.";
-  const businessHours = settingsData?.businessHours || "Mon to Fri: 8:00 AM to 6:00 PM\nSat to Sun: Closed";
+  const email = settingsData?.contactEmail;
+  const phone = settingsData?.contactPhone;
+  const address = settingsData?.address;
+  const businessHours = settingsData?.businessHours;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

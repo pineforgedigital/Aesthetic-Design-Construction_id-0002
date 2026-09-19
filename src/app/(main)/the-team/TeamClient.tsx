@@ -8,10 +8,10 @@ import { X, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
 
 export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
-  const ctaHeadline = settingsData?.globalCtaHeadline || "Want to work with us?";
-  const ctaSubtitle = settingsData?.globalCtaSubtitle || "A reliable network of skilled tradespeople and designers who value quality work and clear communication.";
-  const ctaBtnText = settingsData?.globalCtaButtonText || "Get in Touch";
-  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || "/contact";
+  const ctaHeadline = settingsData?.globalCtaHeadline;
+  const ctaSubtitle = settingsData?.globalCtaSubtitle;
+  const ctaBtnText = settingsData?.globalCtaButtonText;
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl;
 
   const [selectedMember, setSelectedMember] = useState<any>(null);
 
