@@ -106,9 +106,9 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                         transition={{ duration: 0.5, delay: 0.1 * sIdx }}
                         className="relative pl-6 lg:pl-8 border-l-2 border-primary-contrast/10 hover:border-highlight transition-colors duration-300 bg-primary-base/80 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none py-2 rounded-r-xl"
                       >
-                        <h4 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">
+                        <h3 className="font-outfit text-2xl font-bold text-primary-contrast mb-3">
                           {sub.name}
-                        </h4>
+                        </h3>
                         <p className="text-tertiary-accent text-lg leading-relaxed">
                           {sub.desc}
                         </p>
@@ -135,11 +135,11 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
             </p>
             <div className="space-y-6">
               <div>
-                <h4 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Countertops</h4>
+                <h3 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Countertops</h3>
                 <p className="text-tertiary-accent">Natural stone, engineered surfaces, and other carefully selected materials chosen for both beauty and everyday performance.</p>
               </div>
               <div>
-                <h4 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Flooring</h4>
+                <h3 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Flooring</h3>
                 <p className="text-tertiary-accent">Hardwood, tile, and other flooring options selected to complement your home’s architecture and create a cohesive flow from room to room.</p>
               </div>
               <div className="pt-4 border-t border-primary-contrast/10">
