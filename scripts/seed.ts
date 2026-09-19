@@ -69,7 +69,7 @@ async function seed() {
   await client.createIfNotExists({ _id: 'servicesPage', _type: 'servicesPage' });
   await client.patch('servicesPage').setIfMissing({
     heroHeadline: "Our Expertise",
-    heroSubtitle: "From early design to final construction, we offer a full range of building and remodeling services tailored to your project.",
+    heroSubtitle: "From small designs to complete interior Remodeling we offer tailored Services to complete your Project",
     materialsHeadline: "Beautiful Materials. \nThoughtfully Selected.",
     materialsText: "The materials you live with every day should be beautiful, durable, and chosen with intention. We help you navigate the countless decisions that go into a renovation, sourcing and coordinating materials that complement one another and support the overall vision.",
     craftsmanshipHeadline: "Made For Your Home. \nMade To Last.",
