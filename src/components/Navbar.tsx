@@ -37,7 +37,7 @@ export default function Navbar({ settings }: { settings?: any }) {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-base/60 backdrop-blur-xl border-b border-primary-contrast/10 shadow-sm">
+    <header className="relative z-50 bg-primary-base border-b border-primary-contrast/10 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Logo & Name */}
