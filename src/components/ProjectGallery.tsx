@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ZoomIn } from "lucide-react";
+import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
 type ProjectCategory = "All" | "3D Rendering" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Design" | "Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling" | "Custom Pieces" | "Fireplaces";
 
@@ -21,6 +21,12 @@ const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [fullscreenImageIndex, setFullscreenImageIndex] = useState<number | null>(null);
+
+  // Derived array for all images in the selected project to support navigation
+  const allImages = selectedProject 
+    ? [selectedProject.mainImage, ...(selectedProject.images || [])] 
+    : [];
 
   // Dynamically calculate which categories actually have projects assigned to them
   const availableCategories = useMemo(() => {
@@ -34,15 +40,30 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
   }, [projects]);
 
   useEffect(() => {
-    if (selectedProject) {
+    if (selectedProject || fullscreenImageIndex !== null) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
+    
+    // Keyboard navigation
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (fullscreenImageIndex === null) return;
+      if (e.key === "Escape") setFullscreenImageIndex(null);
+      if (e.key === "ArrowLeft" && fullscreenImageIndex > 0) {
+        setFullscreenImageIndex(prev => prev! - 1);
+      }
+      if (e.key === "ArrowRight" && fullscreenImageIndex < allImages.length - 1) {
+        setFullscreenImageIndex(prev => prev! + 1);
+      }
+    };
+    
+    window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedProject]);
+  }, [selectedProject, fullscreenImageIndex, allImages.length]);
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -146,13 +167,14 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
 
               <div className="overflow-y-auto p-8 flex-grow bg-primary-base" data-lenis-prevent="true">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                  {[selectedProject.mainImage, ...(selectedProject.images || [])].map((img, i) => (
+                  {allImages.map((img, i) => (
                     <motion.div 
                       key={i} 
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 * i, duration: 0.5 }}
-                      className="break-inside-avoid relative rounded-xl overflow-hidden shadow-md group"
+                      className="break-inside-avoid relative rounded-xl overflow-hidden shadow-md group cursor-pointer"
+                      onClick={() => setFullscreenImageIndex(i)}
                     >
                       {/* Using aspect ratio classes to simulate masonry look with placeholder svg. Real images would have natural height. */}
                       <div className={`relative w-full ${i % 3 === 0 ? 'aspect-square' : i % 2 === 0 ? 'aspect-[4/3]' : 'aspect-[3/4]'}`}>
@@ -162,11 +184,88 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-700" 
                         />
+                        <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/10 transition-colors duration-300 flex items-center justify-center">
+                          <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 drop-shadow-md" size={32} />
+                        </div>
                       </div>
                     </motion.div>
                   ))}
                 </div>
               </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* True Full-Screen Lightbox */}
+      <AnimatePresence>
+        {fullscreenImageIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+            onClick={() => setFullscreenImageIndex(null)}
+          >
+            <button 
+              className="absolute top-6 right-6 z-[210] p-3 text-white/50 hover:text-white bg-black/20 hover:bg-black/50 rounded-full transition-all"
+              onClick={() => setFullscreenImageIndex(null)}
+            >
+              <X size={32} />
+            </button>
+            
+            <button 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                if (fullscreenImageIndex > 0) setFullscreenImageIndex(fullscreenImageIndex - 1); 
+              }}
+              className={`absolute left-4 md:left-8 z-[210] p-4 rounded-full transition-all ${
+                fullscreenImageIndex === 0 
+                  ? 'text-white/10 cursor-not-allowed bg-transparent' 
+                  : 'text-white/70 hover:text-white hover:bg-white/10 bg-black/30 backdrop-blur-md'
+              }`}
+              disabled={fullscreenImageIndex === 0}
+            >
+              <ChevronLeft size={36} />
+            </button>
+
+            <button 
+              onClick={(e) => { 
+                e.stopPropagation(); 
+                if (fullscreenImageIndex < allImages.length - 1) setFullscreenImageIndex(fullscreenImageIndex + 1); 
+              }}
+              className={`absolute right-4 md:right-8 z-[210] p-4 rounded-full transition-all ${
+                fullscreenImageIndex === allImages.length - 1 
+                  ? 'text-white/10 cursor-not-allowed bg-transparent' 
+                  : 'text-white/70 hover:text-white hover:bg-white/10 bg-black/30 backdrop-blur-md'
+              }`}
+              disabled={fullscreenImageIndex === allImages.length - 1}
+            >
+              <ChevronRight size={36} />
+            </button>
+
+            <div 
+              className="relative w-full h-full max-w-7xl mx-auto flex items-center justify-center cursor-default"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <motion.div
+                key={fullscreenImageIndex}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="relative w-full h-full flex items-center justify-center"
+              >
+                <Image 
+                  src={allImages[fullscreenImageIndex].startsWith("/") ? allImages[fullscreenImageIndex] : `${allImages[fullscreenImageIndex]}?auto=format&fit=max&w=2400`}
+                  alt={`Fullscreen project image ${fullscreenImageIndex + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                  quality={90}
+                  priority
+                />
+              </motion.div>
             </div>
           </motion.div>
         )}
