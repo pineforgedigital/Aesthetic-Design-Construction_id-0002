@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     siteName: "Aesthetic Design & Construction",
     images: [
       {
-        url: "/logo.jpg",
+        url: "/og-logo.jpg",
         width: 1200,
         height: 630,
         alt: "Aesthetic Design & Construction Logo",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aesthetic Design & Construction",
     description: "Bringing design, construction, and craftsmanship together for your home.",
-    images: ["/logo.jpg"],
+    images: ["/og-logo.jpg"],
   },
 };
 
