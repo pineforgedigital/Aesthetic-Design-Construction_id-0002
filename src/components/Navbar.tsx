@@ -44,7 +44,8 @@ export default function Navbar({ settings }: { settings?: any }) {
         <Link href="/" className="relative z-50 flex items-center gap-3 md:gap-4">
           <Image 
             src="/logo.jpg" 
-            alt={companyName} 
+            alt="" 
+            aria-hidden="true"
             width={120} 
             height={120} 
             className="object-contain h-20 w-20 md:h-24 md:w-24 mix-blend-multiply flex-shrink-0"
