@@ -9,7 +9,7 @@ import StaggeredText from "@/components/StaggeredText";
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline;
   const subtitle = homeData?.heroSubtitle;
-  const image = homeData?.heroImage || "/placeholder.svg";
+  const image = homeData?.heroImage;
 
   const primaryBtnText = homeData?.primaryButtonText;
   const primaryBtnUrl = homeData?.primaryButtonUrl;
@@ -18,7 +18,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
   const highlightsHeadline = homeData?.highlightsHeadline;
   const highlightsText = homeData?.highlightsText;
-  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
+  const highlightsImage = homeData?.highlightsImage;
 
   const differenceHeadline = homeData?.differenceHeadline;
   const differenceText = homeData?.differenceText || [];
@@ -98,16 +98,17 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </motion.div>
         </div>
 
-        {/* Right Side: Image */}
-        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
+        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full bg-primary-base/10">
           <div className="absolute inset-0 w-full h-full z-0">
-            <Image
-              src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
-              alt="Modern luxury kitchen remodel"
-              fill
-              className="object-cover"
-              priority
-            />
+            {image && (
+              <Image
+                src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
+                alt="Modern luxury kitchen remodel"
+                fill
+                className="object-cover"
+                priority
+              />
+            )}
           </div>
         </div>
       </section>
@@ -117,25 +118,12 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto relative z-20">
 
-          {/* Row 1: Headline & Side-by-Side Images */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
-            {/* Left Column: Headline */}
-            <div className="lg:col-span-5 text-left flex flex-col justify-center">
-              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
-                <span className="whitespace-nowrap">From Concept</span>
-                <span className="pl-12 md:pl-20 whitespace-nowrap">TO CURATED.</span>
-              </h2>
-            </div>
-
-            {/* Right Column: 2 Square Pics Side-by-Side */}
-            <div className="lg:col-span-7 grid grid-cols-2 gap-6">
-              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <Image src={homeData?.featuredServices?.[0]?.image ? `${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Design details" fill className="object-cover" />
-              </div>
-              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <Image src={homeData?.featuredServices?.[1]?.image ? `${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Construction details" fill className="object-cover" />
-              </div>
-            </div>
+          {/* Row 1: Headline */}
+          <div className="flex flex-col items-center justify-center text-center mb-20">
+            <h2 className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col md:flex-row gap-2 md:gap-6 items-center">
+              <span>From Concept</span>
+              <span className="text-highlight">TO CURATED.</span>
+            </h2>
           </div>
 
           {/* Row 2: Paragraphs */}
@@ -181,8 +169,8 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
           <div className="text-center">
 
-            <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-[#EBE7DF]/60 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
-              <Image src={homeData?.featuredServices?.[2]?.image ? `${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600` : "/placeholder.svg"} alt="Styling details" fill className="object-cover" />
+            <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-primary-base/5 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
+              {homeData?.featuredServices?.[2]?.image && <Image src={`${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600`} alt="Styling details" fill className="object-cover" />}
             </div>
 
             <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
@@ -227,8 +215,8 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                     whileHover={{ y: -10 }}
                     className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
                   >
-                    <div className="relative h-64 overflow-hidden">
-                      <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="relative h-64 overflow-hidden bg-primary-base/5">
+                      {service.image && <Image src={`${service.image}?auto=format&fit=max&w=800`} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />}
                     </div>
                     <div className="p-8">
                       <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
@@ -271,13 +259,15 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             </div>
           </div>
           <div className="relative">
-            <Image
-              src={highlightsImage.startsWith("/") ? highlightsImage : `${highlightsImage}?auto=format&fit=max&w=800`}
-              alt="Craftsmanship detail"
-              width={600}
-              height={800}
-              className="rounded-2xl object-cover shadow-2xl shadow-fine-detail/50"
-            />
+            {highlightsImage && (
+              <Image
+                src={highlightsImage.startsWith("/") ? highlightsImage : `${highlightsImage}?auto=format&fit=max&w=800`}
+                alt="Craftsmanship detail"
+                width={600}
+                height={800}
+                className="rounded-2xl object-cover shadow-2xl shadow-fine-detail/50"
+              />
+            )}
           </div>
         </div>
       </section>

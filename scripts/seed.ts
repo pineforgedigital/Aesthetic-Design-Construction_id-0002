@@ -13,7 +13,7 @@ const client = createClient({
 async function seed() {
   console.log("Seeding homePage...");
   await client.createIfNotExists({ _id: 'homePage', _type: 'homePage' });
-  await client.patch('homePage').setIfMissing({
+  await client.patch('homePage').set({
     heroHeadline: "Quality Construction & Thoughtful Design.",
     heroSubtitle: "We bring together skilled building and thoughtful design to create functional, well-made homes tailored to your lifestyle.",
     primaryButtonText: "Start Your Project",
@@ -42,7 +42,7 @@ async function seed() {
 
   console.log("Seeding aboutPage...");
   await client.createIfNotExists({ _id: 'aboutPage', _type: 'aboutPage' });
-  await client.patch('aboutPage').setIfMissing({
+  await client.patch('aboutPage').set({
     storyHeadline: "ROOTED IN FAITH. BUILT WITH PURPOSE.",
     missionStatement: "Aesthetic Design & Construction was born from a belief that the gifts we are given are meant to be shared.",
     storyParagraphs: [
