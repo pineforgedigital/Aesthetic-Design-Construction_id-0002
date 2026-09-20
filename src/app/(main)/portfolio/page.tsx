@@ -2,7 +2,6 @@ import ProjectGallery from "@/components/ProjectGallery";
 import { Metadata } from "next";
 import { client } from "@/sanity/client";
 import { getProjectsQuery, getSiteSettingsQuery } from "@/sanity/queries";
-import PageBanner from "@/components/PageBanner";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settingsData = await client.fetch(getSiteSettingsQuery)
@@ -31,11 +30,14 @@ export default async function ProjectsPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <PageBanner 
-        title="Our Portfolio" 
-        subtitle="Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design." 
-        badge="Recent Work" 
-      />
+      <section className="pt-32 pb-8 px-6 text-center max-w-4xl mx-auto">
+        <h1 className="font-outfit text-5xl md:text-6xl font-bold text-primary-contrast mb-6">
+          Our Portfolio
+        </h1>
+        <p className="text-lg text-tertiary-accent max-w-2xl mx-auto">
+          Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design.
+        </p>
+      </section>
 
       {/* Gallery Section */}
       <section className="py-24 px-6">
