@@ -58,7 +58,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
   };
 
   return (
-    <main className="min-h-screen bg-primary-base">
+    <main className="min-h-screen bg-primary-base overflow-x-hidden">
 
       {/* HERO SECTION */}
       <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
