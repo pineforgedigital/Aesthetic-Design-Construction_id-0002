@@ -120,9 +120,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
             {/* Left Column: Headline */}
             <div className="lg:col-span-5 text-left flex flex-col justify-center">
-              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
-                <span className="whitespace-nowrap">From Concept</span>
-                <span className="pl-12 md:pl-20 whitespace-nowrap">TO CURATED.</span>
+              <h2 className="font-outfit text-3xl md:text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
+                <span className="whitespace-normal md:whitespace-nowrap">From Concept</span>
+                <span className="pl-6 md:pl-20 whitespace-normal md:whitespace-nowrap">TO CURATED.</span>
               </h2>
             </div>
 
@@ -141,21 +141,21 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-0 items-center mb-24 relative">
             {/* Left Column: First two paragraphs */}
             <div className="lg:col-span-5 text-left lg:pr-16 flex flex-col justify-center space-y-16">
-              <div className="flex items-center gap-6 w-full group">
-                <p className="text-tertiary-accent text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed shrink-0 max-w-[85%]">
+              <div className="flex items-center gap-4 md:gap-6 w-full group">
+                <p className="text-tertiary-accent text-lg md:text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed w-[85%] md:max-w-[85%]">
                   {differenceText[0]}
                 </p>
                 <div className="flex-1 flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
                   <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
                 </div>
               </div>
-              <div className="flex items-center gap-6 w-full group">
-                <p className="text-tertiary-accent text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed shrink-0 max-w-[85%]">
+              <div className="flex items-center gap-4 md:gap-6 w-full group">
+                <p className="text-tertiary-accent text-lg md:text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed w-[85%] md:max-w-[85%]">
                   {differenceText[1]}
                 </p>
                 <div className="flex-1 flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
                   <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
                 </div>
               </div>
@@ -166,12 +166,12 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               {/* Vertical divider */}
               <div className="hidden lg:block absolute left-0 top-[-30%] bottom-[-30%] w-[1px] bg-gradient-to-b from-transparent via-[#D1A57A]/40 to-transparent"></div>
               
-              <div className="flex items-center gap-8 w-full group">
-                <p className="text-primary-contrast font-outfit text-3xl lg:text-4xl leading-tight shrink-0 max-w-[85%]">
+              <div className="flex items-center gap-6 md:gap-8 w-full group">
+                <p className="text-primary-contrast font-outfit text-2xl md:text-3xl lg:text-4xl leading-tight w-full md:w-[85%]">
                   {differenceText[2]}
                 </p>
                 <div className="hidden md:flex flex-1 items-center min-w-[2rem] opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
                   <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
                 </div>
               </div>
@@ -186,16 +186,16 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               </div>
             )}
 
-            <div className="flex items-center gap-6 md:gap-12 w-full max-w-6xl mx-auto mb-16 group">
+            <div className="flex flex-row items-center justify-center gap-4 md:gap-12 w-full max-w-6xl mx-auto mb-16 group">
               <div className="hidden md:flex flex-1 items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
                 <div className="flex-1 h-[1px] bg-gradient-to-l from-[#D1A57A] to-transparent"></div>
-                <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
               </div>
-              <p className="text-tertiary-accent text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed text-center max-w-3xl shrink-0">
+              <p className="text-tertiary-accent text-lg md:text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed text-center w-full md:max-w-3xl px-2 md:px-0">
                 {differenceText[3]}
               </p>
               <div className="hidden md:flex flex-1 items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
                 <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
               </div>
             </div>
@@ -209,7 +209,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               ))}
             </div>
 
-            <h3 className="font-outfit text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest">
+            <h3 className="font-outfit text-xl md:text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest px-2">
               {differenceFooter}
             </h3>
           </div>
@@ -260,8 +260,8 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-outfit text-4xl md:text-5xl font-bold mb-6">{highlightsHeadline}</h2>
-            <p className="text-primary-base/90 text-lg mb-8 whitespace-pre-wrap">
+            <h2 className="font-outfit text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{highlightsHeadline}</h2>
+            <p className="text-primary-base/90 text-base md:text-lg mb-8 whitespace-pre-wrap">
               {highlightsText}
             </p>
             <div className="space-y-6">
@@ -332,8 +332,8 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-24 bg-fine-detail text-center relative overflow-hidden border-t-4 border-warm-sand">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-base via-transparent to-transparent"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="font-outfit text-4xl md:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
-          <p className="text-primary-base/70 text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
+          <h2 className="font-outfit text-3xl md:text-4xl lg:text-5xl font-bold text-primary-base mb-6">{ctaHeadline}</h2>
+          <p className="text-primary-base/70 text-lg md:text-xl mb-10 whitespace-pre-wrap">{ctaSubtitle}</p>
           <Link
             href={ctaBtnUrl}
             className="inline-flex px-10 py-4 bg-highlight text-white hover:bg-[#A34F3A] transition-all rounded-full font-bold text-lg items-center gap-2 shadow-xl shadow-highlight/20"
