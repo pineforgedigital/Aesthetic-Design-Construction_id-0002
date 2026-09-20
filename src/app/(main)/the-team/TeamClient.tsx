@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
-import PageBanner from "@/components/PageBanner";
+import StaggeredText from "@/components/StaggeredText";
 
 export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
   const ctaHeadline = settingsData?.globalCtaHeadline;
@@ -28,12 +28,43 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
 
   return (
     <main className="min-h-screen bg-primary-base">
-      {/* Header Section */}
-      <PageBanner 
-        title="Meet The Team" 
-        subtitle="The builders, designers, and project managers who work together to bring your project to life." 
-        badge="Our People" 
-      />
+      {/* HERO SECTION */}
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+        
+        {/* Left Side: Image (66%) */}
+        <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1">
+          <div className="absolute inset-0 w-full h-full z-0">
+            <Image
+              src="/team-hero.png"
+              alt="The Aesthetic Design & Construction Team"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+
+        {/* Right Side: Green Box with Text (33%) */}
+        <div className="w-full lg:w-[34%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10 order-1 lg:order-2 bg-primary-contrast">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full flex flex-col items-start"
+          >
+            <span className="text-warm-sand text-sm md:text-base uppercase tracking-widest font-normal mb-4 drop-shadow-sm">
+              Our People
+            </span>
+            <StaggeredText
+              text="Meet The Team"
+              className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md !justify-start"
+            />
+            <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
+              The builders, designers, and project managers who work together to bring your project to life.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Team Grid */}
       <section className="py-32 px-6 relative overflow-hidden">
