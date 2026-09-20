@@ -35,7 +35,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
         <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1">
           <div className="absolute inset-0 w-full h-full z-0">
             <Image
-              src="/team-hero.png"
+              src="/team-hero.jpg"
               alt="The Aesthetic Design & Construction Team"
               fill
               className="object-cover"
