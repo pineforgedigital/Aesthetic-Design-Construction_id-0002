@@ -200,17 +200,17 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
               {differenceHighlights.map((highlight: string, i: number) => (
-                <span key={i} className="flex items-center gap-4">
-                  {highlight}
-                  {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/20">|</span>}
+                <span key={i} className="flex items-center gap-4 md:gap-6">
+                  {highlight.replace(/\./g, '')}
+                  {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/50 font-black">|</span>}
                 </span>
               ))}
             </div>
 
-            <h3 className="font-outfit text-xl md:text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest px-2">
-              {differenceFooter}
+            <h3 className="font-outfit text-xl md:text-2xl lg:text-3xl font-bold text-primary-contrast uppercase tracking-widest px-2 text-center">
+              {differenceFooter ? differenceFooter.replace(/\./g, '') : ''}
             </h3>
           </div>
 
