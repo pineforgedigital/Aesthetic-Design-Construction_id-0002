@@ -118,12 +118,25 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto relative z-20">
 
-          {/* Row 1: Headline */}
-          <div className="flex flex-col items-center justify-center text-center mb-16">
-            <h2 className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col md:flex-row gap-2 md:gap-6 items-center">
-              <span>From Concept</span>
-              <span className="text-highlight">TO CURATED.</span>
-            </h2>
+          {/* Row 1: Headline & Side-by-Side Images */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-16">
+            {/* Left Column: Headline */}
+            <div className="lg:col-span-5 text-left flex flex-col justify-center">
+              <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
+                <span className="whitespace-nowrap">From Concept</span>
+                <span className="pl-12 md:pl-20 whitespace-nowrap">TO CURATED.</span>
+              </h2>
+            </div>
+
+            {/* Right Column: 2 Square Pics Side-by-Side */}
+            <div className="lg:col-span-7 grid grid-cols-2 gap-6">
+              <div className="aspect-square bg-primary-base/5 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                {homeData?.featuredServices?.[0]?.image && <Image src={`${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600`} alt="Design details" fill className="object-cover" />}
+              </div>
+              <div className="aspect-square bg-primary-base/5 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                {homeData?.featuredServices?.[1]?.image && <Image src={`${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600`} alt="Construction details" fill className="object-cover" />}
+              </div>
+            </div>
           </div>
 
           {/* Row 2: Paragraphs */}
