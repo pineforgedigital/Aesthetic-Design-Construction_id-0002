@@ -30,13 +30,13 @@ export default async function ProjectsPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <section className="relative pt-40 pb-8 px-6 text-center max-w-7xl mx-auto flex flex-col items-center">
+      <section className="relative pt-16 md:pt-24 pb-4 px-6 text-center max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Background Glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square bg-highlight/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-highlight/5 blur-[100px] rounded-full pointer-events-none -z-10" />
         
         {/* Gold accents top */}
-        <div className="flex items-center gap-4 md:gap-6 mb-8">
+        <div className="flex items-center gap-4 md:gap-6 mb-6">
           <div className="w-12 md:w-32 h-[2px] bg-gradient-to-r from-transparent to-highlight/60" />
           <span className="text-highlight font-bold uppercase tracking-widest text-xs md:text-sm whitespace-nowrap">
             Recent Work
@@ -45,11 +45,7 @@ export default async function ProjectsPage() {
         </div>
 
         <div className="relative w-full">
-          {/* Watermark */}
-          <span className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-[5rem] md:text-[10rem] lg:text-[13rem] font-black text-primary-contrast/[0.03] -z-10 whitespace-nowrap pointer-events-none select-none font-outfit tracking-tighter">
-            PORTFOLIO
-          </span>
-          <h1 className="font-outfit text-5xl md:text-7xl lg:text-8xl font-bold text-primary-contrast mb-8 relative z-10">
+          <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-bold text-primary-contrast mb-6 relative z-10">
             Our Portfolio
           </h1>
         </div>
@@ -57,9 +53,6 @@ export default async function ProjectsPage() {
         <p className="text-lg md:text-xl text-tertiary-accent max-w-2xl mx-auto font-light leading-relaxed relative z-10">
           Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design.
         </p>
-
-        {/* Vertical Gold Line leading into the gallery */}
-        <div className="mt-16 w-[2px] h-24 bg-gradient-to-b from-highlight/60 to-transparent" />
 
       </section>
 
