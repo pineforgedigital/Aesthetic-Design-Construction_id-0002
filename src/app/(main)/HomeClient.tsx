@@ -9,7 +9,7 @@ import StaggeredText from "@/components/StaggeredText";
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline;
   const subtitle = homeData?.heroSubtitle;
-  const image = homeData?.heroImage;
+  const image = homeData?.heroImage || "/placeholder.svg";
 
   const primaryBtnText = homeData?.primaryButtonText;
   const primaryBtnUrl = homeData?.primaryButtonUrl;
@@ -18,7 +18,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
   const highlightsHeadline = homeData?.highlightsHeadline;
   const highlightsText = homeData?.highlightsText;
-  const highlightsImage = homeData?.highlightsImage;
+  const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
   const differenceHeadline = homeData?.differenceHeadline;
   const differenceText = homeData?.differenceText || [];
@@ -98,17 +98,15 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </motion.div>
         </div>
 
-        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full bg-primary-base/10">
+        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
           <div className="absolute inset-0 w-full h-full z-0">
-            {image && (
-              <Image
-                src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
-                alt="Modern luxury kitchen remodel"
-                fill
-                className="object-cover"
-                priority
-              />
-            )}
+            <Image
+              src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
+              alt="Modern luxury kitchen remodel"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
       </section>
@@ -130,11 +128,11 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
             {/* Right Column: 2 Square Pics Side-by-Side */}
             <div className="lg:col-span-7 grid grid-cols-2 gap-6">
-              <div className="aspect-square bg-primary-base/5 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                {homeData?.featuredServices?.[0]?.image && <Image src={`${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600`} alt="Design details" fill className="object-cover" />}
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <Image src={homeData?.featuredServices?.[0]?.image ? `${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Design details" fill className="object-cover" />
               </div>
-              <div className="aspect-square bg-primary-base/5 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                {homeData?.featuredServices?.[1]?.image && <Image src={`${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600`} alt="Construction details" fill className="object-cover" />}
+              <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
+                <Image src={homeData?.featuredServices?.[1]?.image ? `${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Construction details" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -230,8 +228,8 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                     whileHover={{ y: -10 }}
                     className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
                   >
-                    <div className="relative h-64 overflow-hidden bg-primary-base/5">
-                      {service.image && <Image src={`${service.image}?auto=format&fit=max&w=800`} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="p-8">
                       <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
@@ -273,16 +271,13 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               })}
             </div>
           </div>
-          <div className="relative">
-            {highlightsImage && (
-              <Image
-                src={highlightsImage.startsWith("/") ? highlightsImage : `${highlightsImage}?auto=format&fit=max&w=800`}
-                alt="Craftsmanship detail"
-                width={600}
-                height={800}
-                className="rounded-2xl object-cover shadow-2xl shadow-fine-detail/50"
-              />
-            )}
+          <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+            <Image
+              src={highlightsImage.startsWith("/") ? highlightsImage : `${highlightsImage}?auto=format&fit=max&w=1200`}
+              alt="Craftsmanship detail"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
