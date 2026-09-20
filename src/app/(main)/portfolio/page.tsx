@@ -1,5 +1,6 @@
 import ProjectGallery from "@/components/ProjectGallery";
 import { Metadata } from "next";
+import Image from "next/image";
 import { client } from "@/sanity/client";
 import { getProjectsQuery, getSiteSettingsQuery } from "@/sanity/queries";
 
@@ -30,7 +31,15 @@ export default async function ProjectsPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <section className="relative pt-16 md:pt-24 pb-4 px-6 text-center max-w-7xl mx-auto flex flex-col items-center">
+      <section className="relative w-full overflow-hidden pt-16 md:pt-24 pb-4 px-6 flex flex-col items-center">
+        
+        {/* Decorative Left/Right Leaves */}
+        <div className="absolute -left-32 md:-left-24 top-0 z-0 opacity-[0.08] mix-blend-multiply pointer-events-none">
+          <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain -rotate-12" priority />
+        </div>
+        <div className="absolute -right-32 md:-right-24 top-1/2 -translate-y-1/2 z-0 opacity-[0.08] mix-blend-multiply pointer-events-none">
+          <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain rotate-180" priority />
+        </div>
         
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-highlight/5 blur-[100px] rounded-full pointer-events-none -z-10" />
