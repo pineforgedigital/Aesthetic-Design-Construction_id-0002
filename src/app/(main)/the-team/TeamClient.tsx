@@ -38,7 +38,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
               src="/team-hero.jpg"
               alt="The Aesthetic Design & Construction Team"
               fill
-              className="object-cover object-[center_25%]"
+              className="object-cover object-[60%_15%]"
               priority
             />
           </div>
