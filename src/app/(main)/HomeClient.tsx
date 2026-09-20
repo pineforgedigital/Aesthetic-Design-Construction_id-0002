@@ -204,7 +204,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               {differenceHighlights.map((highlight: string, i: number) => (
                 <span key={i} className="flex items-center gap-4 md:gap-6">
                   {highlight.replace(/\./g, '')}
-                  {i < differenceHighlights.length - 1 && <span className="text-primary-contrast/50 font-black">|</span>}
+                  {i < differenceHighlights.length - 1 && <div className="w-[2px] h-[1.2em] bg-highlight/80 rounded-full"></div>}
                 </span>
               ))}
             </div>
