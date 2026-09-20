@@ -119,7 +119,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
         <div className="max-w-7xl mx-auto relative z-20">
 
           {/* Row 1: Headline */}
-          <div className="flex flex-col items-center justify-center text-center mb-20">
+          <div className="flex flex-col items-center justify-center text-center mb-16">
             <h2 className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col md:flex-row gap-2 md:gap-6 items-center">
               <span>From Concept</span>
               <span className="text-highlight">TO CURATED.</span>
@@ -167,11 +167,13 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             </div>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-12">
 
-            <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-primary-base/5 rounded-2xl my-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
-              {homeData?.featuredServices?.[2]?.image && <Image src={`${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600`} alt="Styling details" fill className="object-cover" />}
-            </div>
+            {homeData?.featuredServices?.[2]?.image && (
+              <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-primary-base/5 rounded-2xl mb-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
+                <Image src={`${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600`} alt="Styling details" fill className="object-cover" />
+              </div>
+            )}
 
             <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
               {differenceText[3]}
