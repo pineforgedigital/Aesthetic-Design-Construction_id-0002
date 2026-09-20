@@ -31,15 +31,20 @@ export default async function ProjectsPage() {
     <main className="min-h-screen bg-primary-base">
       
       {/* Header Section */}
-      <section className="relative w-full overflow-hidden pt-16 md:pt-24 pb-4 px-6 flex flex-col items-center">
+      <section className="relative w-full overflow-hidden pt-16 md:pt-24 pb-4 px-6 flex flex-col items-center text-center">
         
-        {/* Decorative Left/Right Leaves */}
+        {/* Decorative Left/Right Leaves & Gold Accents */}
         <div className="absolute -left-32 md:-left-24 top-0 z-0 opacity-[0.08] mix-blend-multiply pointer-events-none">
           <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain -rotate-12" priority />
         </div>
+        <div className="absolute top-[40%] left-0 w-16 md:w-48 h-[2px] bg-gradient-to-r from-highlight/10 to-highlight/60 pointer-events-none" />
+        <div className="absolute top-[40%] left-16 md:left-48 w-2 h-2 rounded-full bg-highlight/60 -translate-y-1/2 pointer-events-none" />
+
         <div className="absolute -right-32 md:-right-24 top-1/2 -translate-y-1/2 z-0 opacity-[0.08] mix-blend-multiply pointer-events-none">
           <Image src="/leaf.jpg" alt="" width={500} height={500} className="object-contain rotate-180" priority />
         </div>
+        <div className="absolute top-[60%] right-0 w-16 md:w-48 h-[2px] bg-gradient-to-l from-highlight/10 to-highlight/60 pointer-events-none" />
+        <div className="absolute top-[60%] right-16 md:right-48 w-2 h-2 rounded-full bg-highlight/60 -translate-y-1/2 pointer-events-none" />
         
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-highlight/5 blur-[100px] rounded-full pointer-events-none -z-10" />
@@ -53,7 +58,7 @@ export default async function ProjectsPage() {
           <div className="w-12 md:w-32 h-[2px] bg-gradient-to-l from-transparent to-highlight/60" />
         </div>
 
-        <div className="relative w-full">
+        <div className="relative w-full max-w-4xl mx-auto">
           <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-bold text-primary-contrast mb-6 relative z-10">
             Our Portfolio
           </h1>
