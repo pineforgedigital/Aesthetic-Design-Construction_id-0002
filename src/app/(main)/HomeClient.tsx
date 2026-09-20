@@ -186,9 +186,19 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               </div>
             )}
 
-            <p className="text-tertiary-accent text-xl leading-relaxed mb-16 max-w-3xl mx-auto">
-              {differenceText[3]}
-            </p>
+            <div className="flex items-center gap-6 md:gap-12 w-full max-w-6xl mx-auto mb-16 group">
+              <div className="hidden md:flex flex-1 items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="flex-1 h-[1px] bg-gradient-to-l from-[#D1A57A] to-transparent"></div>
+                <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+              </div>
+              <p className="text-tertiary-accent text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed text-center max-w-3xl shrink-0">
+                {differenceText[3]}
+              </p>
+              <div className="hidden md:flex flex-1 items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
+                <div className="w-1 h-1 rounded-full bg-[#D1A57A]"></div>
+                <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
+              </div>
+            </div>
 
             <div className="flex flex-wrap justify-center gap-4 text-highlight font-bold uppercase tracking-widest text-sm mb-16">
               {differenceHighlights.map((highlight: string, i: number) => (
