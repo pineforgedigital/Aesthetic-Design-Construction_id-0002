@@ -223,6 +223,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                       <input
                         type="text"
                         id="name"
+                        name="name"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="John Doe"
@@ -233,6 +234,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                       <input
                         type="email"
                         id="email"
+                        name="email"
                         required
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="john@example.com"
@@ -246,6 +248,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                       <input
                         type="tel"
                         id="phone"
+                        name="phone"
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast"
                         placeholder="(555) 123-4567"
                       />
@@ -254,6 +257,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                       <label htmlFor="projectType" className="text-sm font-medium text-primary-contrast">Project Type</label>
                       <select
                         id="projectType"
+                        name="projectType"
                         required
                         defaultValue=""
                         className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast appearance-none"
@@ -273,6 +277,7 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                     <label htmlFor="message" className="text-sm font-medium text-primary-contrast">Project Details</label>
                     <textarea
                       id="message"
+                      name="message"
                       required
                       rows={5}
                       className="w-full px-4 py-3 rounded-xl bg-primary-base/50 border border-primary-contrast/10 focus:outline-none focus:border-secondary-accent focus:ring-1 focus:ring-secondary-accent transition-all text-primary-contrast resize-none"
