@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
   try {
@@ -16,48 +15,45 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, message: "Missing required fields" }, { status: 400 });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    if (!process.env.WEB3FORMS_ACCESS_KEY) {
+      console.error("Missing WEB3FORMS_ACCESS_KEY in environment variables.");
+      return NextResponse.json({ success: false, message: "Server misconfiguration." }, { status: 500 });
+    }
 
-    const mailOptions = {
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // Send to the client's own email address
-      replyTo: email,
+    const payload = {
+      access_key: process.env.WEB3FORMS_ACCESS_KEY,
       subject: `New Lead: ${projectType} project from ${name}`,
-      text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone || 'Not provided'}
-Project Type: ${projectType}
-
-Message:
-${message}
-      `,
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eaeaea; border-radius: 10px;">
-          <h2 style="color: #314736; margin-bottom: 20px;">New Website Inquiry</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-          <p><strong>Project Type:</strong> ${projectType}</p>
-          <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-left: 4px solid #B85B43;">
-            <p style="margin: 0; white-space: pre-wrap;">${message}</p>
-          </div>
-        </div>
-      `,
+      from_name: "Aesthetic Design Website",
+      name: name,
+      email: email,
+      phone: phone || 'Not provided',
+      projectType: projectType,
+      message: message
     };
 
-    await transporter.sendMail(mailOptions);
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    const result = await response.json();
+
+    if (result.success) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    } else {
+      console.error("Web3Forms API Error:", result);
+      return NextResponse.json(
+        { success: false, message: result.message || "Failed to send email." },
+        { status: 500 }
+      );
+    }
 
   } catch (error: any) {
-    console.error("Error sending email:", error);
+    console.error("Error submitting to Web3Forms:", error);
     return NextResponse.json(
       { success: false, message: "Failed to send email. Please try again later." },
       { status: 500 }
