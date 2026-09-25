@@ -38,17 +38,19 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
 
     try {
       const payload = {
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+        subject: `New Lead: ${formData.get("projectType")} project from ${formData.get("name")}`,
+        from_name: "Aesthetic Design Website",
         name: formData.get("name"),
         email: formData.get("email"),
-        phone: formData.get("phone"),
+        phone: formData.get("phone") || 'Not provided',
         projectType: formData.get("projectType"),
         message: formData.get("message"),
-        _honey: formData.get("_honey"),
       };
 
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
 
