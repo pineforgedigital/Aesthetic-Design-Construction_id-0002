@@ -14,7 +14,7 @@ export const getTeamMembersQuery = groq`*[_type == "teamMember"] | order(_create
   name,
   role,
   bio,
-  "image": headshot.asset->url
+  "image": headshot
 }`;
 
 export const getHomePageQuery = groq`*[_type == "homePage"][0] {

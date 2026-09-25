@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
 import StaggeredText from "@/components/StaggeredText";
+import { urlForImage } from "@/sanity/image";
 
 export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
   const ctaHeadline = settingsData?.globalCtaHeadline;
@@ -107,10 +108,10 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                 >
                   <div className="relative w-full aspect-[3/4] mb-8 rounded-[2rem] overflow-hidden shadow-xl group-hover:shadow-2xl transition-all duration-500 border border-primary-contrast/5 group-hover:border-warm-sand">
                     <Image
-                      src={member.image || "/placeholder.svg"}
+                      src={member.image ? urlForImage(member.image).url() : "/placeholder.svg"}
                       alt={`${member.name}, ${member.role}`}
                       fill
-                      className="object-cover object-[center_10%] group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/5 transition-colors duration-500" />
                   </div>
@@ -155,10 +156,10 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
 
               <div className="w-full md:w-2/5 relative h-64 md:h-auto shrink-0 bg-[#EBE7DF]">
                 <Image
-                  src={selectedMember.image || "/placeholder.svg"}
+                  src={selectedMember.image ? urlForImage(selectedMember.image).url() : "/placeholder.svg"}
                   alt={`${selectedMember.name}, ${selectedMember.role}`}
                   fill
-                  className="object-cover object-[center_10%]"
+                  className="object-cover"
                 />
               </div>
 
