@@ -107,7 +107,7 @@ export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt as
   serviceName,
   "slug": slug.current,
   subtitle,
-  "image": image.asset->url,
+  "image": image,
   description,
   subServices,
   capabilities

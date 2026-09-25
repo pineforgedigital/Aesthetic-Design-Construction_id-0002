@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import PageBanner from "@/components/PageBanner";
+import { urlForImage } from "@/sanity/image";
 
 export default function ServicesClient({ pageData, servicesData, settingsData }: { pageData: any, servicesData: any[], settingsData?: any }) {
   // Page Content Fallbacks
@@ -45,7 +46,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
   // Map Sanity images to our hardcoded structure
   const getServiceImage = (title: string) => {
     const found = servicesData?.find(s => s.serviceName.toLowerCase() === title.toLowerCase());
-    return found?.image || "/placeholder.svg";
+    return found?.image ? urlForImage(found.image).url() : "/placeholder.svg";
   };
 
   return (
@@ -72,7 +73,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                       src={getServiceImage(service.title)}
                       alt={service.title}
                       fill
-                      className="object-cover"
+                      className="object-cover object-[center_20%]"
                     />
                   </div>
                 </motion.div>
