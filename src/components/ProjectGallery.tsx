@@ -28,16 +28,21 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
     ? [selectedProject.mainImage, ...(selectedProject.images || [])] 
     : [];
 
-  // Dynamically calculate which categories actually have projects assigned to them
+  // Only consider projects that actually have images
+  const validProjects = useMemo(() => {
+    return projects.filter(p => p.mainImage || (p.images && p.images.length > 0));
+  }, [projects]);
+
+  // Dynamically calculate which categories actually have valid projects assigned to them
   const availableCategories = useMemo(() => {
     const existingCategories = new Set<string>();
-    projects.forEach(p => {
+    validProjects.forEach(p => {
       if (p.category) existingCategories.add(p.category);
     });
     
     // Filter the ordered list so we keep the intended order, but only show categories with content
     return CATEGORY_ORDER.filter(cat => cat === "All" || existingCategories.has(cat));
-  }, [projects]);
+  }, [validProjects]);
 
   useEffect(() => {
     if (selectedProject || fullscreenImageIndex !== null) {
@@ -66,8 +71,8 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
   }, [selectedProject, fullscreenImageIndex, allImages.length]);
 
   const filteredProjects = activeCategory === "All" 
-    ? projects 
-    : projects.filter(p => p.category === activeCategory);
+    ? validProjects 
+    : validProjects.filter(p => p.category === activeCategory);
 
   return (
     <div className="w-full">
