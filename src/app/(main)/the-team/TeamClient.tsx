@@ -111,7 +111,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                       src={member.image ? urlForImage(member.image).url() : "/placeholder.svg"}
                       alt={`${member.name}, ${member.role}`}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/5 transition-colors duration-500" />
                   </div>
@@ -159,7 +159,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
                   src={selectedMember.image ? urlForImage(selectedMember.image).url() : "/placeholder.svg"}
                   alt={`${selectedMember.name}, ${selectedMember.role}`}
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_15%]"
                 />
               </div>
 
