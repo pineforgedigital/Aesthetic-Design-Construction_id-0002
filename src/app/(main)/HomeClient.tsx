@@ -10,7 +10,7 @@ import { urlForImage } from "@/sanity/image";
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline || "";
   const subtitle = homeData?.heroSubtitle || "";
-  const image = homeData?.heroImage || "/hero-bg.jpg";
+  const image = homeData?.heroImage || "/home-hero.jpg";
 
   const primaryBtnText = homeData?.primaryButtonText || "";
   const primaryBtnUrl = homeData?.primaryButtonUrl || "";
