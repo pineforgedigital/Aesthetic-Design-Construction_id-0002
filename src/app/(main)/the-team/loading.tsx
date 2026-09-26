@@ -1,19 +1,23 @@
-import { motion } from "framer-motion";
 import TeamSkeleton from "@/components/TeamSkeleton";
 
 export default function TeamLoading() {
   return (
     <main className="min-h-screen bg-primary-base">
-      {/* Header Section */}
-      <section className="bg-primary-contrast text-primary-base py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary-accent rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-warm-sand rounded-full blur-[150px] translate-y-1/2 -translate-x-1/4 pointer-events-none" />
-        <div className="max-w-7xl mx-auto text-center relative z-10">
-          <h1 className="font-outfit text-5xl md:text-7xl font-bold mb-6 opacity-50">
-            Meet the Team
-          </h1>
-          <div className="h-6 bg-primary-base/20 animate-pulse rounded w-1/2 max-w-2xl mx-auto mt-6"></div>
-          <div className="h-6 bg-primary-base/20 animate-pulse rounded w-1/3 max-w-lg mx-auto mt-2"></div>
+      {/* HERO SECTION SKELETON */}
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+        
+        {/* Left Side: Image (66%) Skeleton */}
+        <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1 bg-white/5 animate-pulse"></div>
+
+        {/* Right Side: Green Box with Text (33%) Skeleton */}
+        <div className="w-full lg:w-[34%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10 order-1 lg:order-2 bg-primary-contrast">
+          <div className="w-full flex flex-col items-start">
+            <div className="h-4 bg-warm-sand/20 animate-pulse rounded w-32 mb-4"></div>
+            <div className="h-12 md:h-16 bg-white/10 animate-pulse rounded w-3/4 mb-6"></div>
+            <div className="h-4 bg-white/10 animate-pulse rounded w-full mb-3"></div>
+            <div className="h-4 bg-white/10 animate-pulse rounded w-5/6 mb-3"></div>
+            <div className="h-4 bg-white/10 animate-pulse rounded w-4/5 mb-8"></div>
+          </div>
         </div>
       </section>
 
