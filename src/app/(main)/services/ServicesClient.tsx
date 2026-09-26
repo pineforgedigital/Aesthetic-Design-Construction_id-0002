@@ -68,7 +68,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="w-full lg:w-1/2 lg:sticky lg:top-32 z-0"
                 >
-                  <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[3/4] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
+                  <div className="relative aspect-[4/3] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
                     <Image
                       src={getServiceImage(service.title)}
                       alt={service.title}
@@ -150,7 +150,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/2 relative aspect-[4/5] md:aspect-square lg:aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
+          <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
             <Image
               src={materialsImage}
               alt="Materials and Finishes"
@@ -178,7 +178,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
               Designed specifically for you. Crafted by hand. Built to last.
             </p>
           </div>
-          <div className="w-full lg:w-1/2 relative aspect-[4/5] md:aspect-square lg:aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
+          <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
             <Image
               src={craftsmanshipImage}
               alt="Custom Craftsmanship"
