@@ -20,12 +20,12 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
 
   const materialsHeadline = pageData?.materialsHeadline;
   const materialsText = pageData?.materialsText;
-  const materialsImage = pageData?.materialsImage || "/placeholder.svg";
+  const materialsImage = pageData?.materialsImage ? urlForImage(pageData.materialsImage).width(1200).height(900).url() : "/placeholder.svg";
 
   const craftsmanshipHeadline = pageData?.craftsmanshipHeadline;
   const craftsmanshipText = pageData?.craftsmanshipText;
   const craftsmanshipText2 = pageData?.craftsmanshipText2;
-  const craftsmanshipImage = pageData?.craftsmanshipImage || "/placeholder.svg";
+  const craftsmanshipImage = pageData?.craftsmanshipImage ? urlForImage(pageData.craftsmanshipImage).width(1200).height(900).url() : "/placeholder.svg";
 
 
 
