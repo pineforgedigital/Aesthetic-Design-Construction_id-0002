@@ -2,14 +2,15 @@ import ProjectGallery from "@/components/ProjectGallery";
 import { Metadata } from "next";
 import Image from "next/image";
 import { client } from "@/sanity/client";
-import { getProjectsQuery, getSiteSettingsQuery } from "@/sanity/queries";
+import { getProjectsQuery, getSiteSettingsQuery, getPortfolioPageQuery } from "@/sanity/queries";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await client.fetch(getPortfolioPageQuery)
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = "Portfolio | Aesthetic Design & Construction"
-  const description = "Browse our portfolio of completed luxury construction and remodeling projects. See the unparalleled quality and craftsmanship we bring to every space."
-  const image = settingsData?.seo?.openGraphImage
+  const title = pageData?.seo?.metaTitle || "Portfolio | Aesthetic Design & Construction"
+  const description = pageData?.seo?.metaDescription || "Browse our portfolio of completed luxury construction and remodeling projects. See the unparalleled quality and craftsmanship we bring to every space."
+  const image = pageData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 
   return {
     title,
@@ -25,7 +26,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export const revalidate = 0; // Revalidate every 60 seconds
 
 export default async function ProjectsPage() {
+  const pageData = await client.fetch(getPortfolioPageQuery);
   const projects = await client.fetch(getProjectsQuery);
+
+  const heroHeadline = pageData?.heroHeadline || "Our Portfolio";
+  const heroSubtitle = pageData?.heroSubtitle || "Recent Work";
+  const heroText = pageData?.heroText || "Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design.";
 
   return (
     <main className="min-h-screen bg-primary-base">
@@ -53,19 +59,19 @@ export default async function ProjectsPage() {
         <div className="flex items-center gap-4 md:gap-6 mb-6">
           <div className="w-12 md:w-32 h-[2px] bg-gradient-to-r from-transparent to-highlight/60" />
           <span className="text-highlight font-bold uppercase tracking-widest text-xs md:text-sm whitespace-nowrap">
-            Recent Work
+            {heroSubtitle}
           </span>
           <div className="w-12 md:w-32 h-[2px] bg-gradient-to-l from-transparent to-highlight/60" />
         </div>
 
         <div className="relative w-full max-w-4xl mx-auto">
           <h1 className="font-outfit text-5xl md:text-6xl lg:text-7xl font-bold text-primary-contrast mb-6 relative z-10">
-            Our Portfolio
+            {heroHeadline}
           </h1>
         </div>
 
         <p className="text-lg md:text-xl text-tertiary-accent max-w-2xl mx-auto font-light leading-relaxed relative z-10">
-          Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design.
+          {heroText}
         </p>
 
       </section>

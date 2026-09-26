@@ -8,7 +8,11 @@ import { X, ArrowRight } from "lucide-react";
 import StaggeredText from "@/components/StaggeredText";
 import { urlForImage } from "@/sanity/image";
 
-export default function TeamClient({ teamMembers, settingsData }: { teamMembers: any[], settingsData?: any }) {
+export default function TeamClient({ teamMembers, settingsData, pageData }: { teamMembers: any[], settingsData?: any, pageData?: any }) {
+  const heroHeadline = pageData?.heroHeadline || "Meet The Team";
+  const heroSubtitle = pageData?.heroSubtitle || "Our People";
+  const heroText = pageData?.heroText || "The builders, designers, and project managers who work together to bring your project to life.";
+  const heroImage = pageData?.heroImage ? urlForImage(pageData.heroImage).url() : "/team-hero.jpg";
   const ctaHeadline = settingsData?.globalCtaHeadline;
   const ctaSubtitle = settingsData?.globalCtaSubtitle;
   const ctaBtnText = settingsData?.globalCtaButtonText;
@@ -36,7 +40,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
         <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1">
           <div className="absolute inset-0 w-full h-full z-0">
             <Image
-              src="/team-hero.jpg"
+              src={heroImage}
               alt="The Aesthetic Design & Construction Team"
               fill
               className="object-cover object-[60%_15%]"
@@ -54,14 +58,14 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
             className="w-full flex flex-col items-start"
           >
             <span className="text-warm-sand text-sm md:text-base uppercase tracking-widest font-normal mb-4 drop-shadow-sm">
-              Our People
+              {heroSubtitle}
             </span>
             <StaggeredText
-              text="Meet The Team"
+              text={heroHeadline}
               className="font-outfit text-4xl md:text-5xl lg:text-6xl font-bold text-primary-base mb-6 leading-tight drop-shadow-md !justify-start"
             />
             <p className="text-lg md:text-xl text-primary-base/80 mb-10 font-light w-full">
-              The builders, designers, and project managers who work together to bring your project to life.
+              {heroText}
             </p>
           </motion.div>
         </div>
@@ -93,9 +97,7 @@ export default function TeamClient({ teamMembers, settingsData }: { teamMembers:
         <div className="max-w-5xl mx-auto relative z-10">
           {teamMembers.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 gap-x-12 lg:gap-x-24">
-              {["Keelin", "Christian", "Kelley", "Mark"]
-                .map(name => teamMembers.find(m => m.name.includes(name)))
-                .filter(Boolean)
+              {teamMembers
                 .map((member, i) => (
                 <motion.div
                   key={member._id}

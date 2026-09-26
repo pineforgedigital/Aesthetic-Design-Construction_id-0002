@@ -1,14 +1,15 @@
 import { client } from "@/sanity/client";
-import { getTeamMembersQuery, getSiteSettingsQuery } from "@/sanity/queries";
+import { getTeamMembersQuery, getSiteSettingsQuery, getTeamPageQuery } from "@/sanity/queries";
 import { Metadata } from "next";
 import TeamClient from "./TeamClient";
 
 export async function generateMetadata(): Promise<Metadata> {
+  const pageData = await client.fetch(getTeamPageQuery)
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = "The Team | Aesthetic Design & Construction"
-  const description = "Meet the expert designers and builders at Aesthetic Design & Construction."
-  const image = settingsData?.seo?.openGraphImage
+  const title = pageData?.seo?.metaTitle || "The Team | Aesthetic Design & Construction"
+  const description = pageData?.seo?.metaDescription || "Meet the expert designers and builders at Aesthetic Design & Construction."
+  const image = pageData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 
   return {
     title,
@@ -24,7 +25,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export const revalidate = 0; // Revalidate every 60 seconds
 
 export default async function TeamPage() {
+  const pageData = await client.fetch(getTeamPageQuery);
   const TEAM_MEMBERS = await client.fetch(getTeamMembersQuery);
   const settingsData = await client.fetch(getSiteSettingsQuery);
-  return <TeamClient teamMembers={TEAM_MEMBERS} settingsData={settingsData} />;
+  return <TeamClient teamMembers={TEAM_MEMBERS} settingsData={settingsData} pageData={pageData} />;
 }

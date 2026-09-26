@@ -10,6 +10,8 @@ import { servicesPageType } from './servicesPageType'
 import { contactPageType } from './contactPageType'
 import { seoType } from './seoType'
 import { legalPageType } from './legalPageType'
+import { teamPageType } from './teamPageType'
+import { portfolioPageType } from './portfolioPageType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -23,6 +25,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     contactPageType, 
     siteSettingsType,
     seoType,
-    legalPageType
+    legalPageType,
+    teamPageType,
+    portfolioPageType
   ],
 }

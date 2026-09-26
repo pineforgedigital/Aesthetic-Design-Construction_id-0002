@@ -126,3 +126,18 @@ export const getLegalPageQuery = groq`*[_type == "legalPage" && slug.current == 
   content,
   seo
 }`;
+
+export const getTeamPageQuery = groq`*[_type == "teamPage"][0] {
+  heroHeadline,
+  heroSubtitle,
+  heroText,
+  "heroImage": heroImage,
+  seo
+}`;
+
+export const getPortfolioPageQuery = groq`*[_type == "portfolioPage"][0] {
+  heroHeadline,
+  heroSubtitle,
+  heroText,
+  seo
+}`;
