@@ -37,9 +37,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
   const diffImg2Fallback = homeData?.featuredServices?.[1]?.image ? `${homeData.featuredServices[1].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
   const diffLargeFallback = homeData?.featuredServices?.[2]?.image ? `${homeData.featuredServices[2].image}?auto=format&fit=crop&w=1200&h=600` : null;
 
-  const differenceImage1 = homeData?.differenceImage1 ? urlForImage(homeData.differenceImage1).url() : diffImg1Fallback;
-  const differenceImage2 = homeData?.differenceImage2 ? urlForImage(homeData.differenceImage2).url() : diffImg2Fallback;
-  const differenceLargeImage = homeData?.differenceLargeImage ? urlForImage(homeData.differenceLargeImage).url() : diffLargeFallback;
+  const differenceImage1 = homeData?.differenceImage1 ? urlForImage(homeData.differenceImage1).width(800).height(800).url() : diffImg1Fallback;
+  const differenceImage2 = homeData?.differenceImage2 ? urlForImage(homeData.differenceImage2).width(800).height(800).url() : diffImg2Fallback;
+  const differenceLargeImage = homeData?.differenceLargeImage ? urlForImage(homeData.differenceLargeImage).width(1600).height(800).url() : diffLargeFallback;
 
   const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to transform your space?";
   const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Let's discuss your project and how we can bring your vision to life.";
@@ -147,7 +147,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                     <span className="pl-6 md:pl-20 whitespace-normal md:whitespace-nowrap">TO CURATED.</span>
                   </>
                 ) : (
-                  <span className="whitespace-normal md:whitespace-nowrap">{differenceHeadline}</span>
+                  <span className="whitespace-normal pr-4">{differenceHeadline}</span>
                 )}
               </h2>
             </div>
