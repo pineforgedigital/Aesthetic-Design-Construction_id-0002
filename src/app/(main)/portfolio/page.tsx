@@ -29,9 +29,9 @@ export default async function ProjectsPage() {
   const pageData = await client.fetch(getPortfolioPageQuery);
   const projects = await client.fetch(getProjectsQuery);
 
-  const heroHeadline = pageData?.heroHeadline || "Our Portfolio";
-  const heroSubtitle = pageData?.heroSubtitle || "Recent Work";
-  const heroText = pageData?.heroText || "Explore our recent remodeling and construction projects, highlighting our approach to quality building and practical design.";
+  const heroHeadline = pageData?.heroHeadline || "";
+  const heroSubtitle = pageData?.heroSubtitle || "";
+  const heroText = pageData?.heroText || "";
 
   return (
     <main className="min-h-screen bg-primary-base">

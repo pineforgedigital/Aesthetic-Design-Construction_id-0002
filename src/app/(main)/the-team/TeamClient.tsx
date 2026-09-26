@@ -9,9 +9,9 @@ import StaggeredText from "@/components/StaggeredText";
 import { urlForImage } from "@/sanity/image";
 
 export default function TeamClient({ teamMembers, settingsData, pageData }: { teamMembers: any[], settingsData?: any, pageData?: any }) {
-  const heroHeadline = pageData?.heroHeadline || "Meet The Team";
-  const heroSubtitle = pageData?.heroSubtitle || "Our People";
-  const heroText = pageData?.heroText || "The builders, designers, and project managers who work together to bring your project to life.";
+  const heroHeadline = pageData?.heroHeadline || "";
+  const heroSubtitle = pageData?.heroSubtitle || "";
+  const heroText = pageData?.heroText || "";
   const heroImage = pageData?.heroImage ? urlForImage(pageData.heroImage).url() : "/team-hero.jpg";
   const ctaHeadline = settingsData?.globalCtaHeadline;
   const ctaSubtitle = settingsData?.globalCtaSubtitle;
