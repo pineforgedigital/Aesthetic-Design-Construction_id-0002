@@ -25,10 +25,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
   const differenceText = homeData?.differenceText || [];
   const differenceHighlights = homeData?.differenceHighlights || [];
   const differenceFooter = homeData?.differenceFooter || "";
-
-  const diffImg1Fallback = homeData?.featuredServices?.[0]?.image ? `${homeData.featuredServices[0].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
-  const diffImg2Fallback = homeData?.featuredServices?.[1]?.image ? `${homeData.featuredServices[1].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
-  const diffLargeFallback = homeData?.featuredServices?.[2]?.image ? `${homeData.featuredServices[2].image}?auto=format&fit=crop&w=1200&h=600` : null;
+  const diffImg1Fallback = homeData?.featuredServices?.[0]?.image ? urlForImage(homeData.featuredServices[0].image).width(600).height(600).url() : "/placeholder.svg";
+  const diffImg2Fallback = homeData?.featuredServices?.[1]?.image ? urlForImage(homeData.featuredServices[1].image).width(600).height(600).url() : "/placeholder.svg";
+  const diffLargeFallback = homeData?.featuredServices?.[2]?.image ? urlForImage(homeData.featuredServices[2].image).width(1200).height(600).url() : null;
 
   const differenceImage1 = homeData?.differenceImage1 ? urlForImage(homeData.differenceImage1).width(800).height(800).url() : diffImg1Fallback;
   const differenceImage2 = homeData?.differenceImage2 ? urlForImage(homeData.differenceImage2).width(800).height(800).url() : diffImg2Fallback;
@@ -254,7 +253,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                     className="relative z-10 group rounded-2xl overflow-hidden bg-white shadow-xl shadow-primary-contrast/5 border border-primary-contrast/5 h-full transition-all duration-500 hover:border-warm-sand hover:shadow-2xl hover:shadow-warm-sand/40"
                   >
                     <div className="relative h-64 overflow-hidden">
-                      <Image src={service.image ? `${service.image}?auto=format&fit=max&w=800` : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                      <Image src={service.image ? urlForImage(service.image).width(800).height(500).url() : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="p-8">
                       <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>

@@ -36,7 +36,7 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
     _id,
     serviceName,
     "slug": slug.current,
-    "image": image.asset->url,
+    "image": image,
     description
   },
   differenceHeadline,
