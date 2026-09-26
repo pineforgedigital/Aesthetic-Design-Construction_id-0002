@@ -11,15 +11,8 @@ export default function Navbar({ settings }: { settings?: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const links = settings?.mainNavLinks || [
-    { url: "/", label: "Home" },
-    { url: "/portfolio", label: "Portfolio" },
-    { url: "/services", label: "Services" },
-    { url: "/our-story", label: "Our Story" },
-    { url: "/the-team", label: "The Team" },
-  ];
-
-  const companyName = settings?.companyName || "Aesthetic Design & Construction";
+  const links = settings?.mainNavLinks || [];
+  const companyName = settings?.companyName || "";
 
   // Close mobile menu on route change
   useEffect(() => {

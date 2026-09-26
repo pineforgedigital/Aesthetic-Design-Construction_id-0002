@@ -8,30 +8,23 @@ import StaggeredText from "@/components/StaggeredText";
 import { urlForImage } from "@/sanity/image";
 
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
-  const headline = homeData?.heroHeadline || "Custom Building & Remodeling in South Jersey.";
-  const subtitle = homeData?.heroSubtitle || "We bring luxury construction and intentional design to Haddonfield, Medford, and surrounding South Jersey communities. Family-owned, expertly crafted.";
+  const headline = homeData?.heroHeadline || "";
+  const subtitle = homeData?.heroSubtitle || "";
   const image = homeData?.heroImage || "/hero-bg.jpg";
 
-  const primaryBtnText = homeData?.primaryButtonText || "View Our Work";
-  const primaryBtnUrl = homeData?.primaryButtonUrl || "/portfolio";
-  const secondaryBtnText = homeData?.secondaryButtonText || "Our Services";
-  const secondaryBtnUrl = homeData?.secondaryButtonUrl || "/services";
+  const primaryBtnText = homeData?.primaryButtonText || "";
+  const primaryBtnUrl = homeData?.primaryButtonUrl || "";
+  const secondaryBtnText = homeData?.secondaryButtonText || "";
+  const secondaryBtnUrl = homeData?.secondaryButtonUrl || "";
 
-  const highlightsHeadline = homeData?.highlightsHeadline || "Our Approach";
-  const highlightsText = homeData?.highlightsText || "We believe in a collaborative, transparent process that puts your needs first. From the initial consultation to the final walkthrough, we're with you every step of the way.";
+  const highlightsHeadline = homeData?.highlightsHeadline || "";
+  const highlightsText = homeData?.highlightsText || "";
   const highlightsImage = homeData?.highlightsImage || "/placeholder.svg";
 
-  const differenceHeadline = homeData?.differenceHeadline || "From Concept TO CURATED.";
-  const differenceText = homeData?.differenceText?.length > 0 ? homeData.differenceText : [
-    "We believe your home should be a reflection of you—not a replica of a showroom.",
-    "That’s why we don’t just build houses; we craft environments tailored to the way you actually live. We take the time to understand your daily rhythms, your personal style, and your long-term goals for the space.",
-    "Every detail, from the floor plan to the final finishes, is intentionally chosen to create a home that feels effortlessly yours.",
-    "It’s not just about making it beautiful; it’s about making it make sense for your life."
-  ];
-  const differenceHighlights = homeData?.differenceHighlights?.length > 0 ? homeData.differenceHighlights : [
-    "Architecture", "Interiors", "Construction"
-  ];
-  const differenceFooter = homeData?.differenceFooter || "Designed specifically for you. Crafted by hand. Built to last.";
+  const differenceHeadline = homeData?.differenceHeadline || "";
+  const differenceText = homeData?.differenceText || [];
+  const differenceHighlights = homeData?.differenceHighlights || [];
+  const differenceFooter = homeData?.differenceFooter || "";
 
   const diffImg1Fallback = homeData?.featuredServices?.[0]?.image ? `${homeData.featuredServices[0].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
   const diffImg2Fallback = homeData?.featuredServices?.[1]?.image ? `${homeData.featuredServices[1].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
@@ -41,16 +34,12 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
   const differenceImage2 = homeData?.differenceImage2 ? urlForImage(homeData.differenceImage2).width(800).height(800).url() : diffImg2Fallback;
   const differenceLargeImage = homeData?.differenceLargeImage ? urlForImage(homeData.differenceLargeImage).width(1600).height(800).url() : diffLargeFallback;
 
-  const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to transform your space?";
-  const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Let's discuss your project and how we can bring your vision to life.";
-  const ctaBtnText = settingsData?.globalCtaButtonText || homeData?.primaryButtonText || "Get in Touch";
-  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || homeData?.primaryButtonUrl || "/contact";
+  const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "";
+  const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "";
+  const ctaBtnText = settingsData?.globalCtaButtonText || homeData?.primaryButtonText || "";
+  const ctaBtnUrl = settingsData?.globalCtaButtonUrl || homeData?.primaryButtonUrl || "";
 
-  const highlightsList = homeData?.highlightsList?.length > 0 ? homeData.highlightsList : [
-    { title: "Transparent Communication", desc: "You're never left in the dark.", iconName: "Search" },
-    { title: "Expert Craftsmanship", desc: "Built with precision and care.", iconName: "Hammer" },
-    { title: "Intentional Design", desc: "Spaces that make sense for your life.", iconName: "Layers" }
-  ];
+  const highlightsList = homeData?.highlightsList || [];
 
   const testimonials = testimonialsData && testimonialsData.length > 0 ? testimonialsData : [];
 

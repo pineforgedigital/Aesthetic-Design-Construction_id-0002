@@ -5,7 +5,7 @@ import { getSiteSettingsQuery } from "@/sanity/queries";
 
 export default async function Footer() {
   const settings = await client.fetch(getSiteSettingsQuery);
-  const footerText = settings?.footerText || "Rooted in our community. Inspired by family and friends. Built with heart.";
+  const footerText = settings?.footerText || "";
 
   return (
     <footer className="bg-fine-detail text-primary-base pt-24 pb-12 mt-auto relative overflow-hidden">
@@ -38,13 +38,7 @@ export default async function Footer() {
 
         <div className="md:col-span-4 flex flex-col gap-4">
           <h3 className="font-outfit text-xl font-bold text-primary-base mb-2">Quick Links</h3>
-          {(settings?.footerQuickLinks || [
-            { label: "Home", url: "/" },
-            { label: "Portfolio", url: "/portfolio" },
-            { label: "Services", url: "/services" },
-            { label: "Our Story", url: "/our-story" },
-            { label: "The Team", url: "/the-team" },
-          ]).map((link: any) => (
+          {(settings?.footerQuickLinks || []).map((link: any) => (
             <Link key={link.url} href={link.url} className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">
               {link.label}
             </Link>
@@ -54,10 +48,7 @@ export default async function Footer() {
 
         <div className="md:col-span-3 flex flex-col gap-4">
           <h3 className="font-outfit text-xl font-bold text-primary-base mb-2">Legal</h3>
-          {(settings?.footerLegalLinks || [
-            { label: "Terms of Service", url: "/terms-of-service" },
-            { label: "Privacy Policy", url: "/privacy-policy" },
-          ]).map((link: any) => (
+          {(settings?.footerLegalLinks || []).map((link: any) => (
             <Link key={link.url} href={link.url} className="text-primary-base/70 hover:text-white hover:translate-x-1 transition-all w-fit">
               {link.label}
             </Link>
