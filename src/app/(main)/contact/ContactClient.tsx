@@ -269,7 +269,8 @@ export default function ContactClient({ pageData, settingsData }: { pageData: an
                         <option value="bath">Bathroom Remodel</option>
                         <option value="flooring">Flooring</option>
                         <option value="interior">Full Interior Remodel</option>
-                        <option value="rendering">3D Rendering</option>
+                        <option value="space-planning">Space Planning</option>
+                        <option value="decorating">Decorating</option>
                         <option value="other">Other</option>
                       </select>
                     </div>
