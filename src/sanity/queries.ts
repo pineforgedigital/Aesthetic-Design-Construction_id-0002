@@ -42,7 +42,10 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   differenceHeadline,
   differenceText,
   differenceHighlights,
-  differenceFooter
+  differenceFooter,
+  "differenceImage1": differenceImage1,
+  "differenceImage2": differenceImage2,
+  "differenceLargeImage": differenceLargeImage
 }`;
 
 export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {

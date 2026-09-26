@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Star, Ruler, Hammer, PaintBucket, Search, PenTool, Layers, Sparkles, Armchair, Gem, Heart, Wrench, Users, Lightbulb } from "lucide-react";
 import StaggeredText from "@/components/StaggeredText";
+import { urlForImage } from "@/sanity/image";
 
 export default function Home({ homeData, testimonialsData, settingsData }: { homeData: any, testimonialsData: any[], settingsData?: any }) {
   const headline = homeData?.heroHeadline || "Custom Building & Remodeling in South Jersey.";
@@ -31,6 +32,14 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
     "Architecture", "Interiors", "Construction"
   ];
   const differenceFooter = homeData?.differenceFooter || "Designed specifically for you. Crafted by hand. Built to last.";
+
+  const diffImg1Fallback = homeData?.featuredServices?.[0]?.image ? `${homeData.featuredServices[0].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
+  const diffImg2Fallback = homeData?.featuredServices?.[1]?.image ? `${homeData.featuredServices[1].image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg";
+  const diffLargeFallback = homeData?.featuredServices?.[2]?.image ? `${homeData.featuredServices[2].image}?auto=format&fit=crop&w=1200&h=600` : null;
+
+  const differenceImage1 = homeData?.differenceImage1 ? urlForImage(homeData.differenceImage1).url() : diffImg1Fallback;
+  const differenceImage2 = homeData?.differenceImage2 ? urlForImage(homeData.differenceImage2).url() : diffImg2Fallback;
+  const differenceLargeImage = homeData?.differenceLargeImage ? urlForImage(homeData.differenceLargeImage).url() : diffLargeFallback;
 
   const ctaHeadline = settingsData?.globalCtaHeadline || homeData?.ctaHeadline || "Ready to transform your space?";
   const ctaSubtitle = settingsData?.globalCtaSubtitle || homeData?.ctaSubtitle || "Let's discuss your project and how we can bring your vision to life.";
@@ -146,10 +155,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             {/* Right Column: 2 Square Pics Side-by-Side */}
             <div className="lg:col-span-7 grid grid-cols-2 gap-6">
               <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <Image src={homeData?.featuredServices?.[0]?.image ? `${homeData?.featuredServices?.[0]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Design details" fill className="object-cover" />
+                <Image src={differenceImage1} alt="Design details" fill className="object-cover" />
               </div>
               <div className="aspect-square bg-[#EBE7DF]/60 rounded-2xl flex items-center justify-center text-tertiary-accent shadow-sm overflow-hidden relative border border-primary-contrast/10">
-                <Image src={homeData?.featuredServices?.[1]?.image ? `${homeData?.featuredServices?.[1]?.image}?auto=format&fit=crop&w=600&h=600` : "/placeholder.svg"} alt="Construction details" fill className="object-cover" />
+                <Image src={differenceImage2} alt="Construction details" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -197,9 +206,9 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
           <div className="text-center mt-12">
 
-            {homeData?.featuredServices?.[2]?.image && (
+            {differenceLargeImage && (
               <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-primary-base/5 rounded-2xl mb-16 shadow-sm overflow-hidden relative flex items-center justify-center border border-primary-contrast/10">
-                <Image src={`${homeData?.featuredServices?.[2]?.image}?auto=format&fit=crop&w=1200&h=600`} alt="Styling details" fill className="object-cover" />
+                <Image src={differenceLargeImage} alt="Styling details" fill className="object-cover" />
               </div>
             )}
 

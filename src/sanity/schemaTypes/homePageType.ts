@@ -124,5 +124,23 @@ export const homePageType = defineType({
       title: 'Difference Footer Text',
       type: 'string',
     }),
+    defineField({
+      name: 'differenceImage1',
+      title: 'Difference Image 1 (Left Square)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'differenceImage2',
+      title: 'Difference Image 2 (Right Square)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({
+      name: 'differenceLargeImage',
+      title: 'Difference Large Image (Bottom Rectangle)',
+      type: 'image',
+      options: { hotspot: true },
+    }),
   ],
 })
