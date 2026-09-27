@@ -130,10 +130,10 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             {/* Left Column: Headline */}
             <div className="lg:col-span-5 text-left flex flex-col justify-center">
               <h2 className="font-outfit text-3xl md:text-4xl lg:text-5xl font-bold text-primary-contrast uppercase tracking-wide leading-tight flex flex-col">
-                {differenceHeadline === "From Concept TO CURATED." ? (
+                {differenceHeadline?.toLowerCase() === "from concept to curated." ? (
                   <>
                     <span className="whitespace-normal md:whitespace-nowrap">From Concept</span>
-                    <span className="pl-6 md:pl-20 whitespace-normal md:whitespace-nowrap">TO CURATED.</span>
+                    <span className="pl-6 md:pl-20 whitespace-normal md:whitespace-nowrap italic">TO CURATED.</span>
                   </>
                 ) : (
                   <span className="whitespace-normal pr-4">{differenceHeadline}</span>

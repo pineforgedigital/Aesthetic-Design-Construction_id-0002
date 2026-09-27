@@ -32,6 +32,7 @@ import { client } from '@/sanity/client'
 import { getHomePageQuery, getTestimonialsQuery } from '@/sanity/queries'
 
 export const revalidate = 0 // Disable cache so Sanity changes reflect immediately
+export const dynamic = 'force-dynamic' // Force fully dynamic rendering
 
 // Force cache bust
 export default async function HomePage() {
