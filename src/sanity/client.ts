@@ -6,5 +6,5 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false, // Always bypass CDN for instant updates
-  fetch: (url, init) => fetch(url, { ...init, cache: 'no-store' })
+  fetch: { cache: 'no-store' }
 });
