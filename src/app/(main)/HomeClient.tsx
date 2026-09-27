@@ -160,18 +160,18 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                 <p className="text-tertiary-accent text-lg md:text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed w-[85%] md:max-w-[85%]">
                   {differenceText[0]}
                 </p>
-                <div className="flex-1 flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
-                  <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
+                <div className="flex-1 flex items-center transition-opacity duration-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#A87C4F] shrink-0"></div>
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#A87C4F] via-[#A87C4F]/80 to-transparent"></div>
                 </div>
               </div>
               <div className="flex items-center gap-4 md:gap-6 w-full group">
                 <p className="text-tertiary-accent text-lg md:text-xl lg:text-[1.35rem] font-light tracking-wide leading-relaxed w-[85%] md:max-w-[85%]">
                   {differenceText[1]}
                 </p>
-                <div className="flex-1 flex items-center opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
-                  <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
+                <div className="flex-1 flex items-center transition-opacity duration-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#A87C4F] shrink-0"></div>
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#A87C4F] via-[#A87C4F]/80 to-transparent"></div>
                 </div>
               </div>
             </div>
@@ -179,15 +179,15 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
             {/* Right Column: Bolded paragraph */}
             <div className="lg:col-span-7 text-left lg:pl-16 relative mt-8 lg:mt-0">
               {/* Vertical divider */}
-              <div className="hidden lg:block absolute left-0 top-[-30%] bottom-[-30%] w-[1px] bg-gradient-to-b from-transparent via-[#D1A57A]/40 to-transparent"></div>
+              <div className="hidden lg:block absolute left-0 top-[-30%] bottom-[-30%] w-[2px] bg-gradient-to-b from-transparent via-[#A87C4F]/60 to-transparent"></div>
               
               <div className="flex items-center gap-6 md:gap-8 w-full group">
                 <p className="text-primary-contrast font-outfit text-2xl md:text-3xl lg:text-4xl leading-tight w-full md:w-[85%]">
                   {differenceText[2]}
                 </p>
-                <div className="hidden md:flex flex-1 items-center min-w-[2rem] opacity-70 group-hover:opacity-100 transition-opacity duration-700">
-                  <div className="w-1 h-1 rounded-full bg-[#D1A57A] shrink-0"></div>
-                  <div className="flex-1 h-[1px] bg-gradient-to-r from-[#D1A57A] to-transparent"></div>
+                <div className="hidden md:flex flex-1 items-center min-w-[2rem] transition-opacity duration-700">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#A87C4F] shrink-0"></div>
+                  <div className="flex-1 h-[2px] bg-gradient-to-r from-[#A87C4F] via-[#A87C4F]/80 to-transparent"></div>
                 </div>
               </div>
             </div>
