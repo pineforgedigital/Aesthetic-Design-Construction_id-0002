@@ -21,7 +21,10 @@ export const getHomePageQuery = groq`*[_type == "homePage"][0] {
   heroHeadline,
   heroSubtitle,
   "heroImage": heroImage.asset->url,
-  seo,
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  },
   highlightsHeadline,
   highlightsText,
   highlightsList,
@@ -58,7 +61,10 @@ export const getAboutPageQuery = groq`*[_type == "aboutPage"][0] {
   coreValuesSubtitle,
   coreValuesList,
   ctaHeadline,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
@@ -77,7 +83,10 @@ export const getSiteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   globalCtaSubtitle,
   globalCtaButtonText,
   globalCtaButtonUrl,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getTestimonialsQuery = groq`*[_type == "testimonial"] | order(_createdAt desc) {
@@ -102,7 +111,10 @@ export const getServicesPageQuery = groq`*[_type == "servicesPage"][0] {
   visualizeHeadline,
   visualizeText,
   visualizeText2,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getServicesQuery = groq`*[_type == "service"] | order(_createdAt asc) {
@@ -120,14 +132,20 @@ export const getContactPageQuery = groq`*[_type == "contactPage"][0] {
   heroHeadline,
   heroSubtitle,
   contactInfoSubtitle,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getLegalPageQuery = groq`*[_type == "legalPage" && slug.current == $slug][0] {
   title,
   lastUpdated,
   content,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getTeamPageQuery = groq`*[_type == "teamPage"][0] {
@@ -135,12 +153,18 @@ export const getTeamPageQuery = groq`*[_type == "teamPage"][0] {
   heroSubtitle,
   heroText,
   "heroImage": heroImage,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;
 
 export const getPortfolioPageQuery = groq`*[_type == "portfolioPage"][0] {
   heroHeadline,
   heroSubtitle,
   heroText,
-  seo
+  seo {
+    ...,
+    "openGraphImage": openGraphImage.asset->url
+  }
 }`;

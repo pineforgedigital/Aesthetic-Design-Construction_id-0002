@@ -40,13 +40,36 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { client } from '@/sanity/client';
+import { getSiteSettingsQuery } from '@/sanity/queries';
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settingsData = await client.fetch(getSiteSettingsQuery);
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: settingsData?.companyName || 'Aesthetic Design & Construction',
+    image: 'https://aestheticdesignconstruction.com/og-logo.jpg',
+    url: 'https://aestheticdesignconstruction.com',
+    telephone: settingsData?.contactPhone || '',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: settingsData?.address || '',
+    }
+  };
+
   return (
     <html lang="en" className={`${bodoni.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="flex flex-col font-sans relative">
         <SmoothScroll>
           {children}

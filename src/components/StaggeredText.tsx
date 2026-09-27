@@ -7,12 +7,14 @@ interface StaggeredTextProps {
   text: string;
   className?: string;
   delay?: number;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'p';
 }
 
 export default function StaggeredText({
   text,
   className = "",
   delay = 0,
+  as = 'div',
 }: StaggeredTextProps) {
   // Split text by space, but preserve newlines as separate tokens
   const words = text.split(/(\s+)/).filter(w => w.trim().length > 0 || w.includes('\n'));
@@ -38,8 +40,10 @@ export default function StaggeredText({
     },
   };
 
+  const MotionComponent = motion[as as keyof typeof motion] as any;
+
   return (
-    <motion.div
+    <MotionComponent
       className={`flex flex-wrap justify-center md:justify-start overflow-hidden ${className}`}
       variants={container}
       initial="hidden"
@@ -61,6 +65,6 @@ export default function StaggeredText({
           </motion.span>
         );
       })}
-    </motion.div>
+    </MotionComponent>
   );
 }
