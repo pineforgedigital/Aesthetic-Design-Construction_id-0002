@@ -8,7 +8,7 @@ export default async function Footer() {
   const footerText = settings?.footerText || "";
 
   return (
-    <footer className="bg-fine-detail text-primary-base pt-24 pb-12 mt-auto relative overflow-hidden">
+    <footer className="bg-fine-detail text-primary-base pt-12 pb-12 mt-auto relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
         <div className="md:col-span-5">
           <Image 
