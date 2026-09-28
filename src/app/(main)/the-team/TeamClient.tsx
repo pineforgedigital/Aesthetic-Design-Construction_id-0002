@@ -147,7 +147,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
             data-lenis-prevent="true"
           >
             <div 
-              className="relative w-full max-w-4xl bg-primary-base rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-4xl bg-primary-base rounded-[2rem] overflow-y-auto md:overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
               onClick={e => e.stopPropagation()}
             >
               <button 
@@ -166,7 +166,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                 />
               </div>
 
-              <div className="w-full md:w-3/5 p-8 md:p-12 overflow-y-auto" data-lenis-prevent="true">
+              <div className="w-full md:w-3/5 p-8 md:p-12 md:overflow-y-auto" data-lenis-prevent="true">
                 <h2 className="font-outfit text-4xl font-bold text-primary-contrast mb-2">{selectedMember.name}</h2>
                 <p className="text-highlight font-bold uppercase tracking-widest text-sm mb-8">{selectedMember.role}</p>
                 
