@@ -16,7 +16,7 @@ export interface Project {
   images: string[];
 }
 
-const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Interior Decorating", "Holiday Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
+const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces", "Interior Decorating", "Holiday Decorating"];
 
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
