@@ -133,7 +133,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                 <>
                   <span className="whitespace-nowrap">Beautiful Materials.</span>
                   <span className="italic">Thoughtfully</span>
-                  <span className="italic pl-12 md:pl-24">Selected.</span>
+                  <span className="italic self-end">Selected.</span>
                 </>
               ) : (
                 materialsHeadline?.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)
