@@ -43,7 +43,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
               src={heroImage}
               alt="The Aesthetic Design & Construction Team"
               fill
-              className="object-cover object-[60%_15%]"
+              style={{ objectFit: 'cover', objectPosition: '60% 15%' }}
               priority
             />
           </div>
@@ -113,7 +113,8 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                       src={member.image ? urlForImage(member.image).url() : "/placeholder.svg"}
                       alt={`${member.name}, ${member.role}`}
                       fill
-                      className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
+                      style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                      className="group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-primary-banner/0 group-hover:bg-primary-banner/5 transition-colors duration-500" />
                   </div>
@@ -161,7 +162,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                   src={selectedMember.image ? urlForImage(selectedMember.image).url() : "/placeholder.svg"}
                   alt={`${selectedMember.name}, ${selectedMember.role}`}
                   fill
-                  className="object-cover object-[center_15%]"
+                  style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
                 />
               </div>
 

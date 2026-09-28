@@ -113,7 +113,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
               src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
               alt="Modern luxury kitchen remodel"
               fill
-              className="object-cover"
+              style={{ objectFit: 'cover' }}
               priority
             />
           </div>
