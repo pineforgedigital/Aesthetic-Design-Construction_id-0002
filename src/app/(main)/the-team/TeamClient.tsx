@@ -37,7 +37,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
       <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
         
         {/* Left Side: Image (66%) */}
-        <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1">
+        <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1 flex-1">
           <div className="absolute inset-0 w-full h-full z-0">
             <Image
               src={heroImage}
@@ -113,7 +113,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                       src={member.image ? urlForImage(member.image).url() : "/placeholder.svg"}
                       alt={`${member.name}, ${member.role}`}
                       fill
-                      style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                      style={{ objectFit: 'cover', objectPosition: 'center top' }}
                       className="group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-primary-banner/0 group-hover:bg-primary-banner/5 transition-colors duration-500" />
@@ -162,7 +162,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                   src={selectedMember.image ? urlForImage(selectedMember.image).url() : "/placeholder.svg"}
                   alt={`${selectedMember.name}, ${selectedMember.role}`}
                   fill
-                  style={{ objectFit: 'cover', objectPosition: 'center 15%' }}
+                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
                 />
               </div>
 

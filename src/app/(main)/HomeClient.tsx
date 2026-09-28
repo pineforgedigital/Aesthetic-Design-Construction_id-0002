@@ -107,7 +107,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
           </motion.div>
         </div>
 
-        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full">
+        <div className="w-full lg:w-[60%] relative min-h-[50vh] lg:min-h-full flex-1">
           <div className="absolute inset-0 w-full h-full z-0">
             <Image
               src={image.startsWith("/") ? image : `${image}?auto=format&fit=max&w=1920`}
