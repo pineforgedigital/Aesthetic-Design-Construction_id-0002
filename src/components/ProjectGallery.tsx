@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
-type ProjectCategory = "All" | "Space Planning" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Decorating" | "Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling" | "Custom Pieces" | "Fireplaces";
+type ProjectCategory = "All" | "Space Planning" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Decorating" | "Holiday Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling" | "Custom Pieces" | "Fireplaces";
 
 export interface Project {
   _id: string;
@@ -16,7 +16,7 @@ export interface Project {
   images: string[];
 }
 
-const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Interior Decorating", "Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
+const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Interior Decorating", "Holiday Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
 
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -24,12 +24,21 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
   const [fullscreenImageIndex, setFullscreenImageIndex] = useState<number | null>(null);
 
   // Map "Interior Design" from Sanity to "Interior Decorating" for the frontend
+  // Also map "Decorating" to "Holiday Decorating"
   const mappedProjects = useMemo(() => {
-    return projects.map(p => ({
-      ...p,
-      title: p.title.replace(/Interior Design/ig, 'Interior Decorating'),
-      category: p.category === 'Interior Design' ? 'Interior Decorating' : p.category
-    }));
+    return projects.map(p => {
+      let mappedTitle = p.title.replace(/Interior Design/ig, 'Interior Decorating');
+      mappedTitle = mappedTitle.replace(/Decorating/ig, 'Holiday Decorating').replace(/Holiday Holiday Decorating/ig, 'Holiday Decorating'); // handle case where it was already 'Holiday Decorating'
+      
+      let mappedCategory = p.category === 'Interior Design' ? 'Interior Decorating' : p.category;
+      mappedCategory = mappedCategory === 'Decorating' ? 'Holiday Decorating' : mappedCategory;
+      
+      return {
+        ...p,
+        title: mappedTitle,
+        category: mappedCategory
+      };
+    });
   }, [projects]);
 
   // Derived array for all images in the selected project to support navigation

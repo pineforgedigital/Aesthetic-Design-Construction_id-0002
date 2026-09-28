@@ -234,10 +234,18 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
 
       {/* KEY SERVICES SECTION */}
       <section className="pb-24 pt-4 max-w-7xl mx-auto px-6">
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {["Design", "Transform", "Decorate"]
-            .map(name => (homeData?.featuredServices || []).find((s: any) => s.serviceName.toLowerCase() === name.toLowerCase()))
+            .map(name => {
+              const s = (homeData?.featuredServices || []).find((s: any) => s.serviceName.toLowerCase() === name.toLowerCase());
+              if (!s) return null;
+              
+              let displayName = s.serviceName;
+              if (displayName.toLowerCase() === "design") displayName = "Interior Decorating";
+              if (displayName.toLowerCase() === "decorate") displayName = "Holiday Decorating";
+              
+              return { ...s, displayName };
+            })
             .filter(Boolean)
             .map((service: any, index: number) => (
               <motion.div
@@ -257,7 +265,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
                       <Image src={service.image ? urlForImage(service.image).width(800).height(500).url() : "/placeholder.svg"} alt={service.serviceName} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
                     <div className="p-8">
-                      <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.serviceName}</h3>
+                      <h3 className="font-outfit text-2xl font-semibold text-primary-contrast mb-3">{service.displayName}</h3>
                       <p className="text-primary-contrast/70 mb-6 line-clamp-2">{service.description || "Learn about our approach to building and remodeling, making sure every detail meets your standards."}</p>
                       <span className="text-primary-contrast font-medium flex items-center gap-2 group-hover:text-highlight transition-colors">
                         Learn More <ArrowRight size={16} />
