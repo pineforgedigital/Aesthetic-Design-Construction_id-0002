@@ -21,7 +21,7 @@
 :root {
   --background: #ffffff;
   /* softer light cream */
-  --foreground: #154734;
+  --foreground: #1e7151;
   /* primary-contrast */
 }
 
@@ -30,7 +30,7 @@
   --color-foreground: var(--foreground);
 
   --color-primary-base: #FAF8F5;
-  --color-primary-contrast: #154734;
+  --color-primary-contrast: #1e7151;
   --color-secondary-accent: #8A988B;
   --color-tertiary-accent: #586259;
   --color-fine-detail: #35302C;
