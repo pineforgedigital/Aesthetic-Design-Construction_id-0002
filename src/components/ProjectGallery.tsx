@@ -28,7 +28,11 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
   const mappedProjects = useMemo(() => {
     return projects.map(p => {
       let mappedTitle = p.title.replace(/Interior Design/ig, 'Interior Decorating');
-      mappedTitle = mappedTitle.replace(/Decorating/ig, 'Holiday Decorating').replace(/Holiday Holiday Decorating/ig, 'Holiday Decorating'); // handle case where it was already 'Holiday Decorating'
+      // Only replace 'Decorating' if it's not preceded by 'Interior '
+      if (!mappedTitle.match(/Interior Decorating/i)) {
+        mappedTitle = mappedTitle.replace(/Decorating/ig, 'Holiday Decorating');
+      }
+      mappedTitle = mappedTitle.replace(/Holiday Holiday Decorating/ig, 'Holiday Decorating');
       
       let mappedCategory = p.category === 'Interior Design' ? 'Interior Decorating' : p.category;
       mappedCategory = mappedCategory === 'Decorating' ? 'Holiday Decorating' : mappedCategory;
