@@ -34,7 +34,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
   return (
     <main className="min-h-screen bg-primary-base">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20 [transform:translateZ(0)]">
         
         {/* Left Side: Image (66%) */}
         <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1 flex-1">
@@ -157,12 +157,12 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                 <X size={20} />
               </button>
 
-              <div className="w-full md:w-2/5 relative h-64 md:h-auto shrink-0 bg-[#EBE7DF]">
+              <div className="w-full md:w-2/5 relative aspect-[3/4] md:aspect-auto md:h-auto shrink-0 bg-transparent flex items-center justify-center p-4">
                 <Image
                   src={selectedMember.image ? urlForImage(selectedMember.image).url() : "/placeholder.svg"}
                   alt={`${selectedMember.name}, ${selectedMember.role}`}
                   fill
-                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                  style={{ objectFit: 'contain', objectPosition: 'center center' }}
                 />
               </div>
 

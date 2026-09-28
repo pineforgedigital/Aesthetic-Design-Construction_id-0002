@@ -69,7 +69,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
     <main className="min-h-screen bg-primary-base overflow-x-hidden">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20 [transform:translateZ(0)]">
 
         {/* Left Side: Green Box with Text */}
         <div className="w-full lg:w-[40%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
