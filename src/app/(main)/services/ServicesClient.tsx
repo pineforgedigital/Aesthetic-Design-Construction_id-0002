@@ -35,23 +35,17 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
   const servicesLayout = targetOrder
     .map(name => servicesData?.find(s => s.serviceName?.toLowerCase() === name.toLowerCase()))
     .filter(Boolean)
-    .map((service) => {
-      let displayName = service.serviceName;
-      if (displayName.toLowerCase() === "design") displayName = "Interior Decorating";
-      if (displayName.toLowerCase() === "decorate") displayName = "Holiday Decorating";
-
-      return {
-        id: service.slug || service.serviceName.toLowerCase(),
-        title: displayName,
-        subtitle: service.subtitle,
-        description: service.description,
-        subServices: service.subServices || []
-      };
-    });
+    .map((service) => ({
+      id: service.slug || service.serviceName.toLowerCase(),
+      title: service.serviceName,
+      subtitle: service.subtitle,
+      description: service.description,
+      subServices: service.subServices || []
+    }));
 
   // Map Sanity images to our hardcoded structure
-  const getServiceImage = (id: string) => {
-    const found = servicesData?.find(s => (s.slug || s.serviceName.toLowerCase()) === id);
+  const getServiceImage = (title: string) => {
+    const found = servicesData?.find(s => s.serviceName.toLowerCase() === title.toLowerCase());
     return found?.image ? urlForImage(found.image).url() : "/placeholder.svg";
   };
 
@@ -76,7 +70,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
                 >
                   <div className="relative aspect-[4/3] w-full rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
                     <Image
-                      src={getServiceImage(service.id)}
+                      src={getServiceImage(service.title)}
                       alt={service.title}
                       fill
                       className="object-cover object-[center_20%]"
