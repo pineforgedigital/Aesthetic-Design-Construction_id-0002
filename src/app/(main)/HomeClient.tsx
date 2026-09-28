@@ -69,7 +69,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
     <main className="min-h-screen bg-primary-base overflow-x-hidden">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
 
         {/* Left Side: Green Box with Text */}
         <div className="w-full lg:w-[40%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10">
@@ -270,7 +270,7 @@ export default function Home({ homeData, testimonialsData, settingsData }: { hom
       </section>
 
       {/* HIGHLIGHTS / WHY US SECTION */}
-      <section className="bg-primary-contrast text-primary-base py-24 relative overflow-hidden">
+      <section className="bg-primary-banner text-primary-base py-24 relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-secondary-accent rounded-full blur-[120px] opacity-20"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>

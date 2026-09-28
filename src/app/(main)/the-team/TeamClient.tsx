@@ -34,7 +34,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
   return (
     <main className="min-h-screen bg-primary-base">
       {/* HERO SECTION */}
-      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-contrast rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
+      <section className="relative min-h-[90vh] flex flex-col lg:flex-row overflow-hidden bg-primary-banner rounded-b-[2.5rem] md:rounded-b-[4rem] shadow-2xl z-20">
         
         {/* Left Side: Image (66%) */}
         <div className="w-full lg:w-[66%] relative min-h-[50vh] lg:min-h-full order-2 lg:order-1">
@@ -50,7 +50,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
         </div>
 
         {/* Right Side: Green Box with Text (33%) */}
-        <div className="w-full lg:w-[34%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10 order-1 lg:order-2 bg-primary-contrast">
+        <div className="w-full lg:w-[34%] flex items-center justify-center p-8 md:p-12 lg:p-16 pt-32 lg:pt-24 z-10 order-1 lg:order-2 bg-primary-banner">
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -78,8 +78,8 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
         <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#B85B43]/5 blur-[120px] rounded-full pointer-events-none" />
 
         {/* Architectural / Blueprint Crosshair Lines */}
-        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-primary-contrast/5 pointer-events-none" />
-        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-primary-contrast/5 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[1px] bg-primary-banner/5 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-primary-banner/5 pointer-events-none" />
 
         {/* Massive Central Botanical Decor */}
         <motion.div 
@@ -115,7 +115,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
                       fill
                       className="object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/5 transition-colors duration-500" />
+                    <div className="absolute inset-0 bg-primary-banner/0 group-hover:bg-primary-banner/5 transition-colors duration-500" />
                   </div>
                   <h3 className="font-outfit text-3xl font-bold text-primary-contrast mb-2">{member.name}</h3>
                   <p className="text-highlight font-bold uppercase tracking-widest text-sm">{member.role}</p>
@@ -141,7 +141,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-primary-contrast/80 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-primary-banner/80 backdrop-blur-md"
             onClick={() => setSelectedMember(null)}
             data-lenis-prevent="true"
           >
@@ -206,7 +206,7 @@ export default function TeamClient({ teamMembers, settingsData, pageData }: { te
       </AnimatePresence>
 
       {/* Modernized CTA SECTION */}
-      <section className="py-32 px-6 bg-primary-contrast text-center relative overflow-hidden border-b-4 border-warm-sand">
+      <section className="py-32 px-6 bg-primary-banner text-center relative overflow-hidden border-b-4 border-warm-sand">
         {/* ... CTA elements remain exactly the same */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary-accent/10 blur-[120px] rounded-full pointer-events-none" />
         

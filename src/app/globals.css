@@ -30,6 +30,7 @@
   --color-foreground: var(--foreground);
 
   --color-primary-base: #FAF8F5;
+  --color-primary-banner: #154734;
   --color-primary-contrast: #136c4a;
   --color-secondary-accent: #8A988B;
   --color-tertiary-accent: #586259;

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen relative flex items-center justify-center overflow-hidden bg-primary-contrast">
+    <main className="min-h-screen relative flex items-center justify-center overflow-hidden bg-primary-banner">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

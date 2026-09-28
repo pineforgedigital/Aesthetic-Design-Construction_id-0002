@@ -114,7 +114,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
             {activeCategory === category && (
               <motion.div
                 layoutId="activeCategoryBorder"
-                className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-contrast"
+                className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary-banner"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
               />
             )}
@@ -153,7 +153,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                   fill 
                   className="object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-out" 
                 />
-                <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/20 transition-colors duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 bg-primary-banner/0 group-hover:bg-primary-banner/20 transition-colors duration-500 flex items-center justify-center">
                   <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-50 group-hover:scale-100 drop-shadow-md" size={48} />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-primary-contrast/80 backdrop-blur-md"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-primary-banner/80 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
             data-lenis-prevent="true"
           >
@@ -211,7 +211,7 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
                           fill 
                           className="object-cover group-hover:scale-105 transition-transform duration-700" 
                         />
-                        <div className="absolute inset-0 bg-primary-contrast/0 group-hover:bg-primary-contrast/10 transition-colors duration-300 flex items-center justify-center">
+                        <div className="absolute inset-0 bg-primary-banner/0 group-hover:bg-primary-banner/10 transition-colors duration-300 flex items-center justify-center">
                           <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-75 group-hover:scale-100 drop-shadow-md" size={32} />
                         </div>
                       </div>

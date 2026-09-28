@@ -19,7 +19,7 @@ export default function ProjectsLoading() {
 
         {/* Title skeleton */}
         <div className="relative w-full max-w-4xl mx-auto flex flex-col items-center">
-          <div className="w-64 h-12 md:w-96 md:h-16 lg:w-[32rem] lg:h-20 bg-primary-contrast/10 animate-pulse rounded-lg mb-6" />
+          <div className="w-64 h-12 md:w-96 md:h-16 lg:w-[32rem] lg:h-20 bg-primary-banner/10 animate-pulse rounded-lg mb-6" />
         </div>
 
         {/* Text skeleton */}
