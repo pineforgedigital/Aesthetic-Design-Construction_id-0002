@@ -126,8 +126,8 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
 
       {/* Materials & Finishes */}
       <section className="py-24 lg:py-32 px-6 bg-[#EBE7DF]">
-        <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-12 lg:gap-16">
-          <div className="w-full max-w-3xl">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center">
             <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase flex flex-col items-center">
               {materialsHeadline?.includes('Thoughtfully Selected') ? (
                 <>
@@ -145,7 +145,7 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
               {materialsText}
             </p>
           </div>
-          <div className="w-full relative aspect-[4/3] md:aspect-[21/9] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
+          <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
             <Image
               src={materialsImage}
               alt="Materials and Finishes"
