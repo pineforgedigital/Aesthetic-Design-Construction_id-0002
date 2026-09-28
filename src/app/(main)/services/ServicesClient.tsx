@@ -126,14 +126,14 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
 
       {/* Materials & Finishes */}
       <section className="py-24 lg:py-32 px-6 bg-[#EBE7DF]">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          <div className="w-full lg:w-1/2">
-            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase flex flex-col">
+        <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-12 lg:gap-16">
+          <div className="w-full max-w-3xl">
+            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase flex flex-col items-center">
               {materialsHeadline?.includes('Thoughtfully Selected') ? (
                 <>
                   <span className="whitespace-nowrap">Beautiful Materials.</span>
-                  <div className="flex flex-col items-end self-end">
-                    <span className="italic mr-16 md:mr-20 lg:mr-24">Thoughtfully</span>
+                  <div className="flex flex-col items-center mt-2">
+                    <span className="italic">Thoughtfully</span>
                     <span className="italic">Selected.</span>
                   </div>
                 </>
@@ -144,23 +144,8 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
             <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
               {materialsText}
             </p>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Countertops</h3>
-                <p className="text-tertiary-accent">Natural stone, engineered surfaces, and other carefully selected materials chosen for both beauty and everyday performance.</p>
-              </div>
-              <div>
-                <h3 className="font-bold text-primary-contrast uppercase tracking-widest text-sm mb-2">Flooring</h3>
-                <p className="text-tertiary-accent">Hardwood, tile, and other flooring options selected to complement your home’s architecture and create a cohesive flow from room to room.</p>
-              </div>
-              <div className="pt-4 border-t border-primary-contrast/10">
-                <p className="text-highlight font-bold italic">
-                  Cabinetry • Tile • Hardware • Lighting • Plumbing Fixtures • Paint • Wall Finishes
-                </p>
-              </div>
-            </div>
           </div>
-          <div className="w-full lg:w-1/2 relative aspect-[4/3] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
+          <div className="w-full relative aspect-[4/3] md:aspect-[21/9] rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl bg-[#EBE7DF]">
             <Image
               src={materialsImage}
               alt="Materials and Finishes"
