@@ -128,8 +128,15 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
       <section className="py-24 lg:py-32 px-6 bg-[#EBE7DF]">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <div className="w-full lg:w-1/2">
-            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase">
-              {materialsHeadline.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)}
+            <h2 className="font-outfit text-4xl lg:text-5xl font-bold text-primary-contrast mb-6 leading-tight uppercase flex flex-col">
+              {materialsHeadline?.includes('Thoughtfully Selected') ? (
+                <>
+                  <span className="whitespace-nowrap">Beautiful Materials.</span>
+                  <span className="italic">Thoughtfully Selected.</span>
+                </>
+              ) : (
+                materialsHeadline?.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)
+              )}
             </h2>
             <p className="text-tertiary-accent text-lg leading-relaxed mb-8">
               {materialsText}
