@@ -7,12 +7,12 @@ export const portableTextComponents: PortableTextComponents = {
     h2: ({children}) => <h2 className="font-outfit text-3xl font-bold mt-10 mb-5 text-primary-contrast">{children}</h2>,
     h3: ({children}) => <h3 className="font-outfit text-2xl font-semibold mt-8 mb-4 text-primary-contrast">{children}</h3>,
     h4: ({children}) => <h4 className="font-outfit text-xl font-medium mt-6 mb-3 text-primary-contrast">{children}</h4>,
-    normal: ({children}) => <p className="text-primary-contrast/80 text-lg leading-relaxed mb-6">{children}</p>,
+    normal: ({children}) => <p className="text-primary-contrast text-lg leading-relaxed mb-6">{children}</p>,
     blockquote: ({children}) => <blockquote className="border-l-4 border-highlight pl-6 py-2 italic text-primary-contrast/70 my-8 bg-highlight/5 rounded-r-lg">{children}</blockquote>,
   },
   list: {
-    bullet: ({children}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-primary-contrast/80 text-lg marker:text-highlight">{children}</ul>,
-    number: ({children}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-primary-contrast/80 text-lg marker:text-highlight font-medium">{children}</ol>,
+    bullet: ({children}) => <ul className="list-disc pl-6 mb-6 space-y-2 text-primary-contrast text-lg marker:text-highlight">{children}</ul>,
+    number: ({children}) => <ol className="list-decimal pl-6 mb-6 space-y-2 text-primary-contrast text-lg marker:text-highlight font-medium">{children}</ol>,
   },
   marks: {
     strong: ({children}) => <strong className="font-semibold text-primary-contrast">{children}</strong>,
