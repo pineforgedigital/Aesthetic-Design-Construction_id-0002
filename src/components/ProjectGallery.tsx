@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
 
-type ProjectCategory = "All" | "Space Planning" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Design" | "Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling" | "Custom Pieces" | "Fireplaces";
+type ProjectCategory = "All" | "Space Planning" | "Flooring" | "Kitchen Remodeling" | "Luxury Bathrooms" | "Interior Decorating" | "Decorating" | "Custom Tile Work" | "Premium Countertops" | "Full Interior Remodeling" | "Custom Pieces" | "Fireplaces";
 
 export interface Project {
   _id: string;
@@ -16,12 +16,21 @@ export interface Project {
   images: string[];
 }
 
-const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Interior Design", "Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
+const CATEGORY_ORDER: string[] = ["All", "Kitchen Remodeling", "Luxury Bathrooms", "Full Interior Remodeling", "Flooring", "Space Planning", "Interior Decorating", "Decorating", "Custom Tile Work", "Premium Countertops", "Custom Pieces", "Fireplaces"];
 
 export default function ProjectGallery({ projects = [] }: { projects: Project[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [fullscreenImageIndex, setFullscreenImageIndex] = useState<number | null>(null);
+
+  // Map "Interior Design" from Sanity to "Interior Decorating" for the frontend
+  const mappedProjects = useMemo(() => {
+    return projects.map(p => ({
+      ...p,
+      title: p.title.replace(/Interior Design/ig, 'Interior Decorating'),
+      category: p.category === 'Interior Design' ? 'Interior Decorating' : p.category
+    }));
+  }, [projects]);
 
   // Derived array for all images in the selected project to support navigation
   const allImages = selectedProject 
@@ -30,8 +39,8 @@ export default function ProjectGallery({ projects = [] }: { projects: Project[] 
 
   // Only consider projects that actually have images
   const validProjects = useMemo(() => {
-    return projects.filter(p => p.mainImage || (p.images && p.images.length > 0));
-  }, [projects]);
+    return mappedProjects.filter(p => p.mainImage || (p.images && p.images.length > 0));
+  }, [mappedProjects]);
 
   // Dynamically calculate which categories actually have valid projects assigned to them
   const availableCategories = useMemo(() => {

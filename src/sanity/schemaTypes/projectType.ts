@@ -46,7 +46,7 @@ export const projectType = defineType({
           {title: 'Flooring', value: 'Flooring'},
           {title: 'Kitchen Remodeling', value: 'Kitchen Remodeling'},
           {title: 'Luxury Bathrooms', value: 'Luxury Bathrooms'},
-          {title: 'Interior Design', value: 'Interior Design'},
+          {title: 'Interior Decorating', value: 'Interior Decorating'},
           {title: 'Decorating', value: 'Decorating'},
           {title: 'Custom Tile Work', value: 'Custom Tile Work'},
           {title: 'Premium Countertops', value: 'Premium Countertops'},
