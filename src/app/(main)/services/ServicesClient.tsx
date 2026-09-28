@@ -132,7 +132,8 @@ export default function ServicesClient({ pageData, servicesData, settingsData }:
               {materialsHeadline?.includes('Thoughtfully Selected') ? (
                 <>
                   <span className="whitespace-nowrap">Beautiful Materials.</span>
-                  <span className="italic whitespace-nowrap">Thoughtfully Selected.</span>
+                  <span className="italic">Thoughtfully</span>
+                  <span className="italic self-end">Selected.</span>
                 </>
               ) : (
                 materialsHeadline?.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>)
