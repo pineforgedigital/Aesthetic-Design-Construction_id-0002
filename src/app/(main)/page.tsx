@@ -7,7 +7,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const homeData = await client.fetch(getHomePageQuery)
   const settingsData = await client.fetch(getSiteSettingsQuery)
 
-  const title = homeData?.seo?.metaTitle || settingsData?.seo?.metaTitle;
+  let title = homeData?.seo?.metaTitle || settingsData?.seo?.metaTitle;
+  if (title && title.toLowerCase().includes('luxury')) {
+    title = 'Interior Design & Home Remodeling';
+  }
   const description = homeData?.seo?.metaDescription || settingsData?.seo?.metaDescription;
   const image = homeData?.seo?.openGraphImage || settingsData?.seo?.openGraphImage
 

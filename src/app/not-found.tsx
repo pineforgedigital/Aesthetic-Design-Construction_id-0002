@@ -14,7 +14,7 @@ export default function NotFound() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/hero.jpg"
-          alt="Luxury Architecture"
+          alt="Architecture"
           fill
           className="object-cover opacity-30 grayscale"
           priority
